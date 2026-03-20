@@ -6,7 +6,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://cristianopusca.it',
+  site: 'https://keryxdesign.github.io',
+  base: '/cristiano-pusca',
   server: { port: 4325 },
   integrations: [sitemap()],
   vite: {
