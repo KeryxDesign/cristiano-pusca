@@ -28,11 +28,23 @@ import Layout from '../layouts/Layout.astro';
 					<span class="font-heading font-semibold tracking-wide">Censis</span>–<span class="font-heading font-semibold tracking-wide">Eudaimon</span> 2025
 				</p>
 
-				<div class="block">
+				<div class="block mb-16">
 					<a href="#test" class="btn-primary text-base md:text-lg">
 						Scopri cosa blocca la tua rete vendita
 						<svg class="inline w-5 h-5 ml-2 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
 					</a>
+				</div>
+			</div>
+
+			<!-- Loghi aziende -->
+			<div class="relative mt-4">
+				<p class="text-gray-500 text-xs font-heading font-medium tracking-wider uppercase mb-5">Ha lavorato con oltre 24 aziende tra cui</p>
+				<div class="flex flex-wrap items-center gap-4">
+					{Array.from({ length: 8 }).map((_, i) => (
+						<div class="h-10 px-5 rounded-lg bg-white/[0.06] border border-white/10 flex items-center justify-center">
+							<span class="text-gray-500 text-xs font-heading font-medium">Logo {String(i + 1).padStart(2, '0')}</span>
+						</div>
+					))}
 				</div>
 			</div>
 		</div>
@@ -46,12 +58,16 @@ import Layout from '../layouts/Layout.astro';
 	     ═══════════════════════════════════════════ -->
 	<section id="costi" class="pt-12 pb-20 md:pt-16 md:pb-32 bg-white scroll-mt-20">
 		<div class="max-w-6xl mx-auto px-6">
-			<div class="text-center mb-16">
+			<!-- Intro che espande il problema -->
+			<div class="max-w-3xl mx-auto text-center mb-16">
 				<div class="section-divider mb-6 mx-auto"></div>
-				<h2 class="text-3xl md:text-5xl font-medium mb-3">
-					Tre emorragie silenziose<br />
-					<span class="text-sky">che stai pagando adesso.</span>
+				<h2 class="text-3xl md:text-5xl font-medium mb-5">
+					Il problema non è il tuo team.<br />
+					<span class="text-sky">È quello che nessuno ti dice.</span>
 				</h2>
+				<p class="text-gray-500 text-lg leading-relaxed">
+					Ogni mese che passa senza intervenire, la tua azienda paga tre costi invisibili. Li conosci già — ma probabilmente non li hai mai quantificati.
+				</p>
 			</div>
 
 			<div class="grid md:grid-cols-3 gap-6 md:gap-8">
