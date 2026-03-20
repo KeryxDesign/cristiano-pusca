@@ -15,7 +15,7 @@ import Layout from '../layouts/Layout.astro';
 		<div class="w-full max-w-6xl mx-auto px-6 relative">
 			<!-- Trust bar loghi — in alto -->
 			<div class="mb-10 md:mb-14">
-				<p class="text-gray-500 text-[11px] font-heading font-medium tracking-wider uppercase mb-4">Scelto da oltre 24 aziende</p>
+				<p class="text-gray-500 text-[11px] font-heading font-medium tracking-wider uppercase mb-4">Scelto da oltre 24 aziende italiane</p>
 				<div class="flex flex-wrap items-center gap-3">
 					{Array.from({ length: 8 }).map((_, i) => (
 						<div class="h-9 px-4 rounded-md bg-white/[0.06] border border-white/8 flex items-center justify-center">
@@ -27,22 +27,24 @@ import Layout from '../layouts/Layout.astro';
 
 			<div class="max-w-3xl">
 				<h1 class="text-4xl md:text-6xl lg:text-[4.5rem] font-medium leading-[1.1] mb-8 text-white">
-					Perché i risultati della formazione vendita <span class="text-sky-light">durano quanto un weekend?</span>
+					Ogni venditore che perdi<br />
+					ti costa <span class="text-sky-light">metà del suo stipendio.</span><br />
+					E ne stai perdendo.
 				</h1>
 				<p class="text-gray-300 text-lg md:text-xl leading-relaxed mb-2 max-w-2xl">
-					Il <span class="text-sky-light font-bold">31,8%</span> dei lavoratori italiani vive forme di burnout.
+					Hai investito in formazione, coach, script. <strong class="text-white">I risultati sono durati quanto un weekend.</strong>
 				</p>
-				<p class="text-gray-300 text-lg md:text-xl leading-relaxed mb-2 max-w-2xl">
-					Nessuna tecnica funziona su un team svuotato.
+				<p class="text-gray-400 text-lg md:text-xl leading-relaxed mb-2 max-w-2xl">
+					Il problema non sono le tecniche. È che <strong class="text-gray-200">nessuno lavora su ciò che blocca le persone che dovrebbero usarle</strong>.
 				</p>
 				<p class="text-gray-500 text-sm mb-10 font-body flex items-center gap-1.5">
 					<svg class="w-3 h-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" /></svg>
-					<span class="font-heading font-semibold tracking-wide">Censis</span>–<span class="font-heading font-semibold tracking-wide">Eudaimon</span> 2025
+					Turnover 50-200% RAL — <span class="font-heading font-semibold tracking-wide">Gallup</span>/<span class="font-heading font-semibold tracking-wide">SHRM</span>
 				</p>
 
 				<div class="block">
 					<a href="#test" class="btn-primary text-base md:text-lg">
-						Scopri cosa blocca la tua rete vendita
+						Scopri cosa sta costando alla tua azienda
 						<svg class="inline w-5 h-5 ml-2 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
 					</a>
 				</div>
@@ -51,17 +53,21 @@ import Layout from '../layouts/Layout.astro';
 	</section>
 
 	<!-- ═══════════════════════════════════════════
-	     SEZIONE PONTE — Collega hero ai costi
+	     SEZIONE PONTE — Quantifica il costo in corso
 	     ═══════════════════════════════════════════ -->
 	<section class="py-16 md:py-24 bg-gradient-to-b from-slate to-white relative">
 		<div class="max-w-4xl mx-auto px-6 text-center">
-			<p class="text-sky-light text-sm font-heading font-semibold tracking-wider uppercase mb-4">Il vero ostacolo</p>
+			<p class="text-sky text-sm font-heading font-semibold tracking-wider uppercase mb-4">Il conto che stai pagando adesso</p>
 			<h2 class="text-3xl md:text-5xl font-medium mb-6 !text-gray-900">
-				Il problema non è il tuo team.<br />
-				<span class="text-sky">È quello che viene prima delle tecniche.</span>
+				Il <span class="text-sky">31,8%</span> dei tuoi collaboratori<br />
+				è in burnout. Il resto ci sta arrivando.
 			</h2>
 			<p class="text-gray-500 text-lg leading-relaxed max-w-2xl mx-auto">
-				Hai investito in <strong class="text-gray-700">corsi, coach, script</strong>. Ma i risultati svaniscono perché nessuno lavora su ciò che blocca davvero le persone: <strong class="text-gray-700">identità, motivazione, senso di appartenenza</strong>. Intanto, ogni mese la tua azienda paga <strong class="text-gray-700">tre costi che nessuno ti ha mai quantificato</strong>.
+				Il <strong class="text-gray-700">73% dei lavoratori italiani</strong> dichiara stress e ansia. Il <strong class="text-gray-700">39%</strong> non si sente riconosciuto. Un venditore svuotato non chiude contratti — <strong class="text-gray-700">sopravvive</strong>. E ogni mese che passa, la tua azienda paga tre costi che nessuno ti ha mai quantificato.
+			</p>
+			<p class="text-gray-400 text-xs mt-4 font-body flex items-center justify-center gap-1.5">
+				<svg class="w-3 h-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" /></svg>
+				Rapporto <span class="font-heading font-semibold tracking-wide">Censis</span>–<span class="font-heading font-semibold tracking-wide">Eudaimon</span> 2025
 			</p>
 			<div class="mt-8">
 				<svg class="w-6 h-6 text-sky mx-auto animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
@@ -78,7 +84,7 @@ import Layout from '../layouts/Layout.astro';
 				<div class="section-divider mb-6 mx-auto"></div>
 				<h2 class="text-3xl md:text-5xl font-medium mb-3">
 					Tre emorragie silenziose<br />
-					<span class="text-sky">che stai pagando adesso.</span>
+					<span class="text-sky">che stai pagando ogni mese.</span>
 				</h2>
 			</div>
 
@@ -91,10 +97,10 @@ import Layout from '../layouts/Layout.astro';
 					</div>
 					<h3 class="text-lg font-medium mb-3">Ogni commerciale che se ne va ti costa metà del suo stipendio annuo.</h3>
 					<p class="text-gray-500 text-[15px] leading-relaxed mb-3">
-						<strong class="text-gray-700">Recruiting</strong>. Formazione del sostituto. <strong class="text-gray-700">Clienti che lo seguono altrove</strong>. E il team rimasto si demoralizza.
+						<strong class="text-gray-700">Recruiting, formazione del sostituto, clienti che lo seguono altrove</strong>. E il team rimasto si demoralizza.
 					</p>
 					<p class="text-gray-400 text-[15px] leading-relaxed mb-5">
-						È un circolo che si ripete ogni volta. E <strong class="text-gray-700">ogni volta costa di più</strong>.
+						È un circolo che si ripete. E <strong class="text-gray-700">ogni volta costa di più</strong>.
 					</p>
 					<div class="flex items-center gap-3 p-3 rounded-xl bg-sky-50 border border-sky-100">
 						<svg class="w-5 h-5 text-sky shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
@@ -119,12 +125,12 @@ import Layout from '../layouts/Layout.astro';
 						<svg class="w-6 h-6 text-sky" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" /></svg>
 					</div>
 					<h3 class="text-lg font-medium mb-3">I tuoi venditori hanno smesso di crederci.</h3>
-					<p class="text-gray-500 text-[15px] leading-relaxed mb-2">Non è pigrizia.</p>
+					<p class="text-gray-500 text-[15px] leading-relaxed mb-2"><strong class="text-gray-700">Non è pigrizia. È sfinimento.</strong></p>
 					<p class="text-gray-500 text-[15px] leading-relaxed mb-3">
-						Il <strong class="text-gray-800">73%</strong> dei lavoratori italiani dichiara stress e ansia legati al lavoro. Il <strong class="text-gray-800">39%</strong> non si sente riconosciuto.
+						Il <strong class="text-gray-800">73%</strong> dei lavoratori italiani dichiara stress e ansia legati al lavoro. Il <strong class="text-gray-800">39%</strong> non si sente riconosciuto dal proprio manager.
 					</p>
 					<p class="text-gray-400 text-[15px] leading-relaxed mb-4">
-						Un venditore che si sente invisibile non vende. <span class="text-gray-800 font-semibold">Sopravvive.</span>
+						Un venditore che si sente <strong class="text-gray-700">invisibile</strong> non vende. <span class="text-gray-800 font-semibold">Sopravvive.</span>
 					</p>
 					<div class="flex items-center gap-2 mt-4">
 						<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-gray-50 border border-gray-100 text-[10px] text-gray-500">
@@ -140,12 +146,12 @@ import Layout from '../layouts/Layout.astro';
 					<div class="w-12 h-12 rounded-2xl bg-accent-50 flex items-center justify-center mb-5">
 						<svg class="w-6 h-6 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
 					</div>
-					<h3 class="text-lg font-medium mb-3">Sei ancora tu a chiudere i contratti importanti.</h3>
+					<h3 class="text-lg font-medium mb-3">Sei ancora tu a chiudere ogni trattativa seria.</h3>
 					<p class="text-gray-500 text-[15px] leading-relaxed mb-3">
-						Perché <strong class="text-gray-700">"solo tu sai come si fa"</strong>.
+						Perché <strong class="text-gray-700">"solo tu sai come si fa"</strong>. Il team esegue, ma non chiude.
 					</p>
 					<p class="text-gray-400 text-[15px] leading-relaxed mb-4">
-						Intanto l'azienda <strong class="text-gray-600">dipende da te</strong> per ogni trattativa seria. E tu <strong class="text-gray-600">non hai più tempo per dirigerla</strong>.
+						L'azienda <strong class="text-gray-600">dipende da te</strong> per ogni contratto importante. E tu <strong class="text-gray-600">non hai più tempo per dirigerla</strong>.
 					</p>
 					<p class="text-gray-800 text-[15px] font-bold">
 						Sei prigioniero della tua stessa impresa.
@@ -163,8 +169,8 @@ import Layout from '../layouts/Layout.astro';
 			<div class="max-w-3xl mb-14">
 				<div class="section-divider mb-6"></div>
 				<h2 class="text-3xl md:text-5xl font-medium mb-3">
-					Hai già provato.<br />
-					Non ha funzionato. <span class="text-sky">Ecco perché.</span>
+					Hai già investito.<br />
+					<span class="text-sky">Il lunedì mattina era tutto come prima.</span>
 				</h2>
 			</div>
 
@@ -175,7 +181,7 @@ import Layout from '../layouts/Layout.astro';
 					</div>
 					<h3 class="text-lg font-medium mb-3">Il corso intensivo di 3 giorni.</h3>
 					<p class="text-gray-500 text-[15px] leading-relaxed mb-3">
-						Tre giorni di adrenalina. Poi <strong class="text-gray-700">il lunedì mattina tutto torna come prima</strong>.
+						Tre giorni di adrenalina. Poi <strong class="text-gray-700">tutto torna come prima</strong>.
 					</p>
 					<p class="text-gray-400 text-[15px] italic leading-relaxed">
 						L'effetto aspirina: ti senti meglio per un'ora. <strong class="text-gray-600 not-italic">Il dolore resta</strong>.
@@ -188,10 +194,10 @@ import Layout from '../layouts/Layout.astro';
 					</div>
 					<h3 class="text-lg font-medium mb-3">Il guru che ti insegna a essere più aggressivo.</h3>
 					<p class="text-gray-500 text-[15px] leading-relaxed mb-3">
-						Porta lead, ma <strong class="text-gray-700">brucia il team</strong>.
+						Porta qualche lead, ma <strong class="text-gray-700">brucia il team</strong>.
 					</p>
 					<p class="text-gray-400 text-[15px] italic leading-relaxed">
-						L'iniezione di aggressività in un'azienda dove le persone sono già esauste <strong class="text-gray-600 not-italic">non accelera le vendite. Accelera le dimissioni</strong>.
+						Iniettare aggressività in persone già esauste <strong class="text-gray-600 not-italic">non accelera le vendite. Accelera le dimissioni</strong>.
 					</p>
 				</div>
 
@@ -199,9 +205,9 @@ import Layout from '../layouts/Layout.astro';
 					<div class="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center mb-5">
 						<svg class="w-5 h-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
 					</div>
-					<h3 class="text-lg font-medium mb-3">Il modello accademico troppo complesso.</h3>
+					<h3 class="text-lg font-medium mb-3">Il modello accademico da multinazionale.</h3>
 					<p class="text-gray-500 text-[15px] leading-relaxed mb-3">
-						<strong class="text-gray-700">Framework sofisticati</strong>. Sigle incomprensibili. <strong class="text-gray-700">Modelli da multinazionale</strong>.
+						<strong class="text-gray-700">Framework sofisticati</strong>. Sigle incomprensibili. Slide bellissime.
 					</p>
 					<p class="text-gray-400 text-[15px] italic leading-relaxed">
 						Tu hai bisogno di qualcosa che funzioni <strong class="text-gray-600 not-italic">il martedì mattina nella tua PMI</strong>. Non di una tesi di laurea.
@@ -218,7 +224,7 @@ import Layout from '../layouts/Layout.astro';
 					Stai cercando di installare un motore potentissimo su un veicolo col <span class="text-sky font-bold">telaio rotto</span>.
 				</p>
 				<p class="text-gray-500 text-base leading-relaxed">
-					Le tecniche non funzionano se <strong class="text-gray-700">la persona che deve usarle è svuotata</strong>.
+					Le tecniche non funzionano se <strong class="text-gray-700">la persona che deve usarle è svuotata, insicura o non si sente riconosciuta</strong>.
 				</p>
 			</div>
 		</div>
@@ -251,10 +257,10 @@ import Layout from '../layouts/Layout.astro';
 						<span class="text-sky">Cristiano</span> Pusca
 					</h2>
 					<p class="text-gray-600 text-lg leading-relaxed mb-4">
-						Da oltre <strong class="text-gray-800">35 anni</strong> lavoro con le persone dentro le aziende.
+						Da oltre <strong class="text-gray-800">35 anni</strong> lavoro con le persone dentro le aziende. Non insegno tecniche di vendita.
 					</p>
 					<p class="text-gray-600 text-lg leading-relaxed mb-8">
-						Non insegno tecniche di vendita. Lavoro su quello che viene prima. <span class="text-gray-900 font-bold font-heading">L'essere.</span>
+						Lavoro su ciò che <strong class="text-gray-800">viene prima</strong>: l'identità del venditore, la solidità del leader, la cultura del team. Quando questi funzionano, <strong class="text-gray-800">le vendite sono una conseguenza</strong>.
 					</p>
 
 					<div class="space-y-4 mb-8">
@@ -262,19 +268,25 @@ import Layout from '../layouts/Layout.astro';
 							<div class="w-8 h-8 rounded-lg bg-accent-50 flex items-center justify-center shrink-0 mt-0.5">
 								<svg class="w-4 h-4 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
 							</div>
-							<p class="text-gray-600 text-base">Ho fondato <strong class="text-gray-800">BPDA</strong>, una rete di <strong class="text-gray-800">24 aziende</strong>.</p>
+							<p class="text-gray-600 text-base">Fondatore di <strong class="text-gray-800">BPDA</strong> — una rete di <strong class="text-gray-800">24 aziende</strong> che crescono insieme.</p>
 						</div>
 						<div class="flex items-start gap-3">
 							<div class="w-8 h-8 rounded-lg bg-accent-50 flex items-center justify-center shrink-0 mt-0.5">
 								<svg class="w-4 h-4 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
 							</div>
-							<p class="text-gray-600 text-base">Ho creato il metodo <strong class="text-gray-800">BEDo — Being, Doing</strong>.</p>
+							<p class="text-gray-600 text-base">Creatore del metodo <strong class="text-gray-800">BEDo</strong> — Being, Doing: prima la persona, poi il processo.</p>
+						</div>
+						<div class="flex items-start gap-3">
+							<div class="w-8 h-8 rounded-lg bg-accent-50 flex items-center justify-center shrink-0 mt-0.5">
+								<svg class="w-4 h-4 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+							</div>
+							<p class="text-gray-600 text-base">Strumenti: <strong class="text-gray-800">Enneagramma, Coaching by Values</strong>, percorsi strutturati su misura.</p>
 						</div>
 					</div>
 
 					<div class="p-6 rounded-2xl bg-slate border border-gray-200">
 						<p class="text-gray-800 text-base leading-relaxed italic">
-							"Quando cambi la persona, cambia tutto il resto. Quando non la cambi, nessuna tecnica regge."
+							"Non cerco di rendere i tuoi venditori più aggressivi. Li rendo <strong class="not-italic">solidi</strong>. Un venditore solido chiude di più perché non ha paura del no."
 						</p>
 					</div>
 				</div>
@@ -290,40 +302,40 @@ import Layout from '../layouts/Layout.astro';
 		<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-sky/[0.04] blur-[120px]"></div>
 
 		<div class="max-w-6xl mx-auto px-6 relative">
-			<div class="text-center mb-16">
+			<div class="text-center mb-6">
 				<div class="section-divider mb-6 mx-auto"></div>
 				<h2 class="text-3xl md:text-5xl font-medium mb-3 !text-white">
-					Il metodo BEDo<br />
-					<span class="text-sky-light">in tre passaggi.</span>
+					Come funziona <span class="text-sky-light">il metodo BEDo.</span>
 				</h2>
+				<p class="text-gray-400 text-lg max-w-2xl mx-auto">Non è un corso. È un percorso strutturato che trasforma <strong class="text-gray-300">le persone prima</strong> e <strong class="text-gray-300">i numeri dopo</strong>.</p>
 			</div>
 
-			<div class="grid md:grid-cols-3 gap-8">
+			<div class="grid md:grid-cols-3 gap-8 mt-14">
 				<!-- Step 1 -->
 				<div class="relative">
-										<div class="card-dark p-7 md:p-8">
+					<div class="card-dark p-7 md:p-8">
 						<div class="step-number mb-6">1</div>
-						<h3 class="text-xl font-medium !text-white mb-2">Si lavora sull'identità.</h3>
-						<p class="text-sky-light text-sm font-heading font-medium mb-4">I tuoi venditori smettono di recitare una parte.</p>
+						<h3 class="text-xl font-medium !text-white mb-2">Si sblocca il venditore.</h3>
+						<p class="text-sky-light text-sm font-heading font-medium mb-4">Smette di recitare una parte. Inizia a vendere come persona.</p>
 						<p class="text-gray-400 text-[15px] leading-relaxed mb-4">
-							Disattiviamo <strong class="text-gray-300">il critico interiore</strong>. Quello che trasforma ogni "no" in un <strong class="text-gray-300">attacco personale</strong>.
+							Con strumenti come <strong class="text-gray-300">l'Enneagramma</strong>, identifichiamo i blocchi che sabotano la performance: <strong class="text-gray-300">paura del rifiuto, inadeguatezza, conflitto interiore</strong>.
 						</p>
 						<p class="text-gray-500 text-[15px] leading-relaxed">
-							Quando un commerciale si sente integro, vende con naturalezza. <span class="text-white font-medium">Senza script.</span>
+							Risultato: un commerciale che <strong class="text-white">non teme il no</strong>. E che chiude con naturalezza.
 						</p>
 					</div>
 				</div>
 
 				<!-- Step 2 -->
 				<div class="relative">
-										<div class="card-dark p-7 md:p-8">
+					<div class="card-dark p-7 md:p-8">
 						<div class="step-number mb-6">2</div>
 						<h3 class="text-xl font-medium !text-white mb-2">Si trasforma la leadership.</h3>
 						<p class="text-sky-light text-sm font-heading font-medium mb-4">Tu smetti di fare il vigile urbano.</p>
 						<p class="text-gray-400 text-[15px] leading-relaxed mb-4">
-							Impari a <strong class="text-gray-300">delegare davvero</strong>. A riconoscere il talento. A creare un clima dove le persone <strong class="text-gray-300">restano perché vogliono restare</strong>.
+							Impari a <strong class="text-gray-300">delegare davvero</strong>. A riconoscere il talento di ogni persona. A creare un clima dove <strong class="text-gray-300">le persone restano perché vogliono restare</strong>.
 						</p>
-						<p class="text-white text-[15px] font-semibold font-heading">Il turnover si ferma.</p>
+						<p class="text-white text-[15px] font-semibold font-heading">Il turnover si ferma. Tu torni a dirigere.</p>
 					</div>
 				</div>
 
@@ -331,14 +343,67 @@ import Layout from '../layouts/Layout.astro';
 				<div>
 					<div class="card-dark p-7 md:p-8 !border-accent/20 hover:!border-accent/30">
 						<div class="step-number mb-6 !bg-gradient-to-br !from-accent !to-accent-dark !shadow-accent/25">3</div>
-						<h3 class="text-xl font-medium !text-white mb-2">Le vendite diventano una conseguenza.</h3>
-						<p class="text-accent-glow text-sm font-heading font-medium mb-4">Non una forzatura. Non un obiettivo urlato in riunione.</p>
+						<h3 class="text-xl font-medium !text-white mb-2">Le vendite diventano un sistema.</h3>
+						<p class="text-accent-glow text-sm font-heading font-medium mb-4">Prevedibile, replicabile, indipendente da te.</p>
 						<p class="text-gray-400 text-[15px] leading-relaxed">
-							Una conseguenza naturale di persone che <strong class="text-gray-300">sanno chi sono</strong>, dove vanno e <strong class="text-gray-300">perché lo fanno</strong>.
+							Non più talento individuale. Un <strong class="text-gray-300">processo commerciale strutturato</strong> dove ogni venditore sa chi è, cosa fa e perché lo fa. <strong class="text-gray-300">La macchina gira senza di te.</strong>
 						</p>
 					</div>
 				</div>
 			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     SEZIONE — TESTIMONIANZE — BIANCO
+	     ═══════════════════════════════════════════ -->
+	<section class="py-20 md:py-32 bg-white relative">
+		<div class="max-w-6xl mx-auto px-6">
+			<div class="text-center mb-16">
+				<div class="section-divider mb-6 mx-auto"></div>
+				<h2 class="text-3xl md:text-5xl font-medium mb-3">
+					Chi ci è passato <span class="text-sky">racconta così.</span>
+				</h2>
+			</div>
+
+			<div class="grid md:grid-cols-3 gap-6 md:gap-8">
+				<div class="p-7 rounded-2xl bg-slate border border-gray-200">
+					<div class="flex items-center gap-1 mb-4">
+						{Array.from({ length: 5 }).map(() => (
+							<svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+						))}
+					</div>
+					<p class="text-gray-700 text-[15px] leading-relaxed italic mb-4">
+						"Abbiamo speso migliaia di euro in tecniche di chiusura. <strong class="text-gray-900 not-italic">Finché non abbiamo cambiato il modo in cui i nostri manager ascoltano i venditori, non è cambiato nulla.</strong>"
+					</p>
+					<p class="text-gray-400 text-sm font-heading font-medium">— Imprenditore, settore manifatturiero</p>
+				</div>
+
+				<div class="p-7 rounded-2xl bg-slate border border-gray-200">
+					<div class="flex items-center gap-1 mb-4">
+						{Array.from({ length: 5 }).map(() => (
+							<svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+						))}
+					</div>
+					<p class="text-gray-700 text-[15px] leading-relaxed italic mb-4">
+						"È un investimento che <strong class="text-gray-900 not-italic">si ripaga da solo nel momento in cui smetti di perdere i tuoi dipendenti migliori</strong> ogni sei mesi."
+					</p>
+					<p class="text-gray-400 text-sm font-heading font-medium">— Direttore commerciale, PMI</p>
+				</div>
+
+				<div class="p-7 rounded-2xl bg-slate border border-gray-200">
+					<div class="flex items-center gap-1 mb-4">
+						{Array.from({ length: 5 }).map(() => (
+							<svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+						))}
+					</div>
+					<p class="text-gray-700 text-[15px] leading-relaxed italic mb-4">
+						"I miei venditori ora <strong class="text-gray-900 not-italic">lavorano in totale autonomia</strong>. Prima rincorrevo solo le urgenze, ora finalmente guido la mia azienda."
+					</p>
+					<p class="text-gray-400 text-sm font-heading font-medium">— Titolare, rete vendita B2B</p>
+				</div>
+			</div>
+			<p class="text-gray-400 text-xs text-center mt-6">Testimonianze da sostituire con quelle reali dei clienti BPDA</p>
 		</div>
 	</section>
 
@@ -368,8 +433,8 @@ import Layout from '../layouts/Layout.astro';
 							'Il tuo team ha le competenze ma non performa.',
 							"Hai investito in formazione e l'entusiasmo è durato quanto un weekend.",
 							"Sei stanco di essere l'unico che chiude i contratti importanti.",
-							'Vuoi delegare senza il terrore di perdere clienti.',
-							'Senti che il problema è più profondo di uno script sbagliato.',
+							'Vuoi delegare davvero — senza il terrore di perdere clienti.',
+							'Vuoi una rete vendita autonoma, prevedibile e che funziona senza di te.',
 						].map((item) => (
 							<li class="flex items-start gap-3">
 								<svg class="w-5 h-5 text-accent-dark shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
@@ -412,8 +477,8 @@ import Layout from '../layouts/Layout.astro';
 		<div class="max-w-6xl mx-auto px-6">
 			<div class="text-center mb-10">
 				<h2 class="text-2xl md:text-4xl font-medium">
-					<span class="text-sky">24 aziende</span> hanno scelto di lavorare<br />
-					sull'essere prima del fare.
+					<span class="text-sky">24 aziende</span> hanno smesso di perdere<br />
+					i loro venditori migliori.
 				</h2>
 			</div>
 
@@ -442,18 +507,18 @@ import Layout from '../layouts/Layout.astro';
 		<div class="max-w-3xl mx-auto px-6 text-center relative">
 			<div class="w-16 h-1 bg-white/20 mb-8 mx-auto rounded-full"></div>
 			<h2 class="text-3xl md:text-5xl font-medium mb-6 !text-white">
-				Scopri cosa blocca davvero<br />
-				la tua rete vendita.
+				Ogni mese che passa<br />
+				il conto sale.
 			</h2>
-			<p class="text-white/70 text-lg leading-relaxed mb-3">
-				<strong class="text-white/90">10 domande. 5 minuti.</strong> Nessuna email da lasciare per vedere il risultato. <strong class="text-white/90">Nessun funnel.</strong>
+			<p class="text-white/80 text-lg leading-relaxed mb-3">
+				Un venditore perso: <strong class="text-white">50% della RAL</strong>. Un team demotivato: <strong class="text-white">margini in caduta libera</strong>. Tu bloccato in ogni trattativa: <strong class="text-white">zero crescita</strong>.
 			</p>
 			<p class="text-white/60 text-base leading-relaxed mb-10">
-				Alla fine, se quello che leggi ti suona familiare, puoi prenotare 15 minuti con me.<br />
-				Non una call di vendita. <span class="text-white font-heading font-semibold">Una conversazione per capire se ha senso lavorare insieme.</span>
+				<strong class="text-white/80">15 minuti</strong> per capire se il metodo BEDo può fermare l'emorragia nella tua azienda.<br />
+				Non una call di vendita. <span class="text-white font-heading font-semibold">Una conversazione tra imprenditori.</span>
 			</p>
 			<a href="#" class="btn-primary text-lg">
-				Inizia il test
+				Prenota i tuoi 15 minuti
 				<svg class="inline w-5 h-5 ml-2 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
 			</a>
 		</div>
@@ -473,7 +538,7 @@ import Layout from '../layouts/Layout.astro';
 					<a href="#costi" class="text-gray-400 text-sm font-heading hover:text-sky-light transition-colors">I costi nascosti</a>
 					<a href="#metodo" class="text-gray-400 text-sm font-heading hover:text-sky-light transition-colors">Metodo</a>
 					<a href="#per-chi" class="text-gray-400 text-sm font-heading hover:text-sky-light transition-colors">Per chi è</a>
-					<a href="#test" class="text-gray-400 text-sm font-heading hover:text-sky-light transition-colors">Fai il test</a>
+					<a href="#test" class="text-gray-400 text-sm font-heading hover:text-sky-light transition-colors">Prenota</a>
 				</div>
 			</div>
 			<div class="mt-6 pt-6 border-t border-white/5 text-center md:text-left">
