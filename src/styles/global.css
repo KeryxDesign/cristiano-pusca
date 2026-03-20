@@ -111,6 +111,19 @@ body {
   border-radius: 2px;
 }
 
+/* ── Card heading mobile — 10% più grande ── */
+.card-light h3,
+.card-dark h3 {
+  font-size: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .card-light h3,
+  .card-dark h3 {
+    font-size: 1.125rem;
+  }
+}
+
 /* ── Card su sfondo chiaro ── */
 .card-light {
   background: var(--color-white);
