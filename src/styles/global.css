@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Scuri — hero + CTA + metodo */
+  --color-dark: #0c1220;
+  --color-dark-light: #111827;
+  --color-dark-card: #1a2332;
+
+  /* Chiari — sezioni alternate (contrasto forte) */
+  --color-white: #ffffff;
+  --color-slate: #dae2ed;
+
+  /* Azzurri — brand primario */
+  --color-sky: #0ea5e9;
+  --color-sky-light: #38bdf8;
+  --color-sky-glow: #7dd3fc;
+  --color-sky-muted: #0c4a6e;
+  --color-sky-50: #f0f9ff;
+  --color-sky-100: #e0f2fe;
+
+  /* Verde — accento */
+  --color-accent: #22c55e;
+  --color-accent-dark: #16a34a;
+  --color-accent-glow: #4ade80;
+  --color-accent-50: #f0fdf4;
+
+  /* Grigi */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  /* Font */
+  --font-heading: 'Lexend', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-white);
+  color: var(--color-gray-700);
+  overflow-x: hidden;
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--color-gray-900);
+  }
+}
+
+/* ── Bottone primario — verde accento ── */
+.btn-primary {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
+  color: white;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 1rem 2.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4);
+}
+
+/* ── Bottone CTA invertito — su sfondo scuro ── */
+.btn-inverted {
+  display: inline-block;
+  background: white;
+  color: var(--color-dark);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 1rem 2.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-inverted:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.25);
+}
+
+/* ── Divider di sezione ── */
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-sky), var(--color-accent));
+  border-radius: 2px;
+}
+
+/* ── Card su sfondo chiaro ── */
+.card-light {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.card-light:hover {
+  border-color: var(--color-sky-light);
+  box-shadow: 0 8px 30px rgba(14, 165, 233, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+}
+
+/* ── Card su sfondo scuro ── */
+.card-dark {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.card-dark:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 8px 30px rgba(14, 165, 233, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ── Step number ── */
+.step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--color-sky), var(--color-sky-muted));
+  color: white;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(14, 165, 233, 0.25);
+}
