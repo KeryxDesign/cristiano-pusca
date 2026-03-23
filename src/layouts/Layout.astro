@@ -61,7 +61,62 @@ const {
 
 		<slot />
 
+		<!-- Cookie Banner -->
+		<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-[70] bg-dark/95 backdrop-blur-xl border-t border-white/10 p-4 md:p-5 hidden">
+			<div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center gap-4">
+				<p class="text-gray-300 text-sm leading-relaxed flex-1">
+					Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. Non utilizziamo cookie di profilazione.
+					<a href="#" class="text-sky-light underline hover:text-white ml-1">Privacy Policy</a>
+				</p>
+				<div class="flex gap-3 shrink-0">
+					<button id="cookie-reject" class="px-4 py-2 rounded-lg border border-white/20 text-gray-300 text-sm font-heading font-medium hover:bg-white/5 transition-colors">
+						Rifiuta
+					</button>
+					<button id="cookie-accept" class="px-4 py-2 rounded-lg bg-sky text-white text-sm font-heading font-semibold hover:bg-sky-light transition-colors">
+						Accetta
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Icona Accessibilità flottante -->
+		<button id="a11y-btn" class="fixed bottom-20 right-5 z-[65] w-12 h-12 rounded-full bg-sky text-white shadow-lg shadow-sky/30 flex items-center justify-center hover:bg-sky-light transition-colors" aria-label="Opzioni di accessibilità" title="Accessibilità">
+			<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+				<circle cx="12" cy="4" r="2" fill="currentColor" stroke="none" />
+				<path stroke-linecap="round" stroke-linejoin="round" d="M4 8l4 1m8-1l4 1M12 9v4m0 0l-3 7m3-7l3 7" />
+			</svg>
+		</button>
+
+		<!-- Pannello accessibilità -->
+		<div id="a11y-panel" class="fixed bottom-20 right-20 z-[66] w-72 rounded-2xl bg-white border border-gray-200 shadow-xl p-5 hidden">
+			<div class="flex items-center justify-between mb-4">
+				<h3 class="text-base font-heading font-semibold text-gray-800">Accessibilità</h3>
+				<button id="a11y-close" class="text-gray-400 hover:text-gray-600" aria-label="Chiudi">
+					<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+				</button>
+			</div>
+			<div class="space-y-3">
+				<button id="a11y-font-increase" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors text-left">
+					<svg class="w-5 h-5 text-sky shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" /></svg>
+					<span class="text-sm text-gray-700">Aumenta dimensione testo</span>
+				</button>
+				<button id="a11y-font-decrease" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors text-left">
+					<svg class="w-5 h-5 text-sky shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M18 12H6" /></svg>
+					<span class="text-sm text-gray-700">Riduci dimensione testo</span>
+				</button>
+				<button id="a11y-contrast" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors text-left">
+					<svg class="w-5 h-5 text-sky shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18m0 0a9 9 0 009-9 9 9 0 00-9-9" fill="currentColor" /></svg>
+					<span class="text-sm text-gray-700">Alto contrasto</span>
+				</button>
+				<button id="a11y-reset" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors text-left">
+					<svg class="w-5 h-5 text-gray-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+					<span class="text-sm text-gray-700">Ripristina</span>
+				</button>
+			</div>
+		</div>
+
 		<script>
+			// Mobile menu
 			const btn = document.getElementById('mobile-menu-btn');
 			const menu = document.getElementById('mobile-menu');
 			const hamburger = document.getElementById('hamburger-icon');
@@ -77,6 +132,52 @@ const {
 					hamburger?.classList.remove('hidden');
 					closeIcon?.classList.add('hidden');
 				});
+			});
+
+			// Cookie banner
+			const cookieBanner = document.getElementById('cookie-banner');
+			const cookieAccept = document.getElementById('cookie-accept');
+			const cookieReject = document.getElementById('cookie-reject');
+			if (!localStorage.getItem('cookie-consent')) {
+				cookieBanner?.classList.remove('hidden');
+			}
+			function closeCookie(value) {
+				localStorage.setItem('cookie-consent', value);
+				cookieBanner?.classList.add('hidden');
+			}
+			cookieAccept?.addEventListener('click', () => closeCookie('accepted'));
+			cookieReject?.addEventListener('click', () => closeCookie('rejected'));
+
+			// Accessibilità
+			const a11yBtn = document.getElementById('a11y-btn');
+			const a11yPanel = document.getElementById('a11y-panel');
+			const a11yClose = document.getElementById('a11y-close');
+			let fontScale = parseInt(localStorage.getItem('a11y-font-scale') || '0');
+			let highContrast = localStorage.getItem('a11y-contrast') === 'true';
+
+			function applyA11y() {
+				document.documentElement.style.fontSize = (100 + fontScale * 10) + '%';
+				document.documentElement.classList.toggle('high-contrast', highContrast);
+			}
+			applyA11y();
+
+			a11yBtn?.addEventListener('click', () => a11yPanel?.classList.toggle('hidden'));
+			a11yClose?.addEventListener('click', () => a11yPanel?.classList.add('hidden'));
+
+			document.getElementById('a11y-font-increase')?.addEventListener('click', () => {
+				if (fontScale < 4) { fontScale++; localStorage.setItem('a11y-font-scale', String(fontScale)); applyA11y(); }
+			});
+			document.getElementById('a11y-font-decrease')?.addEventListener('click', () => {
+				if (fontScale > -2) { fontScale--; localStorage.setItem('a11y-font-scale', String(fontScale)); applyA11y(); }
+			});
+			document.getElementById('a11y-contrast')?.addEventListener('click', () => {
+				highContrast = !highContrast; localStorage.setItem('a11y-contrast', String(highContrast)); applyA11y();
+			});
+			document.getElementById('a11y-reset')?.addEventListener('click', () => {
+				fontScale = 0; highContrast = false;
+				localStorage.removeItem('a11y-font-scale');
+				localStorage.removeItem('a11y-contrast');
+				applyA11y();
 			});
 		</script>
 	</body>
