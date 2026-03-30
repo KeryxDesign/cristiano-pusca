@@ -19,6 +19,14 @@ const {
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content={description} />
 		<meta name="generator" content={Astro.generator} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="/cristiano-pusca/cristiano-pusca.jpg" />
+		<meta property="og:type" content="website" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content="/cristiano-pusca/cristiano-pusca.jpg" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -59,7 +67,9 @@ const {
 			</div>
 		</header>
 
-		<slot />
+		<main>
+			<slot />
+		</main>
 
 		<!-- Cookie Banner -->
 		<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-[70] bg-dark/95 backdrop-blur-xl border-t border-white/10 p-4 md:p-5 hidden">

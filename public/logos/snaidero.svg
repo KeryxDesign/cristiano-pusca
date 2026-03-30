@@ -1,0 +1,625 @@
+
+	<!doctype html>
+<!--[if lt IE 9]><html class="no-js no-svg ie lt-ie9 lt-ie8 lt-ie7" lang="en-US"> <![endif]-->
+<!--[if IE 9]><html class="no-js no-svg ie ie9 lt-ie9 lt-ie8" lang="en-US"> <![endif]-->
+<!--[if gt IE 9]><!-->
+	<html
+	class="no-js no-svg" lang="en-US"> <!--<![endif]-->
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="description" content="Cucine per la vita">
+		<link rel="stylesheet" href="https://static.snaidero.com/wp-content/themes/snaidero/style.css" type="text/css" media="screen"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="facebook-domain-verification" content="c6bb5wmb534p6kcam3y139ifcmdjkk" />
+		<style>@charset "UTF-8";html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em 0}a{background-color:transparent}strong{font-weight:bolder}button,input{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button{text-transform:none}[type=submit],button{-webkit-appearance:button}[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}[type=checkbox]{box-sizing:border-box;padding:0}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}:root{--layout-max-width:1440px;--layout-min-width:320px}:root{--vw100:calc( var(--vwUnit) * 100 * 1px )}@media screen and (prefers-reduced-motion:reduce),(update:slow){*{animation-duration:NaNs!important;animation-iteration-count:1!important}}body,html{margin:0;padding:0;box-sizing:border-box}*,:after,:before{box-sizing:inherit}:root{--color-black:#000000;--color-asphalt:#1A1A1A;--color-white:#ffffff;--color-offwhite:#F9F9F9;--color-wildsand:#f4f4f4;--color-red:#d63d3d;--color-orange:#e39041;--color-yellow:#ffc107;--color-teal:#20c997;--color-gray:#adb5bd;--color-cyan:#0dcaf0;--color-primary:#EB6209;--grid__color:#000000;--color_text:#000000;--color_background:#F9F9F9;--focus:var(--color-primary)}body{--color_text:var(--color-black);--color_background:var(--color-offwhite);background-color:var(--color_background)}:root{--columnGap:clamp(1rem, -.875rem + 8.333vw, 3rem);--rowGap:clamp(1rem, -.875rem + 8.333vw, 3rem);--layout-paddingLR:clamp(1rem, -.875rem + 8.333vw, 3rem);--layout-paddingTB:clamp(1rem, -.875rem + 8.333vw, 1rem)}html{overflow-x:hidden}body,html{display:flex;flex-direction:column;flex-wrap:nowrap;align-content:center;min-height:100vh;height:auto;scroll-behavior:smooth}section[role=main]{width:100%;max-width:1440px;margin:0 auto;padding:var(--layout-paddingTB) var(--layout-paddingLR);padding-bottom:0;padding-top:0}@font-face{font-family:Museo-Sans;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/Museo-Sans/Museo-Sans-Regular.woff) format("woff"),url(/assets/Museo-Sans-Regular.d2233e1c.woff) format("woff");font-style:normal;font-weight:400;font-display:swap}@font-face{font-family:Museo-Sans;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/Museo-Sans/Museo-Sans-Regular-Italic.woff) format("woff"),url(/assets/Museo-Sans-Regular-Italic.abebab5a.woff) format("woff");font-style:italic;font-weight:400;font-display:swap}@font-face{font-family:Museo-Sans;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/Museo-Sans/Museo-Sans-Medium.woff) format("woff"),url(/assets/Museo-Sans-Medium.55867f47.woff) format("woff");font-style:normal;font-weight:500;font-display:swap}@font-face{font-family:Museo-Sans;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/Museo-Sans/Museo-Sans-Medium-Italic.woff) format("woff"),url(/assets/Museo-Sans-Medium-Italic.848ff18a.woff) format("woff");font-style:italic;font-weight:500;font-display:swap}@font-face{font-family:Museo-Sans;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/Museo-Sans/Museo-Sans-Bold.woff) format("woff"),url(/assets/Museo-Sans-Bold.476a7f0b.woff) format("woff");font-style:normal;font-weight:700;font-display:swap}@font-face{font-family:Museo-Sans;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/Museo-Sans/Museo-Sans-Bold-Italic.woff) format("woff"),url(/assets/Museo-Sans-Bold-Italic.82b84fc6.woff) format("woff");font-style:italic;font-weight:700;font-display:swap}@font-face{font-family:Museo-Sans;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/Museo-Sans/Museo-Sans-Light.woff) format("woff"),url(/assets/Museo-Sans-Light.85b8b2db.woff) format("woff");font-style:normal;font-weight:300;font-display:swap}@font-face{font-family:Museo-Sans;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/Museo-Sans/Museo-Sans-Light-Italic.woff) format("woff"),url(/assets/Museo-Sans-Light-Italic.95efa464.woff) format("woff");font-style:italic;font-weight:300;font-display:swap}@font-face{font-family:Museo-Sans;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/Museo-Sans/Museo-Sans-Heavy.woff) format("woff"),url(/assets/Museo-Sans-Heavy.29333006.woff) format("woff");font-style:normal;font-weight:800;font-display:swap}@font-face{font-family:Museo-Sans;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/Museo-Sans/Museo-Sans-Heavy-Italic.woff) format("woff"),url(/assets/Museo-Sans-Heavy-Italic.a3edc072.woff) format("woff");font-style:italic;font-weight:800;font-display:swap}@font-face{font-family:URW-Bodoni;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/URW-Bodoni/URW-Bodoni-Regular.woff) format("woff"),url(/assets/URW-Bodoni-Regular.3aa32607.woff) format("woff");font-style:normal;font-weight:400;font-display:swap}@font-face{font-family:URW-Bodoni;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/URW-Bodoni/URW-Bodoni-Bold.woff) format("woff"),url(/assets/URW-Bodoni-Bold.3ac1f2af.woff) format("woff");font-style:normal;font-weight:700;font-display:swap}@font-face{font-family:URW-Bodoni;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/URW-Bodoni/URW-Bodoni-Light.woff) format("woff"),url(/assets/URW-Bodoni-Light.4cdf3195.woff) format("woff");font-style:normal;font-weight:300;font-display:swap}@font-face{font-family:URW-Bodoni;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/URW-Bodoni/URW-Bodoni-Narrow.woff) format("woff"),url(/assets/URW-Bodoni-Narrow.561329b6.woff) format("woff");font-style:normal;font-weight:800;font-display:swap}body,html{font-family:Museo-Sans;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}[data-component=header-fullmenu] [data-component=nsp-menu-list] li a,h1{font-family:URW-Bodoni}[data-component=breadcrumbs] a,[data-component=header-fullmenu] [data-component=language-switcher] a,[data-component=header-fullmenu] [data-component=nsp-menu-bottom-list] li a,[data-component=header-fullmenu] [data-component=nsp-menu-social-list] li a,[data-component=language-switcher] .wpml-ls-item,[data-component=nsp-menu-list]>li a,p{font-family:Museo-Sans}[data-component=input_wrapper] input{font-weight:500}[cta-button],[data-component=language-switcher] [data-language-trigger],h1,p{font-weight:400}[cta-button],[data-component=language-switcher] [data-language-trigger],[data-component=share-widget] [data-share-trigger] span{text-transform:uppercase}h1{font-size:40px}@media only screen and (min-width:400px){h1{font-size:calc(40px + 20*(100vw - 414px)/1026)}}@media only screen and (min-width:1400px){h1{font-size:60px}}h1{line-height:48px}@media only screen and (min-width:400px){h1{line-height:calc(48px + 16*(100vw - 414px)/1026)}}@media only screen and (min-width:1400px){h1{line-height:64px}}[data-component=header-fullmenu] [data-component=language-switcher] a,[data-component=header-fullmenu] [data-component=nsp-menu-social-list] li a,[data-component=language-switcher] .wpml-ls-item{font-size:14px}@media only screen and (min-width:400px){[data-component=header-fullmenu] [data-component=language-switcher] a,[data-component=header-fullmenu] [data-component=nsp-menu-social-list] li a,[data-component=language-switcher] .wpml-ls-item{font-size:calc(14px + 2*(100vw - 414px)/1026)}}@media only screen and (min-width:1400px){[data-component=header-fullmenu] [data-component=language-switcher] a,[data-component=header-fullmenu] [data-component=nsp-menu-social-list] li a,[data-component=language-switcher] .wpml-ls-item{font-size:16px}}[data-component=header-fullmenu] [data-component=language-switcher] a,[data-component=header-fullmenu] [data-component=nsp-menu-social-list] li a,[data-component=language-switcher] .wpml-ls-item{line-height:32px}@media only screen and (min-width:400px){[data-component=header-fullmenu] [data-component=language-switcher] a,[data-component=header-fullmenu] [data-component=nsp-menu-social-list] li a,[data-component=language-switcher] .wpml-ls-item{line-height:calc(32px + 0*(100vw - 414px)/1026)}}@media only screen and (min-width:1400px){[data-component=header-fullmenu] [data-component=language-switcher] a,[data-component=header-fullmenu] [data-component=nsp-menu-social-list] li a,[data-component=language-switcher] .wpml-ls-item{line-height:32px}}[cta-button],[data-component=language-switcher] [data-language-trigger]{font-size:18px}@media only screen and (min-width:400px){[cta-button],[data-component=language-switcher] [data-language-trigger]{font-size:calc(18px + 2*(100vw - 414px)/1026)}}@media only screen and (min-width:1400px){[cta-button],[data-component=language-switcher] [data-language-trigger]{font-size:20px}}[cta-button],[data-component=language-switcher] [data-language-trigger]{line-height:32px}@media only screen and (min-width:400px){[cta-button],[data-component=language-switcher] [data-language-trigger]{line-height:calc(32px + 0*(100vw - 414px)/1026)}}@media only screen and (min-width:1400px){[cta-button],[data-component=language-switcher] [data-language-trigger]{line-height:32px}}[data-component=header-fullmenu] [data-component=nsp-menu-bottom-list] li a{font-size:20px}@media only screen and (min-width:400px){[data-component=header-fullmenu] [data-component=nsp-menu-bottom-list] li a{font-size:calc(20px + 12*(100vw - 414px)/1026)}}@media only screen and (min-width:1400px){[data-component=header-fullmenu] [data-component=nsp-menu-bottom-list] li a{font-size:32px}}[data-component=header-fullmenu] [data-component=nsp-menu-bottom-list] li a{line-height:32px}@media only screen and (min-width:400px){[data-component=header-fullmenu] [data-component=nsp-menu-bottom-list] li a{line-height:calc(32px + 16*(100vw - 414px)/1026)}}@media only screen and (min-width:1400px){[data-component=header-fullmenu] [data-component=nsp-menu-bottom-list] li a{line-height:48px}}[data-component=input_wrapper] input{font-size:16px}@media only screen and (min-width:400px){[data-component=input_wrapper] input{font-size:calc(16px + 0*(100vw - 414px)/1026)}}@media only screen and (min-width:1400px){[data-component=input_wrapper] input{font-size:16px}}[data-component=input_wrapper] input{line-height:32px}@media only screen and (min-width:400px){[data-component=input_wrapper] input{line-height:calc(32px + 0*(100vw - 414px)/1026)}}@media only screen and (min-width:1400px){[data-component=input_wrapper] input{line-height:32px}}p{line-height:2}a{display:inline-flex;align-items:center;align-content:flex-end;flex-wrap:nowrap;color:var(--color_text);text-decoration:none;position:relative;line-height:2;margin-bottom:1px}[cta-button]{appearance:none;background:0 0;color:var(--color_text);border:none;text-decoration:none;padding:0;margin:0;line-height:2;border-radius:0;border-bottom:1px solid var(--color_text)}[data-component=nav-trigger]{display:flex;flex-direction:column;flex-wrap:nowrap;align-content:center;justify-content:center;align-items:center;width:3rem;height:3rem}[data-component=nav-trigger] label{position:relative;width:3rem;height:3rem;display:flex;flex-direction:column;justify-content:space-between;align-items:center;align-content:center;flex-wrap:nowrap}[data-component=nav-trigger] label *{fill:var(--color_text);color:var(--color_text)}[data-component=nav-trigger] label span{overflow:hidden;position:absolute;display:flex;width:100%;height:100%;flex-direction:column;flex-wrap:nowrap;justify-content:center;align-items:center;align-content:center;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}[data-component=nav-trigger] label svg{fill:var(--color_text)}[data-component=nav-trigger] [data-label=open]{clip-path:inset(0% 0% 0% 0%)}[data-component=nav-trigger] [data-label=close]{width:2rem;height:2rem;clip-path:inset(50% 0% 50% 0%)}[data-component=input_wrapper]{display:flex;flex-direction:row;flex-wrap:wrap;align-items:flex-start;line-height:1;margin-bottom:0}[data-component=input_wrapper] input{background-color:var(--color_background);color:var(--color_text);appearance:none;-webkit-appearance:none;margin:0;padding:.75em;border:none;border-radius:0;width:100%;flex:1;box-sizing:border-box;box-shadow:inset 0 0 0 1px var(--color_text)}[data-component=input_wrapper] input{height:calc(1.125rem + 2em)}[data-component=breadcrumbs]{display:none}@media (min-width:1000px){[data-component=breadcrumbs]{display:flex}}[data-component=breadcrumbs] a{color:#000;text-decoration:none;font-size:1rem;display:inline-block;position:relative;font-weight:500;opacity:.3}[data-component=breadcrumbs] .breadcrumb_last{font-weight:500}.popupWrapper{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:10000000;opacity:0;background:rgba(0,0,0,0)}@media (min-width:600px){.popupWrapper{padding:2em}}@media (min-width:600px){.popupWrapper{box-shadow:#00000040 0 54px 55px,#0000001f 0 -12px 30px,#0000001f 0 4px 6px,#0000002b 0 12px 13px,#00000017 0 -3px 5px}}.popupWrapper .popupContainer{width:100%;height:100%;top:50%;left:0;right:0;margin:auto;padding:2em;background:#fff;opacity:0;transform:translateY(30%) scale(.7)}.popupWrapper .popupContent{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center}.popupWrapper [data-action=close_mobile_detail]{width:45px;height:45px;position:fixed;top:1em;right:1em;border:0;background:#fff;padding:0;margin:0}@media (min-width:600px){.popupWrapper [data-action=close_mobile_detail]{top:1em;right:1em}}.popupWrapper [data-action=close_mobile_detail] svg{width:30px;height:30px}[data-component=share-widget]{position:relative}[data-component=share-widget] [data-share-trigger]{display:flex;align-items:center}[data-component=share-widget] [data-share-trigger] span{display:none;margin-right:.625rem}[data-component=share-widget] [data-share-wrapper]{position:absolute;display:flex;flex-direction:column;flex-wrap:nowrap;align-content:center;align-items:center;margin-top:1em;left:50%;transform:translate(-50%);opacity:0;visibility:hidden;background-color:var(--color_background);border-radius:3px}[data-component=share-widget] [data-share-link]{width:auto;margin:0;padding:.5em .75em;display:flex;border-radius:3px;background-color:var(--color_background)}[data-component=language-switcher]{position:relative;overflow:hidden}[data-component=language-switcher][data-open=false] [data-language-wrapper]{display:none}[data-component=language-switcher] [data-language-trigger]{display:flex;align-items:center}@media (max-width:799px){[data-component=language-switcher] [data-language-trigger]{display:none}}[data-component=language-switcher] [data-language-wrapper]{position:absolute;display:flex;left:0;bottom:0;padding-top:1rem;transform:translateY(100%)}[data-component=language-switcher] .wpml-ls-item{width:auto;margin:0;padding:.25em 0;display:flex}[data-component=language-switcher] .wpml-ls-item.wpml-ls-current-language{font-weight:700;text-decoration:underline}:root{--headerHeight:0px}[data-component=nsp-header]{position:sticky;top:0;z-index:100000;display:flex;flex-direction:row;align-items:center;justify-content:space-between;width:100%;max-width:1440px;margin:0 auto;padding:var(--layout-paddingTB) var(--layout-paddingLR);background:var(--color_background)}@media (min-width:1000px){[data-component=nsp-header]{align-items:flex-start}}[data-component=nsp-header]:before{--vw100:calc( var(--vwUnit) * 100 * 1px );content:"";position:absolute;z-index:-1;width:var(--vw100);height:100%;top:0;left:50%;transform:translate(-50%);background:var(--color_background);box-shadow:inset 0 0 1px 1px var(--color_background)}[data-component=nsp-header] .hdr-logo{display:flex;padding:0;margin:0}[data-component=nsp-header] .hdr-logo-link{display:flex}[data-component=nsp-header] .hdr-logo-span{display:none}[data-component=nsp-header] .hdr-logo-svg{display:flex}[data-component=nsp-header] .hdr-logo-svg svg{height:50px;width:150px}[data-component=nsp-menu]{background-color:transparent;padding:0;place-items:center;display:flex;gap:1rem;flex:1;margin:0 2rem}@media (min-width:1000px){[data-component=nsp-menu]{flex-direction:column;align-items:flex-start;justify-content:flex-start}[data-component=nsp-menu] .container{display:flex;justify-content:space-between;width:100%}}[data-component=nsp-menu-list]{--color_text:var(--color-black);display:none;grid-auto-flow:column;gap:1rem;align-items:end;width:100%;margin:0;padding:0;list-style:none}@media (min-width:1000px){[data-component=nsp-menu-list]{display:grid;grid-template-columns:repeat(3,minmax(11.25rem,1fr))}}[data-component=nsp-menu-list]>li{margin:0;text-align:right;position:relative;height:auto;display:flex;flex-direction:column}[data-component=nsp-menu-list]>li>a{padding:1rem .5rem}[data-component=nsp-menu-list]>li a{display:flex;text-align:right;padding:0 0 .3125rem;color:var(--color_text);font-size:1.25rem;line-height:1.3;text-transform:uppercase;font-weight:400;min-height:2em;flex-direction:row;justify-content:flex-end;align-items:center}[data-component=nsp-menu-list]>li a span{width:100%}[data-component=nsp-menu-list]>li a span:after{--color_text:var(--color-black);content:"";position:absolute;width:100%;left:0;bottom:0;height:.0625rem;background-color:var(--color_text)}[data-component=nsp-menu-list] a{text-decoration:none;text-align:center;display:inline-block;color:#00f;font-size:1.125rem}[data-component=nsp-icon-list]{display:flex;margin:0}[data-component=nsp-icon-list] a{width:1.5rem;height:1.5rem;margin-left:1.5rem}[data-component=nsp-icon-list] [sndr-xpr-icon] svg{position:absolute}@media (min-width:1000px){[data-component=nsp-icon-list] a:first-child{display:flex}}[data-component=header-fullmenu]{position:absolute;top:0;left:50%;transform:translate(-50%);display:flex;flex-direction:column;align-items:center;justify-content:space-between;align-content:center;overflow:scroll;width:var(--vw100);height:0;--color_background:black;--color_text:white;background:var(--color_background);color:var(--color_text)}@media (min-width:600px){[data-component=header-fullmenu]{overflow-x:hidden}}[data-component=header-fullmenu] .container{display:flex;flex-direction:column;width:100%;max-width:1440px;margin:0 auto;opacity:0;padding:var(--layout-paddingTB) var(--layout-paddingLR)}@media (min-width:600px){[data-component=header-fullmenu] .container{position:relative;box-sizing:border-box;min-height:850px;height:100%}}[data-component=header-fullmenu] [class=nsp-menu-wrapper]{display:flex;flex-direction:column;flex-wrap:nowrap;align-content:center;align-items:center;gap:5em;margin-top:auto}@media (min-width:800px){[data-component=header-fullmenu] [class=nsp-menu-wrapper]{display:flex;justify-content:space-between}}@media (min-width:1000px){[data-component=header-fullmenu] [class=nsp-menu-wrapper]{flex-direction:row}}[data-component=header-fullmenu] [data-component=nsp-menu-list]{--menuListLength:1;--color_text:var(--color-white);display:flex;flex-direction:column;margin-top:6.25rem;justify-content:flex-start;align-items:flex-start}@media (min-width:800px){[data-component=header-fullmenu] [data-component=nsp-menu-list]{gap:1rem;flex-direction:row;flex-wrap:wrap;flex-flow:column wrap;max-height:calc(5rem * var(--menuListLength))}}@media (min-width:1000px){[data-component=header-fullmenu] [data-component=nsp-menu-list]{margin:0;width:70%}}[data-component=header-fullmenu] [data-component=nsp-menu-list] li{margin:0 0 .625rem}@media (min-width:800px){[data-component=header-fullmenu] [data-component=nsp-menu-list] li{width:100%;width:calc(50% - 2em);display:inline-flex}}[data-component=header-fullmenu] [data-component=nsp-menu-list] li a{color:var(--color_text);padding:0;font-size:3.125rem;text-align:left;align-content:flex-start;justify-content:flex-start;text-transform:none;min-height:1em}@media (min-width:600px){[data-component=header-fullmenu] [data-component=nsp-menu-list] li a{min-height:2em}}[data-component=header-fullmenu] [data-component=nsp-menu-list] li a span{color:var(--color_text);position:relative;width:unset;line-height:1.12}[data-component=header-fullmenu] [data-component=nsp-menu-list] li a span:after{content:"";position:absolute;width:0%;background-color:var(--color_text);height:.0625rem;left:0;bottom:0}[data-component=header-fullmenu] [data-component=nsp-menu-bottom-list]{width:100%;margin:3.125rem 0 0;padding:0;list-style:none}@media (min-width:800px){[data-component=header-fullmenu] [data-component=nsp-menu-bottom-list]{margin:0;width:30%}}[data-component=header-fullmenu] [data-component=nsp-menu-bottom-list] li{margin-bottom:.9375rem}@media (min-width:800px){[data-component=header-fullmenu] [data-component=nsp-menu-bottom-list] li{margin-bottom:1.875rem}}[data-component=header-fullmenu] [data-component=nsp-menu-bottom-list] li a{text-transform:uppercase;color:var(--color_text);padding:0;text-decoration:none}@media (min-width:800px){[data-component=header-fullmenu] [data-component=nsp-menu-bottom-list] li a{position:relative;line-height:2.9375rem}[data-component=header-fullmenu] [data-component=nsp-menu-bottom-list] li a:after{content:"";position:absolute;width:0%;background-color:var(--color_text);height:.0625rem;left:0;bottom:-.3125rem}}[data-component=header-fullmenu] [data-component=nsp-menu-bottom-list] li:last-child{margin:0}[data-component=header-fullmenu] [data-component=nsp-menu-social-list]{margin:3.125rem 0 0;padding:1.5625rem 0 .3125rem;list-style:none;border-top:.0625rem solid var(--color_text);display:flex;flex-wrap:wrap;gap:0 1em}[data-component=header-fullmenu] [data-component=nsp-menu-social-list] li{margin-bottom:.9375rem}[data-component=header-fullmenu] [data-component=nsp-menu-social-list] li a{text-transform:uppercase;color:var(--color_text);padding:0;text-decoration:none}@media (min-width:800px){[data-component=header-fullmenu] [data-component=nsp-menu-social-list]{margin-top:auto;padding:1.5625rem 0;justify-content:center}[data-component=header-fullmenu] [data-component=nsp-menu-social-list] li{flex:calc(50% - 80px);margin:0 2.5rem}[data-component=header-fullmenu] [data-component=nsp-menu-social-list] li a{font-weight:500}}@media (min-width:1000px){[data-component=header-fullmenu] [data-component=nsp-menu-social-list] li{margin:0 5rem;flex:inherit}}[data-component=header-fullmenu] [data-component=language-switcher] a{text-transform:uppercase;color:var(--color_text);padding:0;text-decoration:none}[data-component=header-fullmenu] [data-wrapper]{display:flex;flex-direction:column;flex-wrap:nowrap}[data-component=header-fullmenu] [data-wrapper][data-wrapper=top]{flex-direction:row;align-items:center;gap:2rem;margin-right:4rem}[data-component=header-fullmenu] [data-wrapper][data-wrapper=top] [data-component=language-switcher]{display:none}@media (min-width:600px){[data-component=header-fullmenu] [data-wrapper][data-wrapper=top] [data-component=language-switcher]{display:block}}[data-component=header-fullmenu] [data-wrapper][data-wrapper=middle]{margin:auto 0}[data-component=header-fullmenu] [data-wrapper][data-wrapper=bottom] [data-component=language-switcher]{display:block}@media (min-width:600px){[data-component=header-fullmenu] [data-wrapper][data-wrapper=bottom] [data-component=language-switcher]{display:none}}:root{--filterbarHeight:0px}store-filtering{display:flex;flex-wrap:nowrap;justify-content:center;gap:0;width:100%;margin:0 auto;grid-area:filtering;position:sticky;top:calc(0px + var(--headerHeight));flex-direction:column;z-index:2000;padding:var(--layout-paddingTB) var(--layout-paddingLR);padding-block-end:0!important;box-shadow:0 10px 10px -20px rgb(0 0 0/calc(.5% * (var(--scroll-percent-y) - .3) * 1000)),0 20px 10px -20px rgb(0 0 0/calc(.5% * (var(--scroll-percent-y) - .3) * 100))}store-filtering--body{flex-direction:column;padding:0;grid-area:filtering;display:flex;flex-wrap:nowrap;justify-content:center;gap:1em;width:100%;margin:0 auto;overflow:hidden;box-shadow:0 20px 20px -30px #0000004d,0 10px 10px -20px #0006}store-listing{grid-area:listing;display:block;height:auto}store-map{grid-area:map;display:none;position:sticky;top:calc(0px + var(--headerHeight) + var(--filterbarHeight));height:calc(50vh - var(--headerHeight) * 2);overflow:hidden}[data-component=nsp-footer]{display:flex;flex-direction:column;flex-wrap:nowrap;width:100%;position:relative;margin-top:auto;padding:var(--layout-paddingTB) var(--layout-paddingLR);padding-top:1.875rem;padding-bottom:1.875rem;--color_text:white;--color_background:#1F2323;color:var(--color_text);background:var(--color_background)}@media (min-width:600px){[data-component=nsp-footer]{padding:1.4375rem 0}}[data-component=nsp-footer-menu-list]{display:flex;flex-wrap:wrap;flex-direction:column;align-items:flex-start;align-content:flex-start;list-style-type:none;padding:0;margin:0}@media (min-width:600px){[data-component=nsp-footer-menu-list]{flex-direction:row;align-items:center}}[data-component=nsp-footer-menu-list]:not(.footer-legal){margin:0 0 1.125rem;padding:0 0 1.375rem;border-bottom:.0625rem solid var(--color_text)}@media (min-width:600px){[data-component=nsp-footer-menu-list]:not(.footer-legal):not(:last-child){margin:0 0 1.6875rem;padding:0 0 1.6875rem}}[data-component=nsp-footer-menu-list] li{margin-bottom:.625rem}@media (min-width:600px){[data-component=nsp-footer-menu-list] li{flex:1;flex:0 0 auto;margin:0 1.25rem 0 0;position:relative}}@media (min-width:600px){[data-component=nsp-footer-menu-list] li:after{content:"|";padding-left:1.25rem}}[data-component=nsp-footer-menu-list] li:last-child:after{content:""}[data-component=nsp-footer-menu-list] a{color:var(--color_text);text-decoration:none;text-transform:uppercase}.footer-wrapper{max-width:1440px;margin:0 auto;padding:0;width:100%}@media (min-width:600px){.footer-wrapper{padding:var(--layout-paddingTB) var(--layout-paddingLR)}}.footer-legal-wrapper{display:flex;flex-direction:column;gap:1em;justify-content:flex-start}@media (min-width:600px){.footer-legal-wrapper{flex-direction:row-reverse;gap:3em;justify-content:space-between}}.footer-legal-wrapper p{line-height:1.3}.footer-legal li{margin:0}@media (min-width:600px){.footer-legal{flex-direction:row;justify-content:flex-start}.footer-legal li{flex:0 0 auto;margin-right:1.25rem;position:relative}.footer-legal li:after{content:"|";padding-left:1.25rem}.footer-legal li:last-child:after{content:""}}[data-component=search-form]{width:70%}@media (min-width:600px){[data-component=search-form]{margin:0 auto}}[data-component=search-form] form{display:flex;flex-direction:row;flex-wrap:nowrap;align-content:center;align-items:center;justify-content:space-around;gap:1rem}[data-component=search-form] .form-row{margin:0!important}[data-component=search-form] .form-row:not(.form-actions){width:100%}[data-component=search-form] .form-actions{padding-top:0!important}[data-component=search-form] .form-actions:before{content:none!important}form .form-row+.form-row{margin-top:2rem}form .form-row.form-actions{margin-top:2rem;padding-top:2rem;margin-bottom:4em;display:flex;flex-direction:row;justify-content:center;align-items:center;position:relative}form .form-row.form-actions:before{content:"";display:block;clear:both;position:absolute;top:0;opacity:.25;width:100%;height:0;border-top:1px dotted var(--color_text)}:root{--phoneInputWidth:auto}:root{--cmplz_category_header_always_active_color:var(--color-teal)!important;--cmplz_category_open_icon_url:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNSAxMyI+PHBhdGggZD0ibTIzLjUgMS41LTExIDExLTExLTExIiBzdHJva2U9IiNmZmYiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJzcXVhcmUiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=)!important}.cmplz-cookiebanner .cmplz-categories .cmplz-category{background-color:#f9f9f91a!important}.cmplz-cookiebanner .cmplz-categories .cmplz-category .cmplz-icon.cmplz-open{background-size:70%!important;background-position:center!important}:root{--swiper-theme-color:#007aff}:root{--swiper-navigation-size:44px}:root{--layout-max-width:1440px;--layout-min-width:320px}:root{--vw100:calc( var(--vwUnit) * 100 * 1px )}@media screen and (prefers-reduced-motion:reduce),(update:slow){*{animation-duration:NaNs!important;animation-iteration-count:1!important}}@font-face{font-family:Museo-Sans;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/Museo-Sans/Museo-Sans-Regular.woff) format("woff"),url(/assets/Museo-Sans-Regular.d2233e1c.woff) format("woff");font-style:normal;font-weight:400;font-display:swap}@font-face{font-family:Museo-Sans;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/Museo-Sans/Museo-Sans-Regular-Italic.woff) format("woff"),url(/assets/Museo-Sans-Regular-Italic.abebab5a.woff) format("woff");font-style:italic;font-weight:400;font-display:swap}@font-face{font-family:Museo-Sans;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/Museo-Sans/Museo-Sans-Medium.woff) format("woff"),url(/assets/Museo-Sans-Medium.55867f47.woff) format("woff");font-style:normal;font-weight:500;font-display:swap}@font-face{font-family:Museo-Sans;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/Museo-Sans/Museo-Sans-Medium-Italic.woff) format("woff"),url(/assets/Museo-Sans-Medium-Italic.848ff18a.woff) format("woff");font-style:italic;font-weight:500;font-display:swap}@font-face{font-family:Museo-Sans;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/Museo-Sans/Museo-Sans-Bold.woff) format("woff"),url(/assets/Museo-Sans-Bold.476a7f0b.woff) format("woff");font-style:normal;font-weight:700;font-display:swap}@font-face{font-family:Museo-Sans;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/Museo-Sans/Museo-Sans-Bold-Italic.woff) format("woff"),url(/assets/Museo-Sans-Bold-Italic.82b84fc6.woff) format("woff");font-style:italic;font-weight:700;font-display:swap}@font-face{font-family:Museo-Sans;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/Museo-Sans/Museo-Sans-Light.woff) format("woff"),url(/assets/Museo-Sans-Light.85b8b2db.woff) format("woff");font-style:normal;font-weight:300;font-display:swap}@font-face{font-family:Museo-Sans;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/Museo-Sans/Museo-Sans-Light-Italic.woff) format("woff"),url(/assets/Museo-Sans-Light-Italic.95efa464.woff) format("woff");font-style:italic;font-weight:300;font-display:swap}@font-face{font-family:Museo-Sans;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/Museo-Sans/Museo-Sans-Heavy.woff) format("woff"),url(/assets/Museo-Sans-Heavy.29333006.woff) format("woff");font-style:normal;font-weight:800;font-display:swap}@font-face{font-family:Museo-Sans;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/Museo-Sans/Museo-Sans-Heavy-Italic.woff) format("woff"),url(/assets/Museo-Sans-Heavy-Italic.a3edc072.woff) format("woff");font-style:italic;font-weight:800;font-display:swap}@font-face{font-family:URW-Bodoni;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/URW-Bodoni/URW-Bodoni-Regular.woff) format("woff"),url(/assets/URW-Bodoni-Regular.3aa32607.woff) format("woff");font-style:normal;font-weight:400;font-display:swap}@font-face{font-family:URW-Bodoni;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/URW-Bodoni/URW-Bodoni-Bold.woff) format("woff"),url(/assets/URW-Bodoni-Bold.3ac1f2af.woff) format("woff");font-style:normal;font-weight:700;font-display:swap}@font-face{font-family:URW-Bodoni;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/URW-Bodoni/URW-Bodoni-Light.woff) format("woff"),url(/assets/URW-Bodoni-Light.4cdf3195.woff) format("woff");font-style:normal;font-weight:300;font-display:swap}@font-face{font-family:URW-Bodoni;src:url(https://static.snaidero.com/wp-content/themes/snaidero/src/fonts/URW-Bodoni/URW-Bodoni-Narrow.woff) format("woff"),url(/assets/URW-Bodoni-Narrow.561329b6.woff) format("woff");font-style:normal;font-weight:800;font-display:swap}:root{--visible-y:1}.block-editor .edit-post-visual-editor store-filtering{display:flex;flex-wrap:nowrap;justify-content:center;gap:0;width:100%;margin:0 auto;grid-area:filtering;position:sticky;top:calc(0px + var(--headerHeight));flex-direction:column;z-index:2000;padding:var(--layout-paddingTB) var(--layout-paddingLR);padding-block-end:0!important;box-shadow:0 10px 10px -20px rgb(0 0 0/calc(.5% * (var(--scroll-percent-y) - .3) * 1000)),0 20px 10px -20px rgb(0 0 0/calc(.5% * (var(--scroll-percent-y) - .3) * 100))}.block-editor .edit-post-visual-editor store-filtering--body{flex-direction:column;padding:0;grid-area:filtering;display:flex;flex-wrap:nowrap;justify-content:center;gap:1em;width:100%;margin:0 auto;overflow:hidden;box-shadow:0 20px 20px -30px #0000004d,0 10px 10px -20px #0006}.block-editor .edit-post-visual-editor store-listing{grid-area:listing;display:block;height:auto}.block-editor .edit-post-visual-editor store-map{grid-area:map;display:none;position:sticky;top:calc(0px + var(--headerHeight) + var(--filterbarHeight));height:calc(50vh - var(--headerHeight) * 2);overflow:hidden}</style>
+				<meta name='robots' content='noindex, follow' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v19.14 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Page not found - SNAIDERO</title>
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:title" content="Page not found - SNAIDERO" />
+	<meta property="og:site_name" content="SNAIDERO" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.snaidero.com/en/#website","url":"https://www.snaidero.com/en/","name":"SNAIDERO","description":"Cucine per la vita","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.snaidero.com/en/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="alternate" type="application/rss+xml" title="SNAIDERO &raquo; Feed" href="https://www.snaidero.com/en/feed/" />
+<link rel="alternate" type="application/rss+xml" title="SNAIDERO &raquo; Comments Feed" href="https://www.snaidero.com/en/comments/feed/" />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://static.snaidero.com/wp-includes/css/dist/block-library/style.min.css?ver=6.0.3' type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel='stylesheet' id='wpml-legacy-vertical-list-0-css'  href='https://static.snaidero.com/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-list-vertical/style.min.css?ver=1' type='text/css' media='all' />
+<link rel='stylesheet' id='cmplz-general-css'  href='https://static.snaidero.com/wp-content/plugins/complianz-gdpr/assets/css/cookieblocker.min.css?ver=6.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='main-css-css'  href='https://static.snaidero.com/wp-content/themes/snaidero/build/assets/main.3c40e39a.css' type='text/css' media='all' />
+<meta name="generator" content="WPML ver:4.5.4 stt:1,4,27,2;" />
+<style>.cmplz-hidden{display:none!important;}</style><link rel="icon" href="https://www.snaidero.com/wp-content/uploads/2022/01/cropped-favicon-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://www.snaidero.com/wp-content/uploads/2022/01/cropped-favicon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.snaidero.com/wp-content/uploads/2022/01/cropped-favicon-180x180.png" />
+<meta name="msapplication-TileImage" content="https://www.snaidero.com/wp-content/uploads/2022/01/cropped-favicon-270x270.png" />
+
+
+		<!-- Facebook Pixel Code -->
+		<script>
+		!function(f,b,e,v,n,t,s)
+		{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+		n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+		if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+		n.queue=[];t=b.createElement(e);t.async=!0;
+		t.src=v;s=b.getElementsByTagName(e)[0];
+		s.parentNode.insertBefore(t,s)}(window, document,'script',
+		'https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '643821889542275');
+		fbq('track', 'PageView');
+		</script>
+		<noscript>
+		<img height="1" width="1" style="display:none" 
+			src="https://www.facebook.com/tr?id=643821889542275&ev=PageView&noscript=1"/>
+		</noscript>
+		<!-- End Facebook Pixel Code -->
+
+		<script src="https://snaidero-cdn.thron.com/shared/ce/bootstrap/1/scripts/embeds-min.js"></script>
+		<script id="ta_bootstrapper" src="//snaidero-cdn.thron.com/shared/plugins/tracking/current/bootstrapper-min.js"></script>
+	
+	</head>		
+
+<body data-cmplz=1 class="error404" data-template="base.twig" >
+
+	<header data-component="nsp-header">
+	<h1 class="hdr-logo" role="banner">
+		<a class="hdr-logo-link" href="https://www.snaidero.com/en/" rel="home">
+			<span class="hdr-logo-span">SNAIDERO</span>
+			<span class="hdr-logo-svg"><svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="1813.000000pt" height="568.000000pt" viewBox="0 0 1813.000000 568.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,568.000000) scale(0.100000,-0.100000)"
+fill="#EB6209" stroke="none">
+<path d="M10 5170 l0 -500 9060 0 9060 0 0 500 0 500 -9060 0 -9060 0 0 -500z"/>
+<path d="M7630 4180 l0 -150 245 0 245 0 0 150 0 150 -245 0 -245 0 0 -150z"/>
+<path d="M10200 4105 l0 -225 -225 0 -225 0 0 -95 0 -95 85 0 c190 0 310 -99
+351 -289 20 -96 20 -1156 0 -1252 -27 -124 -88 -209 -184 -256 -47 -23 -73
+-28 -154 -31 l-98 -4 0 -94 0 -94 470 0 470 0 0 1330 0 1330 -245 0 -245 0 0
+-225z"/>
+<path d="M397 3865 c-202 -56 -333 -209 -373 -435 -19 -109 -14 -258 11 -355
+51 -198 188 -335 377 -380 46 -11 126 -15 301 -15 l237 0 0 94 0 94 -98 4
+c-121 4 -188 33 -256 109 -62 69 -87 140 -94 264 -10 208 56 348 193 415 40
+19 71 25 153 28 l102 4 0 94 0 94 -252 -1 c-176 -1 -268 -5 -301 -14z"/>
+<path d="M1200 3786 l0 -94 108 -4 c99 -3 112 -6 171 -38 76 -41 134 -108 156
+-182 8 -29 15 -58 15 -65 0 -10 49 -13 246 -13 l246 0 -7 43 c-28 174 -126
+316 -267 388 -104 53 -149 59 -420 59 l-248 0 0 -94z"/>
+<path d="M2530 2775 l0 -1105 245 0 245 0 0 833 c0 676 3 844 14 898 41 190
+161 289 351 289 l85 0 0 95 0 95 -470 0 -470 0 0 -1105z"/>
+<path d="M3720 3785 l0 -95 90 0 c65 0 104 -5 144 -20 115 -43 196 -154 216
+-295 6 -42 10 -402 10 -887 l0 -818 240 0 240 0 0 863 c0 957 1 940 -66 1075
+-63 128 -177 220 -321 257 -43 11 -118 15 -305 15 l-248 0 0 -95z"/>
+<path d="M5442 3864 c-187 -50 -316 -183 -367 -379 -27 -104 -49 -95 230 -95
+237 0 245 1 245 20 0 39 42 129 79 172 22 24 65 57 97 73 52 25 72 30 167 33
+l107 4 0 94 0 94 -252 -1 c-186 0 -267 -4 -306 -15z"/>
+<path d="M6250 3786 l0 -94 103 -4 c121 -5 177 -28 244 -101 53 -57 71 -93 89
+-175 48 -227 -25 -429 -183 -507 -48 -23 -75 -29 -155 -33 l-98 -5 0 -93 0
+-94 78 0 c223 0 352 -128 369 -365 11 -156 -31 -289 -115 -366 -67 -62 -121
+-82 -234 -87 l-98 -4 0 -94 0 -94 470 0 471 0 -3 873 c-3 864 -4 873 -26 950
+-12 43 -34 102 -49 130 -38 71 -136 168 -204 201 -104 50 -144 56 -411 56
+l-248 0 0 -94z"/>
+<path d="M7630 2775 l0 -1105 245 0 245 0 0 1105 0 1105 -245 0 -245 0 0
+-1105z"/>
+<path d="M8941 3864 c-186 -50 -324 -200 -366 -399 -23 -109 -22 -1276 1
+-1378 48 -212 179 -351 379 -402 45 -11 117 -15 302 -15 l243 0 0 94 0 94
+-102 4 c-123 5 -179 27 -250 100 -53 54 -83 124 -98 226 -13 91 -13 1080 0
+1179 28 210 154 323 360 323 l90 0 0 95 0 95 -252 -1 c-188 0 -267 -4 -307
+-15z"/>
+<path d="M11483 3865 c-189 -51 -326 -200 -368 -400 -23 -108 -22 -1275 1
+-1378 37 -168 133 -297 269 -362 103 -49 150 -55 415 -55 l240 0 0 94 0 94
+-102 4 c-115 5 -165 22 -237 84 -87 75 -134 244 -112 405 19 145 83 244 189
+296 48 23 72 28 159 31 l103 4 0 93 0 93 -99 4 c-89 3 -106 7 -167 38 -143 73
+-213 246 -185 456 29 211 155 324 361 324 l90 0 0 95 0 95 -252 -1 c-184 0
+-267 -4 -305 -14z"/>
+<path d="M12290 3785 l0 -95 85 0 c106 0 175 -24 243 -85 93 -83 138 -245 114
+-407 -30 -209 -146 -317 -349 -326 l-93 -4 0 -95 0 -95 263 4 c239 4 267 6
+321 26 173 64 278 183 327 369 28 108 28 297 0 404 -53 206 -176 334 -367 384
+-44 11 -117 15 -301 15 l-243 0 0 -95z"/>
+<path d="M13620 2775 l0 -1105 245 0 245 0 0 839 c0 521 4 858 10 891 22 118
+86 207 183 257 44 23 68 28 155 31 l102 4 0 94 0 94 -470 0 -470 0 0 -1105z"/>
+<path d="M14810 3785 l0 -95 89 0 c107 0 170 -18 237 -69 58 -44 99 -107 116
+-179 l13 -52 243 0 244 0 -7 43 c-30 180 -122 314 -267 388 -104 53 -149 59
+-420 59 l-248 0 0 -95z"/>
+<path d="M16381 3864 c-117 -31 -229 -112 -292 -212 -16 -26 -42 -83 -57 -127
+l-27 -80 0 -670 0 -670 28 -80 c16 -44 42 -101 59 -127 40 -63 126 -141 191
+-172 101 -49 152 -56 414 -56 l243 0 0 94 0 94 -102 4 c-94 3 -109 7 -166 38
+-75 40 -104 72 -146 160 l-31 65 -3 623 c-3 695 -3 700 63 799 67 101 153 143
+295 143 l90 0 0 95 0 95 -252 -1 c-188 0 -267 -4 -307 -15z"/>
+<path d="M17190 3786 l0 -94 103 -4 c121 -5 177 -28 244 -101 102 -110 103
+-118 103 -809 0 -386 -4 -595 -11 -630 -17 -81 -55 -151 -105 -198 -69 -63
+-122 -83 -236 -88 l-98 -4 0 -94 0 -94 238 0 c176 0 253 4 301 15 190 45 326
+185 378 391 16 63 18 128 18 699 0 570 -2 637 -18 699 -53 206 -180 341 -368
+391 -40 11 -119 15 -301 15 l-248 0 0 -94z"/>
+<path d="M1200 2776 l0 -94 98 -4 c79 -2 107 -8 153 -29 141 -66 207 -204 197
+-414 -7 -129 -33 -200 -100 -271 -68 -72 -128 -97 -250 -102 l-98 -4 0 -94 0
+-94 243 0 c184 0 257 4 301 15 189 49 318 180 372 376 25 90 25 328 0 419 -54
+196 -183 327 -371 375 -45 11 -117 15 -302 15 l-243 0 0 -94z"/>
+<path d="M5455 2856 c-83 -20 -162 -62 -220 -117 -70 -66 -107 -125 -141 -224
+-26 -74 -28 -92 -28 -235 -1 -169 10 -232 61 -338 36 -74 141 -180 213 -215
+105 -50 154 -57 417 -57 l243 0 0 94 0 94 -97 4 c-80 2 -108 8 -154 29 -73 35
+-125 87 -163 168 -30 64 -31 70 -31 206 0 114 4 150 19 192 31 81 82 141 156
+182 60 33 72 36 168 39 l102 4 0 94 0 94 -247 -1 c-159 0 -266 -5 -298 -13z"/>
+<path d="M10 2152 c0 -5 9 -44 20 -86 51 -201 179 -331 375 -381 45 -11 117
+-15 302 -15 l243 0 0 94 0 94 -103 4 c-86 3 -111 8 -158 31 -95 46 -166 137
+-185 235 l-6 32 -244 0 c-134 0 -244 -4 -244 -8z"/>
+<path d="M12726 2106 c-32 -109 -121 -199 -229 -231 -28 -8 -86 -15 -129 -15
+l-78 0 0 -95 0 -95 238 0 c174 0 254 4 300 15 186 44 328 184 377 372 8 31 15
+68 15 80 l0 23 -239 0 -240 0 -15 -54z"/>
+<path d="M10 500 l0 -500 9060 0 9060 0 0 500 0 500 -9060 0 -9060 0 0 -500z"/>
+</g>
+</svg>
+</span>
+		</a>
+	</h1>
+
+			<nav data-component="nsp-menu" id="nav-main" class="nav-main" role="navigation" aria-label="Main Navigation">
+				<ul  data-component="nsp-menu-list" >
+		
+			<li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-6782 ">
+
+									<a target="" href="https://www.snaidero.com/en/kitchens/"><span>Collections<span></a>
+							</li>
+		
+			<li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-74958 ">
+
+									<a target="" href="https://www.snaidero.com/en/design/"><span>Snaidero Sign<span></a>
+							</li>
+		
+			<li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-46508 ">
+
+									<a target="" href="https://www.snaidero.com/en/stores/"><span>Stores<span></a>
+							</li>
+			</ul>
+
+	<div class="container">
+		<div data-breadcrumb-wrapper>
+					<div data-component="breadcrumbs">
+    
+</div>				</div>
+
+		<div data-component="nsp-icon-list">
+		<div data-component="share-widget" data-open="false">
+    <div data-share-trigger>
+        <span>share</span>
+        <svg width="14" height="24" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(-3)" stroke="#000" fill="none" fill-rule="evenodd">
+                <circle fill="#FFF" cx="13.568" cy="3.863" r="2.596"/>
+                <circle fill="#FFF" cx="13.568" cy="20.494" r="2.596"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="m11 19-7-7 7-7"/>
+            </g>
+        </svg>
+    </div>
+    <div data-share-wrapper>
+        <a href="http://www.facebook.com/sharer.php?u=https://www.snaidero.com/en/themes/custom/snaidero/logo.svg" data-share-link data-network="facebook" target="_blank"><span>Facebook</span></a>
+        <a href="https://wa.me/?text=Page not found - SNAIDERO -- https://www.snaidero.com/en/themes/custom/snaidero/logo.svg" data-share-link data-network="whatsapp"target="_blank"><span>Whatsapp</span></a>
+        <a href="https://telegram.me/share/url?url=Page not found - SNAIDERO -- https://www.snaidero.com/en/themes/custom/snaidero/logo.svg" data-share-link data-network="telegram"target="_blank"><span>Telegram</span></a>
+        <a href="https://twitter.com/intent/tweet?text=Page not found - SNAIDERO -- https://www.snaidero.com/en/themes/custom/snaidero/logo.svg" data-share-link data-network="twitter"target="_blank"><span>Twitter</span></a>
+    </div>
+</div>			<a href="/en/?resumeExperience" sndr-xpr-icon>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.079 12.104v11h-11v-11zm11 0v11h-11v-11zm-11-11v11h-11v-11zm11 0v11h-11v-11z" stroke="#000" fill="none" fill-rule="evenodd"/></svg>
+			</a>
+		</div>
+	</div>
+		</nav>
+
+		<div data-component="header-fullmenu" id="nav-extended">
+			<div class="container">
+				<div data-wrapper="top">
+	<div data-component="language-switcher" data-open="false">
+    <div data-language-trigger>
+        <span>Change language</span>
+    </div>
+    <div data-language-wrapper>
+                    
+<div class="lang_sel_list_vertical wpml-ls-statics-shortcode_actions wpml-ls wpml-ls-legacy-list-vertical" id="lang_sel_list">
+	<ul>
+
+					<li class="icl-en wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-en wpml-ls-current-language wpml-ls-first-item wpml-ls-item-legacy-list-vertical">
+				<a href="https://www.snaidero.com/en/" class="wpml-ls-link">
+                    <span class="wpml-ls-native icl_lang_sel_native">English</span></a>
+			</li>
+					<li class="icl-it wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-it wpml-ls-item-legacy-list-vertical">
+				<a href="https://www.snaidero.com/it/" class="wpml-ls-link">
+                    <span class="wpml-ls-display icl_lang_sel_translated">Italian</span></a>
+			</li>
+					<li class="icl-fr wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-fr wpml-ls-item-legacy-list-vertical">
+				<a href="https://www.snaidero.com/fr/" class="wpml-ls-link">
+                    <span class="wpml-ls-display icl_lang_sel_translated">French</span></a>
+			</li>
+					<li class="icl-es wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-es wpml-ls-last-item wpml-ls-item-legacy-list-vertical">
+				<a href="https://www.snaidero.com/es/" class="wpml-ls-link">
+                    <span class="wpml-ls-display icl_lang_sel_translated">Spanish</span></a>
+			</li>
+		
+	</ul>
+</div>
+            </div>
+</div>	<div data-component="search-form">
+	<form action="https://www.snaidero.com/en/search/" method="GET">
+
+		<div class="form-row">
+			<div data-component="input_wrapper" data-required>
+				<input type="text" name="_global_search" id="_global_search" required placeholder="Search this site">
+			</div>
+		</div>
+
+		<div class="form-row form-actions" data-visual="row--full">
+			<button type="submit" name="submit" cta-button>Search</button>
+		</div>
+	</form>
+</div>
+</div>
+
+<div data-wrapper="middle">
+	<div class="nsp-menu-wrapper">
+					<ul  data-component="nsp-menu-list"  style="--menuListLength: 6">
+								<li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-6791">
+					<a target="" href="https://www.snaidero.com/en/kitchens/"><span>Collections</span></a>
+				</li>
+								<li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-74965">
+					<a target="" href="https://www.snaidero.com/en/design/"><span>Snaidero Sign</span></a>
+				</li>
+								<li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-6795">
+					<a target="" href="https://www.snaidero.com/en/stores/"><span>Stores</span></a>
+				</li>
+								<li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-6793">
+					<a target="" href="https://www.snaidero.com/en/philosophy/"><span>Snaidero World</span></a>
+				</li>
+								<li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-6796">
+					<a target="" href="https://www.snaidero.com/en/10-years-warranty/"><span>10 Years Warranty</span></a>
+				</li>
+								<li class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-74966">
+					<a target="" href="https://www.snaidero.com/en/contract-project/"><span>Contract and Projects</span></a>
+				</li>
+							</ul>
+		
+
+				<ul data-component="nsp-menu-bottom-list">
+							<li>
+					<a target="" href="https://www.snaidero.com/en/news-events/"><span>News &#038; Events</span></a>
+				</li>
+							<li>
+					<a target="" href="https://www.snaidero.com/en/member-account/"><span>Your Account</span></a>
+				</li>
+							<li>
+					<a target="" href="https://www.snaidero.com/en/become-a-partner/"><span>Become a Partner</span></a>
+				</li>
+							<li>
+					<a target="" href="https://www.snaidero.com/en/download-area/"><span>Download Area</span></a>
+				</li>
+					</ul>
+			</div>
+</div>
+
+<div data-wrapper="bottom">
+		<ul data-component="nsp-menu-social-list">
+					<li>
+				<a href="http://www.facebook.com/pages/Snaidero-Cucine/370022994924" target="_blank"><span>Facebook</span></a>
+			</li>
+					<li>
+				<a href="http://instagram.com/snaiderocucine" target="_blank"><span>Instagram</span></a>
+			</li>
+					<li>
+				<a href="https://it.linkedin.com/company/snaidero-cucine" target="_blank"><span>LinkedIn</span></a>
+			</li>
+					<li>
+				<a href="https://www.youtube.com/channel/UC3o0Q5ELP5UKByxc2h_euDw" target="_blank"><span>Youtube</span></a>
+			</li>
+					<li>
+				<a href="https://www.pinterest.it/snaiderocucine/" target="_blank"><span>Pinterest</span></a>
+			</li>
+			</ul>
+	
+	<div data-component="language-switcher" data-open="false">
+    <div data-language-trigger>
+        <span>Change language</span>
+    </div>
+    <div data-language-wrapper>
+                    
+<div class="lang_sel_list_vertical wpml-ls-statics-shortcode_actions wpml-ls wpml-ls-legacy-list-vertical" id="lang_sel_list">
+	<ul>
+
+					<li class="icl-en wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-en wpml-ls-current-language wpml-ls-first-item wpml-ls-item-legacy-list-vertical">
+				<a href="https://www.snaidero.com/en/" class="wpml-ls-link">
+                    <span class="wpml-ls-native icl_lang_sel_native">English</span></a>
+			</li>
+					<li class="icl-it wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-it wpml-ls-item-legacy-list-vertical">
+				<a href="https://www.snaidero.com/it/" class="wpml-ls-link">
+                    <span class="wpml-ls-display icl_lang_sel_translated">Italian</span></a>
+			</li>
+					<li class="icl-fr wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-fr wpml-ls-item-legacy-list-vertical">
+				<a href="https://www.snaidero.com/fr/" class="wpml-ls-link">
+                    <span class="wpml-ls-display icl_lang_sel_translated">French</span></a>
+			</li>
+					<li class="icl-es wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-es wpml-ls-last-item wpml-ls-item-legacy-list-vertical">
+				<a href="https://www.snaidero.com/es/" class="wpml-ls-link">
+                    <span class="wpml-ls-display icl_lang_sel_translated">Spanish</span></a>
+			</li>
+		
+	</ul>
+</div>
+            </div>
+</div></div>
+			</div>
+		</div>
+		<div data-component="nav-trigger" data-action="open" data-ref="nav-extended">
+	<label>
+		<span data-label="open">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 16"><path d="M0 0h48v1H0zm0 15h48v1H0z" fill-rule="evenodd"/></svg>
+		</span>
+		<span data-label="close">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35"><g fill-rule="evenodd"><path d="m.9 0 34 34-.8.6L.1.7z"/><path d="M34.1 0 .1 34l.8.6L34.9.7z"/></g></svg>
+		</span>
+	</label>
+</div>
+	
+	</header>
+
+<section id="content" role="main" class="content-wrapper">
+		<div class="wrapper ">
+			Sorry, we couldn't find what you're looking for.
+	</div>
+	</section>
+
+	<footer data-component="nsp-footer">
+	<div class="footer-wrapper">
+					<ul data-component="nsp-footer-menu-list">
+			<li>
+			<a href="https://www.snaidero.com/en/download-area/">Download Area</a>
+		</li>
+			<li>
+			<a href="https://www.snaidero.com/en/work-with-us/">Work with Us</a>
+		</li>
+	</ul>
+			<ul data-component="nsp-footer-menu-list">
+			<li>
+			<a href="http://www.facebook.com/pages/Snaidero-Cucine/370022994924" target="_blank">Facebook</a>
+		</li>
+			<li>
+			<a href="http://instagram.com/snaiderocucine" target="_blank">Instagram</a>
+		</li>
+			<li>
+			<a href="https://it.linkedin.com/company/snaidero-cucine" target="_blank">LinkedIn</a>
+		</li>
+			<li>
+			<a href="https://www.youtube.com/channel/UC3o0Q5ELP5UKByxc2h_euDw" target="_blank">Youtube</a>
+		</li>
+			<li>
+			<a href="https://www.pinterest.it/snaiderocucine/" target="_blank">Pinterest</a>
+		</li>
+	</ul>
+				<div class="footer-legal-wrapper">
+		<ul data-component="nsp-footer-menu-list" class="footer-legal">
+			<li>
+			<a href="https://www.snaidero.com/en/governance/">Governance</a>
+		</li>
+			<li>
+			<a href="https://www.snaidero.com/en/legal-information/">Legal Information</a>
+		</li>
+			<li>
+			<a href="https://www.snaidero.com/en/privacy-policy/">Privacy Policy</a>
+		</li>
+			<li>
+			<a href="https://www.snaidero.com/en/cookies-policy/">Cookies Policy</a>
+		</li>
+		</ul>
+	
+	<p>Snaidero Rino Spa<br />
+	Viale Rino Snaidero Cavaliere del Lavoro, 15<br />
+33030 Majano<br />
+Udine (Italy)<br />
+Share Capital of €5.589.286,00, fully paid-in<br />
+	P.IVA IT00153510300<br />
+		</p>
+
+</div>
+	</div>
+</footer>
+	
+<!-- Consent Management powered by Complianz | GDPR/CCPA Cookie Consent https://wordpress.org/plugins/complianz-gdpr -->
+<div id="cmplz-cookiebanner-container"><div class="cmplz-cookiebanner cmplz-hidden banner-1 optin cmplz-bottom-right cmplz-categories-type-view-preferences" aria-modal="true" data-nosnippet="true" role="dialog" aria-live="polite" aria-labelledby="cmplz-header-1-optin" aria-describedby="cmplz-message-1-optin">
+	<div class="cmplz-header">
+		<div class="cmplz-logo"></div>
+		<div class="cmplz-title" id="cmplz-header-1-optin">Manage Cookie Consent</div>
+		<div class="cmplz-close" tabindex="0" role="button" aria-label="close-dialog">
+			<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
+		</div>
+	</div>
+
+	<div class="cmplz-divider cmplz-divider-header"></div>
+	<div class="cmplz-body">
+		<div class="cmplz-message" id="cmplz-message-1-optin">We use cookies to optimize our website and our services.</div>
+		<!-- categories start -->
+		<div class="cmplz-categories">
+			<details class="cmplz-category cmplz-functional" >
+				<summary>
+						<span class="cmplz-category-header">
+							<span class="cmplz-category-title">Functional</span>
+							<span class='cmplz-always-active'>
+								<span class="cmplz-banner-checkbox">
+									<input type="checkbox"
+										   id="cmplz-functional-optin"
+										   data-category="cmplz_functional"
+										   class="cmplz-consent-checkbox cmplz-functional"
+										   size="40"
+										   value="1"/>
+									<label class="cmplz-label" for="cmplz-functional-optin" tabindex="0"><span class="screen-reader-text">Functional</span></label>
+								</span>
+								Always active							</span>
+							<span class="cmplz-icon cmplz-open">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"  height="18" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg>
+							</span>
+						</span>
+				</summary>
+				<div class="cmplz-description">
+					<span class="cmplz-description-functional">The technical storage or access is strictly necessary for the legitimate purpose of enabling the use of a specific service explicitly requested by the subscriber or user, or for the sole purpose of carrying out the transmission of a communication over an electronic communications network.</span>
+				</div>
+			</details>
+
+			<details class="cmplz-category cmplz-preferences" >
+				<summary>
+						<span class="cmplz-category-header">
+							<span class="cmplz-category-title">Preferencesnces</span>
+							<span class="cmplz-banner-checkbox">
+								<input type="checkbox"
+									   id="cmplz-preferences-optin"
+									   data-category="cmplz_preferences"
+									   class="cmplz-consent-checkbox cmplz-preferences"
+									   size="40"
+									   value="1"/>
+								<label class="cmplz-label" for="cmplz-preferences-optin" tabindex="0"><span class="screen-reader-text">Preferencesnces</span></label>
+							</span>
+							<span class="cmplz-icon cmplz-open">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"  height="18" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg>
+							</span>
+						</span>
+				</summary>
+				<div class="cmplz-description">
+					<span class="cmplz-description-preferences">The technical storage or access is necessary for the legitimate purpose of storing preferences that are not requested by the subscriber or user.</span>
+				</div>
+			</details>
+
+			<details class="cmplz-category cmplz-statistics" >
+				<summary>
+						<span class="cmplz-category-header">
+							<span class="cmplz-category-title">Statistics</span>
+							<span class="cmplz-banner-checkbox">
+								<input type="checkbox"
+									   id="cmplz-statistics-optin"
+									   data-category="cmplz_statistics"
+									   class="cmplz-consent-checkbox cmplz-statistics"
+									   size="40"
+									   value="1"/>
+								<label class="cmplz-label" for="cmplz-statistics-optin" tabindex="0"><span class="screen-reader-text">Statistics</span></label>
+							</span>
+							<span class="cmplz-icon cmplz-open">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"  height="18" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg>
+							</span>
+						</span>
+				</summary>
+				<div class="cmplz-description">
+					<span class="cmplz-description-statistics">The technical storage or access that is used exclusively for statistical purposes.</span>
+					<span class="cmplz-description-statistics-anonymous">The technical storage or access that is used exclusively for anonymous statistical purposes. Without a subpoena, voluntary compliance on the part of your Internet Service Provider, or additional records from a third party, information stored or retrieved for this purpose alone cannot usually be used to identify you.</span>
+				</div>
+			</details>
+			<details class="cmplz-category cmplz-marketing" >
+				<summary>
+						<span class="cmplz-category-header">
+							<span class="cmplz-category-title">Marketing</span>
+							<span class="cmplz-banner-checkbox">
+								<input type="checkbox"
+									   id="cmplz-marketing-optin"
+									   data-category="cmplz_marketing"
+									   class="cmplz-consent-checkbox cmplz-marketing"
+									   size="40"
+									   value="1"/>
+								<label class="cmplz-label" for="cmplz-marketing-optin" tabindex="0"><span class="screen-reader-text">Marketing</span></label>
+							</span>
+							<span class="cmplz-icon cmplz-open">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"  height="18" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg>
+							</span>
+						</span>
+				</summary>
+				<div class="cmplz-description">
+					<span class="cmplz-description-marketing">The technical storage or access is required to create user profiles to send advertising, or to track the user on a website or across several websites for similar marketing purposes.</span>
+				</div>
+			</details>
+		</div><!-- categories end -->
+			</div>
+
+	<div class="cmplz-links cmplz-information">
+		<a class="cmplz-link cmplz-manage-options cookie-statement" href="#" data-relative_url="#cmplz-manage-consent-container">Manage options</a>
+		<a class="cmplz-link cmplz-manage-third-parties cookie-statement" href="#" data-relative_url="#cmplz-cookies-overview">Manage services</a>
+		<a class="cmplz-link cmplz-manage-vendors tcf cookie-statement" href="#" data-relative_url="#cmplz-tcf-wrapper">Manage vendors</a>
+		<a class="cmplz-link cmplz-external cmplz-read-more-purposes tcf" target="_blank" rel="noopener noreferrer nofollow" href="https://cookiedatabase.org/tcf/purposes/">Read more about these purposes</a>
+			</div>
+
+	<div class="cmplz-divider cmplz-footer"></div>
+
+	<div class="cmplz-buttons">
+		<button class="cmplz-btn cmplz-accept">Accept</button>
+		<button class="cmplz-btn cmplz-deny">Deny</button>
+		<button class="cmplz-btn cmplz-view-preferences">Preferences</button>
+		<button class="cmplz-btn cmplz-save-preferences">Save preferences</button>
+		<a class="cmplz-btn cmplz-manage-options tcf cookie-statement" href="#" data-relative_url="#cmplz-manage-consent-container">Preferences</a>
+			</div>
+
+	<div class="cmplz-links cmplz-documents">
+		<a class="cmplz-link cookie-statement" href="#" data-relative_url="">{title}</a>
+		<a class="cmplz-link privacy-statement" href="#" data-relative_url="">{title}</a>
+		<a class="cmplz-link impressum" href="#" data-relative_url="">{title}</a>
+			</div>
+
+</div>
+</div>
+					<div id="cmplz-manage-consent" data-nosnippet="true"><button class="cmplz-btn cmplz-hidden cmplz-manage-consent manage-consent-1">Manage consent</button>
+
+</div><script type='text/javascript' src='https://static.snaidero.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.0' id='jquery-core-js'></script>
+<script type='text/javascript' id='wpml-cookie-js-extra'>
+/* <![CDATA[ */
+var wpml_cookies = {"wp-wpml_current_language":{"value":"en","expires":1,"path":"\/"}};
+var wpml_cookies = {"wp-wpml_current_language":{"value":"en","expires":1,"path":"\/"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://static.snaidero.com/wp-content/plugins/sitepress-multilingual-cms/res/js/cookies/language-cookie.js?ver=4.5.4' id='wpml-cookie-js'></script>
+<script type='text/javascript' id='main-js-js-extra'>
+/* <![CDATA[ */
+var wpVar = {"template_url":"https:\/\/www.snaidero.com\/wp-content\/themes\/snaidero","site_url":"https:\/\/www.snaidero.com","wpml_current_language":"en","warranty_download_pdf":"https:\/\/www.snaidero.com\/en\/wp-json\/api\/v1\/warranty\/download","wpnonce":"b4c65ce370"};
+/* ]]> */
+</script>
+<script defer type="module" src="https://static.snaidero.com/wp-content/themes/snaidero/build/assets/main.aaaf307c.js" id="main-js"></script><script defer type="module" src="https://static.snaidero.com/wp-content/themes/snaidero/build/assets/admin.48921c72.js" id="admin-main-js"></script><script defer type="module" src="https://static.snaidero.com/wp-content/themes/snaidero/build/assets/index.499e6c04.js" id="assets/index.499e6c04-js"></script><script defer type="module" src="https://static.snaidero.com/wp-content/themes/snaidero/build/assets/layout.18b49d35.js" id="assets/layout.18b49d35-js"></script><script async defer type="module" src="https://static.snaidero.com/wp-content/themes/snaidero/build/assets/zxcvbn.44ca9aba.js" id="assets/zxcvbn.44ca9aba-js"></script><script type='text/javascript' id='cmplz-cookiebanner-js-extra'>
+/* <![CDATA[ */
+var complianz = {"prefix":"cmplz_","user_banner_id":"1","set_cookies":[],"block_ajax_content":"0","banner_version":"58","version":"6.4.1","store_consent":"","do_not_track_enabled":"","consenttype":"optin","region":"eu","geoip":"","dismiss_timeout":"","disable_cookiebanner":"","soft_cookiewall":"","dismiss_on_scroll":"","cookie_expiry":"365","url":"https:\/\/www.snaidero.com\/en\/wp-json\/complianz\/v1\/","locale":"lang=en&locale=en_US","set_cookies_on_root":"0","cookie_domain":"","current_policy_id":"18","cookie_path":"\/","categories":{"statistics":"statistics","marketing":"marketing"},"tcf_active":"","placeholdertext":"Click to accept the cookies for this service","css_file":"https:\/\/www.snaidero.com\/wp-content\/uploads\/complianz\/css\/banner-{banner_id}-{type}.css?v=58","page_links":{"eu":{"cookie-statement":{"title":"Cookies Policy","url":"https:\/\/www.snaidero.com\/en\/cookies-policy\/"}}},"tm_categories":"1","forceEnableStats":"","preview":"","clean_cookies":""};
+/* ]]> */
+</script>
+<script defer type='text/javascript' src='https://static.snaidero.com/wp-content/plugins/complianz-gdpr/cookiebanner/js/complianz.min.js?ver=6.4.1' id='cmplz-cookiebanner-js'></script>
+<script src='https://www.google.com/recaptcha/api.js'></script><!-- Statistics script Complianz GDPR/CCPA -->
+						<script data-category="functional">
+							(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K97F685');
+						</script><script>var FWP_HTTP = FWP_HTTP || {}; FWP_HTTP.lang = 'en';</script>    <script>
+        (function($) {
+            $(function() {
+                if ('undefined' !== typeof FWP) {
+                    FWP.auto_refresh = false;
+                }
+            });
+        })(jQuery);
+    </script>
+
+</body>
+
+
+<div class="popupWrapper" data-open="false" style="opacity:0">
+
+	<div class="popupContainer">
+
+		<div class="popupContent"></div>
+		
+		<button data-action="close_mobile_detail">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35"><g fill="#000" fill-rule="evenodd"><path d="m.883 0 33.941 33.941-.707.707L.176.708z"></path><path d="M34.117 0 .176 33.941l.707.707L34.824.708z"></path></g></svg>
+		</button>
+
+	</div>
+
+
+</div>
+
+</html>
+
+<!--
+Performance optimized by W3 Total Cache. Learn more: https://www.boldgrid.com/w3-total-cache/
+
+Content Delivery Network via Amazon Web Services: CloudFront: static.snaidero.com
+
+Served from: www.snaidero.com @ 2026-03-23 08:53:25 by W3 Total Cache
+-->

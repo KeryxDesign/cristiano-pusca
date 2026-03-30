@@ -209,7 +209,7 @@ import Layout from '../layouts/Layout.astro';
 				<!-- Foto Cristiano -->
 				<div class="flex justify-center">
 					<div class="w-72 h-72 md:w-[420px] md:h-[420px] rounded-3xl overflow-hidden shadow-xl shadow-gray-200/50 border border-gray-200">
-						<img src="/cristiano-pusca/cristiano-pusca.jpg" alt="Cristiano Pusca" class="w-full h-full object-cover object-top" />
+						<img src="/cristiano-pusca/cristiano-pusca.jpg" alt="Cristiano Pusca" width="1080" height="628" loading="lazy" class="w-full h-full object-cover object-top" />
 					</div>
 				</div>
 
@@ -398,25 +398,896 @@ import Layout from '../layouts/Layout.astro';
 		<div class="absolute top-10 right-10 w-64 h-64 rounded-full bg-accent/10 blur-[100px]"></div>
 		<div class="absolute bottom-10 left-10 w-96 h-96 rounded-full bg-sky/10 blur-[100px]"></div>
 
-		<div class="max-w-3xl mx-auto px-6 text-center relative">
+		<div class="max-w-3xl mx-auto px-6 relative text-center">
 			<div class="w-16 h-1 bg-white/20 mb-8 mx-auto rounded-full"></div>
 			<p class="text-sky-light text-sm font-heading font-semibold tracking-wider uppercase mb-4">Diagnostica gratuita</p>
 			<h2 class="text-3xl md:text-5xl font-medium mb-6 !text-white">
 				Scopri cosa blocca davvero<br />
 				la tua rete vendita.
 			</h2>
-			<p class="text-white/80 text-lg leading-relaxed mb-3">
-				<strong class="text-white">10 domande. 5 minuti.</strong> Nessuna email da lasciare per vedere il risultato. Nessun funnel.
+			<p class="text-white/80 text-lg leading-relaxed mb-2">
+				<strong class="text-white">5 aree. 10 domande. 3 minuti. Nessun funnel.</strong>
 			</p>
 			<p class="text-white/60 text-base leading-relaxed mb-10">
-				Alla fine, se quello che leggi ti suona familiare, puoi prenotare <strong class="text-white/80">15 minuti con me</strong>. Non una call di vendita. Una conversazione per capire se ha senso lavorare insieme.
+				Alla fine, se quello che leggi ti suona familiare, puoi ricevere un'analisi personalizzata da Cristiano.
 			</p>
-			<a href="#" class="btn-primary text-lg">
-				Inizia il quiz
+			<button id="quiz-open-btn" class="btn-primary text-lg cursor-pointer">
+				<span id="quiz-open-btn-text">Inizia il quiz</span>
 				<svg class="inline w-5 h-5 ml-2 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-			</a>
+			</button>
 		</div>
 	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     QUIZ MODAL — POPUP OVERLAY
+	     ═══════════════════════════════════════════ -->
+	<div id="quiz-modal" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true" aria-label="Quiz diagnostica rete vendita">
+		<!-- Overlay scuro -->
+		<div id="quiz-overlay" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+
+		<!-- Container modale -->
+		<div class="relative w-full h-full overflow-y-auto flex items-start md:items-center justify-center p-4 md:p-8">
+			<div id="quiz-modal-content" class="relative w-full max-w-2xl bg-dark rounded-2xl border border-white/10 shadow-2xl p-6 md:p-10 my-4 md:my-8 opacity-0 scale-95 transition-all duration-300 ease-out">
+
+				<!-- Bottone chiudi -->
+				<button id="quiz-close-btn" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-white/60 hover:text-white transition-all cursor-pointer z-10" aria-label="Chiudi quiz">
+					<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+				</button>
+
+				<!-- Toast ripristino -->
+				<div id="quiz-toast" class="hidden absolute top-4 left-1/2 -translate-x-1/2 bg-sky/20 border border-sky/30 text-sky-light text-sm font-heading font-semibold px-4 py-2 rounded-xl backdrop-blur-sm z-20 transition-opacity duration-300">
+					Ripreso da dove eri rimasto
+				</div>
+
+				<div id="quiz-container">
+
+					<!-- PROGRESS BAR -->
+					<div id="quiz-progress" class="hidden mb-10">
+						<div class="flex items-center justify-between mb-2">
+							<span class="text-white/60 text-xs font-heading font-semibold tracking-wider uppercase">Progresso</span>
+							<span id="quiz-progress-label" class="text-white/60 text-xs font-heading font-semibold">Step 1 / 5</span>
+						</div>
+						<div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
+							<div id="quiz-progress-bar" class="h-full rounded-full bg-gradient-to-r from-sky to-accent transition-all duration-500 ease-out" style="width: 20%"></div>
+						</div>
+						<div class="flex justify-between mt-2">
+							<span class="text-white/40 text-[10px] font-heading">Business</span>
+							<span class="text-white/40 text-[10px] font-heading">Operativita</span>
+							<span class="text-white/40 text-[10px] font-heading">Liquidita</span>
+							<span class="text-white/40 text-[10px] font-heading">Team</span>
+							<span class="text-white/40 text-[10px] font-heading">Visione</span>
+						</div>
+					</div>
+
+					<!-- INTRO SCREEN -->
+					<div id="quiz-intro" class="text-center">
+						<div class="w-16 h-1 bg-white/20 mb-8 mx-auto rounded-full"></div>
+						<p class="text-sky-light text-sm font-heading font-semibold tracking-wider uppercase mb-4">Diagnostica gratuita</p>
+						<h2 class="text-2xl md:text-4xl font-medium mb-6 !text-white">
+							Scopri cosa blocca davvero<br />
+							la tua rete vendita.
+						</h2>
+						<p class="text-white/80 text-lg leading-relaxed mb-2">
+							<strong class="text-white">5 aree. 10 domande. 3 minuti.</strong>
+						</p>
+						<p class="text-white/60 text-base leading-relaxed mb-10">
+							Nessuna email da lasciare per vedere il risultato. Nessun funnel.<br />
+							Alla fine, se quello che leggi ti suona familiare, puoi prenotare <strong class="text-white/80">15 minuti con Cristiano</strong>.
+						</p>
+						<button id="quiz-start-btn" class="btn-primary text-lg cursor-pointer">
+							Inizia il quiz
+							<svg class="inline w-5 h-5 ml-2 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+						</button>
+					</div>
+
+					<!-- STEP 1: Andamento del business -->
+					<div id="quiz-step-1" class="quiz-step hidden">
+						<p class="text-sky-light text-xs font-heading font-semibold tracking-wider uppercase mb-2">Area 1 di 5</p>
+						<h3 class="text-2xl md:text-3xl font-medium !text-white mb-8">Andamento del business</h3>
+
+						<div class="mb-8">
+							<p class="text-white text-base font-heading font-medium mb-4">Le vendite o il fatturato sono prevedibili mese per mese?</p>
+							<div class="grid gap-3" id="q1-options">
+								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
+									<input type="radio" name="q1" value="2" class="sr-only" />
+									<span class="flex items-center gap-3">
+										<span class="w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="w-2.5 h-2.5 rounded-full bg-sky scale-0 transition-transform"></span></span>
+										Si
+									</span>
+								</label>
+								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
+									<input type="radio" name="q1" value="1" class="sr-only" />
+									<span class="flex items-center gap-3">
+										<span class="w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="w-2.5 h-2.5 rounded-full bg-sky scale-0 transition-transform"></span></span>
+										Parzialmente
+									</span>
+								</label>
+								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
+									<input type="radio" name="q1" value="0" class="sr-only" />
+									<span class="flex items-center gap-3">
+										<span class="w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="w-2.5 h-2.5 rounded-full bg-sky scale-0 transition-transform"></span></span>
+										No
+									</span>
+								</label>
+							</div>
+							<p id="q1-error" class="text-red-400 text-sm mt-2 hidden">Seleziona una risposta per continuare.</p>
+						</div>
+
+						<div class="mb-8">
+							<p class="text-white/80 text-base font-heading font-medium mb-4">Quanti clienti generano l'80% del fatturato?</p>
+							<div class="flex flex-wrap items-center gap-3">
+								<label class="text-white/60 text-sm">N.</label>
+								<input type="text" name="q1a_num" placeholder="es. 5" class="w-20 px-3 py-2.5 rounded-lg border border-white/15 bg-white/5 text-white text-sm placeholder-white/30 focus:outline-none focus:border-sky/50 focus:ring-1 focus:ring-sky/30 transition-all" />
+								<label class="text-white/60 text-sm">su un totale di</label>
+								<input type="text" name="q1a_tot" placeholder="es. 40" class="w-20 px-3 py-2.5 rounded-lg border border-white/15 bg-white/5 text-white text-sm placeholder-white/30 focus:outline-none focus:border-sky/50 focus:ring-1 focus:ring-sky/30 transition-all" />
+							</div>
+						</div>
+					</div>
+
+					<!-- STEP 2: Indipendenza operativa -->
+					<div id="quiz-step-2" class="quiz-step hidden">
+						<p class="text-sky-light text-xs font-heading font-semibold tracking-wider uppercase mb-2">Area 2 di 5</p>
+						<h3 class="text-2xl md:text-3xl font-medium !text-white mb-8">Indipendenza operativa</h3>
+
+						<div class="mb-8">
+							<p class="text-white text-base font-heading font-medium mb-4">Se manchi per 2 settimane, cosa si ferma in azienda?</p>
+							<div class="grid gap-3" id="q2-options">
+								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
+									<input type="radio" name="q2" value="2" class="sr-only" />
+									<span class="flex items-center gap-3">
+										<span class="w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="w-2.5 h-2.5 rounded-full bg-sky scale-0 transition-transform"></span></span>
+										Niente
+									</span>
+								</label>
+								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
+									<input type="radio" name="q2" value="1" class="sr-only" />
+									<span class="flex items-center gap-3">
+										<span class="w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="w-2.5 h-2.5 rounded-full bg-sky scale-0 transition-transform"></span></span>
+										Alcune cose
+									</span>
+								</label>
+								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
+									<input type="radio" name="q2" value="0" class="sr-only" />
+									<span class="flex items-center gap-3">
+										<span class="w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="w-2.5 h-2.5 rounded-full bg-sky scale-0 transition-transform"></span></span>
+										Tutto
+									</span>
+								</label>
+							</div>
+							<p id="q2-error" class="text-red-400 text-sm mt-2 hidden">Seleziona una risposta per continuare.</p>
+						</div>
+
+						<div class="mb-8">
+							<p class="text-white/80 text-base font-heading font-medium mb-4">Chi decide quando tu non ci sei?</p>
+							<div class="flex flex-wrap items-center gap-3">
+								<label class="text-white/60 text-sm">Nome</label>
+								<input type="text" name="q2a_nome" placeholder="es. Marco" class="w-36 px-3 py-2.5 rounded-lg border border-white/15 bg-white/5 text-white text-sm placeholder-white/30 focus:outline-none focus:border-sky/50 focus:ring-1 focus:ring-sky/30 transition-all" />
+								<label class="text-white/60 text-sm">Funzione</label>
+								<input type="text" name="q2a_funzione" placeholder="es. Dir. commerciale" class="w-44 px-3 py-2.5 rounded-lg border border-white/15 bg-white/5 text-white text-sm placeholder-white/30 focus:outline-none focus:border-sky/50 focus:ring-1 focus:ring-sky/30 transition-all" />
+							</div>
+						</div>
+					</div>
+
+					<!-- STEP 3: Liquidita e marginalita -->
+					<div id="quiz-step-3" class="quiz-step hidden">
+						<p class="text-sky-light text-xs font-heading font-semibold tracking-wider uppercase mb-2">Area 3 di 5</p>
+						<h3 class="text-2xl md:text-3xl font-medium !text-white mb-8">Liquidita e marginalita</h3>
+
+						<div class="mb-8">
+							<p class="text-white text-base font-heading font-medium mb-4">Hai un cruscotto mensile che ti consenta di monitorare i risultati?</p>
+							<div class="grid gap-3" id="q3-options">
+								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
+									<input type="radio" name="q3" value="2" class="sr-only" />
+									<span class="flex items-center gap-3">
+										<span class="w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="w-2.5 h-2.5 rounded-full bg-sky scale-0 transition-transform"></span></span>
+										Si
+									</span>
+								</label>
+								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
+									<input type="radio" name="q3" value="1" class="sr-only" />
+									<span class="flex items-center gap-3">
+										<span class="w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="w-2.5 h-2.5 rounded-full bg-sky scale-0 transition-transform"></span></span>
+										Parziale
+									</span>
+								</label>
+								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
+									<input type="radio" name="q3" value="0" class="sr-only" />
+									<span class="flex items-center gap-3">
+										<span class="w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="w-2.5 h-2.5 rounded-full bg-sky scale-0 transition-transform"></span></span>
+										No
+									</span>
+								</label>
+							</div>
+							<p id="q3-error" class="text-red-400 text-sm mt-2 hidden">Seleziona una risposta per continuare.</p>
+						</div>
+
+						<div class="mb-8">
+							<p class="text-white text-base font-heading font-medium mb-4">Conosci la redditivita per cliente e per prodotto?</p>
+							<div class="grid gap-3" id="q3a-options">
+								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
+									<input type="radio" name="q3a" value="2" class="sr-only" />
+									<span class="flex items-center gap-3">
+										<span class="w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="w-2.5 h-2.5 rounded-full bg-sky scale-0 transition-transform"></span></span>
+										Si
+									</span>
+								</label>
+								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
+									<input type="radio" name="q3a" value="1" class="sr-only" />
+									<span class="flex items-center gap-3">
+										<span class="w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="w-2.5 h-2.5 rounded-full bg-sky scale-0 transition-transform"></span></span>
+										Parzialmente
+									</span>
+								</label>
+								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
+									<input type="radio" name="q3a" value="0" class="sr-only" />
+									<span class="flex items-center gap-3">
+										<span class="w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="w-2.5 h-2.5 rounded-full bg-sky scale-0 transition-transform"></span></span>
+										No
+									</span>
+								</label>
+							</div>
+							<p id="q3a-error" class="text-red-400 text-sm mt-2 hidden">Seleziona una risposta per continuare.</p>
+						</div>
+					</div>
+
+					<!-- STEP 4: Competenze del team -->
+					<div id="quiz-step-4" class="quiz-step hidden">
+						<p class="text-sky-light text-xs font-heading font-semibold tracking-wider uppercase mb-2">Area 4 di 5</p>
+						<h3 class="text-2xl md:text-3xl font-medium !text-white mb-8">Competenze del team</h3>
+
+						<div class="mb-8">
+							<p class="text-white text-base font-heading font-medium mb-4">Hai delle persone in ruoli chiave, che sono difficili da sostituire?</p>
+							<div class="grid gap-3" id="q4-options">
+								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
+									<input type="radio" name="q4" value="2" class="sr-only" />
+									<span class="flex items-center gap-3">
+										<span class="w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="w-2.5 h-2.5 rounded-full bg-sky scale-0 transition-transform"></span></span>
+										Nessuna
+									</span>
+								</label>
+								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
+									<input type="radio" name="q4" value="1" class="sr-only" />
+									<span class="flex items-center gap-3">
+										<span class="w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="w-2.5 h-2.5 rounded-full bg-sky scale-0 transition-transform"></span></span>
+										Alcune
+									</span>
+								</label>
+								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
+									<input type="radio" name="q4" value="0" class="sr-only" />
+									<span class="flex items-center gap-3">
+										<span class="w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="w-2.5 h-2.5 rounded-full bg-sky scale-0 transition-transform"></span></span>
+										Molte
+									</span>
+								</label>
+							</div>
+							<p id="q4-error" class="text-red-400 text-sm mt-2 hidden">Seleziona una risposta per continuare.</p>
+						</div>
+
+						<div class="mb-8">
+							<p class="text-white text-base font-heading font-medium mb-4">Hai ruoli scoperti che frenano la tua espansione?</p>
+							<div class="grid gap-3" id="q4a-options">
+								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
+									<input type="radio" name="q4a" value="2" class="sr-only" />
+									<span class="flex items-center gap-3">
+										<span class="w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="w-2.5 h-2.5 rounded-full bg-sky scale-0 transition-transform"></span></span>
+										Nessuno
+									</span>
+								</label>
+								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
+									<input type="radio" name="q4a" value="1" class="sr-only" />
+									<span class="flex items-center gap-3">
+										<span class="w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="w-2.5 h-2.5 rounded-full bg-sky scale-0 transition-transform"></span></span>
+										Alcuni
+									</span>
+								</label>
+								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
+									<input type="radio" name="q4a" value="0" class="sr-only" />
+									<span class="flex items-center gap-3">
+										<span class="w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="w-2.5 h-2.5 rounded-full bg-sky scale-0 transition-transform"></span></span>
+										Molti
+									</span>
+								</label>
+							</div>
+							<p id="q4a-error" class="text-red-400 text-sm mt-2 hidden">Seleziona una risposta per continuare.</p>
+						</div>
+					</div>
+
+					<!-- STEP 5: Visione strategica -->
+					<div id="quiz-step-5" class="quiz-step hidden">
+						<p class="text-sky-light text-xs font-heading font-semibold tracking-wider uppercase mb-2">Area 5 di 5</p>
+						<h3 class="text-2xl md:text-3xl font-medium !text-white mb-8">Visione strategica e priorita</h3>
+
+						<div class="mb-8">
+							<p class="text-white text-base font-heading font-medium mb-4">Hai un piano scritto per i prossimi 12 mesi?</p>
+							<div class="grid gap-3" id="q5-options">
+								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
+									<input type="radio" name="q5" value="2" class="sr-only" />
+									<span class="flex items-center gap-3">
+										<span class="w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="w-2.5 h-2.5 rounded-full bg-sky scale-0 transition-transform"></span></span>
+										Si
+									</span>
+								</label>
+								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
+									<input type="radio" name="q5" value="1" class="sr-only" />
+									<span class="flex items-center gap-3">
+										<span class="w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="w-2.5 h-2.5 rounded-full bg-sky scale-0 transition-transform"></span></span>
+										Parziale
+									</span>
+								</label>
+								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
+									<input type="radio" name="q5" value="0" class="sr-only" />
+									<span class="flex items-center gap-3">
+										<span class="w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="w-2.5 h-2.5 rounded-full bg-sky scale-0 transition-transform"></span></span>
+										No
+									</span>
+								</label>
+							</div>
+							<p id="q5-error" class="text-red-400 text-sm mt-2 hidden">Seleziona una risposta per continuare.</p>
+						</div>
+
+						<div class="mb-8">
+							<p class="text-white text-base font-heading font-medium mb-4">Sai quali investimenti genererebbero il maggior valore?</p>
+							<div class="grid gap-3" id="q5a-options">
+								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
+									<input type="radio" name="q5a" value="2" class="sr-only" />
+									<span class="flex items-center gap-3">
+										<span class="w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="w-2.5 h-2.5 rounded-full bg-sky scale-0 transition-transform"></span></span>
+										Si
+									</span>
+								</label>
+								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
+									<input type="radio" name="q5a" value="1" class="sr-only" />
+									<span class="flex items-center gap-3">
+										<span class="w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="w-2.5 h-2.5 rounded-full bg-sky scale-0 transition-transform"></span></span>
+										Parzialmente
+									</span>
+								</label>
+								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
+									<input type="radio" name="q5a" value="0" class="sr-only" />
+									<span class="flex items-center gap-3">
+										<span class="w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="w-2.5 h-2.5 rounded-full bg-sky scale-0 transition-transform"></span></span>
+										No
+									</span>
+								</label>
+							</div>
+							<p id="q5a-error" class="text-red-400 text-sm mt-2 hidden">Seleziona una risposta per continuare.</p>
+						</div>
+					</div>
+
+					<!-- NAVIGATION BUTTONS (for steps 1-5) -->
+					<div id="quiz-nav" class="hidden flex items-center justify-between mt-10">
+						<button id="quiz-prev" class="hidden text-white/60 hover:text-white text-sm font-heading font-semibold transition-colors cursor-pointer flex items-center gap-2">
+							<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" /></svg>
+							Indietro
+						</button>
+						<div></div>
+						<button id="quiz-next" class="btn-primary !text-base cursor-pointer">
+							Avanti
+							<svg class="inline w-4 h-4 ml-1.5 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+						</button>
+					</div>
+
+					<!-- RESULTS SCREEN -->
+					<div id="quiz-results" class="quiz-step hidden text-center">
+						<div class="w-16 h-1 bg-white/20 mb-8 mx-auto rounded-full"></div>
+						<p class="text-sky-light text-sm font-heading font-semibold tracking-wider uppercase mb-4">Il tuo risultato</p>
+
+						<div class="mb-8">
+							<div class="text-6xl md:text-7xl font-heading font-bold !text-white mb-2">
+								<span id="result-score">0</span><span class="text-white/40">/16</span>
+							</div>
+							<div class="w-full max-w-md mx-auto h-3 rounded-full bg-white/10 overflow-hidden mt-4">
+								<div id="result-bar" class="h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
+							</div>
+						</div>
+
+						<div id="result-message" class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8 mb-10 text-left">
+							<p id="result-text" class="text-white text-lg font-heading font-medium mb-0"></p>
+						</div>
+
+						<!-- Email form per analisi completa -->
+						<div id="quiz-email-section">
+							<p class="text-white text-xl md:text-2xl font-heading font-bold mb-2">Vuoi l'analisi completa area per area?</p>
+							<p class="text-white/60 text-base font-heading mb-8">Cristiano analizzer&agrave; personalmente i tuoi risultati e ti invier&agrave; un report dettagliato.</p>
+
+							<form id="quiz-email-form" action="#" class="max-w-md mx-auto mb-8">
+								<div class="flex flex-col gap-3">
+									<input
+										type="text"
+										name="quiz_nome"
+										required
+										placeholder="Il tuo nome"
+										class="w-full rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm px-5 py-3.5 text-white placeholder-white/40 text-sm font-heading focus:outline-none focus:border-sky/50 focus:ring-1 focus:ring-sky/50 transition-colors"
+									/>
+									<input
+										type="text"
+										name="quiz_azienda"
+										required
+										placeholder="Nome dell'azienda"
+										class="w-full rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm px-5 py-3.5 text-white placeholder-white/40 text-sm font-heading focus:outline-none focus:border-sky/50 focus:ring-1 focus:ring-sky/50 transition-colors"
+									/>
+									<input
+										type="text"
+										name="quiz_settore"
+										required
+										placeholder="Settore (es. manifatturiero, servizi...)"
+										class="w-full rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm px-5 py-3.5 text-white placeholder-white/40 text-sm font-heading focus:outline-none focus:border-sky/50 focus:ring-1 focus:ring-sky/50 transition-colors"
+									/>
+									<input
+										type="email"
+										name="email"
+										required
+										placeholder="La tua email"
+										class="w-full rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm px-5 py-3.5 text-white placeholder-white/40 text-sm font-heading focus:outline-none focus:border-sky/50 focus:ring-1 focus:ring-sky/50 transition-colors"
+									/>
+									<button type="submit" class="btn-primary !text-sm whitespace-nowrap cursor-pointer w-full">
+										Ricevi l'analisi completa
+										<svg class="inline w-4 h-4 ml-1.5 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+									</button>
+								</div>
+							</form>
+
+							<!-- Bonus box -->
+							<div class="rounded-2xl border border-accent/20 bg-accent/5 backdrop-blur-sm p-6 md:p-8 text-left">
+								<p class="text-accent-glow text-xs font-heading font-semibold tracking-wider uppercase mb-4">Inclusi nell'analisi gratuita</p>
+								<ul class="space-y-3">
+									<li class="flex items-start gap-3">
+										<svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+										<span class="text-white/80 text-sm">Analisi personalizzata dei risultati da Cristiano <span class="text-white/40">(valore 97 EUR)</span></span>
+									</li>
+									<li class="flex items-start gap-3">
+										<svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+										<span class="text-white/80 text-sm">Ebook "Dal Management all'Engagement"</span>
+									</li>
+									<li class="flex items-start gap-3">
+										<svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+										<span class="text-white/80 text-sm">10 email per iniziare il risveglio della rete vendita</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- Conferma post-submit -->
+						<div id="quiz-email-confirm" class="hidden">
+							<div class="rounded-2xl border border-green-500/20 bg-green-500/5 backdrop-blur-sm p-6 md:p-8 mb-6">
+								<svg class="w-12 h-12 text-green-400 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+								<p class="text-white text-xl font-heading font-bold mb-2">Perfetto! Controlla la tua inbox.</p>
+								<p class="text-white/60 text-base font-heading">Cristiano analizzer&agrave; i tuoi risultati e ti contatter&agrave; entro 48 ore.</p>
+							</div>
+							<p class="text-white/40 text-sm italic mt-8 max-w-lg mx-auto">
+								"La prevenzione costa 1/20 della cura... approfondire preliminarmente ti conviene."
+							</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Quiz Script -->
+	<script>
+	(function() {
+		const $ = (sel) => document.querySelector(sel);
+		const $$ = (sel) => document.querySelectorAll(sel);
+
+		const STORAGE_KEY = 'pusca-quiz';
+		let currentStep = 0; // 0 = intro
+
+		const radioFields = ['q1', 'q2', 'q3', 'q3a', 'q4', 'q4a', 'q5', 'q5a'];
+		const textFields = ['q1a_num', 'q1a_tot', 'q2a_nome', 'q2a_funzione'];
+
+		const stepQuestions = {
+			1: ['q1'],
+			2: ['q2'],
+			3: ['q3', 'q3a'],
+			4: ['q4', 'q4a'],
+			5: ['q5', 'q5a']
+		};
+
+		const areaMaxScores = { 1: 2, 2: 2, 3: 4, 4: 4, 5: 4 };
+
+		// --- localStorage helpers ---
+		function saveState() {
+			const state = { currentStep: currentStep };
+			radioFields.forEach(name => {
+				const checked = $(`input[name="${name}"]:checked`);
+				if (checked) state[name] = checked.value;
+			});
+			textFields.forEach(name => {
+				const el = $(`input[name="${name}"]`);
+				if (el && el.value) state[name] = el.value;
+			});
+			try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {}
+		}
+
+		function loadState() {
+			try {
+				const raw = localStorage.getItem(STORAGE_KEY);
+				return raw ? JSON.parse(raw) : null;
+			} catch(e) { return null; }
+		}
+
+		function clearState() {
+			try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+		}
+
+		function restoreState(state) {
+			// Restore radio selections
+			radioFields.forEach(name => {
+				if (state[name] !== undefined) {
+					const radio = $(`input[name="${name}"][value="${state[name]}"]`);
+					if (radio) {
+						radio.checked = true;
+						// Update visual dot
+						const dot = radio.closest('label').querySelector('.bg-sky');
+						if (dot) dot.style.transform = 'scale(1)';
+					}
+				}
+			});
+			// Restore text fields
+			textFields.forEach(name => {
+				if (state[name] !== undefined) {
+					const el = $(`input[name="${name}"]`);
+					if (el) el.value = state[name];
+				}
+			});
+		}
+
+		// --- Modal open/close ---
+		function openModal(resumeFromState) {
+			const modal = $('#quiz-modal');
+			const content = $('#quiz-modal-content');
+			modal.classList.remove('hidden');
+			document.body.style.overflow = 'hidden';
+
+			// Trigger animation
+			requestAnimationFrame(() => {
+				content.style.opacity = '1';
+				content.style.transform = 'scale(1)';
+			});
+
+			if (resumeFromState) {
+				restoreState(resumeFromState);
+				const step = resumeFromState.currentStep || 0;
+				showStep(step > 0 ? step : 1, true);
+				// Show toast
+				const toast = $('#quiz-toast');
+				toast.classList.remove('hidden');
+				setTimeout(() => { toast.style.opacity = '0'; }, 2500);
+				setTimeout(() => { toast.classList.add('hidden'); toast.style.opacity = '1'; }, 3000);
+			} else {
+				showStep(0, true);
+			}
+		}
+
+		function closeModal() {
+			const modal = $('#quiz-modal');
+			const content = $('#quiz-modal-content');
+			content.style.opacity = '0';
+			content.style.transform = 'scale(0.95)';
+
+			setTimeout(() => {
+				modal.classList.add('hidden');
+				document.body.style.overflow = '';
+			}, 300);
+
+			// Save state if quiz is in progress (step 1-5)
+			if (currentStep >= 1 && currentStep <= 5) {
+				saveState();
+			}
+			updateCTAButton();
+		}
+
+		// --- CTA button text ---
+		function updateCTAButton() {
+			const state = loadState();
+			const btnText = $('#quiz-open-btn-text');
+			if (state && state.currentStep >= 1) {
+				btnText.textContent = 'Riprendi il quiz';
+			} else {
+				btnText.textContent = 'Inizia il quiz';
+			}
+		}
+
+		// Radio indicator animation via CSS has-checked
+		$$('.quiz-option input[type="radio"]').forEach(radio => {
+			radio.addEventListener('change', () => {
+				const name = radio.name;
+				$$(`input[name="${name}"]`).forEach(r => {
+					const dot = r.closest('label').querySelector('.bg-sky');
+					if (dot) dot.style.transform = r.checked ? 'scale(1)' : 'scale(0)';
+				});
+				// Save on every radio change
+				saveState();
+			});
+		});
+
+		// Save text fields on input
+		textFields.forEach(name => {
+			const el = $(`input[name="${name}"]`);
+			if (el) el.addEventListener('input', () => saveState());
+		});
+
+		function showStep(step, skipScroll) {
+			// Hide all
+			$('#quiz-intro').classList.add('hidden');
+			$$('.quiz-step').forEach(el => el.classList.add('hidden'));
+			$('#quiz-nav').classList.add('hidden');
+			$('#quiz-progress').classList.add('hidden');
+
+			if (step === 0) {
+				$('#quiz-intro').classList.remove('hidden');
+				$('#quiz-intro').style.opacity = '0';
+				requestAnimationFrame(() => {
+					$('#quiz-intro').style.transition = 'opacity 0.4s ease';
+					$('#quiz-intro').style.opacity = '1';
+				});
+			} else if (step >= 1 && step <= 5) {
+				const el = $(`#quiz-step-${step}`);
+				el.classList.remove('hidden');
+				el.style.opacity = '0';
+				el.style.transform = 'translateY(12px)';
+				requestAnimationFrame(() => {
+					el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+					el.style.opacity = '1';
+					el.style.transform = 'translateY(0)';
+				});
+
+				$('#quiz-nav').classList.remove('hidden');
+				$('#quiz-progress').classList.remove('hidden');
+
+				// Update progress
+				$('#quiz-progress-label').textContent = `Step ${step} / 5`;
+				$('#quiz-progress-bar').style.width = `${step * 20}%`;
+
+				// Show/hide prev
+				if (step === 1) {
+					$('#quiz-prev').classList.add('hidden');
+				} else {
+					$('#quiz-prev').classList.remove('hidden');
+				}
+
+				// Last step: change button text
+				$('#quiz-next').innerHTML = step === 5
+					? 'Vedi risultati <svg class="inline w-4 h-4 ml-1.5 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>'
+					: 'Avanti <svg class="inline w-4 h-4 ml-1.5 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>';
+			} else if (step === 6) {
+				showResults();
+			}
+
+			// Scroll modal content to top
+			if (!skipScroll) {
+				const scrollContainer = $('#quiz-modal-content').closest('.overflow-y-auto');
+				if (scrollContainer) scrollContainer.scrollTop = 0;
+			}
+			currentStep = step;
+			saveState();
+		}
+
+		function validateStep(step) {
+			const questions = stepQuestions[step];
+			let valid = true;
+			questions.forEach(q => {
+				const selected = $(`input[name="${q}"]:checked`);
+				const errorEl = $(`#${q}-error`);
+				if (!selected && errorEl) {
+					errorEl.classList.remove('hidden');
+					valid = false;
+				} else if (errorEl) {
+					errorEl.classList.add('hidden');
+				}
+			});
+			return valid;
+		}
+
+		function getScore(name) {
+			const el = $(`input[name="${name}"]:checked`);
+			return el ? parseInt(el.value, 10) : 0;
+		}
+
+		function showResults() {
+			const el = $('#quiz-results');
+			el.classList.remove('hidden');
+			$('#quiz-nav').classList.add('hidden');
+			$('#quiz-progress').classList.add('hidden');
+
+			el.style.opacity = '0';
+			el.style.transform = 'translateY(12px)';
+			requestAnimationFrame(() => {
+				el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+				el.style.opacity = '1';
+				el.style.transform = 'translateY(0)';
+			});
+
+			// Calculate total score
+			const total = getScore('q1') + getScore('q2') + getScore('q3') + getScore('q3a') + getScore('q4') + getScore('q4a') + getScore('q5') + getScore('q5a');
+
+			// Animate score number
+			$('#result-score').textContent = total;
+
+			// Result bar color + width
+			const pct = Math.round((total / 16) * 100);
+			let barColor, messageText;
+
+			if (total <= 5) {
+				barColor = 'bg-gradient-to-r from-red-500 to-orange-500';
+				messageText = 'La tua rete vendita ha bisogno di un intervento profondo. I segnali ci sono tutti: poca prevedibilita, dipendenza dal fondatore, margini opachi. La buona notizia? Riconoscerlo e il primo passo.';
+			} else if (total <= 10) {
+				barColor = 'bg-gradient-to-r from-yellow-500 to-amber-400';
+				messageText = 'Ci sono margini importanti di miglioramento. Alcune aree funzionano, altre sono scoperte. Con interventi mirati su 2-3 punti critici, puoi fare un salto significativo.';
+			} else {
+				barColor = 'bg-gradient-to-r from-green-500 to-emerald-400';
+				messageText = 'Buona base, ma potresti fare molto di piu. Hai struttura, ma probabilmente senti che qualcosa manca. Spesso e il livello successivo che richiede un approccio diverso.';
+			}
+
+			const resultBar = $('#result-bar');
+			resultBar.className = `h-full rounded-full transition-all duration-1000 ease-out ${barColor}`;
+			setTimeout(() => { resultBar.style.width = `${pct}%`; }, 100);
+
+			$('#result-text').textContent = messageText;
+
+			// Clear saved state when results are shown
+			clearState();
+			updateCTAButton();
+		}
+
+		// --- Event listeners ---
+
+		// Open modal from CTA button
+		$('#quiz-open-btn').addEventListener('click', () => {
+			const state = loadState();
+			openModal(state);
+		});
+
+		// Close modal
+		$('#quiz-close-btn').addEventListener('click', closeModal);
+		$('#quiz-overlay').addEventListener('click', closeModal);
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape' && !$('#quiz-modal').classList.contains('hidden')) {
+				closeModal();
+			}
+		});
+
+		// Start quiz from intro inside modal
+		$('#quiz-start-btn').addEventListener('click', () => showStep(1));
+
+		$('#quiz-next').addEventListener('click', () => {
+			if (validateStep(currentStep)) {
+				showStep(currentStep + 1);
+			}
+		});
+
+		$('#quiz-prev').addEventListener('click', () => {
+			if (currentStep > 1) showStep(currentStep - 1);
+		});
+
+		// Email form submit → Mailchimp
+		$('#quiz-email-form').addEventListener('submit', async (e) => {
+			e.preventDefault();
+			const btn = e.target.querySelector('button[type="submit"]');
+			const originalText = btn.innerHTML;
+			btn.disabled = true;
+			btn.innerHTML = '<span class="inline-block animate-spin mr-2">&#9696;</span>Invio in corso...';
+
+			const nome = e.target.quiz_nome.value.trim();
+			const email = e.target.email.value.trim();
+			const azienda = e.target.quiz_azienda.value.trim();
+			const settore = e.target.quiz_settore.value.trim();
+
+			// Get score from result display
+			const scoreEl = $('#result-score');
+			const score = scoreEl ? parseInt(scoreEl.textContent, 10) : 0;
+			let fascia = 'critico';
+			if (score > 10) fascia = 'buono';
+			else if (score > 5) fascia = 'migliorabile';
+
+			// Split nome into first/last
+			const parts = nome.split(' ');
+			const fname = parts[0] || '';
+			const lname = parts.slice(1).join(' ') || '';
+
+			// Mailchimp jsonp subscribe (client-side, no CORS issues)
+			const listUrl = 'https://bpda.us13.list-manage.com/subscribe/post-json';
+			const params = new URLSearchParams({
+				u: 'd327453d6178f9f8dfe810d6f',
+				id: '2a69d16d64',
+				FNAME: fname,
+				LNAME: lname,
+				EMAIL: email,
+				AZIENDA: azienda,
+				SETTORE: settore,
+				SCORE: score,
+				FASCIA: fascia,
+				c: 'mcCallback'
+			});
+
+			try {
+				await new Promise((resolve, reject) => {
+					window.mcCallback = (data) => {
+						delete window.mcCallback;
+						if (data.result === 'success' || data.msg.includes('already subscribed')) resolve();
+						else reject(new Error(data.msg));
+					};
+					const script = document.createElement('script');
+					script.src = `${listUrl}?${params.toString()}`;
+					script.onerror = () => reject(new Error('Network error'));
+					document.body.appendChild(script);
+					setTimeout(() => { reject(new Error('Timeout')); }, 10000);
+				});
+			} catch (err) {
+				console.warn('Mailchimp subscribe error:', err.message);
+				// Show confirmation anyway - data collected in form
+			}
+
+			clearState();
+			updateCTAButton();
+			$('#quiz-email-section').style.opacity = '1';
+			$('#quiz-email-section').style.transition = 'opacity 0.3s ease';
+			$('#quiz-email-section').style.opacity = '0';
+			setTimeout(() => {
+				$('#quiz-email-section').classList.add('hidden');
+				const confirm = $('#quiz-email-confirm');
+				confirm.classList.remove('hidden');
+				confirm.style.opacity = '0';
+				confirm.style.transform = 'translateY(8px)';
+				requestAnimationFrame(() => {
+					confirm.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+					confirm.style.opacity = '1';
+					confirm.style.transform = 'translateY(0)';
+				});
+			}, 300);
+		});
+
+		// On page load: update CTA button text
+		updateCTAButton();
+	})();
+
+	// Newsletter Mailchimp integration
+	document.getElementById('newsletter-form')?.addEventListener('submit', async (e) => {
+		e.preventDefault();
+		const email = document.getElementById('newsletter-email').value.trim();
+		const btn = document.getElementById('newsletter-btn');
+		const msg = document.getElementById('newsletter-msg');
+		if (!email) return;
+
+		btn.disabled = true;
+		btn.textContent = 'Invio...';
+
+		const params = new URLSearchParams({
+			u: 'd327453d6178f9f8dfe810d6f',
+			id: '2a69d16d64',
+			EMAIL: email,
+			c: 'nlCallback'
+		});
+
+		try {
+			await new Promise((resolve, reject) => {
+				window.nlCallback = (data) => {
+					delete window.nlCallback;
+					if (data.result === 'success' || data.msg?.includes('already subscribed')) resolve();
+					else reject(new Error(data.msg));
+				};
+				const s = document.createElement('script');
+				s.src = `https://bpda.us13.list-manage.com/subscribe/post-json?${params.toString()}`;
+				s.onerror = () => reject(new Error('Network error'));
+				document.body.appendChild(s);
+				setTimeout(() => reject(new Error('Timeout')), 10000);
+			});
+			msg.textContent = 'Iscrizione completata! Controlla la tua email.';
+			msg.classList.remove('text-gray-400');
+			msg.classList.add('text-accent-dark', 'font-medium');
+			document.getElementById('newsletter-email').value = '';
+		} catch (err) {
+			msg.textContent = 'Qualcosa non ha funzionato. Riprova.';
+			msg.classList.remove('text-gray-400');
+			msg.classList.add('text-red-500');
+		} finally {
+			btn.disabled = false;
+			btn.innerHTML = 'Iscriviti <svg class="inline w-4 h-4 ml-1.5 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>';
+		}
+	});
+	</script>
 
 	<!-- ═══════════════════════════════════════════
 	     SEZIONE 7 — NEWSLETTER — SLATE
@@ -446,19 +1317,20 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 			</div>
 
-			<form class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+			<form id="newsletter-form" class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
 				<input
+					id="newsletter-email"
 					type="email"
 					placeholder="La tua email"
 					required
 					class="flex-1 px-5 py-3.5 rounded-xl border border-gray-300 bg-white text-gray-800 text-base placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky/30 focus:border-sky transition-all"
 				/>
-				<button type="submit" class="btn-primary whitespace-nowrap !py-3.5">
+				<button id="newsletter-btn" type="submit" class="btn-primary whitespace-nowrap !py-3.5">
 					Iscriviti
 					<svg class="inline w-4 h-4 ml-1.5 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
 				</button>
 			</form>
-			<p class="text-gray-400 text-xs mt-4">Niente spam. Cancellati quando vuoi.</p>
+			<p id="newsletter-msg" class="text-gray-400 text-xs mt-4">Niente spam. Cancellati quando vuoi.</p>
 		</div>
 	</section>
 
@@ -479,8 +1351,8 @@ import Layout from '../layouts/Layout.astro';
 					<p class="text-gray-400 text-xs font-heading font-semibold tracking-wider uppercase mb-3">Contatti</p>
 					<div class="space-y-2">
 						<a href="mailto:cristiano@cristianopusca.it" class="text-gray-400 text-sm hover:text-sky-light transition-colors block">cristiano@cristianopusca.it</a>
-						<a href="#" target="_blank" rel="noopener" class="text-gray-400 text-sm hover:text-sky-light transition-colors block">LinkedIn</a>
-						<a href="tel:+39000000000" class="text-gray-400 text-sm hover:text-sky-light transition-colors block">Telefono</a>
+						<!-- TODO: aggiungere URL LinkedIn e numero telefono reali -->
+						<span class="text-gray-500 text-sm block">LinkedIn (in arrivo)</span>
 					</div>
 				</div>
 				<!-- Nav -->

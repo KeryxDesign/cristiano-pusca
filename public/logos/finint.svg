@@ -1,0 +1,586 @@
+
+<!-- PAGINA IN ITALIANO -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>BANCA FININT</title>
+    <meta name="language" content="it" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <link href="/it/css/style.css" rel="stylesheet">
+    
+    <link rel="icon" type="image/x-icon" href="https://www.bancafinint.com/favicon.ico" />
+    <link rel="Shortcut Icon" type="image/x-icon" href="https://www.bancafinint.com/favicon.ico" />
+    
+    <script type="application/javascript" src="/it/js/main.min.js"></script>
+    <script type="application/javascript" src="/it/js/login.js"></script>
+    <script
+	  src="https://code.jquery.com/jquery-3.6.4.min.js"
+	  integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+	  crossorigin="anonymous">
+    </script>
+
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+   
+    
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    
+</head>
+<body class="valori">
+
+<!-- Messaggio azzurro top
+			<div class="messaggioTop"><span class="glyphicon glyphicon-refresh"></span> SITO IN AGGIORNAMENTO</div>
+			fine messaggio azzurro top-->
+<header class="top-header">
+  <div data-spy="affix" data-offset-top="125"> 
+    <!--div class="desktop-navigation hidden-xs hidden-sm" style="margin-top: 23px"-->
+    <div class="desktop-navigation hidden-xs hidden-sm">
+      <div class="container">
+        <div class="row clearfix" style="width: 1290px">
+          <div class="logo logo-column"> <a href="/" title="Banca Finint Home Page" class=""><span class="hidden">Banca Finint Home Page</span></a> </div>
+          <div class="menues-column">
+            <nav class="navbar nav-secondary" role="navigation">
+              <ul class="nav nav-pills menu-secondary-left pull-left">
+                <li> <a href="/it/chi-siamo/index.php" class="<? echo $menuTopA01; ?>">Chi siamo</a> </li>
+                <li> <a href="/it/cosa-facciamo/index.php" class="<? echo $menuTopA02; ?>">Cosa facciamo</a> </li>
+                <li> <a href="/it/la-nostra-identita.php" class="<? echo $menuTopA03; ?>">La nostra identità</a> </li>
+                <li> <a href="/it/risultati-economici.php" class="<? echo $menuTopA04; ?>">Risultati</a> </li>
+              </ul>
+              <ul class="nav nav-pills menu-secondary-center pull-right">
+                <li> <a href="/it/press/comunicati-stampa.php">Press</a> </li>
+                <li> <a href="/it/news/index.php">News</a> </li>
+                <li> <a href="/it/multimedia/index.php">Multimedia</a> </li>
+                <!--li class="search">
+                                        <a href="/search.html"><i class="finit-glyph-icon finit-glyph-search" aria-hidden="true"></i>Cerca</a>
+                </li-->
+		<li> <a href="/it/contatti.php">Contatti</a> </li>
+
+                                <li> <a href="/it/sostenibilita.php" class="btn btn-xs" style="background-color: #2dbb69;">Sostenibilità</a> </li> 
+
+                <li class="login"> <a href="#" class="loginToggle btn btn-xs btn-primary" style="background-color: #2272c4;" onclick="$('.login3').slideToggle(200); return false;">Fondi PNRR</a>
+                  <ul class="login3" style="display: none;">
+                    <li>
+                      <a href="/it/fondoturismosostenibile.php" target="_blank" class="fondopnrr-a"><img src="/it/img/fondo-turismo-sostenibile_logo.svg"><span class="fondopnrr-btn">Apri</span></a>
+                      <a href="/it/fondopianiurbaniintegrati.php" target="_blank" class="fondopnrr-a"><img src="/it/img/fondi-piani-urbani_logo.svg"><span class="fondopnrr-btn">Apri</span></a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="login"> <a href="#" class="loginToggle btn btn-xs btn-primary" onclick="$('.login2').slideToggle(200); return false;"><img src="/it/img/icon-home.png" class="iconhome">&nbsp;&nbsp;Entra in Banca</a>
+                  <ul class="login2" style="display: none">
+                    <li>
+                      <!-- a href="https://depositonline.bancafinint.com/?itm_source=www.bancafinint.com&itm_medium=sito" target="_blank" class="aprideposito"><img src="//img/non-sei-cliente.png"><span class="aprideposito">Apri</span></a -->
+		      <a href="https://areariservata.bancafinint.com/Mito7/faces/pages/login.xhtml" target="_blank"><img src="/it/img/mito-internet-banking.png"><span class="accedi">Accedi</span></a>
+                      <a href="https://www.paco.cabel.it/03266/index.html" target="_blank"><img src="/it/img/mito-corporate-banking.png"><span class="accedi">Accedi</span></a>
+                    </li>
+                  </ul>
+                </li>
+                <!--login 20170323
+                                    <li class="login">
+                                        <a href="https://areariservata.bancafinint.com/Mito7/" target="_blank" class="btn btn-xs btn-primary">Accedi</a>
+                                    </li>
+                                    -->
+                <!-- li class="language dropdown"> <a class="dropdown-toggle" type="button" id="dropdownMenuLang1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="#">ITA <i class="finit-glyph-icon finit-glyph-arrowmenu"></i></a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLang1">
+                    <li class="disabled"> <a href="#">Italiano</a> </li>
+                    <li> <a href="/en/">English</a> </li -->
+                    <!--li role="separator" class="divider"></li>
+                                            <li>
+                                                <a href="/ru/">русский</a>
+                                            </li>
+                                            <li>
+                                                <a href="/de/">Deutsch</a>
+                                            </li-->
+                  <!-- /ul>
+                </li -->
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <nav class="navbar nav-primary" role="navigation">
+              <ul class="nav nav-pills menu-primary">
+                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dropdown-menu-primary-1" aria-haspopup="true" aria-expanded="false">Corporate & Investment Banking <i class="finit-glyph-icon finit-glyph-arrowmenu"></i></a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdown-menu-primary-1">
+                    <li>
+                      <div class="row submenu-row">
+                        <div class="submenu container">
+                          <div class="col-md-6">
+                            <div class="section-title text-center text-uppercase">Chi siamo</div>
+                            <div class="section-excerpt">Affianchiamo l’imprenditore nella ricerca delle migliori soluzioni per accelerare il processo di crescita della propria azienda con un approccio sartoriale e studiato sulle specifiche esigenze del nostro cliente.</div>
+                            <ul class="section-menu">
+                              <li> <a href="/it/corporate-and-investment-banking/index.php">Scopri le attività della nostra Divisione di Corporate & Investment Banking</a> </li>
+                            </ul>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="section-title text-center text-uppercase">I servizi che offriamo</div>
+                            <ul class="section-menu row">
+                              <li class="col-md-6"> <a href="/it/corporate-and-investment-banking/investment-banking-corporate.php">Investment Banking Corporate</a> </li>
+                              <li class="col-md-6"> <a href="/it/corporate-and-investment-banking/investment-banking-financial-institutions.php">Investment Banking Financial Institutions</a> </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dropdown-menu-primary-2" aria-haspopup="true" aria-expanded="false">Securitisation Services <i class="finit-glyph-icon finit-glyph-arrowmenu"></i></a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdown-menu-primary-2">
+                    <li>
+                      <div class="row submenu-row">
+                        <div class="submenu container">
+                          <div class="col-md-6">
+                            <div class="section-title text-center text-uppercase">Chi siamo</div>
+                            <div class="section-excerpt">Consolidiamo giorno dopo giorno la nostra leadership nella gestione di operazioni di cartolarizzazione realizzate nel mercato italiano. </div>
+                            <ul class="section-menu">
+                              <li> <a href="/it/securitisation-services/index.php">Scopri le attività della nostra Divisione Securitisation Services</a> </li>
+                            </ul>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="section-title text-center text-uppercase">I servizi che offriamo</div>
+                            <ul class="section-menu row">
+                              <li class="col-md-6"> <a href="/it/securitisation-services/index.php">Consulenza nella Finanza Strutturata</a> </li>
+                              <li class="col-md-6"> <a href="/it/securitisation-services/index.php">Set-up Special Purpose Vehicle</a> </li>
+                              <li class="col-md-6"> <a href="/it/securitisation-services/index.php">Gestione Cartolarizzazioni</a> </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dropdown-menu-primary-4" aria-haspopup="true" aria-expanded="false">Asset Management  <i class="finit-glyph-icon finit-glyph-arrowmenu"></i></a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdown-menu-primary-4">
+                    <li>
+                      <div class="row submenu-row">
+                        <div class="submenu container">
+                          <div class="col-md-6">
+                            <div class="section-title text-center text-uppercase">Chi siamo</div>
+                            <div class="section-excerpt">Operiamo attraverso Finint Investments SGR, società attiva nella <strong>gestione di fondi mobiliari e immobiliari</strong>. Con un team di <strong>60 analisti e gestori</strong>, rispondiamo alle esigenze di investitori istituzionali e professionali italiani ed esteri, tra cui compagnie assicurative, fondazioni, fondi pensione, banche, family office. </div>
+                            <ul class="section-menu">
+                              <li> <a href="/it/asset-management/index.php">Scopri le attività di Finint Investments SGR</a> </li>
+                            </ul>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="section-title text-center text-uppercase">I servizi che offriamo</div>
+                            <ul class="section-menu row">
+                              <li class="col-md-6">
+                                <a href="/it/asset-management/index.php">Fondi Real Estate</a>
+                              </li>
+                              <li class="col-md-6">
+                                <a href="/it/asset-management/index.php">Fondi Infrastructure</a>
+                              </li>
+                              <li class="col-md-6">
+                                <a href="/it/asset-management/index.php">Fondi Private Capital</a>
+                              </li>
+                              <li class="col-md-6">
+                                <a href="/it/asset-management/index.php">Fondi NPE</a>
+                              </li>
+                              <li class="col-md-6">
+                                <a href="/it/asset-management/index.php">Fondi Public Markets</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dropdown-menu-primary-4" aria-haspopup="true" aria-expanded="false">Wealth Management & Private Banking<i class="finit-glyph-icon finit-glyph-arrowmenu"></i></a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdown-menu-primary-4">
+                    <li>
+                      <div class="row submenu-row">
+                        <div class="submenu container">
+                          <div class="col-md-6">
+                            <div class="section-title text-center text-uppercase">Chi siamo</div>
+			    <div class="section-excerpt">Siamo la divisione  “Group Wealth Management & Private Banking”: promuoviamo un nuovo concetto di banca che si sviluppa in modo trasversale per essere a fianco degli imprenditori e degli investitori</div>
+                            <ul class="section-menu">
+                              <li><a href="/it/private-banking-and-wealth-management/index.php">Scopri le attività Private&Wealth Management</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="section-title text-center text-uppercase">I servizi che offriamo</div>
+                            <ul class="section-menu row">
+                              <li class="col-md-6">
+                                <a href="/it/private-banking-and-wealth-management/clientela-privata.php">Servizi per la clientela Private</a>
+                              </li>
+                              <li class="col-md-6">
+                                <a href="/it/private-banking-and-wealth-management/clientela-istituzionale-e-corporate.php">Servizi per clientela istituzionale e corporate</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dropdown-menu-primary-3" aria-haspopup="true" aria-expanded="false">Non-Performing Exposures<i class="finit-glyph-icon finit-glyph-arrowmenu"></i></a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdown-menu-primary-3">
+                    <li>
+                      <div class="row submenu-row">
+                        <div class="submenu container">
+                          <div class="col-md-6">
+                            <div class="section-title text-center text-uppercase">Chi siamo</div>
+                            <div class="section-excerpt">Siamo il <strong>partner ideale di imprese di piccola e media</strong> dimensione per <strong>l’analisi e l’ottimizzazione della struttura di debito</strong>.</div>
+                            <ul class="section-menu">
+                              <li> <a href="/it/non-performing-exposures/index.php">Scopri le attività della nostra Divisione Non Performing Exposures</a> </li>
+                            </ul>
+                          </div>
+                          <div class="col-md-6"> 
+                            <div class="section-title text-center text-uppercase">I servizi che offriamo</div>
+                            <ul class="section-menu row">
+                                <li class="col-md-6">
+                                    <a href="/it/non-performing-exposures/specialized-lending.php">Specialized Lending</a>
+                                </li>
+                                <li class="col-md-6">
+                                    <a href="/it/non-performing-exposures/debt-advisory-and-restructuring.php">Debt Advisory & Restructuring</a>
+                                </li>
+                                <li class="col-md-6">
+                                    <a href="/it/non-performing-exposures/acquisto-portafogli-npes.php">Acquisto portafogli NPEs</a>
+                                </li>                              
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+		</li>
+
+                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dropdown-menu-primary-3" aria-haspopup="true" aria-expanded="false">Credit & RE Management<i class="finit-glyph-icon finit-glyph-arrowmenu"></i></a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdown-menu-primary-3">
+                    <li>
+                      <div class="row submenu-row">
+                        <div class="submenu container">
+                          <div class="col-md-6">
+                            <div class="section-title text-center text-uppercase">Chi siamo</div>
+			    <div class="section-excerpt">Siamo un full service provider specializzato nel recupero crediti e nella gestione di asset immobiliari derivanti da contenziosi, ricollocandoli sul mercato immobiliare.</div>
+                            <ul class="section-menu">
+                              <li> <a href="/it/credit-re-management/index.php">Scopri le attività della nostra Divisione Credit RE Management</a> </li>
+                            </ul>
+                          </div>
+                          <div class="col-md-6"> 
+                            <div class="section-title text-center text-uppercase">I servizi che offriamo</div>
+                            <ul class="section-menu row">
+                                <li class="col-md-6">
+                                    <a href="#">Credit Management</a>
+                                </li>
+                                <li class="col-md-6">
+                                    <a href="">Real Estate Management</a>
+                                </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+		</li>
+
+              </ul>
+            </nav>
+      </div>
+    </div>
+  </div>
+  <!--div class="mobile-navigation hidden-md hidden-lg" style="margin-top: 23px"-->
+  <div class="mobile-navigation hidden-md hidden-lg">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 text-right">
+          <div class="login first-level">
+            <a href="/it/sostenibilita.php" class="btn btn-xs" style="background-color: #2dbb69;">Sostenibilità</a> 
+            <a href="#" class="loginToggle btn btn-xs btn-primary" style="background-color: #2272c4;" onclick="$('.login3').slideToggle(200); return false;">Fondi PNRR</a>
+            <ul class="login3" style="display: none;">
+              <li>
+                <a href="/it/fondoturismosostenibile.php" target="_blank" class="fondopnrr-a"><img src="/it/img/fondo-turismo-sostenibile_logo.svg"><span class="fondopnrr-btn">Apri</span></a>
+                <a href="/it/fondopianiurbaniintegrati.php" target="_blank" class="fondopnrr-a"><img src="/it/img/fondi-piani-urbani_logo.svg"><span class="fondopnrr-btn">Apri</span></a>
+              </li>
+            </ul>
+            <a href="#" class="loginToggle btn btn-xs btn-primary" onclick="$('.login2').slideToggle(200); return false;"><img src="/it/img/icon-home.png" class="iconhome">&nbsp;&nbsp;Entra in Banca</a>
+            <ul class="login2" style="display: none">
+              <li>
+                <!-- a href="https://depositonline.bancafinint.com/?itm_source=www.bancafinint.com&itm_medium=sito" target="_blank" class="aprideposito"><img src="/it/img/non-sei-cliente.png"><span class="aprideposito">Apri</span></a -->
+                <a href="https://areariservata.bancafinint.com/Mito7/faces/pages/login.xhtml" target="_blank"><img src="/it/img/mito-internet-banking.png"> <span class="accedi">Accedi</span></a>
+                <a href="https://www.paco.cabel.it/03266/index.html" target="_blank"><img src="/it/img/mito-corporate-banking.png"><span class="accedi">Accedi</span></a></li>
+            </ul>
+            <!--a href="https://areariservata.bancafinint.com/Mito7/" target="_blank" class="btn btn-primary">Accedi</a--> 
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="logo"> <a href="/" title="Banca Finint Home Page" class=""><span class="hidden">Banca Finint Home Page</span></a> </div>
+        </div>
+        <div class="col-xs-6 text-right">
+          <div class="clearfix second-level">
+            <!-- div class="language dropdown"> <a class="dropdown-toggle" type="button" id="dropdownMenuLangMobile1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">ITA <i class="finit-glyph-icon finit-glyph-arrowmenu"></i></a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLangMobile1">
+                <li class="disabled"> <a href="#">Italiano</a> </li>
+                <li> <a href="/en/">English</a> </li -->
+                <!--li role="separator" class="divider"></li>
+                <li>
+                    <a href="/ru/">русский</a>
+                </li>
+                <li>
+                    <a href="/de/">Deutsch</a>
+                </li-->
+              <!-- /ul>
+            </div -->
+            <div class="mobile-menu dropdown text-center"> <a href="#" class="mobile-menu-icon dropdown-toggle" id="dropdownMenuMainMobile1" data-toggle="mobile-menu-dropdown" data-target="#mobile-menu-1" aria-haspopup="true" aria-expanded="false"><i class="finit-glyph-icon finit-glyph-menu"></i><br>
+              Menu</a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu-1" class="mobile-menu-container hidden">
+      <div class="panel-group" role="tablist" aria-multiselectable="true">
+
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingOne">
+            <div class="panel-title"> <a href="/it/corporate-and-investment-banking/financial-institution.php">Corporate & Investment Banking</a> <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="pull-right finit-glyph-icon finit-glyph-arrowmenu collapsed"></a> </div>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+              <ul class="section-menu row">
+                <li class="col-md-12"> <a href="/it/corporate-and-investment-banking/investment-banking-corporate.php">Investment Banking Corporate</a> </li>
+                <li class="col-md-12"> <a href="/it/corporate-and-investment-banking/investment-banking-financial-institutions.php">Investment Banking Financial Institutions</a> </li>
+              </ul>
+            </div>
+          </div>
+	</div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingTwo">
+            <div class="panel-title"> <a href="/it/securitisation-services/index.php">Securitisation Services</a> <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="pull-right finit-glyph-icon finit-glyph-arrowmenu collapsed"></a> </div>
+          </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="panel-body">
+              <ul class="section-menu row">
+                <li class="col-xs-12"> <a href="/it/securitisation-services/index.php">Consulenza nella Finanza Strutturata</a> </li>
+                <li class="col-xs-12"> <a href="/it/securitisation-services/index.php">Set-up Special Purpose Vehicle </a> </li>
+                <li class="col-xs-12"> <a href="/it/securitisation-services/index.php">Gestione Cartolarizzazioni</a> </li>
+              </ul>
+            </div>
+          </div>
+	</div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingFour">
+            <div class="panel-title"> <a href="/it/asset-management/index.php">Asset Management</a> <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour" class="pull-right finit-glyph-icon finit-glyph-arrowmenu collapsed"></a> </div>
+          </div>
+          <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+            <div class="panel-body">
+              <ul class="section-menu row">
+                <li class="col-xs-12"> <a href="/it/asset-management/index.php">Fondi Real Estate</a> </li>
+                <li class="col-xs-12"> <a href="/it/asset-management/index.php">Fondi Infrastructure</a> </li>
+                <li class="col-xs-12"> <a href="/it/asset-management/index.php">Fondi Private Capital</a> </li>
+                <li class="col-xs-12"> <a href="/it/asset-management/index.php">Fondi NPE</a> </li>
+                <li class="col-xs-12"> <a href="/it/asset-management/index.php">Fondi Public Markets</a> </li>
+              </ul>
+            </div>
+          </div>
+	</div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingFive">
+            <div class="panel-title"> <a href="/it/private-banking-and-wealth-management/index.php">Wealth Management & Private Banking</a> <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive" class="pull-right finit-glyph-icon finit-glyph-arrowmenu collapsed"></a> </div>
+          </div>
+          <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+            <div class="panel-body">
+              <ul class="section-menu row">
+                <li class="col-xs-12"> <a href="/it/private-banking-and-wealth-management/clientela-privata.php">Servizi per la clientela Private</a> </li>
+                <li class="col-xs-12"> <a href="/it/private-banking-and-wealth-management/clientela-istituzionale-e-corporate.php">Servizi per clientela istituzionale e corporate</a> </li>
+              </ul>
+            </div>
+          </div>
+	</div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingThree">
+            <div class="panel-title"> <a href="/it/non-performing-exposures/index.php">Non-Performing Exposures</a> 
+              <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" class="pull-right finit-glyph-icon finit-glyph-arrowmenu collapsed"></a> 
+            </div>
+          </div>
+          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+              <div class="panel-body">
+                  <ul class="section-menu row">
+                      <li class="col-xs-12">
+                          <a href="/it/non-performing-exposures/specialized-lending.php">Specialized Lending</a>
+                      </li>
+                      <li class="col-xs-12">
+                          <a href="/it/non-performing-exposures/debt-advisory-and-restructuring.php">Debt Advisory & Restructuring</a>
+                      </li>
+                      <li class="col-xs-12">
+                          <a href="/it/non-performing-exposures/acquisto-portafogli-npes.php">Acquisto portafogli NPEs</a>
+                      </li>  
+                  </ul>
+              </div>
+          </div>
+	</div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingFive">
+            <div class="panel-title"> <a href="/it/credit-re-management/index.php">Credit & RE Management</a> <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive" class="pull-right finit-glyph-icon finit-glyph-arrowmenu collapsed"></a> </div>
+          </div>
+          <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+            <div class="panel-body">
+              <ul class="section-menu row">
+                <li class="col-xs-12"> <a href="#">Credit Management</a> </li>
+                <li class="col-xs-12"> <a href="#">Real Estate Management</a> </li>
+              </ul>
+            </div>
+          </div>
+	</div>
+
+      </div>
+      <div class="menu-secondary-left list-group">
+        <a class="list-group-item <? echo $menuTopA01; ?>" href="/it/chi-siamo/index.php">Chi siamo</a>
+        <a class="list-group-item <? echo $menuTopA02; ?>" href="/it/cosa-facciamo/index.php">Cosa facciamo</a>
+        <a class="list-group-item <? echo $menuTopA03; ?>" href="/it/la-nostra-identita.php">La nostra identità</a>
+        <a class="list-group-item <? echo $menuTopA04; ?>" href="/it/risultati-economici.php">Risultati economici</a>
+        <a class="list-group-item <? echo $menuTopA05; ?>" href="/it/press/comunicati-stampa.php">Press</a>
+        <a class="list-group-item <? echo $menuTopA06; ?>" href="/it/news/index.php">News</a>
+        <a class="list-group-item <? echo $menuTopA07; ?>" href="/it/multimedia/index.php">Multimedia</a>
+        <!--a class="list-group-item search" href="/search.html"><i class="finit-glyph-icon finit-glyph-search" aria-hidden="true"></i> Cerca</a--> 
+        <a class="list-group-item <? echo $menuTopA08; ?>" href="/it/contatti.php">Contatti</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div id="carousel-first-level-1" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+        <div class="item active" style="background-image: url(/it/img/slide-7.png);"></div>
+    </div>
+</div>
+<div class="container">
+    <div class="row same-height">
+        <div class="col-md-12">
+            <div class="page-container">
+                <div class="page-heading row">
+                    <div class="col-md-5">
+                        <ol class="breadcrumb">
+                            <li><a href="index.php">Home</a></li>
+                            <li class="active">Pagina non trovata </li>
+                        </ol>
+                        <div class="section-title">Errore</div>
+                    </div>
+                    <div class="col-md-7 section-excerpt">
+                        La pagina che stai cercando non esiste.
+                    </div>
+                </div>
+                <div class="col-md-8 col-md-offset-2 page-content">
+                    <p>Naviga attraverso i menu del sito per trovare quello che cerchi.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+        <div class="container">
+            <div class="row">
+                <nav>
+                    <ul class="nav nav-pills footer-primary">
+                        <li><a href="/it/chi-siamo/mission.php">Mission</a></li>
+                        <li><a href="/it/chi-siamo/storia.php">Storia</a></li>
+                        <li><a href="/it/chi-siamo/governance.php">Governance</a></li>
+                        <li><a href="/it/riconoscimenti.php">Riconoscimenti</a></li>
+                        <li><a href="/it/news/index.php">News</a></li>
+                        <li><a href="/it/lavora-con-noi/posizioni-aperte.php">Lavora Con Noi</a></li>
+                        <li><a href="/it/contatti.php">Contatti</a></li>
+                    </ul>
+                    <ul class="nav nav-pills footer-secondary">
+                        <li><a href="/it/dati-documenti-societari.php">Dati e Documenti Societari</a></li>
+                        <li><a href="/it/assemblee/">Assemblee</a></li>
+                        <!-- li><a href="/it/emergenza-coronavirus.php">Emergenza Coronavirus</a></li -->
+                        <li><a href="/it/fondo-centrale-garanzia.php">Fondo Centrale di Garanzia</a></li>
+                        <li><a href="/it/bilanci-relazioni.php">Bilanci e Relazioni</a></li>
+                        <li><a href="/it/trasparenza/index.php">Trasparenza</a></li>
+                        <li><a href="/it/mifid.php">MIFID</a></li>
+                        <li><a href="/it/reclami.php">Reclami</a></li>
+                        <li><a href="/it/note-legali.php">Note Legali</a></li>
+                        <li><a href="/it/privacy-policy.php">Privacy Policy</a></li>
+                        <li><a href="/it/cookies-policy.php">Cookies Policy</a></li>
+                        <li><a href="/it/psd2-openbanking.php">PSD2 - Open Banking</a></li>
+                        <li><a href="/it/nuova-definizione-di-default.php">Nuova definizione di default</a></li>
+                        <li><a href="/it/informativa-sulla-sostenibilità-nel-settore-dei-servizi-finanziari.php">Informativa sulla sostenibilità nel settore dei servizi finanziari</a></li> 
+                    </ul>
+                </nav>
+            </div>
+          
+            <div class="hr-footer"></div>  
+          
+            <div class="row">
+                <!-- div class="col-md-6 info" -->
+                <div class="col-md-4 info">
+			<b>Banca Finanziaria Internazionale S.p.A. in breve Banca Finint S.p.A.</b><br>
+			<br>
+			Sede Legale: Via Vittorio Alfieri 1, 31015 - Conegliano (TV)<br>
+			<br>
+			Codice Fiscale e Registro delle Imprese di Treviso - Belluno 04040580963<br>
+			Gruppo IVA Finint S.p.A. - Partita Iva 04977190265<br>
+			Iscritta all'Albo delle Banche e dei Gruppi Bancari quale Capogruppo del Gruppo Banca Finanziaria Internazionale<br>
+			Capitale Sociale € 91.743.007,00 € i.v.<br>
+			<br>
+			Indirizzo pec: <a href="mailto:pec1@pec.bancafinint.com">pec1@pec.bancafinint.com</a>
+                </div>
+
+                <div class="col-md-6 info">
+			Banca Finint S.p.A. è sottoposta al controllo delle seguenti autorità di vigilanza e garanti:
+			<ul>
+				<li>Banca d'Italia (vigilanza sulle banche)</li>
+				<li>Consob (commissione nazionale per le società e la borsa)</li>
+				<li>Garante per la protezione dei dati personali (vigilanza sulla gestione e la custodia dei dati personali conservati in archivi elettronici o cartacei)</li>
+				<li>IVASS (Vigilanza sugli intermediari assicurativi)</li>
+			</ul>
+			Iscritta all’Albo delle Banche n. 3266 e all’Albo dei Gruppi Bancari tenuti dalla Banca d’Italia.
+			<br>
+			N.iscrizione Registro Unico degli Intermediari assicurativi e riassicurativi presso IVASS n° D000801087
+			<br>
+			consultabile su <a href="https://ruipubblico.ivass.it/rui-pubblica/ng/#/workspace/dettaglio-intermediario">https://ruipubblico.ivass.it/rui-pubblica/ng/#/workspace/dettaglio-intermediario</a>
+			<br><br>
+			Aderente al Fondo Interbancario di Tutela dei Depositi e al Fondo Nazionale di Garanzia<br>
+                </div>
+
+                <!-- div class="col-md-6" -->
+                <div class="col-md-2">
+                    <div class="text-right">
+                      <!-- img src="/it/img/logo-elite.png" / --><img src="/it/img/logo-aidaf-impresa-associata.png" style="margin-left: 20px" />
+                    </div>
+                    <div>&nbsp;</div>
+                    <div>&nbsp;</div>
+                    <div class="pull-right">
+                      <a href="https://www.linkedin.com/company/banca-finint" title="LinkedIn"><img src="/it/img/icon-linkedin.png" width="20px" alt=""></a>&nbsp;&nbsp;&nbsp;
+                      <a href="https://www.slideshare.net/Finint" title="Slideshare"><img src="/it/img/icon-slideshare.png" width="20px" alt=""></a>&nbsp;&nbsp;&nbsp;
+                      <a href="https://www.youtube.com/user/gruppofinint" title="YouTube"><img src="/it/img/icon-youtube.png" width="20px" alt=""></a>&nbsp;&nbsp;&nbsp;
+                      <a href="https://www.instagram.com/bancafinint/" title="Instagram"><img src="/it/img/icon-instagram.png" width="20px" alt=""></a>
+                      <!--img src="/it/img/ministro%20sviluppo%20economico.png"-->
+                    </div> 
+                </div>
+            </div>
+          
+        </div>
+    </footer>
+
+    <div class="cookie-disclaimer">
+      <div class="cookie-close accept-cookie"><i class="glyphicon glyphicon-remove"></i></div>
+      <div class="container">
+        <p>Utilizzando il nostro sito Web, si acconsente all'impiego di cookie in conformità alla nostra <a href="/it/cookies-policy.php">Politica sui cookie</a></p>
+        <button type="button" class="btn btn-success accept-cookie">Accetto</button>
+      </div>
+    </div>
+    <script src="/it/js/cookies-policy.js"></script>
+
+		<script src="/it/js/parent.js"></script>
+
+		
+    <!-- jQuery --> 
+    <script type="text/javascript" src="/it/js/jquery-1.11.1.min.js"></script> 
+    <!-- Tree menu --> 
+    <script type="text/javascript" src="/it/js/tree-menu.js"></script>
+
+</body>
+</html>
+
