@@ -23,13 +23,11 @@ jobs:
         npm run build
 
     - name: Carica il sito su Hostinger
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-      with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./dist/
-        server-dir: /
-        protocol: ftps
-        port: 21
-        timeout: 60000
+      run: |
+        sudo apt-get install -y lftp
+        lftp -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" "${{ secrets.FTP_SERVER }}" -e "
+          set ssl:verify-certificate no;
+          set ftp:ssl-allow yes;
+          mirror --reverse --delete --verbose ./dist/ .;
+          quit
+        "
