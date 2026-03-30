@@ -28,11 +28,6 @@ jobs:
         lftp -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" "${{ secrets.FTP_SERVER }}" -e "
           set ssl:verify-certificate no;
           set ftp:ssl-allow yes;
-          pwd;
-          ls;
-          cd public_html;
-          pwd;
-          ls;
-          mirror --reverse --verbose --no-perms ./dist/ .;
+          mirror --reverse --verbose --no-perms ./dist/ public_html/;
           quit
         "
