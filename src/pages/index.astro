@@ -804,6 +804,15 @@ import Layout from '../layouts/Layout.astro';
 							<p id="result-text" class="text-white text-lg font-heading font-medium mb-0"></p>
 						</div>
 
+						<!-- Navigazione per rivedere le risposte -->
+						<div class="flex flex-wrap justify-center gap-2 mb-8">
+							<button onclick="showStep(1)" class="px-3 py-1.5 rounded-lg bg-white/10 text-white/60 text-xs font-heading hover:bg-white/20 hover:text-white transition-all cursor-pointer">1. Business</button>
+							<button onclick="showStep(2)" class="px-3 py-1.5 rounded-lg bg-white/10 text-white/60 text-xs font-heading hover:bg-white/20 hover:text-white transition-all cursor-pointer">2. Operativita</button>
+							<button onclick="showStep(3)" class="px-3 py-1.5 rounded-lg bg-white/10 text-white/60 text-xs font-heading hover:bg-white/20 hover:text-white transition-all cursor-pointer">3. Liquidita</button>
+							<button onclick="showStep(4)" class="px-3 py-1.5 rounded-lg bg-white/10 text-white/60 text-xs font-heading hover:bg-white/20 hover:text-white transition-all cursor-pointer">4. Team</button>
+							<button onclick="showStep(5)" class="px-3 py-1.5 rounded-lg bg-white/10 text-white/60 text-xs font-heading hover:bg-white/20 hover:text-white transition-all cursor-pointer">5. Visione</button>
+						</div>
+
 						<!-- Email form per analisi completa -->
 						<div id="quiz-email-section">
 							<p class="text-white text-xl md:text-2xl font-heading font-bold mb-2">Vuoi l'analisi completa area per area?</p>
@@ -839,6 +848,19 @@ import Layout from '../layouts/Layout.astro';
 										placeholder="La tua email"
 										class="w-full rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm px-5 py-3.5 text-white placeholder-white/40 text-sm font-heading focus:outline-none focus:border-sky/50 focus:ring-1 focus:ring-sky/50 transition-colors"
 									/>
+									<!-- Consensi GDPR -->
+									<div class="space-y-3 mt-2 mb-1">
+										<label class="flex items-start gap-3 cursor-pointer">
+											<input type="checkbox" name="gdpr_email" required class="mt-1 w-4 h-4 rounded border-white/30 bg-white/10 text-sky focus:ring-sky/50 shrink-0" />
+											<span class="text-white/60 text-xs leading-relaxed">Acconsento a ricevere l'analisi dei risultati e comunicazioni relative al metodo BEDo via email. <strong class="text-white/80">Obbligatorio</strong></span>
+										</label>
+										<label class="flex items-start gap-3 cursor-pointer">
+											<input type="checkbox" name="gdpr_marketing" class="mt-1 w-4 h-4 rounded border-white/30 bg-white/10 text-sky focus:ring-sky/50 shrink-0" />
+											<span class="text-white/60 text-xs leading-relaxed">Acconsento a ricevere contenuti e aggiornamenti periodici da Cristiano Pusca</span>
+										</label>
+									</div>
+									<p class="text-white/30 text-[10px] mb-3">Puoi cancellarti in qualsiasi momento. I tuoi dati non saranno mai condivisi con terzi.</p>
+
 									<button type="submit" class="btn-primary !text-sm whitespace-nowrap cursor-pointer w-full">
 										Ricevi l'analisi completa
 										<svg class="inline w-4 h-4 ml-1.5 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
@@ -860,7 +882,7 @@ import Layout from '../layouts/Layout.astro';
 									</li>
 									<li class="flex items-start gap-3">
 										<svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-										<span class="text-white/80 text-sm">10 email per iniziare il risveglio della rete vendita</span>
+										<span class="text-white/80 text-sm">10 pillole per iniziare il risveglio della rete vendita</span>
 									</li>
 								</ul>
 							</div>
@@ -892,6 +914,7 @@ import Layout from '../layouts/Layout.astro';
 
 		const STORAGE_KEY = 'pusca-quiz';
 		let currentStep = 0; // 0 = intro
+		let quizCompleted = false;
 
 		const radioFields = ['q1', 'q2', 'q3', 'q3a', 'q4', 'q4a', 'q5', 'q5a'];
 		const textFields = ['q1a_num', 'q1a_tot', 'q2a_nome', 'q2a_funzione'];
@@ -1028,6 +1051,7 @@ import Layout from '../layouts/Layout.astro';
 			if (el) el.addEventListener('input', () => saveState());
 		});
 
+		window.showStep = showStep;
 		function showStep(step, skipScroll) {
 			// Hide all
 			$('#quiz-intro').classList.add('hidden');
@@ -1067,10 +1091,13 @@ import Layout from '../layouts/Layout.astro';
 					$('#quiz-prev').classList.remove('hidden');
 				}
 
-				// Last step: change button text
-				$('#quiz-next').innerHTML = step === 5
-					? 'Vedi risultati <svg class="inline w-4 h-4 ml-1.5 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>'
-					: 'Avanti <svg class="inline w-4 h-4 ml-1.5 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>';
+				// Button text based on state
+				const arrow = '<svg class="inline w-4 h-4 ml-1.5 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>';
+				if (quizCompleted) {
+					$('#quiz-next').innerHTML = 'Torna ai risultati ' + arrow;
+				} else {
+					$('#quiz-next').innerHTML = (step === 5 ? 'Vedi risultati ' : 'Avanti ') + arrow;
+				}
 			} else if (step === 6) {
 				showResults();
 			}
@@ -1106,6 +1133,7 @@ import Layout from '../layouts/Layout.astro';
 		}
 
 		function showResults() {
+			quizCompleted = true;
 			const el = $('#quiz-results');
 			el.classList.remove('hidden');
 			$('#quiz-nav').classList.add('hidden');
@@ -1172,7 +1200,9 @@ import Layout from '../layouts/Layout.astro';
 		$('#quiz-start-btn').addEventListener('click', () => showStep(1));
 
 		$('#quiz-next').addEventListener('click', () => {
-			if (validateStep(currentStep)) {
+			if (quizCompleted) {
+				showStep(6); // torna ai risultati
+			} else if (validateStep(currentStep)) {
 				showStep(currentStep + 1);
 			}
 		});
@@ -1220,6 +1250,7 @@ import Layout from '../layouts/Layout.astro';
 				mcForm.target = iframeName;
 				mcForm.style.display = 'none';
 
+				const gdprMarketing = e.target.gdpr_marketing?.checked ? 'Y' : '';
 				const fields = {
 					u: 'd327453d6178f9f8dfe810d6f',
 					id: '2a69d16d64',
@@ -1229,7 +1260,9 @@ import Layout from '../layouts/Layout.astro';
 					AZIENDA: azienda,
 					SETTORE: settore,
 					SCORE: String(score),
-					FASCIA: fascia
+					FASCIA: fascia,
+					'gdpr[email]': 'Y',
+					'gdpr[marketing]': gdprMarketing
 				};
 				for (const [k, v] of Object.entries(fields)) {
 					const input = document.createElement('input');
@@ -1360,20 +1393,27 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 			</div>
 
-			<form id="newsletter-form" class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
-				<input
-					id="newsletter-email"
-					type="email"
-					placeholder="Inserisci la tua email"
-					required
-					class="flex-1 px-5 py-3.5 rounded-xl border border-gray-300 bg-white text-gray-800 text-base placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky/30 focus:border-sky transition-all"
-				/>
-				<button id="newsletter-btn" type="submit" class="btn-primary whitespace-nowrap !py-3.5">
-					Inizia il Risveglio
-					<svg class="inline w-4 h-4 ml-1.5 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-				</button>
+			<form id="newsletter-form" class="max-w-lg mx-auto">
+				<div class="flex flex-col sm:flex-row gap-3 mb-3">
+					<input
+						id="newsletter-email"
+						type="email"
+						placeholder="Inserisci la tua email"
+						required
+						class="flex-1 px-5 py-3.5 rounded-xl border border-gray-300 bg-white text-gray-800 text-base placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky/30 focus:border-sky transition-all"
+					/>
+					<button id="newsletter-btn" type="submit" class="btn-primary whitespace-nowrap !py-3.5">
+						Inizia il Risveglio
+						<svg class="inline w-4 h-4 ml-1.5 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+					</button>
+				</div>
+				<label class="flex items-start gap-2 cursor-pointer mb-2">
+					<input type="checkbox" name="nl_gdpr" required class="mt-1 w-4 h-4 rounded border-gray-300 text-sky focus:ring-sky/50 shrink-0" />
+					<span class="text-gray-500 text-xs leading-relaxed">Acconsento a ricevere "Il Risveglio della Rete Vendita" e contenuti periodici via email</span>
+				</label>
+				<p class="text-gray-400 text-[10px]">Puoi cancellarti in qualsiasi momento. I tuoi dati non saranno mai condivisi con terzi.</p>
 			</form>
-			<p id="newsletter-msg" class="text-gray-400 text-xs mt-4">Niente spam. Esci quando vuoi, senza domande.</p>
+			<p id="newsletter-msg" class="text-gray-400 text-xs mt-4"></p>
 		</div>
 	</section>
 
