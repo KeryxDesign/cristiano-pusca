@@ -411,7 +411,7 @@ import Layout from '../layouts/Layout.astro';
 	<!-- ═══════════════════════════════════════════
 	     QUIZ MODAL — POPUP OVERLAY
 	     ═══════════════════════════════════════════ -->
-	<div id="quiz-modal" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true" aria-label="Quiz diagnostica rete vendita">
+	<div id="quiz-modal" class="fixed inset-0 z-[80] hidden" role="dialog" aria-modal="true" aria-label="Quiz diagnostica rete vendita">
 		<!-- Overlay scuro -->
 		<div id="quiz-overlay" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
 
@@ -1177,37 +1177,48 @@ import Layout from '../layouts/Layout.astro';
 			const fname = parts[0] || '';
 			const lname = parts.slice(1).join(' ') || '';
 
-			// Mailchimp jsonp subscribe (client-side, no CORS issues)
-			const listUrl = 'https://bpda.us13.list-manage.com/subscribe/post-json';
-			const params = new URLSearchParams({
-				u: 'd327453d6178f9f8dfe810d6f',
-				id: '2a69d16d64',
-				FNAME: fname,
-				LNAME: lname,
-				EMAIL: email,
-				AZIENDA: azienda,
-				SETTORE: settore,
-				SCORE: score,
-				FASCIA: fascia,
-				c: 'mcCallback'
-			});
-
+			// Mailchimp subscribe via hidden iframe form POST
 			try {
-				await new Promise((resolve, reject) => {
-					window.mcCallback = (data) => {
-						delete window.mcCallback;
-						if (data.result === 'success' || data.msg.includes('already subscribed')) resolve();
-						else reject(new Error(data.msg));
-					};
-					const script = document.createElement('script');
-					script.src = `${listUrl}?${params.toString()}`;
-					script.onerror = () => reject(new Error('Network error'));
-					document.body.appendChild(script);
-					setTimeout(() => { reject(new Error('Timeout')); }, 10000);
-				});
+				const iframeName = 'mc-iframe-' + Date.now();
+				const iframe = document.createElement('iframe');
+				iframe.name = iframeName;
+				iframe.style.display = 'none';
+				document.body.appendChild(iframe);
+
+				const mcForm = document.createElement('form');
+				mcForm.method = 'POST';
+				mcForm.action = 'https://bpda.us13.list-manage.com/subscribe/post';
+				mcForm.target = iframeName;
+				mcForm.style.display = 'none';
+
+				const fields = {
+					u: 'd327453d6178f9f8dfe810d6f',
+					id: '2a69d16d64',
+					MERGE0: email,
+					FNAME: fname,
+					LNAME: lname,
+					AZIENDA: azienda,
+					SETTORE: settore,
+					SCORE: String(score),
+					FASCIA: fascia
+				};
+				for (const [k, v] of Object.entries(fields)) {
+					const input = document.createElement('input');
+					input.type = 'hidden';
+					input.name = k;
+					input.value = v;
+					mcForm.appendChild(input);
+				}
+				document.body.appendChild(mcForm);
+				mcForm.submit();
+
+				// Cleanup after 5s
+				setTimeout(() => {
+					iframe.remove();
+					mcForm.remove();
+				}, 5000);
 			} catch (err) {
 				console.warn('Mailchimp subscribe error:', err.message);
-				// Show confirmation anyway - data collected in form
 			}
 
 			clearState();
@@ -1244,26 +1255,30 @@ import Layout from '../layouts/Layout.astro';
 		btn.disabled = true;
 		btn.textContent = 'Invio...';
 
-		const params = new URLSearchParams({
-			u: 'd327453d6178f9f8dfe810d6f',
-			id: '2a69d16d64',
-			EMAIL: email,
-			c: 'nlCallback'
-		});
-
 		try {
-			await new Promise((resolve, reject) => {
-				window.nlCallback = (data) => {
-					delete window.nlCallback;
-					if (data.result === 'success' || data.msg?.includes('already subscribed')) resolve();
-					else reject(new Error(data.msg));
-				};
-				const s = document.createElement('script');
-				s.src = `https://bpda.us13.list-manage.com/subscribe/post-json?${params.toString()}`;
-				s.onerror = () => reject(new Error('Network error'));
-				document.body.appendChild(s);
-				setTimeout(() => reject(new Error('Timeout')), 10000);
-			});
+			const iframeName = 'mc-nl-' + Date.now();
+			const iframe = document.createElement('iframe');
+			iframe.name = iframeName;
+			iframe.style.display = 'none';
+			document.body.appendChild(iframe);
+
+			const mcForm = document.createElement('form');
+			mcForm.method = 'POST';
+			mcForm.action = 'https://bpda.us13.list-manage.com/subscribe/post';
+			mcForm.target = iframeName;
+			mcForm.style.display = 'none';
+
+			const fields = { u: 'd327453d6178f9f8dfe810d6f', id: '2a69d16d64', MERGE0: email };
+			for (const [k, v] of Object.entries(fields)) {
+				const input = document.createElement('input');
+				input.type = 'hidden';
+				input.name = k;
+				input.value = v;
+				mcForm.appendChild(input);
+			}
+			document.body.appendChild(mcForm);
+			mcForm.submit();
+			setTimeout(() => { iframe.remove(); mcForm.remove(); }, 5000);
 			msg.textContent = 'Iscrizione completata! Controlla la tua email.';
 			msg.classList.remove('text-gray-400');
 			msg.classList.add('text-accent-dark', 'font-medium');
