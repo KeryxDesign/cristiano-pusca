@@ -24,22 +24,31 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 			</div>
 
-			<div class="max-w-3xl">
-				<h1 class="text-3xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-5 text-white">
-					Nessun corso di vendita funziona su un team che ha <span class="text-sky-light">perso il senso</span> di quello che fa.
-				</h1>
-				<p class="text-gray-300 text-base md:text-lg leading-relaxed mb-1.5 max-w-2xl">
-					Hai provato corsi, coach, script. <strong class="text-white">Il problema non era la tecnica.</strong> Era la persona che doveva usarla.
-				</p>
-				<p class="text-gray-400 text-base md:text-lg leading-relaxed mb-6 max-w-2xl">
-					Quando un venditore <strong class="text-gray-200">non sa più chi è</strong> dentro il proprio ruolo, nessuna tecnica regge.
-				</p>
+			<div class="flex flex-col md:flex-row md:items-center md:gap-12">
+				<div class="flex-1 max-w-3xl">
+					<h1 class="text-3xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-5 text-white">
+						Nessun corso di vendita funziona su un team che ha <span class="text-sky-light">perso il senso</span> di quello che fa.
+					</h1>
+					<p class="text-gray-300 text-base md:text-lg leading-relaxed mb-1.5 max-w-2xl">
+						Hai provato corsi, coach, script. <strong class="text-white">Il problema non era la tecnica.</strong> Era la persona che doveva usarla.
+					</p>
+					<p class="text-gray-400 text-base md:text-lg leading-relaxed mb-6 max-w-2xl">
+						Quando un venditore <strong class="text-gray-200">non sa più chi è</strong> dentro il proprio ruolo, nessuna tecnica regge.
+					</p>
 
-				<div class="block">
-					<a href="#test" class="btn-primary text-base md:text-lg">
-						Scopri cosa blocca davvero la tua rete vendita
-						<svg class="inline w-5 h-5 ml-2 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-					</a>
+					<div class="block">
+						<a href="#test" class="btn-primary text-base md:text-lg">
+							Scopri cosa blocca davvero la tua rete vendita
+							<svg class="inline w-5 h-5 ml-2 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+						</a>
+					</div>
+				</div>
+
+				<!-- Foto Cristiano -->
+				<div class="hidden md:flex shrink-0 items-center justify-center">
+					<div class="w-44 h-44 lg:w-52 lg:h-52 rounded-full ring-4 ring-sky/40 ring-offset-4 ring-offset-dark overflow-hidden shadow-2xl shadow-sky/10">
+						<img src="/cristiano-pusca/cristiano-pusca.jpg" alt="Cristiano Pusca" width="1080" height="628" class="w-full h-full object-cover object-top" />
+					</div>
 				</div>
 			</div>
 		</div>
@@ -189,7 +198,7 @@ import Layout from '../layouts/Layout.astro';
 			<div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
 				<!-- Foto Cristiano -->
 				<div class="flex justify-center">
-					<div class="w-72 h-72 md:w-[420px] md:h-[420px] rounded-3xl overflow-hidden shadow-xl shadow-gray-200/50 border border-gray-200">
+					<div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-xl shadow-gray-200/50 ring-4 ring-sky/20 ring-offset-4 ring-offset-white">
 						<img src="/cristiano-pusca/cristiano-pusca.jpg" alt="Cristiano Pusca" width="1080" height="628" loading="lazy" class="w-full h-full object-cover object-top" />
 					</div>
 				</div>
