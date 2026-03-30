@@ -90,15 +90,15 @@ const {
 		</div>
 
 		<!-- Icona Accessibilità flottante -->
-		<button id="a11y-btn" class="fixed bottom-20 right-5 z-[65] w-12 h-12 rounded-full bg-sky text-white shadow-lg shadow-sky/30 flex items-center justify-center hover:bg-sky-light transition-colors" aria-label="Opzioni di accessibilità" title="Accessibilità">
-			<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-				<circle cx="12" cy="4" r="2" fill="currentColor" stroke="none" />
-				<path stroke-linecap="round" stroke-linejoin="round" d="M4 8l4 1m8-1l4 1M12 9v4m0 0l-3 7m3-7l3 7" />
+		<button id="a11y-btn" class="fixed bottom-20 left-5 z-[65] w-11 h-11 rounded-full bg-white/90 text-gray-700 shadow-md border border-gray-200 flex items-center justify-center hover:bg-white hover:shadow-lg transition-all" aria-label="Opzioni di accessibilità" title="Accessibilità">
+			<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+				<circle cx="12" cy="3.5" r="2" />
+				<path d="M12 7c-3.5 0-6.5 1-6.5 1l.5 2s2.2-.7 4.5-.9V12l-3 7h2.5l2-5 2 5h2.5l-3-7V9.1c2.3.2 4.5.9 4.5.9l.5-2S15.5 7 12 7z" />
 			</svg>
 		</button>
 
 		<!-- Pannello accessibilità -->
-		<div id="a11y-panel" class="fixed bottom-20 right-20 z-[66] w-72 rounded-2xl bg-white border border-gray-200 shadow-xl p-5 hidden">
+		<div id="a11y-panel" class="fixed bottom-20 left-5 z-[66] w-72 rounded-2xl bg-white border border-gray-200 shadow-xl p-5 hidden">
 			<div class="flex items-center justify-between mb-4">
 				<h3 class="text-base font-heading font-semibold text-gray-800">Accessibilità</h3>
 				<button id="a11y-close" class="text-gray-400 hover:text-gray-600" aria-label="Chiudi">
