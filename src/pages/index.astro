@@ -1250,6 +1250,22 @@ import Layout from '../layouts/Layout.astro';
 				console.warn('Mailchimp subscribe error:', err.message);
 			}
 
+			// Invia risultati a Cristiano via worker
+			try {
+				const risposte = {};
+				radioFields.forEach(name => {
+					const checked = $(`input[name="${name}"]:checked`);
+					if (checked) risposte[name] = checked.value;
+				});
+				fetch('https://pusca-quiz-mailer.nameless-mouse-7d0f.workers.dev', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ nome, email, azienda, settore, score, fascia, risposte })
+				}).catch(() => {});
+			} catch (err) {
+				console.warn('Quiz mailer error:', err.message);
+			}
+
 			clearState();
 			updateCTAButton();
 			$('#quiz-email-section').style.opacity = '1';
