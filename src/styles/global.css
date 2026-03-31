@@ -165,10 +165,10 @@ body {
   background: rgba(14, 165, 233, 0.15);
   color: white;
 }
-.quiz-option:has(input:checked) .w-5 {
+.quiz-option:has(input:checked) .radio-outer {
   border-color: var(--color-sky);
 }
-.quiz-option:has(input:checked) .w-2\.5 {
+.quiz-option:has(input:checked) .radio-dot {
   transform: scale(1);
 }
 
