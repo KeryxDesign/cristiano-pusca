@@ -466,12 +466,12 @@ import Layout from '../layouts/Layout.astro';
 						<div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
 							<div id="quiz-progress-bar" class="h-full rounded-full bg-gradient-to-r from-sky to-accent transition-all duration-500 ease-out" style="width: 20%"></div>
 						</div>
-						<div class="flex justify-between mt-2">
-							<span class="text-white/40 text-[10px] font-heading">Business</span>
-							<span class="text-white/40 text-[10px] font-heading">Operativita</span>
-							<span class="text-white/40 text-[10px] font-heading">Liquidita</span>
-							<span class="text-white/40 text-[10px] font-heading">Team</span>
-							<span class="text-white/40 text-[10px] font-heading">Visione</span>
+						<div class="flex justify-between mt-2" id="quiz-area-tabs">
+							<button onclick="showStep(1)" class="quiz-area-tab text-white/40 text-[10px] font-heading hover:text-white/70 transition-colors cursor-pointer" data-step="1">Business</button>
+							<button onclick="showStep(2)" class="quiz-area-tab text-white/40 text-[10px] font-heading hover:text-white/70 transition-colors cursor-pointer" data-step="2">Operativita</button>
+							<button onclick="showStep(3)" class="quiz-area-tab text-white/40 text-[10px] font-heading hover:text-white/70 transition-colors cursor-pointer" data-step="3">Liquidita</button>
+							<button onclick="showStep(4)" class="quiz-area-tab text-white/40 text-[10px] font-heading hover:text-white/70 transition-colors cursor-pointer" data-step="4">Team</button>
+							<button onclick="showStep(5)" class="quiz-area-tab text-white/40 text-[10px] font-heading hover:text-white/70 transition-colors cursor-pointer" data-step="5">Visione</button>
 						</div>
 					</div>
 
@@ -775,11 +775,15 @@ import Layout from '../layouts/Layout.astro';
 
 					<!-- NAVIGATION BUTTONS (for steps 1-5) -->
 					<div id="quiz-nav" class="hidden flex items-center justify-between mt-10">
-						<button id="quiz-prev" class="hidden text-white/60 hover:text-white text-sm font-heading font-semibold transition-colors cursor-pointer flex items-center gap-2">
-							<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" /></svg>
-							Indietro
-						</button>
-						<div></div>
+						<div class="flex items-center gap-4">
+							<button id="quiz-prev" class="hidden text-white/60 hover:text-white text-sm font-heading font-semibold transition-colors cursor-pointer flex items-center gap-2">
+								<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" /></svg>
+								Indietro
+							</button>
+							<button id="quiz-restart" class="text-white/30 hover:text-white/60 text-xs font-heading transition-colors cursor-pointer">
+								Ricomincia
+							</button>
+						</div>
 						<button id="quiz-next" class="btn-primary !text-base cursor-pointer">
 							Avanti
 							<svg class="inline w-4 h-4 ml-1.5 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
@@ -1101,6 +1105,17 @@ import Layout from '../layouts/Layout.astro';
 				} else {
 					$('#quiz-next').innerHTML = (step === 5 ? 'Vedi risultati ' : 'Avanti ') + arrow;
 				}
+
+				// Highlight active area tab
+				$$('.quiz-area-tab').forEach(tab => {
+					if (parseInt(tab.dataset.step) === step) {
+						tab.classList.remove('text-white/40');
+						tab.classList.add('text-sky', 'font-semibold');
+					} else {
+						tab.classList.remove('text-sky', 'font-semibold');
+						tab.classList.add('text-white/40');
+					}
+				});
 			} else if (step === 6) {
 				showResults();
 			}
@@ -1275,6 +1290,20 @@ import Layout from '../layouts/Layout.astro';
 
 		$('#quiz-prev').addEventListener('click', () => {
 			if (currentStep > 1) showStep(currentStep - 1);
+		});
+
+		$('#quiz-restart').addEventListener('click', () => {
+			// Reset tutte le risposte
+			radioFields.forEach(name => {
+				$$(`input[name="${name}"]`).forEach(r => r.checked = false);
+			});
+			textFields.forEach(name => {
+				const el = $(`input[name="${name}"]`);
+				if (el) el.value = '';
+			});
+			quizCompleted = false;
+			clearState();
+			showStep(1);
 		});
 
 		// Email form submit → Mailchimp
