@@ -159,18 +159,6 @@ body {
   box-shadow: 0 4px 15px rgba(14, 165, 233, 0.25);
 }
 
-/* ── Quiz radio: selezione attiva ── */
-.quiz-option:has(input:checked) {
-  border-color: var(--color-sky);
-  background: rgba(14, 165, 233, 0.15);
-  color: white;
-}
-.quiz-option:has(input:checked) .radio-outer {
-  border-color: var(--color-sky);
-}
-.quiz-option:has(input:checked) .radio-dot {
-  transform: scale(1);
-}
 
 /* ── Accessibilità: alto contrasto ── */
 .high-contrast {
