@@ -800,9 +800,12 @@ import Layout from '../layouts/Layout.astro';
 							</div>
 						</div>
 
-						<div id="result-message" class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8 mb-10 text-left">
+						<div id="result-message" class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8 mb-6 text-left">
 							<p id="result-text" class="text-white text-lg font-heading font-medium mb-0"></p>
 						</div>
+
+						<!-- Report per area -->
+						<div id="result-areas" class="space-y-3 mb-10 text-left"></div>
 
 						<!-- Navigazione per rivedere le risposte -->
 						<div class="flex flex-wrap justify-center gap-2 mb-8">
@@ -1159,13 +1162,13 @@ import Layout from '../layouts/Layout.astro';
 
 			if (total <= 5) {
 				barColor = 'bg-gradient-to-r from-red-500 to-orange-500';
-				messageText = 'La tua rete vendita ha bisogno di un intervento profondo. I segnali ci sono tutti: poca prevedibilita, dipendenza dal fondatore, margini opachi. La buona notizia? Riconoscerlo e il primo passo.';
+				messageText = 'La tua azienda sta funzionando a forza di volont\u00e0, non a sistema. Diversi pilastri fondamentali del business sono scoperti. Il punto non \u00e8 "se" intervenire, ma quanto stai perdendo ogni mese che passa senza farlo.';
 			} else if (total <= 10) {
 				barColor = 'bg-gradient-to-r from-yellow-500 to-amber-400';
-				messageText = 'Ci sono margini importanti di miglioramento. Alcune aree funzionano, altre sono scoperte. Con interventi mirati su 2-3 punti critici, puoi fare un salto significativo.';
+				messageText = 'Hai delle basi solide, ma stai lasciando valore sul tavolo. Alcune aree deboli stanno frenando quelle forti: \u00e8 come guidare con il freno a mano tirato. I margini di miglioramento non richiedono rivoluzioni, ma interventi mirati sulle aree giuste.';
 			} else {
 				barColor = 'bg-gradient-to-r from-green-500 to-emerald-400';
-				messageText = 'Buona base, ma potresti fare molto di piu. Hai struttura, ma probabilmente senti che qualcosa manca. Spesso e il livello successivo che richiede un approccio diverso.';
+				messageText = 'Hai costruito un\'azienda che funziona. I fondamentali ci sono: prevedibilit\u00e0, controllo, visione. Il prossimo livello non \u00e8 lavorare di pi\u00f9, ma decidere meglio: sapere esattamente dove ogni euro e ogni ora del tuo tempo generano il massimo ritorno.';
 			}
 
 			const resultBar = $('#result-bar');
@@ -1173,6 +1176,69 @@ import Layout from '../layouts/Layout.astro';
 			setTimeout(() => { resultBar.style.width = `${pct}%`; }, 100);
 
 			$('#result-text').textContent = messageText;
+
+			// Report per area
+			const areaMessages = {
+				1: {
+					name: 'Andamento del Business', keys: ['q1'], max: 2,
+					critico: 'Stai navigando a vista: senza prevedibilit\u00e0 sul fatturato, ogni mese \u00e8 una scommessa. Significa che non puoi pianificare assunzioni, investimenti o semplicemente dormire tranquillo.',
+					migliorabile: 'Hai una percezione generale dell\'andamento, ma non numeri solidi su cui costruire previsioni. Con un sistema di tracking anche basilare, potresti trasformare le sensazioni in decisioni fondate.',
+					buono: 'Sai cosa aspettarti ogni mese: questo ti mette in vantaggio rispetto alla maggior parte dei tuoi concorrenti. Usa questa prevedibilit\u00e0 per negoziare da una posizione di forza.'
+				},
+				2: {
+					name: 'Indipendenza Operativa', keys: ['q2'], max: 2,
+					critico: 'Se sparisci due settimane, l\'azienda si ferma. Non hai un\'impresa, hai un lavoro autonomo con costi fissi da impresa.',
+					migliorabile: 'Alcune cose vanno avanti senza di te, altre no. Identifica i 2-3 processi che dipendono solo da te e inizia a delegarli: \u00e8 l\u00ec che si gioca la tua libert\u00e0 operativa.',
+					buono: 'La tua azienda funziona anche senza la tua presenza quotidiana: hai costruito un sistema, non solo un\'attivit\u00e0. Ora concentrati su dove il tuo tempo genera davvero valore.'
+				},
+				3: {
+					name: 'Liquidit\u00e0 e Marginalit\u00e0', keys: ['q3','q3a'], max: 4,
+					critico: 'Non sai quanto guadagni davvero, n\u00e9 da chi lo guadagni. Potresti avere clienti o prodotti che ti fanno perdere soldi senza saperlo.',
+					migliorabile: 'Hai una visione parziale dei tuoi numeri, ma ci sono zone d\'ombra che ti impediscono di ottimizzare. Spesso basta un cruscotto semplice per scoprire che il 20% dei clienti genera l\'80% del margine.',
+					buono: 'Conosci i tuoi numeri nel dettaglio, cliente per cliente, prodotto per prodotto. Questa chiarezza ti permette di tagliare ci\u00f2 che non rende e raddoppiare ci\u00f2 che funziona.'
+				},
+				4: {
+					name: 'Competenze del Team', keys: ['q4','q4a'], max: 4,
+					critico: 'Hai persone insostituibili senza un piano B e ruoli scoperti che frenano la crescita. Se domani perdi una figura chiave, il danno non \u00e8 solo operativo: \u00e8 strategico.',
+					migliorabile: 'Il team regge, ma ha fragilit\u00e0 che conosci e che stai rimandando di affrontare. Ogni mese che passa senza intervenire su quei ruoli scoperti, il rischio cresce silenziosamente.',
+					buono: 'Hai un team solido, con competenze distribuite e nessun collo di bottiglia critico. Il passo successivo \u00e8 costruire un piano di crescita delle competenze interne.'
+				},
+				5: {
+					name: 'Visione Strategica', keys: ['q5','q5a'], max: 4,
+					critico: 'Non hai un piano scritto e non sai dove investire per crescere. Stai lavorando duro, ma senza una direzione chiara rischi di correre veloce nel posto sbagliato.',
+					migliorabile: 'Hai delle idee su dove andare, ma non sono strutturate in un piano con priorit\u00e0 e tempi. Mettere nero su bianco le 3 mosse principali dei prossimi 12 mesi cambierebbe la qualit\u00e0 delle tue decisioni.',
+					buono: 'Hai un piano e sai dove investire: sei nella minoranza di imprenditori che guida l\'azienda invece di farsi guidare dagli eventi. Collega il piano a KPI misurabili per correggere la rotta in tempo reale.'
+				}
+			};
+
+			const areasContainer = $('#result-areas');
+			areasContainer.innerHTML = '';
+			for (const [areaNum, area] of Object.entries(areaMessages)) {
+				let areaScore = 0;
+				area.keys.forEach(k => {
+					const checked = $(`input[name="${k}"]:checked`);
+					if (checked) areaScore += parseInt(checked.value, 10);
+				});
+
+				let level, color, icon, msg;
+				const threshold = area.max === 2 ? { bad: 0, mid: 1 } : { bad: 1, mid: 3 };
+				if (areaScore <= threshold.bad) {
+					level = 'Critico'; color = 'border-red-500/30 bg-red-500/5'; icon = '\u{1F534}'; msg = area.critico;
+				} else if (areaScore <= threshold.mid) {
+					level = 'Da migliorare'; color = 'border-yellow-500/30 bg-yellow-500/5'; icon = '\u{1F7E1}'; msg = area.migliorabile;
+				} else {
+					level = 'Buono'; color = 'border-green-500/30 bg-green-500/5'; icon = '\u{1F7E2}'; msg = area.buono;
+				}
+
+				areasContainer.innerHTML += `
+					<div class="rounded-xl border ${color} p-4 md:p-5">
+						<div class="flex items-center justify-between mb-2">
+							<p class="text-white text-sm font-heading font-bold">${icon} ${area.name}</p>
+							<span class="text-white/40 text-xs font-heading">${areaScore}/${area.max}</span>
+						</div>
+						<p class="text-white/70 text-sm leading-relaxed">${msg}</p>
+					</div>`;
+			}
 
 			// Clear saved state when results are shown
 			clearState();
