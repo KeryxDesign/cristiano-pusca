@@ -1293,10 +1293,13 @@ import Layout from '../layouts/Layout.astro';
 					label.style.background = '';
 					label.style.color = '';
 					if (outer) outer.style.borderColor = '';
-					if (dot) dot.style.cssText = '';
+					if (dot) dot.style.cssText = 'transform:scale(0);scale:0;';
 				}
 			});
 		}
+		// Hide all dots by default
+		$$('.radio-dot').forEach(d => { d.style.cssText = 'transform:scale(0);scale:0;'; });
+
 		$$('.quiz-option input[type="radio"]').forEach(radio => {
 			radio.addEventListener('change', () => updateRadioVisuals(radio.name));
 		});
