@@ -13,17 +13,6 @@ import Layout from '../layouts/Layout.astro';
 		<div class="absolute top-20 right-[10%] w-80 h-80 rounded-full bg-sky/[0.05] blur-[100px]"></div>
 
 		<div class="w-full max-w-6xl mx-auto px-6 relative">
-			<!-- Trust bar testate giornalistiche -->
-			<div class="mb-6 md:mb-8">
-				<p class="text-gray-500 text-[11px] font-heading font-medium tracking-wider uppercase mb-3">Hanno parlato del metodo BEDo</p>
-				<div class="flex flex-wrap items-center gap-x-8 gap-y-3 [&>img]:h-8 [&>img]:md:h-10 [&>img]:w-auto" style="--logo-filter: grayscale(1) invert(1) brightness(2);">
-					<img src="/logos/press/ilsole24ore-o-2021.svg" alt="Il Sole 24 Ore" loading="eager" class="!h-10 md:!h-12" style="filter: var(--logo-filter);" />
-					<img src="/logos/press/fortune-500-logo-png_seeklogo-433786.png" alt="Fortune" width="200" height="200" loading="eager" style="filter: var(--logo-filter);" />
-					<img src="/logos/press/Milano_Finanza_Logo-700x233.png" alt="Milano Finanza" width="700" height="233" loading="eager" style="filter: var(--logo-filter);" />
-					<img src="/logos/press/Fanpage.it.png" alt="Fanpage" width="612" height="140" loading="eager" style="filter: var(--logo-filter);" />
-				</div>
-			</div>
-
 			<!-- Foto mobile -->
 			<div class="flex md:hidden justify-center mb-6">
 				<div class="w-32 h-32 rounded-full ring-3 ring-sky/40 ring-offset-2 ring-offset-dark overflow-hidden shadow-xl shadow-sky/10">
@@ -40,11 +29,22 @@ import Layout from '../layouts/Layout.astro';
 						Hai provato corsi, coach, script. Ma nonostante le tecniche avanzate, <strong class="text-white">la rete vendita continua ad arrancare</strong>
 					</p>
 
-					<div class="block">
+					<div class="block mb-8">
 						<a href="#test" class="btn-primary text-base md:text-lg">
 							Scopri cosa blocca davvero la tua rete vendita
 							<svg class="inline w-5 h-5 ml-2 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
 						</a>
+					</div>
+
+					<!-- Trust bar testate giornalistiche (sotto headline) -->
+					<div class="mt-2">
+						<p class="text-gray-400 text-[11px] font-heading font-medium tracking-wider uppercase mb-3">Hanno parlato del metodo BEDo</p>
+						<div class="flex flex-wrap items-center gap-x-8 gap-y-3 [&>img]:h-8 [&>img]:md:h-10 [&>img]:w-auto" style="--logo-filter: grayscale(1) invert(1) brightness(2);">
+							<img src="/logos/press/ilsole24ore-o-2021.svg" alt="Il Sole 24 Ore" loading="eager" class="!h-10 md:!h-12" style="filter: var(--logo-filter);" />
+							<img src="/logos/press/fortune-500-logo-png_seeklogo-433786.png" alt="Fortune" width="200" height="200" loading="eager" style="filter: var(--logo-filter);" />
+							<img src="/logos/press/Milano_Finanza_Logo-700x233.png" alt="Milano Finanza" width="700" height="233" loading="eager" style="filter: var(--logo-filter);" />
+							<img src="/logos/press/Fanpage.it.png" alt="Fanpage" width="612" height="140" loading="eager" style="filter: var(--logo-filter);" />
+						</div>
 					</div>
 				</div>
 
@@ -229,13 +229,19 @@ import Layout from '../layouts/Layout.astro';
 							<div class="w-8 h-8 rounded-lg bg-accent-50 flex items-center justify-center shrink-0 mt-0.5">
 								<svg class="w-4 h-4 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
 							</div>
-							<p class="text-gray-600 text-base">Dal <strong class="text-gray-800">'88</strong> nel mondo vendite. Ho selezionato, formato e gestito <strong class="text-gray-800">100 commerciali, 14 area manager, 22 depositi</strong>.</p>
+							<p class="text-gray-600 text-base">Dal <strong class="text-gray-800">'88</strong> nel mondo vendite. Ho selezionato, formato e gestito <strong class="text-gray-800">una rete commerciale composta da 100 venditori, 14 area manager, 22 depositi</strong>.</p>
 						</div>
 						<div class="flex items-start gap-3">
 							<div class="w-8 h-8 rounded-lg bg-accent-50 flex items-center justify-center shrink-0 mt-0.5">
 								<svg class="w-4 h-4 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
 							</div>
-							<p class="text-gray-600 text-base">Fondatore di <strong class="text-gray-800">BPDA</strong>, rete d'imprese con <strong class="text-gray-800">28+ soci</strong>, attiva dal 2017.</p>
+							<p class="text-gray-600 text-base">CEO e CoFounder di <strong class="text-gray-800">BPDA</strong>, società attiva dal 2012 che si occupa di Assessment, Coaching e Training.</p>
+						</div>
+						<div class="flex items-start gap-3">
+							<div class="w-8 h-8 rounded-lg bg-accent-50 flex items-center justify-center shrink-0 mt-0.5">
+								<svg class="w-4 h-4 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+							</div>
+							<p class="text-gray-600 text-base">Socio Fondatore di <strong class="text-gray-800">EcoGeoBuilding</strong>, rete d'imprese con <strong class="text-gray-800">28+ soci</strong>, attiva dal 2017.</p>
 						</div>
 						<div class="flex items-start gap-3">
 							<div class="w-8 h-8 rounded-lg bg-accent-50 flex items-center justify-center shrink-0 mt-0.5">
@@ -275,7 +281,7 @@ import Layout from '../layouts/Layout.astro';
 				<h2 class="text-3xl md:text-5xl font-medium mb-3 !text-white">
 					Il metodo <span class="text-sky-light">BEDo</span>
 				</h2>
-				<p class="text-gray-400 text-lg max-w-2xl mx-auto">Being, Doing. <strong class="text-gray-300">Prima la persona</strong>, poi il processo. Non è un corso. È un percorso che cambia le cose <strong class="text-gray-300">in modo permanente</strong>.</p>
+				<p class="text-gray-200 text-lg max-w-2xl mx-auto">Being, Doing. <strong class="text-white">Prima la persona</strong>, poi il processo. Non è un corso. È un percorso che cambia le cose <strong class="text-white">in modo permanente</strong>.</p>
 			</div>
 
 			<div class="grid md:grid-cols-3 gap-8 mt-14">
@@ -285,8 +291,8 @@ import Layout from '../layouts/Layout.astro';
 						<div class="step-number mb-6">1</div>
 						<h3 class="text-2xl md:text-3xl font-bold !text-white mb-2">La persona ritrova sé stessa</h3>
 						<p class="text-sky-light text-sm font-heading font-medium mb-4">Non recita più un ruolo. Vende come persona intera.</p>
-						<p class="text-gray-400 text-[15px] leading-relaxed mb-4">
-							Con <strong class="text-gray-300">assessment comportamentali</strong> validati e certificati, scopriamo attitudini e motivazioni. Lavoriamo sui blocchi profondi: <strong class="text-gray-300">paura del rifiuto, senso di inadeguatezza, conflitto tra chi sei e cosa ti chiedono di fare</strong>.
+						<p class="text-gray-200 text-[15px] leading-relaxed mb-4">
+							Con <strong class="text-white">assessment comportamentali</strong> validati e certificati, scopriamo attitudini e motivazioni. Lavoriamo sui blocchi profondi: <strong class="text-white">paura del rifiuto, senso di inadeguatezza, conflitto tra chi sei e cosa ti chiedono di fare</strong>.
 						</p>
 						<div class="flex items-center gap-2 mt-4 p-3 rounded-xl bg-white border border-gray-200">
 							<svg class="w-4 h-4 text-sky shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
@@ -301,8 +307,8 @@ import Layout from '../layouts/Layout.astro';
 						<div class="step-number mb-6">2</div>
 						<h3 class="text-2xl md:text-3xl font-bold !text-white mb-2">Il leader impara a vedere le persone</h3>
 						<p class="text-sky-light text-sm font-heading font-medium mb-4">Non a controllarle. A riconoscerle.</p>
-						<p class="text-gray-400 text-[15px] leading-relaxed mb-4">
-							Con il <strong class="text-gray-300">Coaching Valoriale</strong> (metodologia brevettata) esplicitiamo i <strong class="text-gray-300">valori personali e aziendali</strong> per allinearli. Un leader che sa riconoscere il valore unico di ogni persona crea un ambiente dove la gente resta.
+						<p class="text-gray-200 text-[15px] leading-relaxed mb-4">
+							Con il <strong class="text-white">Coaching Valoriale</strong> (metodologia brevettata) esplicitiamo i <strong class="text-white">valori personali e aziendali</strong> per allinearli. Un leader che sa riconoscere il valore unico di ogni persona crea un ambiente dove la gente resta.
 						</p>
 						<div class="flex items-center gap-2 mt-4 p-3 rounded-xl bg-white border border-gray-200">
 							<svg class="w-4 h-4 text-sky shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
@@ -317,8 +323,8 @@ import Layout from '../layouts/Layout.astro';
 						<div class="step-number mb-6 !bg-gradient-to-br !from-accent !to-accent-dark !shadow-accent/25">3</div>
 						<h3 class="text-2xl md:text-3xl font-bold !text-white mb-2">Le vendite diventano una conseguenza</h3>
 						<p class="text-accent-glow text-sm font-heading font-medium mb-4">Non una forzatura. Una conseguenza naturale.</p>
-						<p class="text-gray-400 text-[15px] leading-relaxed mb-4">
-							Con i <strong class="text-gray-300">Training Neuroscientifici</strong>, addestriamo le persone a <strong class="text-gray-300">generare valore</strong> per sé e per l'azienda. Persone solide, guidate da un leader consapevole, dentro un processo chiaro.
+						<p class="text-gray-200 text-[15px] leading-relaxed mb-4">
+							Con i <strong class="text-white">Training Neuroscientifici</strong>, addestriamo le persone a <strong class="text-white">generare valore</strong> per sé e per l'azienda. Persone solide, guidate da un leader consapevole, dentro un processo chiaro.
 						</p>
 						<div class="flex items-center gap-2 mt-4 p-3 rounded-xl bg-white border border-gray-200">
 							<svg class="w-4 h-4 text-accent-dark shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
@@ -347,29 +353,29 @@ import Layout from '../layouts/Layout.astro';
 					<div class="w-12 h-12 rounded-2xl bg-sky-50 flex items-center justify-center mx-auto mb-4">
 						<svg class="w-6 h-6 text-sky" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg>
 					</div>
-					<h3 class="text-xl md:text-2xl font-bold mb-2">Selezione</h3>
-					<p class="text-gray-500 text-sm leading-relaxed">La persona giusta nel giusto posto</p>
+					<h3 class="text-xl md:text-2xl font-bold mb-2">Assumi chi produce davvero</h3>
+					<p class="text-gray-500 text-sm leading-relaxed">Basta turnover e inserimenti sbagliati. Identifichiamo il candidato che performa nel tuo contesto specifico, prima che lo faccia il tuo concorrente.</p>
 				</div>
 				<div class="card-light p-6 md:p-7 text-center group">
 					<div class="w-12 h-12 rounded-2xl bg-sky-50 flex items-center justify-center mx-auto mb-4">
 						<svg class="w-6 h-6 text-sky" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z" /></svg>
 					</div>
-					<h3 class="text-xl md:text-2xl font-bold mb-2">Advisoring negoziale</h3>
-					<p class="text-gray-500 text-sm leading-relaxed">Conflitti e trattative delicate</p>
+					<h3 class="text-xl md:text-2xl font-bold mb-2">Esci dai conflitti che bloccano</h3>
+					<p class="text-gray-500 text-sm leading-relaxed">Trattative in stallo, soci in disaccordo, clienti difficili. Ti affianchiamo per chiudere negoziazioni complesse proteggendo margini e relazioni.</p>
 				</div>
 				<div class="card-light p-6 md:p-7 text-center group">
 					<div class="w-12 h-12 rounded-2xl bg-sky-50 flex items-center justify-center mx-auto mb-4">
 						<svg class="w-6 h-6 text-sky" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" /></svg>
 					</div>
-					<h3 class="text-xl md:text-2xl font-bold mb-2">Consulenza vendite</h3>
-					<p class="text-gray-500 text-sm leading-relaxed">Relazioni solide e marginalità</p>
+					<h3 class="text-xl md:text-2xl font-bold mb-2">Venditori che chiudono di piu</h3>
+					<p class="text-gray-500 text-sm leading-relaxed">Trasformiamo la tua rete vendita in un sistema prevedibile. Piu trattative chiuse, margini protetti, clienti che restano.</p>
 				</div>
 				<div class="card-light p-6 md:p-7 text-center group">
 					<div class="w-12 h-12 rounded-2xl bg-sky-50 flex items-center justify-center mx-auto mb-4">
 						<svg class="w-6 h-6 text-sky" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" /></svg>
 					</div>
-					<h3 class="text-xl md:text-2xl font-bold mb-2">Alta formazione</h3>
-					<p class="text-gray-500 text-sm leading-relaxed">Vincere nel proprio ruolo</p>
+					<h3 class="text-xl md:text-2xl font-bold mb-2">Manager che decidono, non eseguono</h3>
+					<p class="text-gray-500 text-sm leading-relaxed">I tuoi responsabili smettono di rincorrere emergenze e iniziano a guidare il team. Meno colli di bottiglia, piu risultati senza il tuo intervento continuo.</p>
 				</div>
 			</div>
 		</div>
@@ -1196,31 +1202,36 @@ import Layout from '../layouts/Layout.astro';
 					name: 'Andamento del Business', keys: ['q1'], max: 2,
 					critico: 'Stai navigando a vista: senza prevedibilit\u00e0 sul fatturato, ogni mese \u00e8 una scommessa. Significa che non puoi pianificare assunzioni, investimenti o semplicemente dormire tranquillo.',
 					migliorabile: 'Hai una percezione generale dell\'andamento, ma non numeri solidi su cui costruire previsioni. Con un sistema di tracking anche basilare, potresti trasformare le sensazioni in decisioni fondate.',
-					buono: 'Sai cosa aspettarti ogni mese: questo ti mette in vantaggio rispetto alla maggior parte dei tuoi concorrenti. Usa questa prevedibilit\u00e0 per negoziare da una posizione di forza.'
+					buono: 'Sai cosa aspettarti ogni mese: questo ti mette in vantaggio rispetto alla maggior parte dei tuoi concorrenti. Usa questa prevedibilit\u00e0 per negoziare da una posizione di forza.',
+					bedo: 'Il metodo BEDo lavora sulla Consulenza Vendite: costruiamo un sistema di vendita prevedibile partendo dalle persone che lo devono far funzionare.'
 				},
 				2: {
 					name: 'Indipendenza Operativa', keys: ['q2'], max: 2,
 					critico: 'Se sparisci due settimane, l\'azienda si ferma. Non hai un\'impresa, hai un lavoro autonomo con costi fissi da impresa.',
 					migliorabile: 'Alcune cose vanno avanti senza di te, altre no. Identifica i 2-3 processi che dipendono solo da te e inizia a delegarli: \u00e8 l\u00ec che si gioca la tua libert\u00e0 operativa.',
-					buono: 'La tua azienda funziona anche senza la tua presenza quotidiana: hai costruito un sistema, non solo un\'attivit\u00e0. Ora concentrati su dove il tuo tempo genera davvero valore.'
+					buono: 'La tua azienda funziona anche senza la tua presenza quotidiana: hai costruito un sistema, non solo un\'attivit\u00e0. Ora concentrati su dove il tuo tempo genera davvero valore.',
+					bedo: 'Con la Formazione BEDo, i tuoi manager smettono di rincorrere emergenze e iniziano a decidere in autonomia. Meno colli di bottiglia, pi\u00f9 libert\u00e0 per te.'
 				},
 				3: {
 					name: 'Liquidit\u00e0 e Marginalit\u00e0', keys: ['q3','q3a'], max: 4,
 					critico: 'Non sai quanto guadagni davvero, n\u00e9 da chi lo guadagni. Potresti avere clienti o prodotti che ti fanno perdere soldi senza saperlo.',
 					migliorabile: 'Hai una visione parziale dei tuoi numeri, ma ci sono zone d\'ombra che ti impediscono di ottimizzare. Spesso basta un cruscotto semplice per scoprire che il 20% dei clienti genera l\'80% del margine.',
-					buono: 'Conosci i tuoi numeri nel dettaglio, cliente per cliente, prodotto per prodotto. Questa chiarezza ti permette di tagliare ci\u00f2 che non rende e raddoppiare ci\u00f2 che funziona.'
+					buono: 'Conosci i tuoi numeri nel dettaglio, cliente per cliente, prodotto per prodotto. Questa chiarezza ti permette di tagliare ci\u00f2 che non rende e raddoppiare ci\u00f2 che funziona.',
+					bedo: 'Il metodo BEDo interviene su come il team gestisce le trattative: proteggere i margini parte dalla capacit\u00e0 delle persone di negoziare con sicurezza, non con paura.'
 				},
 				4: {
 					name: 'Competenze del Team', keys: ['q4','q4a'], max: 4,
 					critico: 'Hai persone insostituibili senza un piano B e ruoli scoperti che frenano la crescita. Se domani perdi una figura chiave, il danno non \u00e8 solo operativo: \u00e8 strategico.',
 					migliorabile: 'Il team regge, ma ha fragilit\u00e0 che conosci e che stai rimandando di affrontare. Ogni mese che passa senza intervenire su quei ruoli scoperti, il rischio cresce silenziosamente.',
-					buono: 'Hai un team solido, con competenze distribuite e nessun collo di bottiglia critico. Il passo successivo \u00e8 costruire un piano di crescita delle competenze interne.'
+					buono: 'Hai un team solido, con competenze distribuite e nessun collo di bottiglia critico. Il passo successivo \u00e8 costruire un piano di crescita delle competenze interne.',
+					bedo: 'Con la Selezione BEDo, identifichiamo chi produce davvero nel tuo contesto. Con gli Assessment Comportamentali, mappiamo il potenziale di chi hai gi\u00e0.'
 				},
 				5: {
 					name: 'Visione Strategica', keys: ['q5','q5a'], max: 4,
 					critico: 'Non hai un piano scritto e non sai dove investire per crescere. Stai lavorando duro, ma senza una direzione chiara rischi di correre veloce nel posto sbagliato.',
 					migliorabile: 'Hai delle idee su dove andare, ma non sono strutturate in un piano con priorit\u00e0 e tempi. Mettere nero su bianco le 3 mosse principali dei prossimi 12 mesi cambierebbe la qualit\u00e0 delle tue decisioni.',
-					buono: 'Hai un piano e sai dove investire: sei nella minoranza di imprenditori che guida l\'azienda invece di farsi guidare dagli eventi. Collega il piano a KPI misurabili per correggere la rotta in tempo reale.'
+					buono: 'Hai un piano e sai dove investire: sei nella minoranza di imprenditori che guida l\'azienda invece di farsi guidare dagli eventi. Collega il piano a KPI misurabili per correggere la rotta in tempo reale.',
+					bedo: 'Il Coaching Valoriale BEDo allinea la tua visione con quella del team. Quando tutti vedono la stessa direzione, le decisioni strategiche diventano naturali.'
 				}
 			};
 
@@ -1243,6 +1254,8 @@ import Layout from '../layouts/Layout.astro';
 					level = 'Buono'; color = 'border-green-500/30 bg-green-500/5'; icon = '\u{1F7E2}'; msg = area.buono;
 				}
 
+				const bedoHint = (level !== 'Buono' && area.bedo) ? `<p class="text-sky-light text-xs leading-relaxed mt-3 pt-3 border-t border-white/10"><strong class="text-sky-light font-semibold">Come interviene il metodo BEDo:</strong> ${area.bedo}</p>` : '';
+
 				areasContainer.innerHTML += `
 					<div class="rounded-xl border ${color} p-4 md:p-5">
 						<div class="flex items-center justify-between mb-2">
@@ -1250,6 +1263,7 @@ import Layout from '../layouts/Layout.astro';
 							<span class="text-white/40 text-xs font-heading">${areaScore}/${area.max}</span>
 						</div>
 						<p class="text-white/70 text-sm leading-relaxed">${msg}</p>
+						${bedoHint}
 					</div>`;
 			}
 
@@ -1549,8 +1563,8 @@ import Layout from '../layouts/Layout.astro';
 					<p class="font-heading font-bold text-lg mb-2">
 						<span class="text-sky-light">Cristiano</span> <span class="text-white">Pusca</span>
 					</p>
-					<p class="text-gray-500 text-sm">Metodo BEDo · Being, Doing</p>
-					<p class="text-gray-500 text-sm mt-1">Human Value First</p>
+					<p class="text-gray-400 text-sm">Metodo BEDo · Being, Doing</p>
+					<p class="text-gray-400 text-sm mt-1">Human Value First</p>
 				</div>
 				<!-- Contatti -->
 				<div>
@@ -1574,7 +1588,7 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 			</div>
 			<div class="pt-6 border-t border-white/5 text-center md:text-left">
-				<p class="text-gray-600 text-xs">&copy; {new Date().getFullYear()} Cristiano Pusca. Tutti i diritti riservati.</p>
+				<p class="text-gray-400 text-xs">&copy; {new Date().getFullYear()} Cristiano Pusca · BPDA S.R.L. · P.IVA 04993860263 · <a href="/privacy" class="hover:text-sky-light transition-colors underline">Privacy Policy</a></p>
 			</div>
 		</div>
 	</footer>
