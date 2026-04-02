@@ -1424,15 +1424,37 @@ import Layout from '../layouts/Layout.astro';
 
 			// Invia risultati a Cristiano via worker
 			try {
-				const risposte = {};
+				const domande = {
+					q1: 'Le vendite o il fatturato sono prevedibili mese per mese?',
+					q2: 'Se manchi per 2 settimane, cosa si ferma in azienda?',
+					q3: 'Hai un cruscotto mensile che ti consenta di monitorare i risultati?',
+					q3a: 'Conosci la redditivita per cliente e per prodotto?',
+					q4: 'Hai persone in ruoli chiave difficili da sostituire?',
+					q4a: 'Hai ruoli scoperti che frenano la tua espansione?',
+					q5: 'Hai un piano scritto per i prossimi 12 mesi?',
+					q5a: 'Sai quali investimenti genererebbero il maggior valore?'
+				};
+				const risposte = [];
 				radioFields.forEach(name => {
 					const checked = $(`input[name="${name}"]:checked`);
-					if (checked) risposte[name] = checked.value;
+					if (checked) {
+						const label = checked.closest('label')?.textContent?.trim() || checked.value;
+						risposte.push({ domanda: domande[name] || name, risposta: label, valore: checked.value });
+					}
 				});
+				// Campi testo aperti
+				const campiAperti = {};
+				const q1aNum = $('input[name="q1a_num"]')?.value?.trim();
+				const q1aTot = $('input[name="q1a_tot"]')?.value?.trim();
+				if (q1aNum || q1aTot) campiAperti['Clienti che generano 80% fatturato'] = `${q1aNum || '-'} su ${q1aTot || '-'}`;
+				const q2aNome = $('input[name="q2a_nome"]')?.value?.trim();
+				const q2aFunzione = $('input[name="q2a_funzione"]')?.value?.trim();
+				if (q2aNome || q2aFunzione) campiAperti['Chi decide in sua assenza'] = `${q2aNome || '-'} (${q2aFunzione || '-'})`;
+
 				fetch('https://pusca-quiz-mailer.nameless-mouse-7d0f.workers.dev', {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/json' },
-					body: JSON.stringify({ nome, email, azienda, settore, score, fascia, risposte })
+					body: JSON.stringify({ nome, email, azienda, settore, score, fascia, risposte, campiAperti })
 				}).catch(() => {});
 			} catch (err) {
 				console.warn('Quiz mailer error:', err.message);
