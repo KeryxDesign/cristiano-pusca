@@ -430,7 +430,7 @@ import Layout from '../layouts/Layout.astro';
 				la tua rete vendita.
 			</h2>
 			<p class="text-white/80 text-lg leading-relaxed mb-2">
-				<strong class="text-white">5 aree. 10 domande. 3 minuti.</strong>
+				<strong class="text-white">7 aree. 40 domande. 8 minuti.</strong>
 			</p>
 			<p class="text-white/60 text-base leading-relaxed mb-10">
 				Alla fine, se quello che leggi ti suona familiare, puoi ricevere un'analisi personalizzata da Cristiano.
@@ -469,17 +469,19 @@ import Layout from '../layouts/Layout.astro';
 					<div id="quiz-progress" class="hidden mb-10">
 						<div class="flex items-center justify-between mb-2">
 							<span class="text-white/60 text-xs font-heading font-semibold tracking-wider uppercase">Progresso</span>
-							<span id="quiz-progress-label" class="text-white/60 text-xs font-heading font-semibold">Step 1 / 5</span>
+							<span id="quiz-progress-label" class="text-white/60 text-xs font-heading font-semibold">Area 1 / 7</span>
 						</div>
 						<div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
-							<div id="quiz-progress-bar" class="h-full rounded-full bg-gradient-to-r from-sky to-accent transition-all duration-500 ease-out" style="width: 20%"></div>
+							<div id="quiz-progress-bar" class="h-full rounded-full bg-gradient-to-r from-sky to-accent transition-all duration-500 ease-out" style="width: 14.3%"></div>
 						</div>
-						<div class="flex justify-between mt-2" id="quiz-area-tabs">
-							<button onclick="showStep(1)" class="quiz-area-tab text-white/40 text-[10px] font-heading hover:text-white/70 transition-colors cursor-pointer" data-step="1">Business</button>
-							<button onclick="showStep(2)" class="quiz-area-tab text-white/40 text-[10px] font-heading hover:text-white/70 transition-colors cursor-pointer" data-step="2">Operativita</button>
-							<button onclick="showStep(3)" class="quiz-area-tab text-white/40 text-[10px] font-heading hover:text-white/70 transition-colors cursor-pointer" data-step="3">Liquidita</button>
-							<button onclick="showStep(4)" class="quiz-area-tab text-white/40 text-[10px] font-heading hover:text-white/70 transition-colors cursor-pointer" data-step="4">Team</button>
-							<button onclick="showStep(5)" class="quiz-area-tab text-white/40 text-[10px] font-heading hover:text-white/70 transition-colors cursor-pointer" data-step="5">Visione</button>
+						<div class="flex justify-between mt-2 gap-1 flex-wrap" id="quiz-area-tabs">
+							<button onclick="showStep(1)" class="quiz-area-tab text-white/40 text-[10px] font-heading hover:text-white/70 transition-colors cursor-pointer" data-step="1">Engagement</button>
+							<button onclick="showStep(2)" class="quiz-area-tab text-white/40 text-[10px] font-heading hover:text-white/70 transition-colors cursor-pointer" data-step="2">Proattivita</button>
+							<button onclick="showStep(3)" class="quiz-area-tab text-white/40 text-[10px] font-heading hover:text-white/70 transition-colors cursor-pointer" data-step="3">Leadership</button>
+							<button onclick="showStep(4)" class="quiz-area-tab text-white/40 text-[10px] font-heading hover:text-white/70 transition-colors cursor-pointer" data-step="4">Controllo</button>
+							<button onclick="showStep(5)" class="quiz-area-tab text-white/40 text-[10px] font-heading hover:text-white/70 transition-colors cursor-pointer" data-step="5">Pianificazione</button>
+							<button onclick="showStep(6)" class="quiz-area-tab text-white/40 text-[10px] font-heading hover:text-white/70 transition-colors cursor-pointer" data-step="6">Vendita</button>
+							<button onclick="showStep(7)" class="quiz-area-tab text-white/40 text-[10px] font-heading hover:text-white/70 transition-colors cursor-pointer" data-step="7">Operativita</button>
 						</div>
 					</div>
 
@@ -495,7 +497,7 @@ import Layout from '../layouts/Layout.astro';
 							la tua rete vendita.
 						</h2>
 						<p class="text-white/80 text-lg leading-relaxed mb-2">
-							<strong class="text-white">5 aree. 10 domande. 3 minuti.</strong>
+							<strong class="text-white">7 aree. 40 domande. 8 minuti.</strong>
 						</p>
 						<p class="text-white/60 text-base leading-relaxed mb-10">
 							Il risultato lo leggi subito. L'email la lasci solo se vuoi ricevere l'analisi approfondita.<br />
@@ -507,281 +509,110 @@ import Layout from '../layouts/Layout.astro';
 						</button>
 					</div>
 
-					<!-- STEP 1: Andamento del business -->
+					<!-- STEP 1: Engagement e Vision -->
 					<div id="quiz-step-1" class="quiz-step hidden">
-						<p class="text-sky-light text-xs font-heading font-semibold tracking-wider uppercase mb-2">Area 1 di 5</p>
-						<h3 class="text-2xl md:text-3xl font-medium !text-white mb-8">Andamento del business</h3>
-
-						<div class="mb-8">
-							<p class="text-white text-base font-heading font-medium mb-4">Le vendite o il fatturato sono prevedibili mese per mese?</p>
-							<div class="grid gap-3" id="q1-options">
-								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
-									<input type="radio" name="q1" value="2" class="sr-only" />
-									<span class="flex items-center gap-3">
-										<span class="radio-outer w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="radio-dot w-2.5 h-2.5 rounded-full bg-sky transition-transform"></span></span>
-										Si
-									</span>
-								</label>
-								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
-									<input type="radio" name="q1" value="1" class="sr-only" />
-									<span class="flex items-center gap-3">
-										<span class="radio-outer w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="radio-dot w-2.5 h-2.5 rounded-full bg-sky transition-transform"></span></span>
-										Parzialmente
-									</span>
-								</label>
-								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
-									<input type="radio" name="q1" value="0" class="sr-only" />
-									<span class="flex items-center gap-3">
-										<span class="radio-outer w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="radio-dot w-2.5 h-2.5 rounded-full bg-sky transition-transform"></span></span>
-										No
-									</span>
-								</label>
-							</div>
-							<p id="q1-error" class="text-red-400 text-sm mt-2 hidden">Seleziona una risposta per continuare.</p>
+						<p class="text-sky-light text-xs font-heading font-semibold tracking-wider uppercase mb-2">Area 1 di 7</p>
+						<h3 class="text-xl md:text-2xl font-medium !text-white mb-6">Engagement e Vision</h3>
+						<div class="quiz-questions space-y-5">
+							<div class="quiz-q" data-name="q1"><p class="text-white text-sm md:text-base font-heading mb-3">1. I tuoi venditori conoscono la vision e la mission aziendali?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q1" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q1" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q1" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q1" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q1" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q2"><p class="text-white text-sm md:text-base font-heading mb-3">2. La condividono e la divulgano?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q2" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q2" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q2" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q2" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q2" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q3"><p class="text-white text-sm md:text-base font-heading mb-3">3. Propongono idee per migliorare la proposta e l'offerta dell'azienda?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q3" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q3" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q3" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q3" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q3" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q4"><p class="text-white text-sm md:text-base font-heading mb-3">4. E per quella del cliente?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q4" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q4" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q4" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q4" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q4" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q5"><p class="text-white text-sm md:text-base font-heading mb-3">5. Quando non vendono, si confrontano per trovare una soluzione?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q5" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q5" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q5" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q5" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q5" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
 						</div>
-
-						<div class="mb-8">
-							<p class="text-white/80 text-base font-heading font-medium mb-4">Quanti clienti generano l'80% del fatturato?</p>
-							<div class="flex flex-wrap items-center gap-3">
-								<label class="text-white/60 text-sm">N.</label>
-								<input type="text" name="q1a_num" placeholder="es. 5" class="w-20 px-3 py-2.5 rounded-lg border border-white/15 bg-white/5 text-white text-sm placeholder-white/30 focus:outline-none focus:border-sky/50 focus:ring-1 focus:ring-sky/30 transition-all" />
-								<label class="text-white/60 text-sm">su un totale di</label>
-								<input type="text" name="q1a_tot" placeholder="es. 40" class="w-20 px-3 py-2.5 rounded-lg border border-white/15 bg-white/5 text-white text-sm placeholder-white/30 focus:outline-none focus:border-sky/50 focus:ring-1 focus:ring-sky/30 transition-all" />
-							</div>
-						</div>
+						<p class="quiz-step-error text-red-400 text-sm mt-4 hidden">Rispondi a tutte le domande per continuare.</p>
 					</div>
 
-					<!-- STEP 2: Indipendenza operativa -->
+					<!-- STEP 2: Responsabilita e Proattivita -->
 					<div id="quiz-step-2" class="quiz-step hidden">
-						<p class="text-sky-light text-xs font-heading font-semibold tracking-wider uppercase mb-2">Area 2 di 5</p>
-						<h3 class="text-2xl md:text-3xl font-medium !text-white mb-8">Indipendenza operativa</h3>
-
-						<div class="mb-8">
-							<p class="text-white text-base font-heading font-medium mb-4">Se manchi per 2 settimane, cosa si ferma in azienda?</p>
-							<div class="grid gap-3" id="q2-options">
-								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
-									<input type="radio" name="q2" value="2" class="sr-only" />
-									<span class="flex items-center gap-3">
-										<span class="radio-outer w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="radio-dot w-2.5 h-2.5 rounded-full bg-sky transition-transform"></span></span>
-										Niente
-									</span>
-								</label>
-								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
-									<input type="radio" name="q2" value="1" class="sr-only" />
-									<span class="flex items-center gap-3">
-										<span class="radio-outer w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="radio-dot w-2.5 h-2.5 rounded-full bg-sky transition-transform"></span></span>
-										Alcune cose
-									</span>
-								</label>
-								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
-									<input type="radio" name="q2" value="0" class="sr-only" />
-									<span class="flex items-center gap-3">
-										<span class="radio-outer w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="radio-dot w-2.5 h-2.5 rounded-full bg-sky transition-transform"></span></span>
-										Tutto
-									</span>
-								</label>
-							</div>
-							<p id="q2-error" class="text-red-400 text-sm mt-2 hidden">Seleziona una risposta per continuare.</p>
+						<p class="text-sky-light text-xs font-heading font-semibold tracking-wider uppercase mb-2">Area 2 di 7</p>
+						<h3 class="text-xl md:text-2xl font-medium !text-white mb-6">Responsabilita e Proattivita</h3>
+						<div class="quiz-questions space-y-5">
+							<div class="quiz-q" data-name="q6"><p class="text-white text-sm md:text-base font-heading mb-3">6. Oppure assegnano la responsabilita ad azienda e prodotto?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q6" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q6" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q6" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q6" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q6" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q7"><p class="text-white text-sm md:text-base font-heading mb-3">7. Oppure a cliente e mercato?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q7" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q7" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q7" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q7" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q7" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q8"><p class="text-white text-sm md:text-base font-heading mb-3">8. Intervistano i clienti per raccogliere informazioni?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q8" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q8" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q8" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q8" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q8" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q9"><p class="text-white text-sm md:text-base font-heading mb-3">9. Le riportano in maniera proattiva in azienda?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q9" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q9" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q9" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q9" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q9" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q10"><p class="text-white text-sm md:text-base font-heading mb-3">10. Sono attenti a realizzare la corretta marginalita?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q10" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q10" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q10" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q10" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q10" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q11"><p class="text-white text-sm md:text-base font-heading mb-3">11. Oppure vendono principalmente con gli sconti?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q11" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q11" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q11" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q11" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q11" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
 						</div>
-
-						<div class="mb-8">
-							<p class="text-white/80 text-base font-heading font-medium mb-4">Chi decide quando tu non ci sei?</p>
-							<div class="flex flex-wrap items-center gap-3">
-								<label class="text-white/60 text-sm">Nome</label>
-								<input type="text" name="q2a_nome" placeholder="es. Marco" class="w-36 px-3 py-2.5 rounded-lg border border-white/15 bg-white/5 text-white text-sm placeholder-white/30 focus:outline-none focus:border-sky/50 focus:ring-1 focus:ring-sky/30 transition-all" />
-								<label class="text-white/60 text-sm">Funzione</label>
-								<input type="text" name="q2a_funzione" placeholder="es. Dir. commerciale" class="w-44 px-3 py-2.5 rounded-lg border border-white/15 bg-white/5 text-white text-sm placeholder-white/30 focus:outline-none focus:border-sky/50 focus:ring-1 focus:ring-sky/30 transition-all" />
-							</div>
-						</div>
+						<p class="quiz-step-error text-red-400 text-sm mt-4 hidden">Rispondi a tutte le domande per continuare.</p>
 					</div>
 
-					<!-- STEP 3: Liquidita e marginalita -->
+					<!-- STEP 3: Leadership e Sviluppo -->
 					<div id="quiz-step-3" class="quiz-step hidden">
-						<p class="text-sky-light text-xs font-heading font-semibold tracking-wider uppercase mb-2">Area 3 di 5</p>
-						<h3 class="text-2xl md:text-3xl font-medium !text-white mb-8">Liquidita e marginalita</h3>
-
-						<div class="mb-8">
-							<p class="text-white text-base font-heading font-medium mb-4">Hai un cruscotto mensile che ti consenta di monitorare i risultati?</p>
-							<div class="grid gap-3" id="q3-options">
-								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
-									<input type="radio" name="q3" value="2" class="sr-only" />
-									<span class="flex items-center gap-3">
-										<span class="radio-outer w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="radio-dot w-2.5 h-2.5 rounded-full bg-sky transition-transform"></span></span>
-										Si
-									</span>
-								</label>
-								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
-									<input type="radio" name="q3" value="1" class="sr-only" />
-									<span class="flex items-center gap-3">
-										<span class="radio-outer w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="radio-dot w-2.5 h-2.5 rounded-full bg-sky transition-transform"></span></span>
-										Parziale
-									</span>
-								</label>
-								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
-									<input type="radio" name="q3" value="0" class="sr-only" />
-									<span class="flex items-center gap-3">
-										<span class="radio-outer w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="radio-dot w-2.5 h-2.5 rounded-full bg-sky transition-transform"></span></span>
-										No
-									</span>
-								</label>
-							</div>
-							<p id="q3-error" class="text-red-400 text-sm mt-2 hidden">Seleziona una risposta per continuare.</p>
+						<p class="text-sky-light text-xs font-heading font-semibold tracking-wider uppercase mb-2">Area 3 di 7</p>
+						<h3 class="text-xl md:text-2xl font-medium !text-white mb-6">Leadership e Sviluppo</h3>
+						<div class="quiz-questions space-y-5">
+							<div class="quiz-q" data-name="q12"><p class="text-white text-sm md:text-base font-heading mb-3">12. Gli executive forniscono loro feedback strategici e soluzioni concrete?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q12" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q12" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q12" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q12" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q12" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q13"><p class="text-white text-sm md:text-base font-heading mb-3">13. Li formano e affiancano per farli crescere?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q13" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q13" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q13" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q13" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q13" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q14"><p class="text-white text-sm md:text-base font-heading mb-3">14. I risultati raggiunti vengono riconosciuti/valorizzati?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q14" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q14" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q14" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q14" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q14" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q15"><p class="text-white text-sm md:text-base font-heading mb-3">15. E premiati in funzione di parametri oggettivi?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q15" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q15" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q15" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q15" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q15" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
 						</div>
-
-						<div class="mb-8">
-							<p class="text-white text-base font-heading font-medium mb-4">Conosci la redditivita per cliente e per prodotto?</p>
-							<div class="grid gap-3" id="q3a-options">
-								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
-									<input type="radio" name="q3a" value="2" class="sr-only" />
-									<span class="flex items-center gap-3">
-										<span class="radio-outer w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="radio-dot w-2.5 h-2.5 rounded-full bg-sky transition-transform"></span></span>
-										Si
-									</span>
-								</label>
-								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
-									<input type="radio" name="q3a" value="1" class="sr-only" />
-									<span class="flex items-center gap-3">
-										<span class="radio-outer w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="radio-dot w-2.5 h-2.5 rounded-full bg-sky transition-transform"></span></span>
-										Parzialmente
-									</span>
-								</label>
-								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
-									<input type="radio" name="q3a" value="0" class="sr-only" />
-									<span class="flex items-center gap-3">
-										<span class="radio-outer w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="radio-dot w-2.5 h-2.5 rounded-full bg-sky transition-transform"></span></span>
-										No
-									</span>
-								</label>
-							</div>
-							<p id="q3a-error" class="text-red-400 text-sm mt-2 hidden">Seleziona una risposta per continuare.</p>
-						</div>
+						<p class="quiz-step-error text-red-400 text-sm mt-4 hidden">Rispondi a tutte le domande per continuare.</p>
 					</div>
 
-					<!-- STEP 4: Competenze del team -->
+					<!-- STEP 4: Prevedibilita e Controllo -->
 					<div id="quiz-step-4" class="quiz-step hidden">
-						<p class="text-sky-light text-xs font-heading font-semibold tracking-wider uppercase mb-2">Area 4 di 5</p>
-						<h3 class="text-2xl md:text-3xl font-medium !text-white mb-8">Competenze del team</h3>
-
-						<div class="mb-8">
-							<p class="text-white text-base font-heading font-medium mb-4">Hai delle persone in ruoli chiave, che sono difficili da sostituire?</p>
-							<div class="grid gap-3" id="q4-options">
-								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
-									<input type="radio" name="q4" value="2" class="sr-only" />
-									<span class="flex items-center gap-3">
-										<span class="radio-outer w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="radio-dot w-2.5 h-2.5 rounded-full bg-sky transition-transform"></span></span>
-										Nessuna
-									</span>
-								</label>
-								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
-									<input type="radio" name="q4" value="1" class="sr-only" />
-									<span class="flex items-center gap-3">
-										<span class="radio-outer w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="radio-dot w-2.5 h-2.5 rounded-full bg-sky transition-transform"></span></span>
-										Alcune
-									</span>
-								</label>
-								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
-									<input type="radio" name="q4" value="0" class="sr-only" />
-									<span class="flex items-center gap-3">
-										<span class="radio-outer w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="radio-dot w-2.5 h-2.5 rounded-full bg-sky transition-transform"></span></span>
-										Molte
-									</span>
-								</label>
-							</div>
-							<p id="q4-error" class="text-red-400 text-sm mt-2 hidden">Seleziona una risposta per continuare.</p>
+						<p class="text-sky-light text-xs font-heading font-semibold tracking-wider uppercase mb-2">Area 4 di 7</p>
+						<h3 class="text-xl md:text-2xl font-medium !text-white mb-6">Prevedibilita e Controllo</h3>
+						<div class="quiz-questions space-y-5">
+							<div class="quiz-q" data-name="q16"><p class="text-white text-sm md:text-base font-heading mb-3">16. Le vendite sono prevedibili mese per mese?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q16" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q16" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q16" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q16" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q16" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q17"><p class="text-white text-sm md:text-base font-heading mb-3">17. E il fatturato?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q17" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q17" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q17" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q17" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q17" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q18"><p class="text-white text-sm md:text-base font-heading mb-3">18. Monitori mensilmente la redditivita per cliente?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q18" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q18" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q18" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q18" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q18" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q19"><p class="text-white text-sm md:text-base font-heading mb-3">19. E per prodotto?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q19" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q19" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q19" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q19" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q19" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q20"><p class="text-white text-sm md:text-base font-heading mb-3">20. Quanto sono concentrati sui clienti acquisiti?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q20" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q20" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q20" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q20" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q20" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q21"><p class="text-white text-sm md:text-base font-heading mb-3">21. E sulla ricerca costante di quelli nuovi?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q21" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q21" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q21" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q21" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q21" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
 						</div>
-
-						<div class="mb-8">
-							<p class="text-white text-base font-heading font-medium mb-4">Hai ruoli scoperti che frenano la tua espansione?</p>
-							<div class="grid gap-3" id="q4a-options">
-								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
-									<input type="radio" name="q4a" value="2" class="sr-only" />
-									<span class="flex items-center gap-3">
-										<span class="radio-outer w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="radio-dot w-2.5 h-2.5 rounded-full bg-sky transition-transform"></span></span>
-										Nessuno
-									</span>
-								</label>
-								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
-									<input type="radio" name="q4a" value="1" class="sr-only" />
-									<span class="flex items-center gap-3">
-										<span class="radio-outer w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="radio-dot w-2.5 h-2.5 rounded-full bg-sky transition-transform"></span></span>
-										Alcuni
-									</span>
-								</label>
-								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
-									<input type="radio" name="q4a" value="0" class="sr-only" />
-									<span class="flex items-center gap-3">
-										<span class="radio-outer w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="radio-dot w-2.5 h-2.5 rounded-full bg-sky transition-transform"></span></span>
-										Molti
-									</span>
-								</label>
-							</div>
-							<p id="q4a-error" class="text-red-400 text-sm mt-2 hidden">Seleziona una risposta per continuare.</p>
-						</div>
+						<p class="quiz-step-error text-red-400 text-sm mt-4 hidden">Rispondi a tutte le domande per continuare.</p>
 					</div>
 
-					<!-- STEP 5: Visione strategica -->
+					<!-- STEP 5: Organizzazione e Pianificazione -->
 					<div id="quiz-step-5" class="quiz-step hidden">
-						<p class="text-sky-light text-xs font-heading font-semibold tracking-wider uppercase mb-2">Area 5 di 5</p>
-						<h3 class="text-2xl md:text-3xl font-medium !text-white mb-8">Visione strategica e priorita</h3>
-
-						<div class="mb-8">
-							<p class="text-white text-base font-heading font-medium mb-4">Hai un piano scritto per i prossimi 12 mesi?</p>
-							<div class="grid gap-3" id="q5-options">
-								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
-									<input type="radio" name="q5" value="2" class="sr-only" />
-									<span class="flex items-center gap-3">
-										<span class="radio-outer w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="radio-dot w-2.5 h-2.5 rounded-full bg-sky transition-transform"></span></span>
-										Si
-									</span>
-								</label>
-								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
-									<input type="radio" name="q5" value="1" class="sr-only" />
-									<span class="flex items-center gap-3">
-										<span class="radio-outer w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="radio-dot w-2.5 h-2.5 rounded-full bg-sky transition-transform"></span></span>
-										Parziale
-									</span>
-								</label>
-								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
-									<input type="radio" name="q5" value="0" class="sr-only" />
-									<span class="flex items-center gap-3">
-										<span class="radio-outer w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="radio-dot w-2.5 h-2.5 rounded-full bg-sky transition-transform"></span></span>
-										No
-									</span>
-								</label>
-							</div>
-							<p id="q5-error" class="text-red-400 text-sm mt-2 hidden">Seleziona una risposta per continuare.</p>
+						<p class="text-sky-light text-xs font-heading font-semibold tracking-wider uppercase mb-2">Area 5 di 7</p>
+						<h3 class="text-xl md:text-2xl font-medium !text-white mb-6">Organizzazione e Pianificazione</h3>
+						<div class="quiz-questions space-y-5">
+							<div class="quiz-q" data-name="q22"><p class="text-white text-sm md:text-base font-heading mb-3">22. Hai persone in ruoli chiave che non sono al passo con i tempi?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q22" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q22" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q22" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q22" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q22" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q23"><p class="text-white text-sm md:text-base font-heading mb-3">23. Hai ruoli scoperti che frenano la tua espansione?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q23" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q23" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q23" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q23" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q23" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q24"><p class="text-white text-sm md:text-base font-heading mb-3">24. Hai un piano operativo scritto per i prossimi 12 mesi?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q24" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q24" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q24" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q24" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q24" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q25"><p class="text-white text-sm md:text-base font-heading mb-3">25. Diviso per mesi?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q25" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q25" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q25" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q25" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q25" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q26"><p class="text-white text-sm md:text-base font-heading mb-3">26. E settimane?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q26" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q26" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q26" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q26" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q26" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
 						</div>
-
-						<div class="mb-8">
-							<p class="text-white text-base font-heading font-medium mb-4">Sai quali investimenti genererebbero il maggior valore?</p>
-							<div class="grid gap-3" id="q5a-options">
-								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
-									<input type="radio" name="q5a" value="2" class="sr-only" />
-									<span class="flex items-center gap-3">
-										<span class="radio-outer w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="radio-dot w-2.5 h-2.5 rounded-full bg-sky transition-transform"></span></span>
-										Si
-									</span>
-								</label>
-								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
-									<input type="radio" name="q5a" value="1" class="sr-only" />
-									<span class="flex items-center gap-3">
-										<span class="radio-outer w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="radio-dot w-2.5 h-2.5 rounded-full bg-sky transition-transform"></span></span>
-										Parzialmente
-									</span>
-								</label>
-								<label class="quiz-option cursor-pointer block rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 text-white/80 text-base transition-all hover:border-sky/40 hover:bg-white/10 has-checked:border-sky has-checked:bg-sky/15 has-checked:text-white">
-									<input type="radio" name="q5a" value="0" class="sr-only" />
-									<span class="flex items-center gap-3">
-										<span class="radio-outer w-5 h-5 rounded-full border-2 border-white/30 flex items-center justify-center shrink-0 transition-all"><span class="radio-dot w-2.5 h-2.5 rounded-full bg-sky transition-transform"></span></span>
-										No
-									</span>
-								</label>
-							</div>
-							<p id="q5a-error" class="text-red-400 text-sm mt-2 hidden">Seleziona una risposta per continuare.</p>
-						</div>
+						<p class="quiz-step-error text-red-400 text-sm mt-4 hidden">Rispondi a tutte le domande per continuare.</p>
 					</div>
 
-					<!-- NAVIGATION BUTTONS (for steps 1-5) -->
+					<!-- STEP 6: Vendita e Processo -->
+					<div id="quiz-step-6" class="quiz-step hidden">
+						<p class="text-sky-light text-xs font-heading font-semibold tracking-wider uppercase mb-2">Area 6 di 7</p>
+						<h3 class="text-xl md:text-2xl font-medium !text-white mb-6">Vendita e Processo</h3>
+						<div class="quiz-questions space-y-5">
+							<div class="quiz-q" data-name="q27"><p class="text-white text-sm md:text-base font-heading mb-3">27. Nelle loro presentazioni di vendita mettono al centro il reale problema/la necessita del cliente?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q27" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q27" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q27" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q27" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q27" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q28"><p class="text-white text-sm md:text-base font-heading mb-3">28. Sanno evidenziare il valore differenziante della vostra offerta (rispetto ai concorrenti)?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q28" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q28" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q28" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q28" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q28" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q29"><p class="text-white text-sm md:text-base font-heading mb-3">29. Sanno argomentare sul perche a lui convenga scegliere la vostra soluzione?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q29" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q29" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q29" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q29" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q29" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q30"><p class="text-white text-sm md:text-base font-heading mb-3">30. Hai un processo di vendita scritto, suddiviso in fasi?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q30" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q30" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q30" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q30" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q30" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q31"><p class="text-white text-sm md:text-base font-heading mb-3">31. E condiviso ed utilizzato?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q31" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q31" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q31" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q31" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q31" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q32"><p class="text-white text-sm md:text-base font-heading mb-3">32. Monitori i singoli passaggi?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q32" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q32" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q32" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q32" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q32" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q33"><p class="text-white text-sm md:text-base font-heading mb-3">33. Hai un piano formalizzato per l'inserimento dei nuovi venditori?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q33" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q33" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q33" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q33" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q33" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q34"><p class="text-white text-sm md:text-base font-heading mb-3">34. Gestisci ogni richiesta/lead con un percorso definito, chiaro e misurabile?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q34" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q34" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q34" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q34" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q34" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+						</div>
+						<p class="quiz-step-error text-red-400 text-sm mt-4 hidden">Rispondi a tutte le domande per continuare.</p>
+					</div>
+
+					<!-- STEP 7: Gestione Operativa e Crescita -->
+					<div id="quiz-step-7" class="quiz-step hidden">
+						<p class="text-sky-light text-xs font-heading font-semibold tracking-wider uppercase mb-2">Area 7 di 7</p>
+						<h3 class="text-xl md:text-2xl font-medium !text-white mb-6">Gestione Operativa e Crescita</h3>
+						<div class="quiz-questions space-y-5">
+							<div class="quiz-q" data-name="q35"><p class="text-white text-sm md:text-base font-heading mb-3">35. Rilevi il flusso produttivo, dalla richiesta del cliente alla consegna del prodotto?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q35" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q35" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q35" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q35" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q35" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q36"><p class="text-white text-sm md:text-base font-heading mb-3">36. Fai una riunione settimanale plenaria, di massimo 45 minuti, per condividere agenda e priorita?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q36" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q36" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q36" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q36" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q36" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q37"><p class="text-white text-sm md:text-base font-heading mb-3">37. Fai incontri settimanali singoli, di massimo 30 minuti, con ogni venditore/capo area?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q37" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q37" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q37" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q37" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q37" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q38"><p class="text-white text-sm md:text-base font-heading mb-3">38. Hai definito 3/5 obiettivi, chiari e specifici, per ogni tuo singolo operatore?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q38" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q38" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q38" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q38" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q38" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q39"><p class="text-white text-sm md:text-base font-heading mb-3">39. Hai co-progettato un piano di formazione e affiancamento sulle singole necessita?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q39" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q39" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q39" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q39" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q39" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+							<div class="quiz-q" data-name="q40"><p class="text-white text-sm md:text-base font-heading mb-3">40. Hai pianificato e condiviso uno specifico percorso di crescita/sviluppo?</p><div class="quiz-scale flex items-center gap-1 sm:gap-2"><span class="text-white/40 text-[10px] w-8 shrink-0">Mai</span><label class="quiz-dot"><input type="radio" name="q40" value="1" class="sr-only"/><span>1</span></label><label class="quiz-dot"><input type="radio" name="q40" value="2" class="sr-only"/><span>2</span></label><label class="quiz-dot"><input type="radio" name="q40" value="3" class="sr-only"/><span>3</span></label><label class="quiz-dot"><input type="radio" name="q40" value="4" class="sr-only"/><span>4</span></label><label class="quiz-dot"><input type="radio" name="q40" value="5" class="sr-only"/><span>5</span></label><span class="text-white/40 text-[10px] w-12 shrink-0 text-right">Sempre</span></div></div>
+						</div>
+						<p class="quiz-step-error text-red-400 text-sm mt-4 hidden">Rispondi a tutte le domande per continuare.</p>
+					</div>
+
+					<!-- NAVIGATION BUTTONS (for steps 1-7) -->
 					<div id="quiz-nav" class="hidden flex items-center justify-between mt-10">
 						<div class="flex items-center gap-4">
 							<button id="quiz-prev" class="hidden text-white/60 hover:text-white text-sm font-heading font-semibold transition-colors cursor-pointer flex items-center gap-2">
@@ -805,7 +636,7 @@ import Layout from '../layouts/Layout.astro';
 
 						<div class="mb-8">
 							<div class="text-6xl md:text-7xl font-heading font-bold !text-white mb-2">
-								<span id="result-score">0</span><span class="text-white/40">/16</span>
+								<span id="result-score">0</span><span class="text-white/40">/200</span>
 							</div>
 							<div class="w-full max-w-md mx-auto h-3 rounded-full bg-white/10 overflow-hidden mt-4">
 								<div id="result-bar" class="h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
@@ -821,11 +652,13 @@ import Layout from '../layouts/Layout.astro';
 
 						<!-- Navigazione per rivedere le risposte -->
 						<div class="flex flex-wrap justify-center gap-2 mb-8">
-							<button onclick="showStep(1)" class="px-3 py-1.5 rounded-lg bg-white/10 text-white/60 text-xs font-heading hover:bg-white/20 hover:text-white transition-all cursor-pointer">1. Business</button>
-							<button onclick="showStep(2)" class="px-3 py-1.5 rounded-lg bg-white/10 text-white/60 text-xs font-heading hover:bg-white/20 hover:text-white transition-all cursor-pointer">2. Operativita</button>
-							<button onclick="showStep(3)" class="px-3 py-1.5 rounded-lg bg-white/10 text-white/60 text-xs font-heading hover:bg-white/20 hover:text-white transition-all cursor-pointer">3. Liquidita</button>
-							<button onclick="showStep(4)" class="px-3 py-1.5 rounded-lg bg-white/10 text-white/60 text-xs font-heading hover:bg-white/20 hover:text-white transition-all cursor-pointer">4. Team</button>
-							<button onclick="showStep(5)" class="px-3 py-1.5 rounded-lg bg-white/10 text-white/60 text-xs font-heading hover:bg-white/20 hover:text-white transition-all cursor-pointer">5. Visione</button>
+							<button onclick="showStep(1)" class="px-3 py-1.5 rounded-lg bg-white/10 text-white/60 text-xs font-heading hover:bg-white/20 hover:text-white transition-all cursor-pointer">1. Engagement</button>
+							<button onclick="showStep(2)" class="px-3 py-1.5 rounded-lg bg-white/10 text-white/60 text-xs font-heading hover:bg-white/20 hover:text-white transition-all cursor-pointer">2. Proattivita</button>
+							<button onclick="showStep(3)" class="px-3 py-1.5 rounded-lg bg-white/10 text-white/60 text-xs font-heading hover:bg-white/20 hover:text-white transition-all cursor-pointer">3. Leadership</button>
+							<button onclick="showStep(4)" class="px-3 py-1.5 rounded-lg bg-white/10 text-white/60 text-xs font-heading hover:bg-white/20 hover:text-white transition-all cursor-pointer">4. Controllo</button>
+							<button onclick="showStep(5)" class="px-3 py-1.5 rounded-lg bg-white/10 text-white/60 text-xs font-heading hover:bg-white/20 hover:text-white transition-all cursor-pointer">5. Pianificazione</button>
+							<button onclick="showStep(6)" class="px-3 py-1.5 rounded-lg bg-white/10 text-white/60 text-xs font-heading hover:bg-white/20 hover:text-white transition-all cursor-pointer">6. Vendita</button>
+							<button onclick="showStep(7)" class="px-3 py-1.5 rounded-lg bg-white/10 text-white/60 text-xs font-heading hover:bg-white/20 hover:text-white transition-all cursor-pointer">7. Operativita</button>
 						</div>
 
 						<!-- Email form per analisi completa -->
@@ -928,21 +761,33 @@ import Layout from '../layouts/Layout.astro';
 		const $$ = (sel) => document.querySelectorAll(sel);
 
 		const STORAGE_KEY = 'pusca-quiz';
+		const TOTAL_STEPS = 7;
+		const RESULTS_STEP = 8;
 		let currentStep = 0; // 0 = intro
 		let quizCompleted = false;
 
-		const radioFields = ['q1', 'q2', 'q3', 'q3a', 'q4', 'q4a', 'q5', 'q5a'];
-		const textFields = ['q1a_num', 'q1a_tot', 'q2a_nome', 'q2a_funzione'];
+		const radioFields = [];
+		for (let i = 1; i <= 40; i++) radioFields.push('q' + i);
 
 		const stepQuestions = {
-			1: ['q1'],
-			2: ['q2'],
-			3: ['q3', 'q3a'],
-			4: ['q4', 'q4a'],
-			5: ['q5', 'q5a']
+			1: ['q1','q2','q3','q4','q5'],
+			2: ['q6','q7','q8','q9','q10','q11'],
+			3: ['q12','q13','q14','q15'],
+			4: ['q16','q17','q18','q19','q20','q21'],
+			5: ['q22','q23','q24','q25','q26'],
+			6: ['q27','q28','q29','q30','q31','q32','q33','q34'],
+			7: ['q35','q36','q37','q38','q39','q40']
 		};
 
-		const areaMaxScores = { 1: 2, 2: 2, 3: 4, 4: 4, 5: 4 };
+		const areaNames = {
+			1: 'Engagement e Vision',
+			2: 'Responsabilita e Proattivita',
+			3: 'Leadership e Sviluppo',
+			4: 'Prevedibilita e Controllo',
+			5: 'Organizzazione e Pianificazione',
+			6: 'Vendita e Processo',
+			7: 'Gestione Operativa e Crescita'
+		};
 
 		// --- localStorage helpers ---
 		function saveState() {
@@ -950,10 +795,6 @@ import Layout from '../layouts/Layout.astro';
 			radioFields.forEach(name => {
 				const checked = $(`input[name="${name}"]:checked`);
 				if (checked) state[name] = checked.value;
-			});
-			textFields.forEach(name => {
-				const el = $(`input[name="${name}"]`);
-				if (el && el.value) state[name] = el.value;
 			});
 			try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {}
 		}
@@ -970,21 +811,13 @@ import Layout from '../layouts/Layout.astro';
 		}
 
 		function restoreState(state) {
-			// Restore radio selections
 			radioFields.forEach(name => {
 				if (state[name] !== undefined) {
 					const radio = $(`input[name="${name}"][value="${state[name]}"]`);
 					if (radio) {
 						radio.checked = true;
-						updateRadioVisuals(name);
+						updateDotVisuals(name);
 					}
-				}
-			});
-			// Restore text fields
-			textFields.forEach(name => {
-				if (state[name] !== undefined) {
-					const el = $(`input[name="${name}"]`);
-					if (el) el.value = state[name];
 				}
 			});
 		}
@@ -996,7 +829,6 @@ import Layout from '../layouts/Layout.astro';
 			modal.classList.remove('hidden');
 			document.body.style.overflow = 'hidden';
 
-			// Trigger animation
 			requestAnimationFrame(() => {
 				content.style.opacity = '1';
 				content.style.transform = 'scale(1)';
@@ -1006,7 +838,6 @@ import Layout from '../layouts/Layout.astro';
 				restoreState(resumeFromState);
 				const step = resumeFromState.currentStep || 0;
 				showStep(step > 0 ? step : 1, true);
-				// Show toast
 				const toast = $('#quiz-toast');
 				toast.classList.remove('hidden');
 				setTimeout(() => { toast.style.opacity = '0'; }, 2500);
@@ -1027,8 +858,7 @@ import Layout from '../layouts/Layout.astro';
 				document.body.style.overflow = '';
 			}, 300);
 
-			// Save state if quiz is in progress (step 1-5)
-			if (currentStep >= 1 && currentStep <= 5) {
+			if (currentStep >= 1 && currentStep <= TOTAL_STEPS) {
 				saveState();
 			}
 			updateCTAButton();
@@ -1045,28 +875,34 @@ import Layout from '../layouts/Layout.astro';
 			}
 		}
 
-		// Radio indicator animation via CSS has-checked
-		$$('.quiz-option input[type="radio"]').forEach(radio => {
+		// --- Dot visual feedback ---
+		function updateDotVisuals(groupName) {
+			$$(`input[name="${groupName}"]`).forEach(r => {
+				const label = r.closest('.quiz-dot');
+				if (!label) return;
+				const span = label.querySelector('span');
+				if (r.checked) {
+					label.style.borderColor = '#0ea5e9';
+					label.style.background = '#0ea5e9';
+					if (span) span.style.color = 'white';
+				} else {
+					label.style.borderColor = '';
+					label.style.background = '';
+					if (span) span.style.color = '';
+				}
+			});
+		}
+
+		// Attach change listeners to all radio dots
+		$$('.quiz-dot input[type="radio"]').forEach(radio => {
 			radio.addEventListener('change', () => {
-				const name = radio.name;
-				$$(`input[name="${name}"]`).forEach(r => {
-					const dot = r.closest('label').querySelector('.bg-sky');
-					if (dot) dot.style.transform = r.checked ? 'scale(1)' : 'scale(0)';
-				});
-				// Save on every radio change
+				updateDotVisuals(radio.name);
 				saveState();
 			});
 		});
 
-		// Save text fields on input
-		textFields.forEach(name => {
-			const el = $(`input[name="${name}"]`);
-			if (el) el.addEventListener('input', () => saveState());
-		});
-
 		window.showStep = showStep;
 		function showStep(step, skipScroll) {
-			// Hide all
 			$('#quiz-intro').classList.add('hidden');
 			$$('.quiz-step').forEach(el => el.classList.add('hidden'));
 			$('#quiz-nav').classList.add('hidden');
@@ -1079,7 +915,7 @@ import Layout from '../layouts/Layout.astro';
 					$('#quiz-intro').style.transition = 'opacity 0.4s ease';
 					$('#quiz-intro').style.opacity = '1';
 				});
-			} else if (step >= 1 && step <= 5) {
+			} else if (step >= 1 && step <= TOTAL_STEPS) {
 				const el = $(`#quiz-step-${step}`);
 				el.classList.remove('hidden');
 				el.style.opacity = '0';
@@ -1093,26 +929,22 @@ import Layout from '../layouts/Layout.astro';
 				$('#quiz-nav').classList.remove('hidden');
 				$('#quiz-progress').classList.remove('hidden');
 
-				// Update progress
-				$('#quiz-progress-label').textContent = `Step ${step} / 5`;
-				$('#quiz-progress-bar').style.width = `${step * 20}%`;
+				$('#quiz-progress-label').textContent = `Area ${step} / ${TOTAL_STEPS}`;
+				$('#quiz-progress-bar').style.width = `${Math.round((step / TOTAL_STEPS) * 100)}%`;
 
-				// Show/hide prev
 				if (step === 1) {
 					$('#quiz-prev').classList.add('hidden');
 				} else {
 					$('#quiz-prev').classList.remove('hidden');
 				}
 
-				// Button text based on state
 				const arrow = '<svg class="inline w-4 h-4 ml-1.5 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>';
 				if (quizCompleted) {
 					$('#quiz-next').innerHTML = 'Torna ai risultati ' + arrow;
 				} else {
-					$('#quiz-next').innerHTML = (step === 5 ? 'Vedi risultati ' : 'Avanti ') + arrow;
+					$('#quiz-next').innerHTML = (step === TOTAL_STEPS ? 'Vedi risultati ' : 'Avanti ') + arrow;
 				}
 
-				// Highlight active area tab
 				$$('.quiz-area-tab').forEach(tab => {
 					if (parseInt(tab.dataset.step) === step) {
 						tab.classList.remove('text-white/40');
@@ -1122,11 +954,10 @@ import Layout from '../layouts/Layout.astro';
 						tab.classList.add('text-white/40');
 					}
 				});
-			} else if (step === 6) {
+			} else if (step === RESULTS_STEP) {
 				showResults();
 			}
 
-			// Scroll modal content to top
 			if (!skipScroll) {
 				const scrollContainer = $('#quiz-modal-content').closest('.overflow-y-auto');
 				if (scrollContainer) scrollContainer.scrollTop = 0;
@@ -1140,14 +971,11 @@ import Layout from '../layouts/Layout.astro';
 			let valid = true;
 			questions.forEach(q => {
 				const selected = $(`input[name="${q}"]:checked`);
-				const errorEl = $(`#${q}-error`);
-				if (!selected && errorEl) {
-					errorEl.classList.remove('hidden');
-					valid = false;
-				} else if (errorEl) {
-					errorEl.classList.add('hidden');
-				}
+				if (!selected) valid = false;
 			});
+			const errorEl = $(`#quiz-step-${step} .quiz-step-error`);
+			if (!valid && errorEl) errorEl.classList.remove('hidden');
+			else if (errorEl) errorEl.classList.add('hidden');
 			return valid;
 		}
 
@@ -1171,25 +999,24 @@ import Layout from '../layouts/Layout.astro';
 				el.style.transform = 'translateY(0)';
 			});
 
-			// Calculate total score
-			const total = getScore('q1') + getScore('q2') + getScore('q3') + getScore('q3a') + getScore('q4') + getScore('q4a') + getScore('q5') + getScore('q5a');
+			// Calculate total score (40 questions x 1-5 scale)
+			let total = 0;
+			radioFields.forEach(name => { total += getScore(name); });
 
-			// Animate score number
 			$('#result-score').textContent = total;
 
-			// Result bar color + width
-			const pct = Math.round((total / 16) * 100);
+			const pct = Math.round((total / 200) * 100);
 			let barColor, messageText;
 
-			if (total <= 5) {
+			if (total <= 80) {
 				barColor = 'bg-gradient-to-r from-red-500 to-orange-500';
-				messageText = 'La tua azienda sta funzionando a forza di volont\u00e0, non a sistema. Diversi pilastri fondamentali del business sono scoperti. Il punto non \u00e8 "se" intervenire, ma quanto stai perdendo ogni mese che passa senza farlo.';
-			} else if (total <= 10) {
+				messageText = 'La tua rete vendita ha bisogno di un intervento profondo. Diversi segnali indicano che mancano struttura, metodo e coinvolgimento. La buona notizia? Riconoscerlo e il primo passo.';
+			} else if (total <= 140) {
 				barColor = 'bg-gradient-to-r from-yellow-500 to-amber-400';
-				messageText = 'Hai delle basi solide, ma stai lasciando valore sul tavolo. Alcune aree deboli stanno frenando quelle forti: \u00e8 come guidare con il freno a mano tirato. I margini di miglioramento non richiedono rivoluzioni, ma interventi mirati sulle aree giuste.';
+				messageText = 'Ci sono margini importanti di miglioramento. Alcune aree funzionano, altre sono scoperte. Con interventi mirati su 2-3 punti critici, puoi fare un salto significativo.';
 			} else {
 				barColor = 'bg-gradient-to-r from-green-500 to-emerald-400';
-				messageText = 'Hai costruito un\'azienda che funziona. I fondamentali ci sono: prevedibilit\u00e0, controllo, visione. Il prossimo livello non \u00e8 lavorare di pi\u00f9, ma decidere meglio: sapere esattamente dove ogni euro e ogni ora del tuo tempo generano il massimo ritorno.';
+				messageText = 'Buona base, ma potresti fare molto di piu. Hai struttura, ma probabilmente senti che qualcosa manca. Spesso e il livello successivo che richiede un approccio diverso.';
 			}
 
 			const resultBar = $('#result-bar');
@@ -1199,90 +1026,48 @@ import Layout from '../layouts/Layout.astro';
 			$('#result-text').textContent = messageText;
 
 			// Report per area
-			const areaMessages = {
-				1: {
-					name: 'Andamento del Business', keys: ['q1'], max: 2,
-					critico: 'Stai navigando a vista: senza prevedibilit\u00e0 sul fatturato, ogni mese \u00e8 una scommessa. Significa che non puoi pianificare assunzioni, investimenti o semplicemente dormire tranquillo.',
-					migliorabile: 'Hai una percezione generale dell\'andamento, ma non numeri solidi su cui costruire previsioni. Con un sistema di tracking anche basilare, potresti trasformare le sensazioni in decisioni fondate.',
-					buono: 'Sai cosa aspettarti ogni mese: questo ti mette in vantaggio rispetto alla maggior parte dei tuoi concorrenti. Usa questa prevedibilit\u00e0 per negoziare da una posizione di forza.',
-					bedo: 'Il metodo BEDo lavora sulla Consulenza Vendite: costruiamo un sistema di vendita prevedibile partendo dalle persone che lo devono far funzionare.'
-				},
-				2: {
-					name: 'Indipendenza Operativa', keys: ['q2'], max: 2,
-					critico: 'Se sparisci due settimane, l\'azienda si ferma. Non hai un\'impresa, hai un lavoro autonomo con costi fissi da impresa.',
-					migliorabile: 'Alcune cose vanno avanti senza di te, altre no. Identifica i 2-3 processi che dipendono solo da te e inizia a delegarli: \u00e8 l\u00ec che si gioca la tua libert\u00e0 operativa.',
-					buono: 'La tua azienda funziona anche senza la tua presenza quotidiana: hai costruito un sistema, non solo un\'attivit\u00e0. Ora concentrati su dove il tuo tempo genera davvero valore.',
-					bedo: 'Con la Formazione BEDo, i tuoi manager smettono di rincorrere emergenze e iniziano a decidere in autonomia. Meno colli di bottiglia, pi\u00f9 libert\u00e0 per te.'
-				},
-				3: {
-					name: 'Liquidit\u00e0 e Marginalit\u00e0', keys: ['q3','q3a'], max: 4,
-					critico: 'Non sai quanto guadagni davvero, n\u00e9 da chi lo guadagni. Potresti avere clienti o prodotti che ti fanno perdere soldi senza saperlo.',
-					migliorabile: 'Hai una visione parziale dei tuoi numeri, ma ci sono zone d\'ombra che ti impediscono di ottimizzare. Spesso basta un cruscotto semplice per scoprire che il 20% dei clienti genera l\'80% del margine.',
-					buono: 'Conosci i tuoi numeri nel dettaglio, cliente per cliente, prodotto per prodotto. Questa chiarezza ti permette di tagliare ci\u00f2 che non rende e raddoppiare ci\u00f2 che funziona.',
-					bedo: 'Il metodo BEDo interviene su come il team gestisce le trattative: proteggere i margini parte dalla capacit\u00e0 delle persone di negoziare con sicurezza, non con paura.'
-				},
-				4: {
-					name: 'Competenze del Team', keys: ['q4','q4a'], max: 4,
-					critico: 'Hai persone insostituibili senza un piano B e ruoli scoperti che frenano la crescita. Se domani perdi una figura chiave, il danno non \u00e8 solo operativo: \u00e8 strategico.',
-					migliorabile: 'Il team regge, ma ha fragilit\u00e0 che conosci e che stai rimandando di affrontare. Ogni mese che passa senza intervenire su quei ruoli scoperti, il rischio cresce silenziosamente.',
-					buono: 'Hai un team solido, con competenze distribuite e nessun collo di bottiglia critico. Il passo successivo \u00e8 costruire un piano di crescita delle competenze interne.',
-					bedo: 'Con la Selezione BEDo, identifichiamo chi produce davvero nel tuo contesto. Con gli Assessment Comportamentali, mappiamo il potenziale di chi hai gi\u00e0.'
-				},
-				5: {
-					name: 'Visione Strategica', keys: ['q5','q5a'], max: 4,
-					critico: 'Non hai un piano scritto e non sai dove investire per crescere. Stai lavorando duro, ma senza una direzione chiara rischi di correre veloce nel posto sbagliato.',
-					migliorabile: 'Hai delle idee su dove andare, ma non sono strutturate in un piano con priorit\u00e0 e tempi. Mettere nero su bianco le 3 mosse principali dei prossimi 12 mesi cambierebbe la qualit\u00e0 delle tue decisioni.',
-					buono: 'Hai un piano e sai dove investire: sei nella minoranza di imprenditori che guida l\'azienda invece di farsi guidare dagli eventi. Collega il piano a KPI misurabili per correggere la rotta in tempo reale.',
-					bedo: 'Il Coaching Valoriale BEDo allinea la tua visione con quella del team. Quando tutti vedono la stessa direzione, le decisioni strategiche diventano naturali.'
-				}
-			};
-
 			const areasContainer = $('#result-areas');
 			areasContainer.innerHTML = '';
-			for (const [areaNum, area] of Object.entries(areaMessages)) {
+			for (let areaNum = 1; areaNum <= TOTAL_STEPS; areaNum++) {
+				const keys = stepQuestions[areaNum];
+				const maxScore = keys.length * 5;
 				let areaScore = 0;
-				area.keys.forEach(k => {
-					const checked = $(`input[name="${k}"]:checked`);
-					if (checked) areaScore += parseInt(checked.value, 10);
-				});
+				keys.forEach(k => { areaScore += getScore(k); });
 
+				const ratio = areaScore / maxScore;
 				let level, color, icon, msg;
-				const threshold = area.max === 2 ? { bad: 0, mid: 1 } : { bad: 1, mid: 3 };
-				if (areaScore <= threshold.bad) {
-					level = 'Critico'; color = 'border-red-500/30 bg-red-500/5'; icon = '\u{1F534}'; msg = area.critico;
-				} else if (areaScore <= threshold.mid) {
-					level = 'Da migliorare'; color = 'border-yellow-500/30 bg-yellow-500/5'; icon = '\u{1F7E1}'; msg = area.migliorabile;
+				if (ratio <= 0.4) {
+					level = 'Critico'; color = 'border-red-500/30 bg-red-500/5'; icon = '\u{1F534}';
+					msg = 'Area critica: servono interventi strutturali per costruire una base solida.';
+				} else if (ratio <= 0.7) {
+					level = 'Da migliorare'; color = 'border-yellow-500/30 bg-yellow-500/5'; icon = '\u{1F7E1}';
+					msg = 'Margini di miglioramento significativi: con interventi mirati puoi fare un salto di qualita.';
 				} else {
-					level = 'Buono'; color = 'border-green-500/30 bg-green-500/5'; icon = '\u{1F7E2}'; msg = area.buono;
+					level = 'Buono'; color = 'border-green-500/30 bg-green-500/5'; icon = '\u{1F7E2}';
+					msg = 'Area solida: mantieni il livello e cerca le ottimizzazioni di dettaglio.';
 				}
-
-				const bedoHint = (level !== 'Buono' && area.bedo) ? `<p class="text-sky-light text-xs leading-relaxed mt-3 pt-3 border-t border-white/10"><strong class="text-sky-light font-semibold">Come interviene il metodo BEDo:</strong> ${area.bedo}</p>` : '';
 
 				areasContainer.innerHTML += `
 					<div class="rounded-xl border ${color} p-4 md:p-5">
 						<div class="flex items-center justify-between mb-2">
-							<p class="text-white text-sm font-heading font-bold">${icon} ${area.name}</p>
-							<span class="text-white/40 text-xs font-heading">${areaScore}/${area.max}</span>
+							<p class="text-white text-sm font-heading font-bold">${icon} ${areaNames[areaNum]}</p>
+							<span class="text-white/40 text-xs font-heading">${areaScore}/${maxScore}</span>
 						</div>
 						<p class="text-white/70 text-sm leading-relaxed">${msg}</p>
-						${bedoHint}
 					</div>`;
 			}
 
-			// Clear saved state when results are shown
 			clearState();
 			updateCTAButton();
 		}
 
 		// --- Event listeners ---
 
-		// Open modal from CTA button
 		$('#quiz-open-btn').addEventListener('click', () => {
 			const state = loadState();
 			openModal(state);
 		});
 
-		// Close modal
 		$('#quiz-close-btn').addEventListener('click', closeModal);
 		$('#quiz-overlay').addEventListener('click', closeModal);
 		document.addEventListener('keydown', (e) => {
@@ -1291,43 +1076,13 @@ import Layout from '../layouts/Layout.astro';
 			}
 		});
 
-		// Radio selection: visual feedback via inline styles
-		function updateRadioVisuals(groupName) {
-			$$(`input[name="${groupName}"]`).forEach(r => {
-				const label = r.closest('.quiz-option');
-				const outer = label?.querySelector('.radio-outer');
-				const dot = label?.querySelector('.radio-dot');
-				if (!label) return;
-				if (r.checked) {
-					label.style.borderColor = '#0ea5e9';
-					label.style.background = 'rgba(14, 165, 233, 0.15)';
-					label.style.color = 'white';
-					if (outer) outer.style.borderColor = '#0ea5e9';
-					if (dot) dot.style.cssText = 'transform:scale(1);scale:1;';
-				} else {
-					label.style.borderColor = '';
-					label.style.background = '';
-					label.style.color = '';
-					if (outer) outer.style.borderColor = '';
-					if (dot) dot.style.cssText = 'transform:scale(0);scale:0;';
-				}
-			});
-		}
-		// Hide all dots by default
-		$$('.radio-dot').forEach(d => { d.style.cssText = 'transform:scale(0);scale:0;'; });
-
-		$$('.quiz-option input[type="radio"]').forEach(radio => {
-			radio.addEventListener('change', () => updateRadioVisuals(radio.name));
-		});
-
-		// Start quiz from intro inside modal
 		$('#quiz-start-btn').addEventListener('click', () => showStep(1));
 
 		$('#quiz-next').addEventListener('click', () => {
 			if (quizCompleted) {
-				showStep(6); // torna ai risultati
+				showStep(RESULTS_STEP);
 			} else if (validateStep(currentStep)) {
-				showStep(currentStep + 1);
+				showStep(currentStep === TOTAL_STEPS ? RESULTS_STEP : currentStep + 1);
 			}
 		});
 
@@ -1336,21 +1091,16 @@ import Layout from '../layouts/Layout.astro';
 		});
 
 		$('#quiz-restart').addEventListener('click', () => {
-			// Reset tutte le risposte
 			radioFields.forEach(name => {
 				$$(`input[name="${name}"]`).forEach(r => r.checked = false);
-				updateRadioVisuals(name);
-			});
-			textFields.forEach(name => {
-				const el = $(`input[name="${name}"]`);
-				if (el) el.value = '';
+				updateDotVisuals(name);
 			});
 			quizCompleted = false;
 			clearState();
 			showStep(1);
 		});
 
-		// Email form submit → Mailchimp
+		// Email form submit (Mailchimp) -- unchanged
 		$('#quiz-email-form').addEventListener('submit', async (e) => {
 			e.preventDefault();
 			const btn = e.target.querySelector('button[type="submit"]');
@@ -1363,19 +1113,16 @@ import Layout from '../layouts/Layout.astro';
 			const azienda = e.target.quiz_azienda.value.trim();
 			const settore = e.target.quiz_settore.value.trim();
 
-			// Get score from result display
 			const scoreEl = $('#result-score');
 			const score = scoreEl ? parseInt(scoreEl.textContent, 10) : 0;
 			let fascia = 'critico';
-			if (score > 10) fascia = 'buono';
-			else if (score > 5) fascia = 'migliorabile';
+			if (score > 140) fascia = 'buono';
+			else if (score > 80) fascia = 'migliorabile';
 
-			// Split nome into first/last
 			const parts = nome.split(' ');
 			const fname = parts[0] || '';
 			const lname = parts.slice(1).join(' ') || '';
 
-			// Mailchimp subscribe via hidden iframe form POST
 			try {
 				const iframeName = 'mc-iframe-' + Date.now();
 				const iframe = document.createElement('iframe');
@@ -1413,7 +1160,6 @@ import Layout from '../layouts/Layout.astro';
 				document.body.appendChild(mcForm);
 				mcForm.submit();
 
-				// Cleanup after 5s
 				setTimeout(() => {
 					iframe.remove();
 					mcForm.remove();
@@ -1424,37 +1170,23 @@ import Layout from '../layouts/Layout.astro';
 
 			// Invia risultati a Cristiano via worker
 			try {
-				const domande = {
-					q1: 'Le vendite o il fatturato sono prevedibili mese per mese?',
-					q2: 'Se manchi per 2 settimane, cosa si ferma in azienda?',
-					q3: 'Hai un cruscotto mensile che ti consenta di monitorare i risultati?',
-					q3a: 'Conosci la redditivita per cliente e per prodotto?',
-					q4: 'Hai persone in ruoli chiave difficili da sostituire?',
-					q4a: 'Hai ruoli scoperti che frenano la tua espansione?',
-					q5: 'Hai un piano scritto per i prossimi 12 mesi?',
-					q5a: 'Sai quali investimenti genererebbero il maggior valore?'
-				};
+				const domande = {};
+				for (let i = 1; i <= 40; i++) {
+					const qEl = $(`.quiz-q[data-name="q${i}"] p`);
+					domande['q'+i] = qEl ? qEl.textContent.replace(/^\d+\.\s*/, '') : 'q'+i;
+				}
 				const risposte = [];
 				radioFields.forEach(name => {
 					const checked = $(`input[name="${name}"]:checked`);
 					if (checked) {
-						const label = checked.closest('label')?.textContent?.trim() || checked.value;
-						risposte.push({ domanda: domande[name] || name, risposta: label, valore: checked.value });
+						risposte.push({ domanda: domande[name] || name, risposta: checked.value + '/5', valore: checked.value });
 					}
 				});
-				// Campi testo aperti
-				const campiAperti = {};
-				const q1aNum = $('input[name="q1a_num"]')?.value?.trim();
-				const q1aTot = $('input[name="q1a_tot"]')?.value?.trim();
-				if (q1aNum || q1aTot) campiAperti['Clienti che generano 80% fatturato'] = `${q1aNum || '-'} su ${q1aTot || '-'}`;
-				const q2aNome = $('input[name="q2a_nome"]')?.value?.trim();
-				const q2aFunzione = $('input[name="q2a_funzione"]')?.value?.trim();
-				if (q2aNome || q2aFunzione) campiAperti['Chi decide in sua assenza'] = `${q2aNome || '-'} (${q2aFunzione || '-'})`;
 
 				fetch('https://pusca-quiz-mailer.nameless-mouse-7d0f.workers.dev', {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/json' },
-					body: JSON.stringify({ nome, email, azienda, settore, score, fascia, risposte, campiAperti })
+					body: JSON.stringify({ nome, email, azienda, settore, score, fascia, risposte, campiAperti: {} })
 				}).catch(() => {});
 			} catch (err) {
 				console.warn('Quiz mailer error:', err.message);
@@ -1479,7 +1211,6 @@ import Layout from '../layouts/Layout.astro';
 			}, 300);
 		});
 
-		// On page load: update CTA button text
 		updateCTAButton();
 	})();
 
