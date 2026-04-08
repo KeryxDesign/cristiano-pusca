@@ -82,6 +82,28 @@ body {
   box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4);
 }
 
+/* ── Bottone quiz — rosso caldo ── */
+.btn-quiz {
+  display: inline-block;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 1rem 2.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.35);
+}
+
+.btn-quiz:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.45);
+}
+
 /* ── Bottone CTA invertito — su sfondo scuro ── */
 .btn-inverted {
   display: inline-block;
