@@ -1,0 +1,9 @@
+name = "pusca-scanner-email"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+MAILCHIMP_SERVER = "us13"
+MAILCHIMP_LIST_ID = "2a69d16d64"
+ALLOWED_ORIGIN = "https://cristianopusca.it,https://www.cristianopusca.it,http://localhost:4325"
+NOTIFY_EMAIL = "info@keryxdesign.com,cristiano@be-do.it"
