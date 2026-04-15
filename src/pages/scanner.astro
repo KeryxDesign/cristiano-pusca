@@ -567,7 +567,7 @@ const description = '10 domande, 3 minuti, un numero in euro. Scopri quanto ti c
 					throw new Error('Worker error');
 				}
 
-				document.getElementById('scanner-email-gate').style.display = 'none';
+				document.getElementById('scanner-email-gate').innerHTML = '<div class="text-center py-4"><p class="text-green-400 font-heading font-semibold text-lg mb-2">Fatto! Risultato sbloccato.</p><p class="text-white/60 text-sm">Controlla la tua email per una copia dei risultati.</p></div>';
 				document.getElementById('scanner-gated').classList.remove('hidden');
 			} catch (err) {
 				msg.textContent = 'Qualcosa non ha funzionato. Riprova.';

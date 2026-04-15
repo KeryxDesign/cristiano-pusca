@@ -18,7 +18,7 @@ export default {
 			// 1. Save to Mailchimp (subscriber + merge fields + tag)
 			const mcResult = await addToMailchimp(env, email, score, cost, newsletter);
 			if (!mcResult.ok) {
-				return jsonResponse({ error: 'Mailchimp failed', detail: mcResult.error }, 500, env, request);
+				console.error('Mailchimp error (non-blocking):', mcResult.error);
 			}
 
 			// 2. Send results email to user via Resend
@@ -33,7 +33,7 @@ export default {
 				console.error('Resend notify error:', notifyResult.error);
 			}
 
-			return jsonResponse({ success: true }, 200, env, request);
+			return jsonResponse({ success: true, mailchimp: mcResult.ok }, 200, env, request);
 		} catch (err) {
 			console.error('Worker error:', err);
 			return jsonResponse({ error: 'Internal error' }, 500, env, request);
