@@ -1250,10 +1250,12 @@ import Layout from '../layouts/Layout.astro';
 			}
 		});
 
-		// Hero CTA also opens scanner
-		document.querySelector('a[href="#scanner"]')?.addEventListener('click', (e) => {
-			e.preventDefault();
-			openModal();
+		// All #scanner links open the modal
+		document.querySelectorAll('a[href="#scanner"]').forEach(link => {
+			link.addEventListener('click', (e) => {
+				e.preventDefault();
+				openModal();
+			});
 		});
 	})();
 
