@@ -1,0 +1,553 @@
+---
+import '../styles/global.css';
+
+const title = 'Scanner Rete Vendita — Cristiano Pusca';
+const description = '10 domande, 3 minuti, un numero in euro. Scopri quanto ti costa davvero la tua rete vendita.';
+---
+
+<html lang="it">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content={description} />
+		<meta name="generator" content={Astro.generator} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="/cristiano-pusca.jpg" />
+		<meta property="og:type" content="website" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content="/cristiano-pusca.jpg" />
+		<link rel="canonical" href="https://cristianopusca.com/scanner" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+		<title>{title}</title>
+	</head>
+	<body class="bg-dark min-h-screen">
+
+		<!-- Header minimo -->
+		<header class="bg-dark/90 backdrop-blur-xl border-b border-white/5">
+			<nav class="max-w-2xl mx-auto px-6 h-16 flex items-center justify-between">
+				<a href="/" class="font-heading font-bold text-xl tracking-tight">
+					<span class="text-sky-light">Cristiano</span><span class="text-white"> Pusca</span>
+				</a>
+				<a href="/" class="text-gray-400 text-sm font-heading font-medium hover:text-white transition-colors">
+					&larr; Torna al sito
+				</a>
+			</nav>
+		</header>
+
+		<main class="relative overflow-hidden">
+			<!-- Background effects -->
+			<div class="absolute inset-0 bg-gradient-to-br from-dark via-sky-muted to-dark"></div>
+			<div class="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent"></div>
+			<div class="absolute top-10 right-10 w-64 h-64 rounded-full bg-accent/10 blur-[100px]"></div>
+			<div class="absolute bottom-10 left-10 w-96 h-96 rounded-full bg-sky/10 blur-[100px]"></div>
+
+			<div class="relative max-w-2xl mx-auto px-6 py-12 md:py-20">
+
+				<div id="scanner-container">
+
+					<!-- PROGRESS BAR -->
+					<div id="scanner-progress" class="hidden mb-6 md:mb-10">
+						<div class="flex items-center justify-between mb-2">
+							<span class="text-white/60 text-xs font-heading font-semibold tracking-wider uppercase">Progresso</span>
+							<span id="scanner-progress-label" class="text-white/60 text-xs font-heading font-semibold">Domanda 1 / 10</span>
+						</div>
+						<div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
+							<div id="scanner-progress-bar" class="h-full rounded-full bg-gradient-to-r from-sky to-accent transition-all duration-500 ease-out" style="width: 10%"></div>
+						</div>
+					</div>
+
+					<!-- INTRO -->
+					<div id="scanner-intro">
+						<div class="w-16 h-16 mb-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 flex items-center justify-center">
+							<svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+								<path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M9 17h6" />
+							</svg>
+						</div>
+						<h1 class="text-3xl md:text-4xl font-medium text-white mb-4">Scanner Rete Vendita</h1>
+						<p class="text-white/80 text-base leading-relaxed mb-4">
+							10 domande sulla tua rete commerciale. Niente teoria, niente email da lasciare. Rispondi con i numeri della tua azienda.
+						</p>
+						<p class="text-white/60 text-sm leading-relaxed mb-3">Alla fine ricevi due cose:</p>
+						<ul class="space-y-2 mb-6">
+							<li class="flex items-start gap-2.5 text-white/80 text-sm">
+								<span class="text-sky font-bold">1.</span>
+								Il tuo <strong class="text-white">Indice di Rischio Dipendenza</strong> (quanto il fatturato dipende da te o da 1-2 persone)
+							</li>
+							<li class="flex items-start gap-2.5 text-white/80 text-sm">
+								<span class="text-sky font-bold">2.</span>
+								Una <strong class="text-white">stima in euro</strong> di quanto ti sta costando ogni anno questa situazione
+							</li>
+						</ul>
+						<p class="text-white/40 text-xs mb-8">Non e' un test psicologico. E' un calcolo basato sui tuoi dati reali.</p>
+						<button id="scanner-start-btn" class="btn-quiz text-lg cursor-pointer w-full">
+							Inizia lo scanner
+							<svg class="inline w-5 h-5 ml-2 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+						</button>
+					</div>
+
+					<!-- DOMANDE -->
+					<div id="scanner-questions" class="hidden">
+						<form id="scanner-form">
+
+							<!-- Domanda 1 -->
+							<div class="scanner-q hidden" data-q="1">
+								<p class="text-white/40 text-xs font-heading font-semibold tracking-wider uppercase mb-3">Domanda 1 di 10</p>
+								<h4 class="text-xl md:text-2xl font-medium text-white mb-6">Quanti venditori hai nella tua rete?</h4>
+								<input type="number" name="sq1" min="1" max="200" placeholder="Es. 5" required class="w-full rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm px-5 py-4 text-white text-lg placeholder-white/30 font-heading focus:outline-none focus:border-sky/50 focus:ring-1 focus:ring-sky/50 transition-colors" />
+							</div>
+
+							<!-- Domanda 2 -->
+							<div class="scanner-q hidden" data-q="2">
+								<p class="text-white/40 text-xs font-heading font-semibold tracking-wider uppercase mb-3">Domanda 2 di 10</p>
+								<h4 class="text-xl md:text-2xl font-medium text-white mb-6">Quanti ne hai persi o sostituiti negli ultimi 24 mesi?</h4>
+								<div class="space-y-3">
+									<label class="scanner-option"><input type="radio" name="sq2" value="0" class="hidden" /><span>Nessuno</span></label>
+									<label class="scanner-option"><input type="radio" name="sq2" value="1" class="hidden" /><span>1</span></label>
+									<label class="scanner-option"><input type="radio" name="sq2" value="2" class="hidden" /><span>2-3</span></label>
+									<label class="scanner-option"><input type="radio" name="sq2" value="3" class="hidden" /><span>Piu' di 3</span></label>
+								</div>
+							</div>
+
+							<!-- Domanda 3 -->
+							<div class="scanner-q hidden" data-q="3">
+								<p class="text-white/40 text-xs font-heading font-semibold tracking-wider uppercase mb-3">Domanda 3 di 10</p>
+								<h4 class="text-xl md:text-2xl font-medium text-white mb-6">Quanto tempo ci mette un venditore nuovo a raggiungere il regime?</h4>
+								<div class="space-y-3">
+									<label class="scanner-option"><input type="radio" name="sq3" value="0" class="hidden" /><span>Meno di 3 mesi</span></label>
+									<label class="scanner-option"><input type="radio" name="sq3" value="1" class="hidden" /><span>3-6 mesi</span></label>
+									<label class="scanner-option"><input type="radio" name="sq3" value="2" class="hidden" /><span>6-12 mesi</span></label>
+									<label class="scanner-option"><input type="radio" name="sq3" value="3" class="hidden" /><span>Piu' di 12 mesi</span></label>
+								</div>
+							</div>
+
+							<!-- Domanda 4 -->
+							<div class="scanner-q hidden" data-q="4">
+								<p class="text-white/40 text-xs font-heading font-semibold tracking-wider uppercase mb-3">Domanda 4 di 10</p>
+								<h4 class="text-xl md:text-2xl font-medium text-white mb-6">Se domani il tuo miglior venditore se ne andasse, che percentuale del fatturato perderesti nei prossimi 6 mesi?</h4>
+								<div class="space-y-3">
+									<label class="scanner-option"><input type="radio" name="sq4" value="0" class="hidden" /><span>Meno del 10%</span></label>
+									<label class="scanner-option"><input type="radio" name="sq4" value="1" class="hidden" /><span>Tra il 10% e il 25%</span></label>
+									<label class="scanner-option"><input type="radio" name="sq4" value="2" class="hidden" /><span>Tra il 25% e il 40%</span></label>
+									<label class="scanner-option"><input type="radio" name="sq4" value="3" class="hidden" /><span>Piu' del 40%</span></label>
+								</div>
+							</div>
+
+							<!-- Domanda 5 -->
+							<div class="scanner-q hidden" data-q="5">
+								<p class="text-white/40 text-xs font-heading font-semibold tracking-wider uppercase mb-3">Domanda 5 di 10</p>
+								<h4 class="text-xl md:text-2xl font-medium text-white mb-6">Quante ore a settimana dedichi TU personalmente a seguire clienti o trattative che dovrebbero gestire i venditori?</h4>
+								<div class="space-y-3">
+									<label class="scanner-option"><input type="radio" name="sq5" value="0" class="hidden" /><span>Meno di 2 ore</span></label>
+									<label class="scanner-option"><input type="radio" name="sq5" value="1" class="hidden" /><span>2-5 ore</span></label>
+									<label class="scanner-option"><input type="radio" name="sq5" value="2" class="hidden" /><span>5-10 ore</span></label>
+									<label class="scanner-option"><input type="radio" name="sq5" value="3" class="hidden" /><span>Piu' di 10 ore</span></label>
+								</div>
+							</div>
+
+							<!-- Domanda 6 -->
+							<div class="scanner-q hidden" data-q="6">
+								<p class="text-white/40 text-xs font-heading font-semibold tracking-wider uppercase mb-3">Domanda 6 di 10</p>
+								<h4 class="text-xl md:text-2xl font-medium text-white mb-6">Quando un venditore perde un cliente importante, cosa succede di solito?</h4>
+								<div class="space-y-3">
+									<label class="scanner-option"><input type="radio" name="sq6" value="0" class="hidden" /><span>Il venditore gestisce la situazione in autonomia</span></label>
+									<label class="scanner-option"><input type="radio" name="sq6" value="1" class="hidden" /><span>Intervieni tu per recuperare il cliente</span></label>
+									<label class="scanner-option"><input type="radio" name="sq6" value="2" class="hidden" /><span>Scopri il problema settimane dopo, quando il danno e' fatto</span></label>
+									<label class="scanner-option"><input type="radio" name="sq6" value="3" class="hidden" /><span>Il cliente chiama direttamente te perche' non si fida del venditore</span></label>
+								</div>
+							</div>
+
+							<!-- Domanda 7 -->
+							<div class="scanner-q hidden" data-q="7">
+								<p class="text-white/40 text-xs font-heading font-semibold tracking-wider uppercase mb-3">Domanda 7 di 10</p>
+								<h4 class="text-xl md:text-2xl font-medium text-white mb-6">Il tuo miglior venditore e il tuo peggiore: la differenza di fatturato tra i due e'...</h4>
+								<div class="space-y-3">
+									<label class="scanner-option"><input type="radio" name="sq7" value="0" class="hidden" /><span>Meno del doppio</span></label>
+									<label class="scanner-option"><input type="radio" name="sq7" value="1" class="hidden" /><span>Circa il doppio</span></label>
+									<label class="scanner-option"><input type="radio" name="sq7" value="2" class="hidden" /><span>Tra 3 e 5 volte</span></label>
+									<label class="scanner-option"><input type="radio" name="sq7" value="3" class="hidden" /><span>Piu' di 5 volte</span></label>
+								</div>
+							</div>
+
+							<!-- Domanda 8 -->
+							<div class="scanner-q hidden" data-q="8">
+								<p class="text-white/40 text-xs font-heading font-semibold tracking-wider uppercase mb-3">Domanda 8 di 10</p>
+								<h4 class="text-xl md:text-2xl font-medium text-white mb-6">Negli ultimi 2 anni, quanti venditori nuovi NON hanno reso come ti aspettavi?</h4>
+								<div class="space-y-3">
+									<label class="scanner-option"><input type="radio" name="sq8" value="0" class="hidden" /><span>Nessuno, tutti hanno performato</span></label>
+									<label class="scanner-option"><input type="radio" name="sq8" value="1" class="hidden" /><span>1 su 2-3 assunti</span></label>
+									<label class="scanner-option"><input type="radio" name="sq8" value="2" class="hidden" /><span>La meta' o piu'</span></label>
+									<label class="scanner-option"><input type="radio" name="sq8" value="3" class="hidden" /><span>Non ho assunto venditori nuovi (non trovo quelli giusti)</span></label>
+								</div>
+							</div>
+
+							<!-- Domanda 9 -->
+							<div class="scanner-q hidden" data-q="9">
+								<p class="text-white/40 text-xs font-heading font-semibold tracking-wider uppercase mb-3">Domanda 9 di 10</p>
+								<h4 class="text-xl md:text-2xl font-medium text-white mb-6">I tuoi venditori vendono tutti allo stesso modo o ciascuno ha il suo stile?</h4>
+								<div class="space-y-3">
+									<label class="scanner-option"><input type="radio" name="sq9" value="0" class="hidden" /><span>Abbiamo un processo commerciale definito che tutti seguono</span></label>
+									<label class="scanner-option"><input type="radio" name="sq9" value="1" class="hidden" /><span>C'e' un processo ma ognuno lo interpreta a modo suo</span></label>
+									<label class="scanner-option"><input type="radio" name="sq9" value="2" class="hidden" /><span>Ognuno vende come vuole, basta che porti i numeri</span></label>
+									<label class="scanner-option"><input type="radio" name="sq9" value="3" class="hidden" /><span>Non abbiamo mai definito un processo</span></label>
+								</div>
+							</div>
+
+							<!-- Domanda 10 -->
+							<div class="scanner-q hidden" data-q="10">
+								<p class="text-white/40 text-xs font-heading font-semibold tracking-wider uppercase mb-3">Domanda 10 di 10</p>
+								<h4 class="text-xl md:text-2xl font-medium text-white mb-6">Se tu sparissi per un mese, le vendite...</h4>
+								<div class="space-y-3">
+									<label class="scanner-option"><input type="radio" name="sq10" value="0" class="hidden" /><span>Andrebbero avanti senza problemi</span></label>
+									<label class="scanner-option"><input type="radio" name="sq10" value="1" class="hidden" /><span>Rallenterebbero un po' ma terrebbero</span></label>
+									<label class="scanner-option"><input type="radio" name="sq10" value="2" class="hidden" /><span>Calerebbero in modo significativo</span></label>
+									<label class="scanner-option"><input type="radio" name="sq10" value="3" class="hidden" /><span>Si fermerebbero quasi del tutto</span></label>
+								</div>
+							</div>
+
+							<!-- Navigation buttons -->
+							<div class="flex justify-between items-center mt-8">
+								<button type="button" id="scanner-prev-btn" class="hidden px-5 py-2.5 rounded-xl border border-white/10 text-white/60 hover:text-white hover:bg-white/5 text-sm font-heading font-semibold transition-all cursor-pointer">
+									&larr; Indietro
+								</button>
+								<button type="button" id="scanner-next-btn" class="ml-auto px-6 py-3 rounded-xl bg-sky hover:bg-sky-light text-white font-heading font-semibold text-sm transition-all cursor-pointer shadow-md shadow-sky/20">
+									Avanti &rarr;
+								</button>
+							</div>
+						</form>
+					</div>
+
+					<!-- RISULTATI -->
+					<div id="scanner-results" class="hidden">
+						<h3 class="text-2xl md:text-3xl font-medium text-white mb-6">Il costo che non vedi in bilancio</h3>
+
+						<!-- Indice Rischio Dipendenza -->
+						<div class="rounded-2xl border border-sky/20 bg-sky/5 backdrop-blur-sm p-6 md:p-8 mb-6">
+							<p class="text-white/60 text-xs font-heading font-semibold tracking-wider uppercase mb-2">Indice di Rischio Dipendenza</p>
+							<p id="scanner-score" class="text-5xl md:text-6xl font-bold text-sky font-heading mb-1"></p>
+							<p class="text-white/40 text-sm font-heading">su 100</p>
+							<div class="w-full h-3 rounded-full bg-white/10 overflow-hidden mt-4 mb-4">
+								<div id="scanner-score-bar" class="h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
+							</div>
+							<p id="scanner-score-text" class="text-white text-base font-heading leading-relaxed"></p>
+						</div>
+
+						<!-- Email gate -->
+						<div id="scanner-email-gate" class="rounded-2xl border border-sky/20 bg-sky/5 backdrop-blur-sm p-6 md:p-8 mb-8">
+							<p class="text-white font-heading font-medium text-lg mb-2">Vuoi sapere quanto ti costa in euro?</p>
+							<p class="text-white/60 text-sm mb-5">Inserisci la tua email e vedi subito il costo stimato annuo calcolato sui tuoi numeri. Nessuno spam, nessuna telefonata.</p>
+							<form id="scanner-email-form" class="space-y-4">
+								<input
+									id="scanner-email"
+									type="email"
+									placeholder="La tua email aziendale"
+									required
+									class="w-full px-5 py-3.5 rounded-xl border border-white/15 bg-white/5 text-white text-base placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-sky/30 focus:border-sky transition-all"
+								/>
+								<label class="flex items-start gap-2.5 cursor-pointer">
+									<input type="checkbox" id="scanner-nl-optin" class="mt-1 w-4 h-4 rounded border-white/20 bg-white/5 text-sky focus:ring-sky/50 shrink-0" />
+									<span class="text-white/50 text-xs leading-relaxed">Voglio ricevere anche "Il Risveglio della Rete Vendita": un principio a settimana per ripensare come guidi chi vende per te.</span>
+								</label>
+								<button type="submit" id="scanner-email-btn" class="btn-quiz w-full !text-base cursor-pointer">
+									Mostra il costo
+								</button>
+								<p class="text-white/30 text-[10px] text-center">I tuoi dati non saranno mai condivisi con terzi. Puoi cancellarti in qualsiasi momento.</p>
+							</form>
+							<p id="scanner-email-msg" class="text-white/40 text-xs mt-3 text-center"></p>
+						</div>
+
+						<!-- Contenuto gated -->
+						<div id="scanner-gated" class="hidden">
+
+						<!-- Costo stimato -->
+						<div class="rounded-2xl border border-accent/20 bg-accent/5 backdrop-blur-sm p-6 md:p-8 mb-6">
+							<p class="text-accent-glow text-xs font-heading font-semibold tracking-wider uppercase mb-2">Costo stimato annuo della tua situazione attuale</p>
+							<p id="scanner-cost" class="text-4xl md:text-5xl font-bold text-accent font-heading mb-3"></p>
+							<p class="text-white/50 text-sm leading-relaxed">
+								Questo numero include: costo del turnover (recruiting, formazione, clienti persi durante la transizione), costo del tuo tempo sottratto alla strategia, mancato fatturato da venditori sotto-performanti, ramp-up lento dei nuovi inserimenti.
+							</p>
+							<p class="text-white/40 text-xs mt-3 italic">Non e' una stima generica. E' calcolato sui numeri che hai inserito tu.</p>
+						</div>
+
+						<!-- Blocco ponte -->
+						<div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8 mb-8">
+							<p class="text-white text-lg font-heading font-medium mb-3">Il 70% di questo costo non dipende dalle tecniche di vendita.</p>
+							<p class="text-white/70 text-base leading-relaxed mb-3">
+								Dipende dal fatto che le persone nella tua rete non sono nel posto giusto.
+							</p>
+							<p class="text-white/50 text-sm leading-relaxed mb-4">
+								Non mandi un playmaker a fare il difensore. Ma nella tua rete vendita, probabilmente lo fai ogni giorno.
+							</p>
+							<p class="text-white/60 text-sm leading-relaxed">
+								Il metodo BEDo parte da qui: profilazione comportamentale con strumenti brevettati e neuroscientifici. Non ti dice come vendere. Ti dice chi hai, dove metterlo e perche'.
+							</p>
+						</div>
+
+						<p class="text-white/60 text-xs font-heading font-semibold tracking-wider uppercase mb-4">Tre opzioni, in base a dove sei</p>
+
+						<div class="space-y-4">
+							<!-- CTA 1: Call -->
+							<div class="rounded-xl border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition-all">
+								<p class="text-white font-heading font-semibold mb-1">1. Ne parliamo.</p>
+								<p class="text-white/50 text-sm mb-3">Call di 20 minuti con Cristiano Pusca. Nessun impegno, nessuna presentazione. Guardi i tuoi numeri insieme a chi li sa leggere.</p>
+								<a href="https://wa.me/393408217120?text=Ciao%20Cristiano%2C%20ho%20fatto%20lo%20Scanner%20Rete%20Vendita%20e%20vorrei%20parlarne%20insieme.%20Possiamo%20fissare%2020%20minuti%3F" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-[#25D366] hover:text-[#1fb855] text-sm font-heading font-semibold transition-colors">
+									<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+									Prenota 20 minuti con Cristiano
+								</a>
+							</div>
+
+							<!-- CTA 2: Assessment -->
+							<div class="rounded-xl border border-sky/20 bg-sky/5 p-5 hover:bg-sky/10 transition-all">
+								<p class="text-white font-heading font-semibold mb-1">2. Prova lo strumento su di te.</p>
+								<p class="text-white/50 text-sm mb-3">Assessment individuale: profilo comportamentale completo con restituzione LIVE. Vedi come funziona prima di usarlo sulla rete. 750 EUR.</p>
+								<a href="https://wa.me/393408217120?text=Ciao%20Cristiano%2C%20ho%20fatto%20lo%20Scanner%20e%20vorrei%20provare%20l%27assessment%20individuale%20da%20750%20EUR." target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sky hover:text-sky-light text-sm font-heading font-semibold transition-colors">
+									<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+									Richiedi l'assessment individuale
+								</a>
+							</div>
+
+							<!-- CTA 3: Pacchetti -->
+							<div class="rounded-xl border border-accent/20 bg-accent/5 p-5 hover:bg-accent/10 transition-all">
+								<p class="text-white font-heading font-semibold mb-1">3. Parti con il team.</p>
+								<p class="text-white/50 text-sm mb-3">Hai gia' le idee chiare. Scegli il pacchetto per la tua rete vendita.</p>
+								<a href="/#pacchetti" class="inline-flex items-center gap-2 text-accent hover:text-accent-glow text-sm font-heading font-semibold transition-colors">
+									Vedi i pacchetti team &rarr;
+								</a>
+							</div>
+						</div>
+						</div><!-- /scanner-gated -->
+
+					</div>
+
+				</div>
+
+			</div>
+		</main>
+
+		<!-- Footer minimo -->
+		<footer class="py-8 bg-dark border-t border-white/5">
+			<div class="max-w-2xl mx-auto px-6 text-center">
+				<p class="text-gray-500 text-sm">&copy; 2025 Cristiano Pusca. Metodo BEDo.</p>
+				<a href="/" class="text-gray-400 text-sm hover:text-white transition-colors mt-2 inline-block">cristianopusca.it</a>
+			</div>
+		</footer>
+
+		<script>
+		(function() {
+			const $ = (sel) => document.querySelector(sel);
+			const $$ = (sel) => document.querySelectorAll(sel);
+
+			const TOTAL_QUESTIONS = 10;
+			let currentQ = 0;
+
+			function showQuestion(n) {
+				currentQ = n;
+				const intro = $('#scanner-intro');
+				const questions = $('#scanner-questions');
+				const results = $('#scanner-results');
+				const progress = $('#scanner-progress');
+
+				if (n === 0) {
+					intro.classList.remove('hidden');
+					questions.classList.add('hidden');
+					results.classList.add('hidden');
+					progress.classList.add('hidden');
+					return;
+				}
+
+				intro.classList.add('hidden');
+				results.classList.add('hidden');
+				questions.classList.remove('hidden');
+				progress.classList.remove('hidden');
+
+				$('#scanner-progress-label').textContent = 'Domanda ' + n + ' / ' + TOTAL_QUESTIONS;
+				$('#scanner-progress-bar').style.width = (n / TOTAL_QUESTIONS * 100) + '%';
+
+				$$('.scanner-q').forEach(q => {
+					q.classList.toggle('hidden', parseInt(q.dataset.q) !== n);
+				});
+
+				$('#scanner-prev-btn').classList.toggle('hidden', n <= 1);
+				$('#scanner-next-btn').innerHTML = n === TOTAL_QUESTIONS ? 'Vedi i risultati &rarr;' : 'Avanti &rarr;';
+
+				window.scrollTo({ top: 0, behavior: 'smooth' });
+			}
+
+			function calculateResults() {
+				const numVenditori = parseInt($('input[name="sq1"]').value) || 3;
+
+				let riskRaw = 0;
+				for (let i = 2; i <= 10; i++) {
+					const checked = $('input[name="sq' + i + '"]:checked');
+					if (checked) riskRaw += parseInt(checked.value);
+				}
+
+				const riskScore = Math.round(riskRaw / 27 * 100);
+
+				const turnoverScore = parseInt($('input[name="sq2"]:checked')?.value || 0);
+				const turnoverCost = turnoverScore * 10000;
+
+				const rampScore = parseInt($('input[name="sq3"]:checked')?.value || 0);
+				const rampMonths = [0, 3, 6, 12][rampScore] || 0;
+				const rampCost = rampMonths * 500 * Math.min(numVenditori, 4);
+
+				const depScore = parseInt($('input[name="sq4"]:checked')?.value || 0);
+				const depPct = [0.05, 0.15, 0.30, 0.45][depScore] || 0;
+				const avgFattVenditore = 250000;
+				const depCost = Math.round(depPct * avgFattVenditore * 0.15);
+
+				const timeScore = parseInt($('input[name="sq5"]:checked')?.value || 0);
+				const hoursWeek = [1, 3.5, 7.5, 12][timeScore] || 0;
+				const ownerHourlyRate = 80;
+				const timeCost = Math.round(hoursWeek * 48 * ownerHourlyRate);
+
+				const gapScore = parseInt($('input[name="sq7"]:checked')?.value || 0);
+				const gapCost = gapScore * 3500 * Math.min(numVenditori, 6);
+
+				let totalCost = turnoverCost + rampCost + depCost + timeCost + gapCost;
+
+				const minCost = riskScore * 300;
+				totalCost = Math.max(totalCost, minCost);
+
+				totalCost = Math.round(totalCost / 500) * 500;
+
+				return { riskScore, totalCost, numVenditori };
+			}
+
+			function showResults() {
+				const { riskScore, totalCost, numVenditori } = calculateResults();
+
+				$('#scanner-intro').classList.add('hidden');
+				$('#scanner-questions').classList.add('hidden');
+				$('#scanner-progress').classList.add('hidden');
+				$('#scanner-results').classList.remove('hidden');
+
+				$('#scanner-score').textContent = riskScore;
+				setTimeout(() => {
+					$('#scanner-score-bar').style.width = riskScore + '%';
+					const bar = $('#scanner-score-bar');
+					if (riskScore <= 25) bar.className = 'h-full rounded-full transition-all duration-1000 ease-out bg-green-500';
+					else if (riskScore <= 50) bar.className = 'h-full rounded-full transition-all duration-1000 ease-out bg-yellow-500';
+					else if (riskScore <= 75) bar.className = 'h-full rounded-full transition-all duration-1000 ease-out bg-orange-500';
+					else bar.className = 'h-full rounded-full transition-all duration-1000 ease-out bg-red-500';
+				}, 100);
+
+				let scoreText = '';
+				if (riskScore <= 25) scoreText = 'Rischio basso. La tua rete ha una struttura solida. Pochi imprenditori arrivano qui.';
+				else if (riskScore <= 50) scoreText = 'Rischio moderato. La rete funziona, ma dipende troppo da te o da 1-2 persone chiave. Se qualcosa cambia, i numeri calano.';
+				else if (riskScore <= 75) scoreText = 'Rischio alto. Stai compensando con il tuo lavoro personale le lacune della rete. Ogni anno che passa, il costo cresce.';
+				else scoreText = 'Rischio critico. Non hai una rete vendita. Hai dei collaboratori che vendono quando tu li guidi. Senza di te, si ferma tutto.';
+				$('#scanner-score-text').textContent = scoreText;
+
+				$('#scanner-cost').textContent = totalCost.toLocaleString('it-IT') + ' \u20AC/anno';
+
+				window.scrollTo({ top: 0, behavior: 'smooth' });
+			}
+
+			function isCurrentQuestionAnswered() {
+				if (currentQ === 1) {
+					const val = $('input[name="sq1"]').value;
+					return val && parseInt(val) > 0;
+				}
+				return !!$('input[name="sq' + currentQ + '"]:checked');
+			}
+
+			$$('.scanner-option').forEach(label => {
+				label.addEventListener('click', () => {
+					const name = label.querySelector('input').name;
+					setTimeout(() => {
+						$$('.scanner-option input[name="' + name + '"]').forEach(inp => {
+							inp.closest('.scanner-option').classList.toggle('selected', inp.checked);
+						});
+						if (currentQ < TOTAL_QUESTIONS) {
+							setTimeout(() => showQuestion(currentQ + 1), 400);
+						} else if (currentQ === TOTAL_QUESTIONS) {
+							setTimeout(() => showResults(), 400);
+						}
+					}, 10);
+				});
+			});
+
+			$('#scanner-start-btn')?.addEventListener('click', () => showQuestion(1));
+
+			$('#scanner-prev-btn')?.addEventListener('click', () => {
+				if (currentQ > 1) showQuestion(currentQ - 1);
+			});
+
+			$('#scanner-next-btn')?.addEventListener('click', () => {
+				if (!isCurrentQuestionAnswered()) {
+					const qEl = $('.scanner-q:not(.hidden)');
+					if (qEl) {
+						qEl.classList.add('animate-shake');
+						setTimeout(() => qEl.classList.remove('animate-shake'), 500);
+					}
+					return;
+				}
+				if (currentQ < TOTAL_QUESTIONS) {
+					showQuestion(currentQ + 1);
+				} else {
+					showResults();
+				}
+			});
+
+			// Auto-start if ?start param
+			if (new URLSearchParams(window.location.search).has('start')) {
+				showQuestion(1);
+			}
+		})();
+
+		// Email gate
+		document.getElementById('scanner-email-form')?.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			const email = document.getElementById('scanner-email').value.trim();
+			const nlOptin = document.getElementById('scanner-nl-optin').checked;
+			const btn = document.getElementById('scanner-email-btn');
+			const msg = document.getElementById('scanner-email-msg');
+			if (!email) return;
+
+			btn.disabled = true;
+			btn.textContent = 'Invio in corso...';
+
+			try {
+				const score = document.getElementById('scanner-score').textContent;
+				const cost = document.getElementById('scanner-cost').textContent;
+
+				const answers = {};
+				const q1 = document.querySelector('input[name="sq1"]');
+				if (q1) answers.venditori = q1.value;
+				for (let i = 2; i <= 10; i++) {
+					const checked = document.querySelector('input[name="sq' + i + '"]:checked');
+					if (checked) {
+						const label = checked.closest('.scanner-option')?.querySelector('span')?.textContent;
+						answers['q' + i] = label || checked.value;
+					}
+				}
+
+				const res = await fetch('https://pusca-scanner-email.nameless-mouse-7d0f.workers.dev', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ email, score, cost, newsletter: nlOptin, answers }),
+				});
+
+				if (!res.ok) {
+					throw new Error('Worker error');
+				}
+
+				document.getElementById('scanner-email-gate').style.display = 'none';
+				document.getElementById('scanner-gated').classList.remove('hidden');
+			} catch (err) {
+				msg.textContent = 'Qualcosa non ha funzionato. Riprova.';
+				msg.classList.add('text-red-400');
+				btn.disabled = false;
+				btn.textContent = 'Mostra il costo';
+			}
+		});
+		</script>
+	</body>
+</html>
