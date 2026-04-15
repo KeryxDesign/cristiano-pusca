@@ -240,7 +240,7 @@ const description = '10 domande, 3 minuti, un numero in euro. Scopri quanto ti c
 
 						<!-- Dati di contesto: costo reale della rete vendita -->
 						<div class="mb-6">
-							<p class="text-white/50 text-xs font-heading font-semibold tracking-wider uppercase mb-4">Quanto costa davvero una rete vendita che non funziona</p>
+							<p class="text-white/70 text-sm font-heading font-semibold tracking-wider uppercase mb-4">Quanto costa davvero una rete vendita che non funziona</p>
 							<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
 								<div class="rounded-xl border border-white/15 bg-white/5 p-4">
 									<p class="text-[#D04A3C] font-heading font-bold text-2xl mb-1">33.000 - 80.000 &euro;</p>
@@ -267,25 +267,25 @@ const description = '10 domande, 3 minuti, un numero in euro. Scopri quanto ti c
 						</div>
 
 						<!-- Email gate -->
-						<div id="scanner-email-gate" class="rounded-2xl border border-sky/20 bg-sky/5 backdrop-blur-sm p-6 md:p-8 mb-8">
-							<p class="text-white font-heading font-medium text-lg mb-2">Vuoi sapere quanto ti costa in euro?</p>
-							<p class="text-white/60 text-sm mb-5">Inserisci la tua email e vedi subito il costo stimato annuo calcolato sui tuoi numeri. Nessuno spam, nessuna telefonata.</p>
+						<div id="scanner-email-gate" class="rounded-2xl border-2 border-sky/30 bg-sky/10 backdrop-blur-sm p-6 md:p-8 mb-8">
+							<p class="text-white font-heading font-semibold text-xl md:text-2xl mb-2">Vuoi sapere quanto ti costa in euro?</p>
+							<p class="text-white/80 text-sm mb-5">Inserisci la tua email e vedi subito il <strong class="text-white">costo stimato annuo</strong> calcolato sui tuoi numeri. Nessuno spam, nessuna telefonata.</p>
 							<form id="scanner-email-form" class="space-y-4">
 								<input
 									id="scanner-email"
 									type="email"
 									placeholder="La tua email aziendale"
 									required
-									class="w-full px-5 py-3.5 rounded-xl border border-white/15 bg-white/5 text-white text-base placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-sky/30 focus:border-sky transition-all"
+									class="w-full px-5 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white text-base placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-sky/40 focus:border-sky transition-all"
 								/>
 								<label class="flex items-start gap-2.5 cursor-pointer">
 									<input type="checkbox" id="scanner-nl-optin" class="mt-1 w-4 h-4 rounded border-white/20 bg-white/5 text-sky focus:ring-sky/50 shrink-0" />
-									<span class="text-white/50 text-xs leading-relaxed">Voglio ricevere anche "Il Risveglio della Rete Vendita": un principio a settimana per ripensare come guidi chi vende per te.</span>
+									<span class="text-white/60 text-xs leading-relaxed">Voglio ricevere anche "Il Risveglio della Rete Vendita": un principio a settimana per ripensare come guidi chi vende per te.</span>
 								</label>
 								<button type="submit" id="scanner-email-btn" class="btn-quiz w-full !text-base cursor-pointer">
 									Mostra il costo
 								</button>
-								<p class="text-white/30 text-[10px] text-center">I tuoi dati non saranno mai condivisi con terzi. Puoi cancellarti in qualsiasi momento.</p>
+								<p class="text-white/50 text-[11px] text-center leading-relaxed mt-2">Inserendo la tua email riceverai il risultato personalizzato. I tuoi dati sono trattati da Cristiano Pusca ai sensi dell'Art. 6(1)(b) GDPR per inviarti il contenuto richiesto. Non condividiamo i tuoi dati con terzi. Puoi richiedere cancellazione in qualsiasi momento. <a href="/privacy" class="underline hover:text-white transition-colors">Informativa privacy</a>.</p>
 							</form>
 							<p id="scanner-email-msg" class="text-white/40 text-xs mt-3 text-center"></p>
 						</div>
