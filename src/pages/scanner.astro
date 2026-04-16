@@ -368,8 +368,8 @@ const description = '10 domande, 3 minuti, un numero in euro. Scopri quanto ti c
 		<!-- Footer minimo -->
 		<footer class="py-8 bg-dark border-t border-white/5">
 			<div class="max-w-2xl mx-auto px-6 text-center">
-				<p class="text-gray-500 text-sm">&copy; 2025 Cristiano Pusca. Metodo BEDo.</p>
-				<a href="/" class="text-gray-400 text-sm hover:text-white transition-colors mt-2 inline-block">cristianopusca.it</a>
+				<p class="text-gray-500 text-sm">&copy; {new Date().getFullYear()} Cristiano Pusca · BPDA S.R.L. · P.IVA 04993860263</p>
+				<a href="/privacy" class="text-gray-400 text-sm hover:text-white transition-colors mt-2 inline-block underline">Privacy Policy</a>
 			</div>
 		</footer>
 
@@ -493,19 +493,17 @@ const description = '10 domande, 3 minuti, un numero in euro. Scopri quanto ti c
 				return !!$('input[name="sq' + currentQ + '"]:checked');
 			}
 
-			$$('.scanner-option').forEach(label => {
-				label.addEventListener('click', () => {
-					const name = label.querySelector('input').name;
-					setTimeout(() => {
-						$$('.scanner-option input[name="' + name + '"]').forEach(inp => {
-							inp.closest('.scanner-option').classList.toggle('selected', inp.checked);
-						});
-						if (currentQ < TOTAL_QUESTIONS) {
-							setTimeout(() => showQuestion(currentQ + 1), 400);
-						} else if (currentQ === TOTAL_QUESTIONS) {
-							setTimeout(() => showResults(), 400);
-						}
-					}, 10);
+			$$('.scanner-option input[type="radio"]').forEach(input => {
+				input.addEventListener('change', () => {
+					const name = input.name;
+					$$('.scanner-option input[name="' + name + '"]').forEach(inp => {
+						inp.closest('.scanner-option').classList.toggle('selected', inp.checked);
+					});
+					if (currentQ < TOTAL_QUESTIONS) {
+						setTimeout(() => showQuestion(currentQ + 1), 400);
+					} else if (currentQ === TOTAL_QUESTIONS) {
+						setTimeout(() => showResults(), 400);
+					}
 				});
 			});
 

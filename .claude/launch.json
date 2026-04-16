@@ -2,9 +2,8 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "pusca-dev",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "name": "cristiano-pusca",
+      "runtimeExecutable": ".claude/start-dev.sh",
       "port": 4325
     }
   ]
