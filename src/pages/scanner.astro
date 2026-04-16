@@ -572,7 +572,7 @@ const description = '10 domande, 3 minuti, un numero in euro. Scopri quanto ti c
 					throw new Error('Worker error');
 				}
 
-				document.getElementById('scanner-email-gate').innerHTML = '<div class="text-center py-6"><p class="text-green-400 font-heading font-semibold text-xl md:text-2xl mb-3">Ci siamo quasi.</p><p class="text-white/80 text-base mb-1">Abbiamo calcolato il costo della tua situazione attuale.</p><p class="text-white/80 text-base"><strong class="text-white">Controlla la tua email</strong> per vedere il numero.</p></div>';
+				document.getElementById('scanner-email-gate').innerHTML = '<div class="text-center py-6"><p class="text-green-400 font-heading font-semibold text-xl md:text-2xl mb-3">Ci siamo quasi.</p><p class="text-white/80 text-base mb-1">Abbiamo calcolato il costo della tua situazione attuale.</p><p class="text-white/80 text-base mb-4"><strong class="text-white">Controlla la tua email</strong> per vedere il numero.</p><p class="text-white/50 text-sm mb-1">Non la trovi? Controlla in <strong class="text-white/70">Spam</strong> o <strong class="text-white/70">Promozioni</strong>.</p><p class="text-white/50 text-sm">Se dopo 10 minuti non hai ricevuto nulla, <a href="https://wa.me/393408217120?text=Ciao%20Cristiano%2C%20ho%20fatto%20lo%20Scanner%20ma%20non%20ho%20ricevuto%20la%20mail%20con%20i%20risultati." target="_blank" rel="noopener" class="text-sky hover:text-sky-light underline">scrivici su WhatsApp</a>.</p></div>';
 				document.getElementById('scanner-gated').classList.remove('hidden');
 			} catch (err) {
 				msg.textContent = 'Qualcosa non ha funzionato. Riprova.';
