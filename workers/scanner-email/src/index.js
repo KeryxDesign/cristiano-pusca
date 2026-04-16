@@ -66,10 +66,13 @@ async function addToMailchimp(env, email, score, cost, newsletter) {
 		return { ok: false, error: body.detail || body.title };
 	}
 
+	const tags = [{ name: 'scanner-done', status: 'active' }];
+	if (newsletter) tags.push({ name: 'newsletter-optin', status: 'active' });
+
 	await fetch(`https://${server}.api.mailchimp.com/3.0/lists/${listId}/members/${emailHash}/tags`, {
 		method: 'POST',
 		headers: { Authorization: authHeader, 'Content-Type': 'application/json' },
-		body: JSON.stringify({ tags: [{ name: 'scanner-done', status: 'active' }] }),
+		body: JSON.stringify({ tags }),
 	});
 
 	return { ok: true };
