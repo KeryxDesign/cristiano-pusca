@@ -242,36 +242,51 @@ function buildResultsHtml(score, cost) {
 
 <!-- CTAs label -->
 <tr><td style="padding:0 24px;">
-<p style="color:rgba(255,255,255,0.5);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin:0 0 16px;">Cosa puoi fare adesso</p>
+<p style="color:rgba(255,255,255,0.5);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin:0 0 16px;">Il passo successivo</p>
 </td></tr>
 
-<!-- CTA 1: WhatsApp (primary button) -->
+<!-- CTA 1: WhatsApp (primary) -->
 <tr><td style="padding:0 24px;">
 <table width="100%" cellpadding="0" cellspacing="0" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;margin-bottom:12px;">
 <tr><td style="padding:16px 20px;">
-<p style="color:#fff;font-size:14px;font-weight:600;margin:0 0 4px;">1. Ne parliamo.</p>
-<p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0 0 12px;">Call di 20 minuti con Cristiano Pusca. Nessun impegno.</p>
-<a href="https://wa.me/393408217120?text=Ciao%20Cristiano%2C%20ho%20fatto%20lo%20Scanner%20Rete%20Vendita%20e%20vorrei%20parlarne." style="display:inline-block;background:#25D366;color:#fff;padding:12px 24px;border-radius:10px;font-size:13px;font-weight:600;text-decoration:none;">Prenota 20 minuti su WhatsApp</a>
+<table width="100%" cellpadding="0" cellspacing="0"><tr>
+<td style="width:32px;vertical-align:top;"><p style="color:rgba(255,255,255,0.2);font-size:24px;font-weight:700;margin:0;">1</p></td>
+<td style="padding-left:12px;">
+<p style="color:#fff;font-size:14px;font-weight:600;margin:0 0 4px;">Guardiamo i tuoi numeri insieme.</p>
+<p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0 0 12px;">20 minuti con Cristiano. Nessun impegno, nessuna presentazione. Solo i tuoi dati, letti da chi sa cosa cercare.</p>
+<a href="https://wa.me/393408217120?text=Ciao%20Cristiano%2C%20ho%20fatto%20lo%20Scanner%20Rete%20Vendita%20e%20vorrei%20parlarne." style="display:inline-block;background:#25D366;color:#fff;padding:12px 24px;border-radius:10px;font-size:13px;font-weight:600;text-decoration:none;">Prenota 20 minuti</a>
+</td>
+</tr></table>
 </td></tr></table>
 </td></tr>
 
-<!-- CTA 2: Assessment -->
+<!-- CTA 2: Assessment demo -->
 <tr><td style="padding:0 24px;">
-<table width="100%" cellpadding="0" cellspacing="0" style="background:rgba(14,165,233,0.08);border:1px solid rgba(14,165,233,0.2);border-radius:10px;margin-bottom:12px;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:rgba(14,165,233,0.08);border:1px solid rgba(14,165,233,0.15);border-radius:10px;margin-bottom:12px;">
 <tr><td style="padding:16px 20px;">
-<p style="color:#fff;font-size:14px;font-weight:600;margin:0 0 4px;">2. Prova lo strumento su di te.</p>
-<p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0 0 8px;">Assessment individuale con restituzione LIVE. 750 EUR.</p>
-<a href="https://wa.me/393408217120?text=Ciao%20Cristiano%2C%20vorrei%20provare%20l%27assessment%20individuale%20da%20750%20EUR." style="color:#0ea5e9;font-size:13px;font-weight:600;text-decoration:none;">Richiedi l'assessment &rarr;</a>
+<table width="100%" cellpadding="0" cellspacing="0"><tr>
+<td style="width:32px;vertical-align:top;"><p style="color:rgba(255,255,255,0.2);font-size:24px;font-weight:700;margin:0;">2</p></td>
+<td style="padding-left:12px;">
+<p style="color:#fff;font-size:14px;font-weight:600;margin:0 0 4px;">Vedi lo strumento in azione.</p>
+<p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0 0 8px;">Assessment demo su di te: provi lo stesso strumento che poi usi sulla rete. Restituzione LIVE, vedi subito come funziona. 750 EUR.</p>
+<a href="https://wa.me/393408217120?text=Ciao%20Cristiano%2C%20ho%20fatto%20lo%20Scanner%20e%20vorrei%20fare%20l%27assessment%20demo%20da%20750%20EUR." style="color:#0ea5e9;font-size:13px;font-weight:600;text-decoration:none;">Richiedi la demo &rarr;</a>
+</td>
+</tr></table>
 </td></tr></table>
 </td></tr>
 
 <!-- CTA 3: Pacchetti -->
 <tr><td style="padding:0 24px;">
-<table width="100%" cellpadding="0" cellspacing="0" style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:10px;margin-bottom:12px;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.15);border-radius:10px;margin-bottom:12px;">
 <tr><td style="padding:16px 20px;">
-<p style="color:#fff;font-size:14px;font-weight:600;margin:0 0 4px;">3. Parti con il team.</p>
-<p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0 0 8px;">Scegli il pacchetto per la tua rete vendita.</p>
-<a href="https://cristianopusca.it/#pacchetti" style="color:#22c55e;font-size:13px;font-weight:600;text-decoration:none;">Vedi i pacchetti &rarr;</a>
+<table width="100%" cellpadding="0" cellspacing="0"><tr>
+<td style="width:32px;vertical-align:top;"><p style="color:rgba(255,255,255,0.2);font-size:24px;font-weight:700;margin:0;">3</p></td>
+<td style="padding-left:12px;">
+<p style="color:#fff;font-size:14px;font-weight:600;margin:0 0 4px;">Parti direttamente con il team.</p>
+<p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0 0 8px;">Sai gia' come funziona e vuoi applicarlo alla rete vendita.</p>
+<a href="https://cristianopusca.com/#pacchetti" style="color:#22c55e;font-size:13px;font-weight:600;text-decoration:none;">Vedi i pacchetti &rarr;</a>
+</td>
+</tr></table>
 </td></tr></table>
 </td></tr>
 
