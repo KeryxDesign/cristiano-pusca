@@ -430,47 +430,57 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 
 			<div class="card-light p-8 md:p-10 max-w-3xl mx-auto">
-				<p class="text-gray-600 text-[15px] leading-relaxed mb-8">
-					Non e' un test online con un PDF di risultati. E' una profilazione approfondita con restituzione LIVE: Cristiano ti presenta i risultati di persona (o in call), li commenta, risponde alle tue domande.
+				<p class="text-gray-700 text-[15px] leading-relaxed mb-2 font-medium">
+					Prima di farti spendere migliaia di euro su un pacchetto per il team, ti metto in mano un report di 26 pagine sul tuo profilo comportamentale.
+				</p>
+				<p class="text-gray-500 text-[15px] leading-relaxed mb-8">
+					Poi 60-90 minuti insieme, in videocall, per leggerlo punto per punto. Tu mi interrompi quando vuoi, porti esempi della tua situazione, facciamo domande.
 				</p>
 
-				<!-- Cosa misura -->
-				<p class="text-gray-700 text-xs font-heading font-bold tracking-wider uppercase mb-4">Cosa misura</p>
-				<div class="grid md:grid-cols-3 gap-4 mb-8">
+				<!-- Cosa trovi dentro il report -->
+				<p class="text-dark text-sm font-heading font-bold tracking-wider uppercase mb-4">Cosa trovi dentro il report</p>
+				<div class="grid md:grid-cols-2 gap-4 mb-8">
+					<!-- Card 1: Naturale vs Adattato -->
+					<div class="rounded-xl bg-sky-50 border border-sky/10 p-5">
+						<div class="w-10 h-10 rounded-lg bg-sky/10 flex items-center justify-center mb-3">
+							<svg class="w-5 h-5 text-sky" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" /></svg>
+						</div>
+						<p class="text-dark text-sm font-heading font-bold mb-2">Come sei davvero vs come ti comporti oggi</p>
+						<p class="text-gray-600 text-xs leading-relaxed">Il report confronta il tuo profilo <strong class="text-gray-700">Naturale</strong> con quello <strong class="text-gray-700">Adattato</strong>. Misura quanto ti stai sforzando per essere qualcuno che non sei nel ruolo attuale. Se la sera sei cotto, spesso il motivo e' qui.</p>
+					</div>
+					<!-- Card 2: Energia -->
 					<div class="rounded-xl bg-sky-50 border border-sky/10 p-5">
 						<div class="w-10 h-10 rounded-lg bg-sky/10 flex items-center justify-center mb-3">
 							<svg class="w-5 h-5 text-sky" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
 						</div>
-						<p class="text-gray-700 text-sm font-heading font-semibold mb-1">Come prendi le decisioni</p>
-						<p class="text-gray-500 text-xs leading-relaxed">Propensione al rischio, velocita' decisionale, reazione sotto pressione</p>
+						<p class="text-dark text-sm font-heading font-bold mb-2">Se hai energia in eccesso o in debito</p>
+						<p class="text-gray-600 text-xs leading-relaxed">Un indicatore dice se stai investendo <strong class="text-gray-700">piu' energia</strong> di quanto il ruolo richieda (demotivazione in arrivo) o <strong class="text-gray-700">meno di quanto servirebbe</strong> (risultati sottotono). Dato concreto, non sensazione.</p>
 					</div>
+					<!-- Card 3: Forze che diventano limiti -->
 					<div class="rounded-xl bg-sky-50 border border-sky/10 p-5">
 						<div class="w-10 h-10 rounded-lg bg-sky/10 flex items-center justify-center mb-3">
-							<svg class="w-5 h-5 text-sky" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" /></svg>
+							<svg class="w-5 h-5 text-sky" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
 						</div>
-						<p class="text-gray-700 text-sm font-heading font-semibold mb-1">Come lavori con gli altri</p>
-						<p class="text-gray-500 text-xs leading-relaxed">Autonomia, bisogno di struttura, stile di delega</p>
+						<p class="text-dark text-sm font-heading font-bold mb-2">Quali punti di forza stanno diventando limiti</p>
+						<p class="text-gray-600 text-xs leading-relaxed">Sezione brutalmente onesta. Le qualita' che ti hanno portato fin qui possono essere quelle che ti frenano adesso. Il report te lo scrive. Io te lo spiego.</p>
 					</div>
+					<!-- Card 4: Stile di vendita -->
 					<div class="rounded-xl bg-sky-50 border border-sky/10 p-5">
 						<div class="w-10 h-10 rounded-lg bg-sky/10 flex items-center justify-center mb-3">
-							<svg class="w-5 h-5 text-sky" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>
+							<svg class="w-5 h-5 text-sky" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
 						</div>
-						<p class="text-gray-700 text-sm font-heading font-semibold mb-1">Dove rendi di piu'</p>
-						<p class="text-gray-500 text-xs leading-relaxed">I contesti in cui le tue caratteristiche diventano un vantaggio e quelli dove diventano un freno</p>
+						<p class="text-dark text-sm font-heading font-bold mb-2">Come vendi davvero (se vendi ancora in prima persona)</p>
+						<p class="text-gray-600 text-xs leading-relaxed">Come apri, come negozi, come chiudi. Il confronto tra il tuo istinto commerciale e quello che il mercato richiede oggi. Vale oro se sei ancora il primo venditore dell'azienda.</p>
 					</div>
 				</div>
-
-				<p class="text-gray-600 text-[15px] leading-relaxed mb-2">
-					Niente etichette psicologiche. Numeri, grafici e indicazioni operative.
-				</p>
 
 				<!-- Il ponte -->
 				<div class="rounded-xl bg-dark/5 border border-dark/10 p-5 my-8">
 					<p class="text-gray-700 text-[15px] leading-relaxed font-medium">
-						E' come comprare un campione da un fornitore nuovo prima dell'ordine grande.
+						Prima di mettere mano ai tuoi venditori, capisco te.
 					</p>
 					<p class="text-gray-500 text-sm leading-relaxed mt-2">
-						Vedi come funziona lo strumento. Vedi che tipo di dati produce. Vedi se le informazioni che escono sono utili e concrete. Poi decidi se ha senso usarlo sulla tua rete vendita.
+						Perche' il sistema che costruiremo deve funzionare <strong class="text-gray-700">con il tuo modo di guidare</strong>, non contro. Il Test Drive e' il modo piu' onesto per capire se ha senso proseguire insieme, prima di firmare un pacchetto piu' impegnativo.
 					</p>
 				</div>
 
