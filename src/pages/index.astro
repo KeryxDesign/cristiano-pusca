@@ -530,7 +530,7 @@ import Layout from '../layouts/Layout.astro';
 					<p class="text-gray-400 text-sm font-heading mb-5">Base fino a 3 persone</p>
 
 					<div class="space-y-3 mb-6 flex-1">
-						<p class="text-gray-700 text-xs font-heading font-bold tracking-wider uppercase">Cosa c'e' dentro</p>
+						<p class="text-dark text-sm font-heading font-bold tracking-wider uppercase">Cosa c'e' dentro</p>
 						<ul class="space-y-2.5 text-gray-600 text-sm">
 							<li class="flex items-start gap-2.5">
 								<svg class="w-4 h-4 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
@@ -582,7 +582,7 @@ import Layout from '../layouts/Layout.astro';
 					<p class="text-gray-400 text-sm font-heading mb-5">Base fino a 6 persone</p>
 
 					<div class="space-y-3 mb-6 flex-1">
-						<p class="text-gray-700 text-xs font-heading font-bold tracking-wider uppercase">Tutto Nucleo, piu':</p>
+						<p class="text-dark text-sm font-heading font-bold tracking-wider uppercase">Tutto Nucleo, piu':</p>
 						<ul class="space-y-2.5 text-gray-600 text-sm">
 							<li class="flex items-start gap-2.5">
 								<svg class="w-4 h-4 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
@@ -633,7 +633,7 @@ import Layout from '../layouts/Layout.astro';
 					<p class="text-gray-400 text-sm font-heading mb-5">Base fino a 10 persone</p>
 
 					<div class="space-y-3 mb-6 flex-1">
-						<p class="text-gray-700 text-xs font-heading font-bold tracking-wider uppercase">Tutto Squadra, piu':</p>
+						<p class="text-dark text-sm font-heading font-bold tracking-wider uppercase">Tutto Squadra, piu':</p>
 						<ul class="space-y-2.5 text-gray-600 text-sm">
 							<li class="flex items-start gap-2.5">
 								<svg class="w-4 h-4 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
@@ -681,145 +681,6 @@ import Layout from '../layouts/Layout.astro';
 
 			</div>
 
-			<!-- ════════════════════════════
-			     CALCOLATRICE INTERATTIVA
-			     ════════════════════════════ -->
-			<div class="mt-16 max-w-4xl mx-auto">
-				<div class="card-light p-7 md:p-10">
-					<div class="text-center mb-8">
-						<p class="text-sky text-xs font-heading font-bold tracking-wider uppercase mb-3">Calcolo istantaneo</p>
-						<h3 class="text-2xl md:text-3xl font-bold mb-3">Quanto costa per la vostra rete?</h3>
-						<p class="text-gray-500 text-base leading-relaxed max-w-xl mx-auto">
-							Inserite il numero di venditori per vedere il prezzo di ciascun livello.
-						</p>
-					</div>
-
-					<!-- Input -->
-					<div class="max-w-md mx-auto mb-8">
-						<label for="calc-venditori" class="block text-gray-700 text-sm font-heading font-semibold mb-2">
-							Numero venditori nella tua rete
-						</label>
-						<input
-							type="number"
-							id="calc-venditori"
-							name="calc-venditori"
-							min="1"
-							max="50"
-							value="5"
-							aria-describedby="calc-help"
-							class="w-full px-5 py-4 rounded-xl border-2 border-gray-200 focus:border-sky focus:outline-none text-2xl font-bold text-gray-800 font-heading text-center transition-colors"
-						/>
-						<p id="calc-help" class="text-gray-400 text-xs mt-2 text-center">
-							Da 1 a 50 venditori. Il prezzo si aggiorna in tempo reale.
-						</p>
-					</div>
-
-					<!-- Risultati -->
-					<div class="grid md:grid-cols-3 gap-4" role="region" aria-live="polite" aria-label="Prezzi calcolati per i tre pacchetti">
-						<!-- Nucleo -->
-						<div class="rounded-xl border-2 border-sky/20 bg-sky/5 p-5 text-center">
-							<p class="text-sky text-[11px] font-heading font-bold tracking-wider uppercase mb-2">Livello 1</p>
-							<p class="text-gray-700 font-heading font-bold text-lg mb-3">Nucleo</p>
-							<p id="calc-nucleo" class="text-3xl font-bold text-gray-800 font-heading">2.700 &euro;</p>
-							<p class="text-gray-400 text-xs mt-2">IVA esclusa</p>
-						</div>
-						<!-- Squadra -->
-						<div class="rounded-xl border-2 border-sky bg-white p-5 text-center shadow-lg shadow-sky/10">
-							<p class="text-sky text-[11px] font-heading font-bold tracking-wider uppercase mb-2">Livello 2</p>
-							<p class="text-gray-700 font-heading font-bold text-lg mb-3">Squadra</p>
-							<p id="calc-squadra" class="text-3xl font-bold text-gray-800 font-heading">7.500 &euro;</p>
-							<p class="text-gray-400 text-xs mt-2">IVA esclusa</p>
-						</div>
-						<!-- Rete Completa -->
-						<div class="rounded-xl border-2 border-accent/20 bg-accent/5 p-5 text-center">
-							<p class="text-accent-dark text-[11px] font-heading font-bold tracking-wider uppercase mb-2">Livello 3</p>
-							<p class="text-gray-700 font-heading font-bold text-lg mb-3">Rete Completa</p>
-							<p id="calc-rete" class="text-3xl font-bold text-gray-800 font-heading">17.500 &euro;</p>
-							<p class="text-gray-400 text-xs mt-2">IVA esclusa</p>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</section>
-
-	<!-- ═══════════════════════════════════════════
-	     COME SCEGLIERE IL LIVELLO GIUSTO
-	     ═══════════════════════════════════════════ -->
-	<section id="come-scegliere" class="py-20 md:py-32 bg-white relative scroll-mt-20">
-		<div class="max-w-5xl mx-auto px-6">
-			<div class="text-center mb-14">
-				<div class="section-divider mb-6 mx-auto"></div>
-				<h2 class="text-3xl md:text-5xl font-medium mb-4">
-					Come scegliere<br />
-					<span class="text-sky">il livello giusto.</span>
-				</h2>
-				<p class="text-gray-500 text-lg leading-relaxed max-w-2xl mx-auto">
-					Non guardate quanti venditori avete. Guardate <strong class="text-gray-700">cosa volete da me dopo che ho finito l'analisi</strong>.
-				</p>
-			</div>
-
-			<!-- 3 box -->
-			<div class="grid md:grid-cols-3 gap-6 mb-12">
-				<!-- Box 1 -->
-				<div class="card-light p-6 md:p-7 flex flex-col">
-					<p class="text-gray-500 text-sm leading-relaxed mb-4">
-						Se volete solo capire e decidere da soli
-					</p>
-					<div class="flex items-center gap-2 mb-4">
-						<svg class="w-5 h-5 text-sky" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-						<p class="text-sky text-xl font-heading font-bold">Nucleo</p>
-					</div>
-					<p class="text-gray-600 text-sm leading-relaxed">
-						Vi do i profili, la mappa, il piano. Da li' in avanti il lavoro e' vostro. Ci sentiamo a 30 giorni per una verifica.
-					</p>
-				</div>
-				<!-- Box 2 -->
-				<div class="card-light p-6 md:p-7 flex flex-col border-2 border-sky/30">
-					<p class="text-gray-500 text-sm leading-relaxed mb-4">
-						Se volete aiuto concreto per implementare
-					</p>
-					<div class="flex items-center gap-2 mb-4">
-						<svg class="w-5 h-5 text-sky" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-						<p class="text-sky text-xl font-heading font-bold">Squadra</p>
-					</div>
-					<p class="text-gray-600 text-sm leading-relaxed">
-						I dati sono il punto di partenza. Poi vi affianco due mesi: formazione al team, call con ogni venditore, due follow-up.
-					</p>
-				</div>
-				<!-- Box 3 -->
-				<div class="card-light p-6 md:p-7 flex flex-col">
-					<p class="text-gray-500 text-sm leading-relaxed mb-4">
-						Se volete un sistema che regge dopo che me ne sono andato
-					</p>
-					<div class="flex items-center gap-2 mb-4">
-						<svg class="w-5 h-5 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-						<p class="text-accent-dark text-xl font-heading font-bold">Rete Completa</p>
-					</div>
-					<p class="text-gray-600 text-sm leading-relaxed">
-						Tre mesi dentro la vostra azienda. Formazione strutturata, KPI misurabili, giornata on-site.
-					</p>
-				</div>
-			</div>
-
-			<!-- Chiusura -->
-			<div class="max-w-3xl mx-auto text-center">
-				<div class="rounded-2xl bg-slate border border-gray-200 p-6 md:p-8 mb-8">
-					<p class="text-gray-700 text-base md:text-lg leading-relaxed">
-						Il <strong class="text-gray-800">Test Drive</strong> serve per vedere come lavoro prima di scegliere. Se gia' sapete cosa vi serve, si parte direttamente dal pacchetto. <strong class="text-gray-800">In caso di dubbio, chiamate</strong>: vi dico io quale livello ha senso per la vostra situazione, anche se e' il piu' basso.
-					</p>
-				</div>
-
-				<!-- CTA finale -->
-				<a href="https://wa.me/393408217120?text=Ciao%20Cristiano%2C%20vorrei%20fissare%20una%20call%20da%2020%20minuti%20per%20capire%20quale%20livello%20ha%20senso%20per%20la%20mia%20rete%20vendita." target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-3 py-4 px-8 rounded-xl bg-[#25D366] hover:bg-[#1fb855] text-white font-heading font-bold text-base md:text-lg transition-all shadow-lg shadow-[#25D366]/20 hover:shadow-xl hover:shadow-[#25D366]/30">
-					<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-					Parliamone in una call da 20 minuti
-				</a>
-				<p class="text-gray-400 text-sm mt-4">
-					Rispondo io, non un assistente. Senza impegno, senza preventivi via mail.
-				</p>
-			</div>
 		</div>
 	</section>
 
@@ -896,46 +757,3 @@ import Layout from '../layouts/Layout.astro';
 		</div>
 	</footer>
 </Layout>
-
-<script>
-	// Calcolatrice prezzi pacchetti (vanilla JS)
-	(function initPriceCalculator() {
-		const input = document.getElementById('calc-venditori') as HTMLInputElement | null;
-		const outNucleo = document.getElementById('calc-nucleo');
-		const outSquadra = document.getElementById('calc-squadra');
-		const outRete = document.getElementById('calc-rete');
-
-		if (!input || !outNucleo || !outSquadra || !outRete) return;
-
-		const formatEur = (n: number): string => {
-			// Formato italiano: punto come separatore migliaia
-			return n.toLocaleString('it-IT') + '\u00A0\u20AC';
-		};
-
-		const calcNucleo = (v: number): number => {
-			if (v <= 3) return 2700;
-			return 2700 + (v - 3) * 600;
-		};
-		const calcSquadra = (v: number): number => {
-			if (v <= 6) return 7500;
-			return 7500 + (v - 6) * 750;
-		};
-		const calcRete = (v: number): number => {
-			if (v <= 10) return 17500;
-			return 17500 + (v - 10) * 900;
-		};
-
-		const update = () => {
-			let v = parseInt(input.value, 10);
-			if (isNaN(v) || v < 1) v = 1;
-			if (v > 50) v = 50;
-			outNucleo.textContent = formatEur(calcNucleo(v));
-			outSquadra.textContent = formatEur(calcSquadra(v));
-			outRete.textContent = formatEur(calcRete(v));
-		};
-
-		input.addEventListener('input', update);
-		input.addEventListener('change', update);
-		update();
-	})();
-</script>
