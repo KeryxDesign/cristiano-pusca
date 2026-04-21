@@ -9,14 +9,14 @@ export default {
 		}
 
 		try {
-			const { email, score, cost, newsletter, answers } = await request.json();
+			const { firstName, lastName, email, settore, score, cost, newsletter, answers } = await request.json();
 
 			if (!email || score == null || !cost) {
 				return jsonResponse({ error: 'Missing required fields' }, 400, env, request);
 			}
 
 			// 1. Save to Mailchimp (subscriber + merge fields + tag)
-			const mcResult = await addToMailchimp(env, email, score, cost, newsletter);
+			const mcResult = await addToMailchimp(env, email, firstName, lastName, settore, score, cost, newsletter);
 			if (!mcResult.ok) {
 				console.error('Mailchimp error (non-blocking):', mcResult.error);
 			}
@@ -28,7 +28,7 @@ export default {
 			}
 
 			// 3. Send notification to owner with full details
-			const notifyResult = await sendNotifyEmail(env, email, score, cost, answers);
+			const notifyResult = await sendNotifyEmail(env, email, firstName, lastName, settore, score, cost, answers);
 			if (!notifyResult.ok) {
 				console.error('Resend notify error:', notifyResult.error);
 			}
@@ -43,7 +43,7 @@ export default {
 
 // ── Mailchimp ──────────────────────────────────────────────
 
-async function addToMailchimp(env, email, score, cost, newsletter) {
+async function addToMailchimp(env, email, firstName, lastName, settore, score, cost, newsletter) {
 	const server = env.MAILCHIMP_SERVER;
 	const listId = env.MAILCHIMP_LIST_ID;
 	const apiKey = env.MAILCHIMP_API_KEY;
@@ -51,13 +51,18 @@ async function addToMailchimp(env, email, score, cost, newsletter) {
 	const emailHash = await md5(email.toLowerCase());
 	const url = `https://${server}.api.mailchimp.com/3.0/lists/${listId}/members/${emailHash}`;
 
+	const merge_fields = { SCORE: String(score), COSTO: String(cost) };
+	if (firstName) merge_fields.FNAME = firstName;
+	if (lastName) merge_fields.LNAME = lastName;
+	if (settore) merge_fields.SETTORE = settore;
+
 	const res = await fetch(url, {
 		method: 'PUT',
 		headers: { Authorization: authHeader, 'Content-Type': 'application/json' },
 		body: JSON.stringify({
 			email_address: email,
 			status_if_new: newsletter ? 'pending' : 'transactional',
-			merge_fields: { SCORE: String(score), COSTO: String(cost) },
+			merge_fields,
 		}),
 	});
 
@@ -117,8 +122,10 @@ const QUESTIONS = [
 	'Se tu sparissi per un mese, le vendite...',
 ];
 
-async function sendNotifyEmail(env, userEmail, score, cost, answers) {
+async function sendNotifyEmail(env, userEmail, firstName, lastName, settore, score, cost, answers) {
 	const now = new Date().toLocaleString('it-IT', { timeZone: 'Europe/Rome' });
+	const fullName = [firstName, lastName].filter(Boolean).join(' ') || '(non fornito)';
+	const settoreLabel = settore || '(non fornito)';
 
 	let answersHtml = '';
 	if (answers) {
@@ -161,7 +168,9 @@ async function sendNotifyEmail(env, userEmail, score, cost, answers) {
 
 <tr><td style="padding:0 24px 20px;">
 <table width="100%" cellpadding="0" cellspacing="0" style="background:#f9fafb;border-radius:8px;border:1px solid #e5e7eb;">
-<tr><td style="padding:12px;font-size:13px;font-weight:600;color:#374151;border-bottom:1px solid #e5e7eb;">Contatto</td><td style="padding:12px;font-size:13px;border-bottom:1px solid #e5e7eb;"><a href="mailto:${userEmail}" style="color:#0ea5e9;text-decoration:none;">${userEmail}</a></td></tr>
+<tr><td style="padding:12px;font-size:13px;font-weight:600;color:#374151;border-bottom:1px solid #e5e7eb;width:120px;">Nome</td><td style="padding:12px;font-size:13px;border-bottom:1px solid #e5e7eb;font-weight:600;">${fullName}</td></tr>
+<tr><td style="padding:12px;font-size:13px;font-weight:600;color:#374151;border-bottom:1px solid #e5e7eb;">Settore</td><td style="padding:12px;font-size:13px;border-bottom:1px solid #e5e7eb;">${settoreLabel}</td></tr>
+<tr><td style="padding:12px;font-size:13px;font-weight:600;color:#374151;border-bottom:1px solid #e5e7eb;">Email</td><td style="padding:12px;font-size:13px;border-bottom:1px solid #e5e7eb;"><a href="mailto:${userEmail}" style="color:#0ea5e9;text-decoration:none;">${userEmail}</a></td></tr>
 </table>
 </td></tr>
 
@@ -191,7 +200,7 @@ ${answersHtml}
 		body: JSON.stringify({
 			from: 'Scanner Pusca <scanner@keryxdesign.com>',
 			to: notifyTo,
-			subject: `[Scanner] ${userEmail} - Score ${score}/100 - ${cost}`,
+			subject: `[Scanner] ${fullName} (${settoreLabel}) - Score ${score}/100 - ${cost}`,
 			html,
 		}),
 	});
@@ -296,7 +305,8 @@ function buildResultsHtml(score, cost) {
 <!-- Footer -->
 <tr><td style="padding:24px 24px 40px;text-align:center;">
 <p style="color:rgba(255,255,255,0.35);font-size:11px;margin:0;">Cristiano Pusca &middot; Metodo BEDo &middot; Human Value First</p>
-<p style="color:rgba(255,255,255,0.3);font-size:10px;margin:8px 0 0;">Hai ricevuto questa email perche' hai completato lo Scanner Rete Vendita su cristianopusca.it</p>
+<p style="color:rgba(255,255,255,0.3);font-size:10px;margin:8px 0 0;">Hai ricevuto questa email perche' hai completato lo Scanner Rete Vendita su <a href="https://cristianopusca.com/scanner" style="color:rgba(255,255,255,0.4);">cristianopusca.com</a></p>
+<p style="margin:12px 0 0;"><a href="https://us13.list-manage.com/unsubscribe?u=d327453d6178f9f8dfe810d6f&id=2a69d16d64" style="color:rgba(255,255,255,0.3);font-size:10px;text-decoration:underline;">Cancella iscrizione</a></p>
 </td></tr>
 
 </table>

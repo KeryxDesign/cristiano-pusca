@@ -271,12 +271,60 @@ const description = '10 domande, 3 minuti, un numero in euro. Scopri quanto ti c
 							<p class="text-white font-heading font-semibold text-xl md:text-2xl mb-2">Vuoi sapere quanto ti costa in euro?</p>
 							<p class="text-white/80 text-sm mb-5">Inserisci la tua email e vedi subito il <strong class="text-white">costo stimato annuo</strong> calcolato sui tuoi numeri. Nessuno spam, nessuna telefonata.</p>
 							<form id="scanner-email-form" class="space-y-4">
+								<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+									<input
+										id="scanner-firstname"
+										type="text"
+										placeholder="Nome"
+										required
+										autocomplete="given-name"
+										maxlength="40"
+										class="w-full px-5 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white text-base placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-sky/40 focus:border-sky transition-all"
+									/>
+									<input
+										id="scanner-lastname"
+										type="text"
+										placeholder="Cognome"
+										required
+										autocomplete="family-name"
+										maxlength="40"
+										class="w-full px-5 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white text-base placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-sky/40 focus:border-sky transition-all"
+									/>
+								</div>
 								<input
 									id="scanner-email"
 									type="email"
 									placeholder="La tua email aziendale"
 									required
+									autocomplete="email"
 									class="w-full px-5 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white text-base placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-sky/40 focus:border-sky transition-all"
+								/>
+								<select
+									id="scanner-settore"
+									required
+									class="w-full px-5 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white text-base focus:outline-none focus:ring-2 focus:ring-sky/40 focus:border-sky transition-all appearance-none cursor-pointer"
+									style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 fill=%22none%22 viewBox=%220 0 24 24%22 stroke=%22white%22 opacity=%220.5%22><path stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%222%22 d=%22M19 9l-7 7-7-7%22/></svg>'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1.25rem; padding-right: 3rem;"
+								>
+									<option value="" disabled selected class="!bg-[#0c1220] text-white/40">Settore della tua azienda</option>
+									<option value="Manifatturiero / Meccanica" class="!bg-[#0c1220]">Manifatturiero / Meccanica</option>
+									<option value="Arredamento / Design" class="!bg-[#0c1220]">Arredamento / Design</option>
+									<option value="Alimentare / Food &amp; Beverage" class="!bg-[#0c1220]">Alimentare / Food &amp; Beverage</option>
+									<option value="Edilizia / Costruzioni" class="!bg-[#0c1220]">Edilizia / Costruzioni</option>
+									<option value="Moda / Tessile" class="!bg-[#0c1220]">Moda / Tessile</option>
+									<option value="Servizi B2B / Consulenza" class="!bg-[#0c1220]">Servizi B2B / Consulenza</option>
+									<option value="Automotive" class="!bg-[#0c1220]">Automotive</option>
+									<option value="Logistica / Trasporti" class="!bg-[#0c1220]">Logistica / Trasporti</option>
+									<option value="Commercio / Distribuzione" class="!bg-[#0c1220]">Commercio / Distribuzione</option>
+									<option value="Tecnologia / IT" class="!bg-[#0c1220]">Tecnologia / IT</option>
+									<option value="Chimico / Farmaceutico" class="!bg-[#0c1220]">Chimico / Farmaceutico</option>
+									<option value="altro" class="!bg-[#0c1220]">Altro (specifica)</option>
+								</select>
+								<input
+									id="scanner-settore-altro"
+									type="text"
+									placeholder="Specifica il tuo settore"
+									maxlength="60"
+									class="hidden w-full px-5 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white text-base placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-sky/40 focus:border-sky transition-all"
 								/>
 								<label class="flex items-start gap-2.5 cursor-pointer">
 									<input type="checkbox" id="scanner-nl-optin" class="mt-1 w-4 h-4 rounded border-white/20 bg-white/5 text-sky focus:ring-sky/50 shrink-0" />
@@ -535,14 +583,33 @@ const description = '10 domande, 3 minuti, un numero in euro. Scopri quanto ti c
 			}
 		})();
 
+		// Toggle campo "altro" settore
+		document.getElementById('scanner-settore')?.addEventListener('change', (e) => {
+			const altro = document.getElementById('scanner-settore-altro');
+			if (!altro) return;
+			if (e.target.value === 'altro') {
+				altro.classList.remove('hidden');
+				altro.setAttribute('required', 'required');
+			} else {
+				altro.classList.add('hidden');
+				altro.removeAttribute('required');
+				altro.value = '';
+			}
+		});
+
 		// Email gate
 		document.getElementById('scanner-email-form')?.addEventListener('submit', async (e) => {
 			e.preventDefault();
+			const firstName = document.getElementById('scanner-firstname').value.trim();
+			const lastName = document.getElementById('scanner-lastname').value.trim();
 			const email = document.getElementById('scanner-email').value.trim();
+			const settoreSelect = document.getElementById('scanner-settore').value;
+			const settoreAltroVal = document.getElementById('scanner-settore-altro').value.trim();
+			const settore = settoreSelect === 'altro' ? settoreAltroVal : settoreSelect;
 			const nlOptin = document.getElementById('scanner-nl-optin').checked;
 			const btn = document.getElementById('scanner-email-btn');
 			const msg = document.getElementById('scanner-email-msg');
-			if (!email) return;
+			if (!firstName || !lastName || !email || !settore) return;
 
 			btn.disabled = true;
 			btn.textContent = 'Invio in corso...';
@@ -565,7 +632,7 @@ const description = '10 domande, 3 minuti, un numero in euro. Scopri quanto ti c
 				const res = await fetch('https://pusca-scanner-email.nameless-mouse-7d0f.workers.dev', {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/json' },
-					body: JSON.stringify({ email, score, cost, newsletter: nlOptin, answers }),
+					body: JSON.stringify({ firstName, lastName, email, settore, score, cost, newsletter: nlOptin, answers }),
 				});
 
 				if (!res.ok) {
