@@ -77,8 +77,8 @@ let lastSection = '';
 				<a href="/pda#contatti" class="btn-quiz text-base md:text-lg text-center">
 					Fai un assessment sui tuoi venditori
 				</a>
-				<a href="/demo-pda/report-pda-esempio.pdf" target="_blank" rel="noopener" class="inline-flex items-center justify-center text-sky-light hover:text-white transition-colors font-heading font-medium text-base px-6 py-4">
-					Scarica il PDF →
+				<a href="/pda-report/assessment-cristiano-pusca.pdf" target="_blank" rel="noopener" download class="inline-flex items-center justify-center text-sky-light hover:text-white transition-colors font-heading font-medium text-base px-6 py-4">
+					Scarica il PDF (12 pagine) →
 				</a>
 			</div>
 		</div>
@@ -204,6 +204,29 @@ let lastSection = '';
 					</>
 				);
 			})}
+
+			<!-- Bottone download PDF dopo galleria -->
+			<div class="mt-12 md:mt-16">
+				<div class="bg-gradient-to-br from-sky-50 to-white border border-sky-100 rounded-2xl p-6 md:p-8 text-center">
+					<p class="text-sky-700 text-xs font-heading font-bold tracking-wider uppercase mb-3">Vuoi tenerlo con te?</p>
+					<h3 class="text-xl md:text-2xl font-medium text-gray-900 mb-4">
+						Scarica l'assessment completo in PDF
+					</h3>
+					<p class="text-gray-700 text-base md:text-lg leading-relaxed mb-6 max-w-xl mx-auto">
+						Dodici pagine, ad alta risoluzione. Te lo porti sul tablet, lo mostri a un socio, lo stampi se serve.
+					</p>
+					<a
+						href="/pda-report/assessment-cristiano-pusca.pdf"
+						target="_blank"
+						rel="noopener"
+						download
+						class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-sky-700 hover:bg-sky text-white font-heading font-semibold text-base shadow-md transition-all"
+					>
+						<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+						Scarica PDF (12 pagine)
+					</a>
+				</div>
+			</div>
 		</div>
 	</section>
 
