@@ -1,5 +1,58 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Testimonial from '../components/Testimonial.astro';
+
+// Testimonianze clienti (adattate da raccolta Cristiano, file Drive)
+const testimonianze = [
+	{
+		name: 'Leonardo V.',
+		role: 'Amministratore Delegato',
+		company: 'Palladio Spa',
+		text: "Cristiano mi ha aiutato a essere più me stesso e più coerente, e a guardare i lati positivi delle persone con cui lavoro invece dei difetti. Il valore l'ho sentito soprattutto sul piano personale: oggi cerco di comportarmi con più buon senso e onestà, dentro e fuori dall'azienda.",
+	},
+	{
+		name: 'Gianluca B.',
+		role: 'Titolare',
+		company: 'Pelletteria Graziella srl',
+		text: "Cristiano mi ha dato la visione e la forza per affrontare una situazione societaria che ormai non era più accettabile. Ho espresso la volontà di liquidare il socio, lui ha accettato, e per me è stato un successo. Da lì continua ad aiutarmi sui problemi con il personale: è il filtro giusto tra proprietà e dipendenti, e il modo giusto per trasmettere la linea aziendale. Adesso stiamo lavorando sulla responsabilità e sul rispetto dell'organigramma, e la strada mi sembra quella giusta.",
+	},
+	{
+		name: 'Francesca M.',
+		role: 'HR Manager',
+		company: 'Mistral Group srl',
+		text: "Il lavoro di Cristiano in azienda ha migliorato i processi e i flussi di informazione tra gli uffici. L'aiuto più concreto è arrivato sulle performance: monitorando e premiando i risultati in modo strutturato. Ma il valore più grande è un altro: ha catalizzato un'assunzione di responsabilità nelle persone, generato empowerment vero.",
+	},
+	{
+		name: 'Claudia B.',
+		role: 'Titolare',
+		company: 'ELPI srl',
+		text: "Quando sono arrivata in azienda avevo timore di tutte le novità, anche del rapporto con chi lavora con noi. Cristiano mi ha aiutato a capire come interfacciarmi meglio con i collaboratori, partendo da una cosa semplice: si lavora per soddisfare i clienti. Oggi chiedo senza pormi troppi problemi quello che devo, non do per scontato che gli altri sappiano. Ho risolto molte delle mie paure, e ci lavoro ogni giorno. Alla base di tutto, ho imparato, c'è il dialogo: ascoltare, condividere problemi e obiettivi, trovare soluzioni insieme.",
+	},
+	{
+		name: 'Andrea V.',
+		role: 'Titolare',
+		company: 'Sisma srl',
+		text: "Con Cristiano abbiamo costruito una parte commerciale che prima in azienda non esisteva. Mi ha aiutato a formare la persona giusta sulle strategie di vendita, e di fatto abbiamo inserito una nuova figura e una nuova attività dentro l'azienda.",
+	},
+	{
+		name: 'Laura B.',
+		role: 'Titolare',
+		company: 'ELPI srl',
+		text: "Cristiano mi ha aperto a nuove idee, ha lavorato sulla mia insicurezza, e mi ha fatto capire quanto sia importante la comunicazione col team e la condivisione degli obiettivi.",
+	},
+	{
+		name: 'Francesco N.',
+		role: 'Titolare',
+		company: 'Noal Mobility Care srl',
+		text: "Cristiano mi ha aiutato a capire una cosa che non avevo mai messo a fuoco: il prodotto resta un prodotto qualsiasi finché non sono io a renderlo un prodotto di qualità. Sono io, come persona e come rappresentante dell'azienda, che porto il valore. Mi ha aiutato anche a recuperare sicurezza in me stesso, a esserne consapevole. Oggi sono convinto che il cliente, alla fine, non acquista solo un prodotto: acquista un valore, una soluzione, un'emozione.",
+	},
+	{
+		name: 'Maurizio S.',
+		role: 'Titolare',
+		company: 'Vetroin srl',
+		text: "Ho preso maggior consapevolezza delle mie potenzialità, e ho cominciato a valutare i miei collaboratori sotto un altro punto di vista. So dove devo impegnarmi, ed è grazie all'intervento di Cristiano. Abbiamo risolto criticità importanti, creato nuove procedure, condiviso file e informazioni con tutto il team. I collaboratori hanno preso più responsabilità, e abbiamo fatto scelte chiare su figure chiave dell'azienda. L'obiettivo era creare un team più coeso, allineato su quello che l'azienda si era prefissata. In buona parte ci siamo riusciti.",
+	},
+];
 
 // Press articles featured
 const featured = [
@@ -109,8 +162,8 @@ const value24Videos = [
 ---
 
 <Layout
-	title="Press, media e interviste — Cristiano Pusca e metodo BEDo"
-	description="Tutte le menzioni di Cristiano Pusca e del metodo BEDo: Il Sole 24 Ore, Milano Finanza, Fortune Italia, Capital, Fanpage, Lattemiele, Animaimpresa, Salone d'Impresa, Adnkronos, Askanews e oltre 30 testate."
+	title="Press, media e testimonianze — Cristiano Pusca e metodo BEDo"
+	description="Cosa dicono gli imprenditori che hanno lavorato con Cristiano Pusca, più tutte le menzioni press: Il Sole 24 Ore, Milano Finanza, Fortune Italia, Capital, Fanpage, Lattemiele, Animaimpresa, Salone d'Impresa, Adnkronos, Askanews e oltre 30 testate."
 >
 	<!-- ═══════════════════════════════════════════
 	     HERO — DARK
@@ -118,15 +171,48 @@ const value24Videos = [
 	<section class="relative overflow-hidden pt-28 pb-12 md:pt-32 md:pb-16 bg-dark">
 		<div class="absolute inset-0 bg-gradient-to-br from-dark via-dark-light to-sky-muted/30"></div>
 		<div class="max-w-4xl mx-auto px-6 relative">
-			<p class="text-sky-light text-sm font-heading font-semibold tracking-wider uppercase mb-5">Press</p>
+			<p class="text-sky-light text-sm font-heading font-semibold tracking-wider uppercase mb-5">Testimonianze · Press · Media</p>
 			<h1 class="text-3xl md:text-5xl font-medium leading-[1.15] mb-6 text-white">
-				Hanno parlato di me <span class="text-sky-light">e del metodo BEDo.</span>
+				Cosa dicono di me. <span class="text-sky-light">Quello che dicono di me.</span>
 			</h1>
 			<p class="text-gray-300 text-base md:text-lg leading-relaxed max-w-2xl">
-				Articoli, interviste, video e podcast su Cristiano Pusca e sul metodo BEDo. Ogni voce porta direttamente alla fonte originale.
+				Testimonianze degli imprenditori con cui ho lavorato, più tutte le menzioni press sul metodo BEDo. Ogni voce porta direttamente alla fonte originale.
 			</p>
+			<div class="mt-8 flex flex-wrap gap-4">
+				<a href="#testimonianze" class="text-sky-light text-sm font-heading font-semibold hover:text-white transition-colors inline-flex items-center gap-1">↓ Testimonianze imprenditori</a>
+				<a href="#press" class="text-sky-light text-sm font-heading font-semibold hover:text-white transition-colors inline-flex items-center gap-1">↓ Press e media</a>
+			</div>
 		</div>
 	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     TESTIMONIANZE IMPRENDITORI — BIANCO
+	     ═══════════════════════════════════════════ -->
+	<section id="testimonianze" class="py-16 md:py-24 bg-white scroll-mt-20">
+		<div class="max-w-4xl mx-auto px-6">
+			<div class="section-divider mb-6"></div>
+			<h2 class="text-2xl md:text-3xl font-medium mb-2 text-gray-900">Cosa dicono gli imprenditori con cui ho lavorato</h2>
+			<p class="text-gray-600 text-base md:text-lg mb-12">Otto risposte raccolte direttamente. Nomi e aziende reali.</p>
+
+			<div class="space-y-6 md:space-y-7">
+				{testimonianze.map((t) => (
+					<Testimonial
+						name={t.name}
+						role={t.role}
+						company={t.company}
+						text={t.text}
+						variant="editorial"
+						theme="light"
+					/>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     SEPARATORE: PRESS ANCHOR
+	     ═══════════════════════════════════════════ -->
+	<div id="press" class="scroll-mt-20"></div>
 
 	<!-- ═══════════════════════════════════════════
 	     FEATURED PRESS — BIANCO

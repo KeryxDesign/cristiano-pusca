@@ -1,0 +1,143 @@
+---
+// Testimonial.astro — card riusabile, 2 varianti.
+// variant="editorial" — pagina /press (lista verticale ampia)
+// variant="compact"   — sezioni testimonianze in altre pagine (card grid)
+// theme="light" | "dark" per adattarsi allo sfondo della sezione
+
+interface Props {
+	name: string;
+	role: string;
+	company: string;
+	text: string;
+	variant?: 'editorial' | 'compact';
+	theme?: 'light' | 'dark';
+}
+
+const { name, role, company, text, variant = 'compact', theme = 'light' } = Astro.props;
+
+const isEditorial = variant === 'editorial';
+const isDark = theme === 'dark';
+---
+
+<figure class={`testimonial ${isEditorial ? 'editorial' : 'compact'} ${isDark ? 'dark' : 'light'}`}>
+	<svg class="testimonial-quote-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+		<path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
+	</svg>
+
+	<blockquote class="testimonial-text">
+		<p>{text}</p>
+	</blockquote>
+
+	<figcaption class="testimonial-attribution">
+		<p class="testimonial-name">{name}</p>
+		<p class="testimonial-role"><span>{role}</span> · <span class="testimonial-company">{company}</span></p>
+	</figcaption>
+</figure>
+
+<style>
+	/* ── Base ────────────────────────────────── */
+	.testimonial {
+		position: relative;
+		padding: 28px 26px;
+		border-radius: 16px;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+	}
+
+	.testimonial-quote-icon {
+		width: 28px;
+		height: 28px;
+		opacity: 0.18;
+	}
+
+	.testimonial-text {
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
+
+	.testimonial-text p {
+		margin: 0;
+		font-family: Georgia, 'Times New Roman', serif;
+		font-size: 17px;
+		line-height: 1.6;
+	}
+
+	.testimonial-attribution {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+	}
+
+	.testimonial-name {
+		margin: 0;
+		font-family: 'Lexend', system-ui, sans-serif;
+		font-weight: 700;
+		font-size: 15px;
+		letter-spacing: -0.005em;
+	}
+
+	.testimonial-role {
+		margin: 0;
+		font-family: 'Inter', system-ui, sans-serif;
+		font-size: 13px;
+	}
+
+	.testimonial-company {
+		font-weight: 500;
+	}
+
+	/* ── Variante EDITORIAL (pagina /press) ─── */
+	.testimonial.editorial {
+		padding: 36px 38px;
+	}
+
+	.testimonial.editorial .testimonial-quote-icon {
+		width: 36px;
+		height: 36px;
+	}
+
+	.testimonial.editorial .testimonial-text p {
+		font-size: 19px;
+		line-height: 1.65;
+	}
+
+	.testimonial.editorial .testimonial-name {
+		font-size: 16px;
+	}
+
+	@media (max-width: 640px) {
+		.testimonial.editorial {
+			padding: 28px 24px;
+		}
+		.testimonial.editorial .testimonial-text p {
+			font-size: 17px;
+		}
+	}
+
+	/* ── Tema LIGHT ──────────────────────────── */
+	.testimonial.light {
+		background: #ffffff;
+		border: 1px solid #e5e7eb;
+	}
+	.testimonial.light .testimonial-quote-icon { color: #0ea5e9; }
+	.testimonial.light .testimonial-text p { color: #1f2937; }
+	.testimonial.light .testimonial-name { color: #111827; }
+	.testimonial.light .testimonial-role { color: #6b7280; }
+	.testimonial.light .testimonial-company { color: #374151; }
+
+	/* ── Tema DARK ───────────────────────────── */
+	.testimonial.dark {
+		background: rgba(255, 255, 255, 0.04);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(6px);
+		-webkit-backdrop-filter: blur(6px);
+	}
+	.testimonial.dark .testimonial-quote-icon { color: #38bdf8; }
+	.testimonial.dark .testimonial-text p { color: #e5e7eb; }
+	.testimonial.dark .testimonial-name { color: #ffffff; }
+	.testimonial.dark .testimonial-role { color: rgba(255,255,255,0.65); }
+	.testimonial.dark .testimonial-company { color: rgba(255,255,255,0.85); }
+</style>

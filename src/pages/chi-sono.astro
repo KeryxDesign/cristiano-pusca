@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Testimonial from '../components/Testimonial.astro';
 ---
 
 <Layout
@@ -247,6 +248,46 @@ import Layout from '../layouts/Layout.astro';
 				<p class="text-gray-800 text-xl md:text-2xl leading-snug italic font-medium relative pl-8">
 					Cerco compagni di viaggio. Fiducia, rispetto, libertà.
 				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     6.5 — TESTIMONIANZE — SLATE
+	     ═══════════════════════════════════════════ -->
+	<section class="py-20 md:py-24 bg-slate">
+		<div class="max-w-5xl mx-auto px-6">
+			<div class="section-divider mb-6"></div>
+			<h2 class="text-3xl md:text-4xl font-medium mb-3 text-gray-900">Cosa dicono di me, in poche righe.</h2>
+			<p class="text-gray-600 text-base md:text-lg mb-10">
+				Tre tra le risposte degli imprenditori con cui ho lavorato. <a href="/press#testimonianze" class="text-sky underline hover:text-sky-light">Leggi tutte le testimonianze</a>.
+			</p>
+
+			<div class="grid md:grid-cols-3 gap-5 md:gap-6">
+				<Testimonial
+					name="Claudia B."
+					role="Titolare"
+					company="ELPI srl"
+					text="Cristiano mi ha aiutato a capire come interfacciarmi meglio con i collaboratori. Oggi chiedo senza pormi troppi problemi quello che devo, non do per scontato che gli altri sappiano. Ho risolto molte delle mie paure: alla base di tutto, ho imparato, c'è il dialogo."
+					variant="compact"
+					theme="light"
+				/>
+				<Testimonial
+					name="Francesco N."
+					role="Titolare"
+					company="Noal Mobility Care srl"
+					text="Cristiano mi ha aiutato a capire una cosa che non avevo messo a fuoco: il prodotto resta un prodotto qualsiasi finché non sono io a renderlo un prodotto di qualità. Sono io che porto il valore. Il cliente, alla fine, acquista un valore, una soluzione, un'emozione."
+					variant="compact"
+					theme="light"
+				/>
+				<Testimonial
+					name="Leonardo V."
+					role="Amministratore Delegato"
+					company="Palladio Spa"
+					text="Cristiano mi ha aiutato a essere più me stesso e più coerente, e a guardare i lati positivi delle persone con cui lavoro. Il valore l'ho sentito sul piano personale: oggi cerco di comportarmi con più buon senso e onestà."
+					variant="compact"
+					theme="light"
+				/>
 			</div>
 		</div>
 	</section>

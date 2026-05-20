@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Testimonial from '../components/Testimonial.astro';
 ---
 
 <Layout
@@ -255,6 +256,47 @@ import Layout from '../layouts/Layout.astro';
 				<p class="text-gray-800 text-xl md:text-2xl leading-snug font-medium relative pl-8">
 					In oltre trent'anni ho lavorato sulle reti vendita di PMI italiane. <span class="text-gray-900 font-semibold">Il punto di partenza è sempre lo stesso: capire chi hai in squadra, prima di decidere cosa fargli fare.</span>
 				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     TESTIMONIANZE — DARK
+	     ═══════════════════════════════════════════ -->
+	<section class="py-20 md:py-24 bg-dark relative overflow-hidden">
+		<div class="absolute inset-0 bg-gradient-to-br from-dark via-dark-light to-sky-muted/15"></div>
+		<div class="max-w-5xl mx-auto px-6 relative">
+			<p class="text-sky-light text-sm font-heading font-semibold tracking-wider uppercase mb-3">Hanno applicato il metodo</p>
+			<h2 class="text-3xl md:text-4xl font-medium mb-3 text-white">Cosa è cambiato in azienda.</h2>
+			<p class="text-gray-300 text-base md:text-lg mb-10">
+				Tre risposte concrete dagli imprenditori che hanno applicato BEDo. <a href="/press#testimonianze" class="text-sky-light underline hover:text-white">Leggi tutte le testimonianze</a>.
+			</p>
+
+			<div class="grid md:grid-cols-3 gap-5 md:gap-6">
+				<Testimonial
+					name="Gianluca B."
+					role="Titolare"
+					company="Pelletteria Graziella srl"
+					text="Cristiano mi ha dato la visione e la forza per affrontare una situazione societaria non più accettabile. Da lì continua ad aiutarmi sul personale: è il filtro giusto tra proprietà e dipendenti. Adesso lavoriamo sulla responsabilità e sul rispetto dell'organigramma."
+					variant="compact"
+					theme="dark"
+				/>
+				<Testimonial
+					name="Francesca M."
+					role="HR Manager"
+					company="Mistral Group srl"
+					text="Il lavoro di Cristiano ha migliorato i processi e i flussi di informazione tra gli uffici. L'aiuto più concreto è arrivato sulle performance: monitorando e premiando i risultati. Il valore più grande: ha catalizzato un'assunzione di responsabilità, empowerment vero."
+					variant="compact"
+					theme="dark"
+				/>
+				<Testimonial
+					name="Maurizio S."
+					role="Titolare"
+					company="Vetroin srl"
+					text="Abbiamo risolto criticità importanti, creato nuove procedure, condiviso file e informazioni con tutto il team. I collaboratori hanno preso più responsabilità, abbiamo fatto scelte chiare su figure chiave. Volevamo un team più coeso, in buona parte ci siamo riusciti."
+					variant="compact"
+					theme="dark"
+				/>
 			</div>
 		</div>
 	</section>
