@@ -1,0 +1,263 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Press articles featured
+const featured = [
+	{
+		name: 'Il Sole 24 Ore',
+		logo: '/logos/press/ilsole24ore-o-2021.svg',
+		logoClass: '!h-10 md:!h-12',
+		title: 'Valorizzare il capitale umano per crescere, il metodo BEDo',
+		type: 'Video Stream24',
+		date: 'agosto 2024',
+		url: 'https://stream24.ilsole24ore.com/video/italia/valorizzare-capitale-umano-crescere-metodo-bedo/AFSRTxED',
+	},
+	{
+		name: 'Milano Finanza',
+		logo: '/logos/press/Milano_Finanza_Logo-700x233.png',
+		logoClass: '!h-9 md:!h-11',
+		title: 'Valorizzare il capitale umano per crescere, ecco il metodo BeDo',
+		type: 'MF Focus (PDF)',
+		date: 'agosto 2024',
+		url: 'https://mcusercontent.com/d327453d6178f9f8dfe810d6f/files/911d4179-3ced-d483-8aab-4cb1d4b40fd6/Pagina_MF_Milano_Finanza_Metodo_BEDo.pdf',
+	},
+	{
+		name: 'Fortune Italia',
+		logo: '/logos/press/fortune-500-logo-png_seeklogo-433786.png',
+		logoClass: '!h-11 md:!h-13',
+		title: 'Imprese familiari a rischio: il 92% delle PMI italiane affronta la sfida della successione',
+		type: 'Articolo redazionale',
+		date: 'maggio 2025',
+		url: 'https://www.fortuneita.com/2025/05/22/imprese-familiari-a-rischio-il-92-delle-pmi-italiane-affronta-la-sfida-della-successione/',
+	},
+	{
+		name: 'Capital',
+		logo: '/logos/press/capital-logo.svg',
+		logoClass: '!h-14 md:!h-16',
+		title: 'Capital — pagina dedicata',
+		type: 'Articolo (immagine)',
+		date: '2024',
+		url: 'https://mcusercontent.com/d327453d6178f9f8dfe810d6f/images/1d27a41e-7aba-eadf-110a-9b3df234ed3d.jpg',
+	},
+	{
+		name: 'Lattemiele',
+		logo: '/logos/press/lattemiele.png',
+		logoClass: '!h-9 md:!h-10',
+		title: 'Up & Down — intervista a Cristiano Pusca',
+		type: 'Podcast radio',
+		date: '26 ottobre',
+		url: 'https://www.lattemiele.com/podcasts/cristiano-pusca/',
+	},
+	{
+		name: 'Salone d\'Impresa',
+		logo: null,
+		title: 'Webinar: La fiducia, conditio sine qua non',
+		type: 'Webinar online',
+		date: '2024',
+		url: 'https://www.salonedimpresa.it/webinar-fiducia/',
+	},
+	{
+		name: 'Animaimpresa',
+		logo: '/logos/press/animaimpresa.png',
+		logoClass: '!h-9 md:!h-10',
+		title: 'BPDA srl, intervista a Cristiano Pusca',
+		type: 'Intervista network',
+		date: 'giugno 2024',
+		url: 'https://www.animaimpresa.it/bpda-srl-intervista-a-cristiano-pusca/',
+	},
+];
+
+// Web press syndication (Adnkronos)
+const syndicationWeb = [
+	{ name: 'Il Foglio', url: 'https://www.ilfoglio.it/adnkronos/2024/07/17/news/valorizzare-il-capitale-umano-per-crescere-ecco-il-metodo-bedo-6758728/' },
+	{ name: 'Libero', url: 'https://www.liberoquotidiano.it/news/adnkronos/39890305/valorizzare-il-capitale-umano-per-crescere-ecco-il-metodo-bedo.html' },
+	{ name: 'Affari Italiani', url: 'https://www.affaritaliani.it/lavoro/notiziario/valorizzare-il-capitale-umano-per-crescere-ecco-il-metodo-bedo-394021.html' },
+	{ name: 'AskaNews', url: 'https://askanews.it/2024/08/05/valorizzare-il-capitale-umano-per-crescere-il-metodo-bedo/' },
+	{ name: 'Lombardia Post', url: 'https://www.lombardiapost.it/valorizzare-il-capitale-umano-per-crescere-ecco-il-metodo-bedo/' },
+	{ name: 'Venezia Post', url: 'https://www.veneziepost.it/valorizzare-il-capitale-umano-per-crescere-ecco-il-metodo-bedo/' },
+	{ name: 'Emilia Post', url: 'https://www.emiliapost.it/valorizzare-il-capitale-umano-per-crescere-ecco-il-metodo-bedo/' },
+	{ name: 'Notizie.it', url: 'https://www.notizie.it/valorizzare-il-capitale-umano-per-crescere-ecco-il-metodo-bedo/' },
+	{ name: 'Media Press 24', url: 'https://www.mediapress24.it/valorizzare-il-capitale-umano-per-crescere-ecco-il-metodo-bedo' },
+	{ name: 'Ultimora', url: 'https://www.ultimora.news/adnkronos-20240717121311' },
+	{ name: 'Libero TV', url: 'https://www.libero.it/tv/valorizzare-il-capitale-umano-per-crescere-il-metodo-bedo_bc6359935201112' },
+];
+
+// Video syndication (Askanews)
+const syndicationVideo = [
+	{ name: 'Il Giorno', url: 'https://www.ilgiorno.it/video/valorizzare-il-capitale-umano-per-crescere-il-metodo-bedo-blbitn6b' },
+	{ name: 'Il Resto del Carlino', url: 'https://www.ilrestodelcarlino.it/video/valorizzare-il-capitale-umano-per-crescere-il-metodo-bedo-blbitn6b' },
+	{ name: 'Il Mattino', url: 'https://www.ilmattino.it/video/askanews/valorizzare_il_capitale_umano_per_crescere_il_metodo_bedo-8282790.html' },
+	{ name: 'Il Dolomiti', url: 'https://www.ildolomiti.it/video/cronaca/2024/il-video-valorizzare-il-capitale-umano-per-crescere-il-metodo-bedo' },
+	{ name: 'Fanpage', url: 'https://youmedia.fanpage.it/video/ZrDLi-SwCrwzV-f3' },
+	{ name: 'Quotidiano Nazionale', url: 'https://www.quotidiano.net/video/valorizzare-il-capitale-umano-per-crescere-il-metodo-bedo-blbitn6b' },
+	{ name: 'La Nazione', url: 'https://www.lanazione.it/video/valorizzare-il-capitale-umano-per-crescere-il-metodo-bedo-blbitn6b' },
+	{ name: 'Il Telegrafo', url: 'https://www.iltelegrafolivorno.it/video/valorizzare-il-capitale-umano-per-crescere-il-metodo-bedo-blbitn6b' },
+	{ name: 'Il Gazzettino', url: 'https://www.ilmattino.it/video/askanews/valorizzare_il_capitale_umano_per_crescere_il_metodo_bedo-8282790.html' },
+	{ name: 'Corriere Adriatico', url: 'https://www.corriereadriatico.it/video/askanews/valorizzare_il_capitale_umano_per_crescere_il_metodo_bedo-8282790.html' },
+	{ name: 'Quotidiano di Puglia', url: 'https://www.quotidianodipuglia.it/video/askanews/valorizzare_il_capitale_umano_per_crescere_il_metodo_bedo-8282790.html' },
+];
+
+// Value 24 TV videos
+const value24Videos = [
+	'https://youtu.be/5gRNDET69NY',
+	'https://youtu.be/USWMbMLNEYE',
+	'https://youtu.be/arVqTmIjHco',
+	'https://youtu.be/3oLaIjPlvqU',
+	'https://youtu.be/-WC606ceEHU',
+	'https://youtu.be/F6B3E6t5HkQ',
+];
+---
+
+<Layout
+	title="Press, media e interviste — Cristiano Pusca e metodo BEDo"
+	description="Tutte le menzioni di Cristiano Pusca e del metodo BEDo: Il Sole 24 Ore, Milano Finanza, Fortune Italia, Capital, Fanpage, Lattemiele, Animaimpresa, Salone d'Impresa, Adnkronos, Askanews e oltre 30 testate."
+>
+	<!-- ═══════════════════════════════════════════
+	     HERO — DARK
+	     ═══════════════════════════════════════════ -->
+	<section class="relative overflow-hidden pt-28 pb-12 md:pt-32 md:pb-16 bg-dark">
+		<div class="absolute inset-0 bg-gradient-to-br from-dark via-dark-light to-sky-muted/30"></div>
+		<div class="max-w-4xl mx-auto px-6 relative">
+			<p class="text-sky-light text-sm font-heading font-semibold tracking-wider uppercase mb-5">Press</p>
+			<h1 class="text-3xl md:text-5xl font-medium leading-[1.15] mb-6 text-white">
+				Hanno parlato di me <span class="text-sky-light">e del metodo BEDo.</span>
+			</h1>
+			<p class="text-gray-300 text-base md:text-lg leading-relaxed max-w-2xl">
+				Articoli, interviste, video e podcast su Cristiano Pusca e sul metodo BEDo. Click su ogni voce per leggere/guardare la fonte.
+			</p>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     FEATURED PRESS — BIANCO
+	     ═══════════════════════════════════════════ -->
+	<section class="py-16 md:py-20 bg-white">
+		<div class="max-w-5xl mx-auto px-6">
+			<div class="section-divider mb-6"></div>
+			<h2 class="text-2xl md:text-3xl font-medium mb-2 text-gray-900">Le testate principali</h2>
+			<p class="text-gray-600 text-base md:text-lg mb-10">Sette tra interviste, articoli e podcast dedicati al metodo BEDo.</p>
+
+			<div class="grid md:grid-cols-2 gap-5 md:gap-6">
+				{featured.map((item) => (
+					<a href={item.url} target="_blank" rel="noopener" class="card-light p-6 md:p-7 group hover:border-sky-light transition-all flex flex-col">
+						<div class="flex items-center justify-between mb-4">
+							{item.logo ? (
+								<img src={item.logo} alt={item.name} class={`${item.logoClass} w-auto object-contain`} style="filter: grayscale(1) brightness(0.2);" />
+							) : (
+								<p class="text-gray-900 font-heading font-bold text-base">{item.name}</p>
+							)}
+							<svg class="w-5 h-5 text-sky-400 group-hover:text-sky group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+							</svg>
+						</div>
+						<p class="text-sky-700 text-xs font-heading font-bold tracking-wider uppercase mb-1">{item.type} · {item.date}</p>
+						<p class="text-gray-800 text-base md:text-lg leading-snug font-medium">{item.title}</p>
+					</a>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     SINDICATO STAMPA (Adnkronos + Askanews) — SLATE
+	     ═══════════════════════════════════════════ -->
+	<section class="py-16 md:py-20 bg-slate">
+		<div class="max-w-5xl mx-auto px-6">
+			<div class="section-divider mb-6"></div>
+			<h2 class="text-2xl md:text-3xl font-medium mb-2 text-gray-900">Hanno ripreso la notizia</h2>
+			<p class="text-gray-600 text-base md:text-lg mb-10">
+				Il lancio stampa di luglio-agosto 2024 sul metodo BEDo è stato distribuito da <strong class="text-gray-900">Adnkronos</strong> (versione articolo) e <strong class="text-gray-900">Askanews</strong> (versione video), ripreso da oltre 20 testate nazionali e locali.
+			</p>
+
+			<div class="grid md:grid-cols-2 gap-10 md:gap-12">
+				<div>
+					<p class="text-gray-500 text-xs font-heading font-bold tracking-wider uppercase mb-4">Articoli web (Adnkronos)</p>
+					<ul class="space-y-3">
+						{syndicationWeb.map((item) => (
+							<li>
+								<a href={item.url} target="_blank" rel="noopener" class="text-gray-700 hover:text-sky text-base inline-flex items-center gap-2 group">
+									<span class="group-hover:underline">{item.name}</span>
+									<svg class="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+								</a>
+							</li>
+						))}
+					</ul>
+				</div>
+				<div>
+					<p class="text-gray-500 text-xs font-heading font-bold tracking-wider uppercase mb-4">Video (Askanews)</p>
+					<ul class="space-y-3">
+						{syndicationVideo.map((item) => (
+							<li>
+								<a href={item.url} target="_blank" rel="noopener" class="text-gray-700 hover:text-sky text-base inline-flex items-center gap-2 group">
+									<span class="group-hover:underline">{item.name}</span>
+									<svg class="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+								</a>
+							</li>
+						))}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     VALUE 24 TV — DARK
+	     ═══════════════════════════════════════════ -->
+	<section class="py-16 md:py-20 bg-dark relative overflow-hidden">
+		<div class="absolute inset-0 bg-gradient-to-br from-dark via-dark-light to-sky-muted/15"></div>
+		<div class="max-w-5xl mx-auto px-6 relative">
+			<p class="text-sky-light text-sm font-heading font-semibold tracking-wider uppercase mb-3">Value 24 TV</p>
+			<h2 class="text-2xl md:text-3xl font-medium mb-2 text-white">Sei video sul metodo BEDo</h2>
+			<p class="text-gray-300 text-base md:text-lg mb-10">Approfondimenti su YouTube, dalla serie Value 24 TV.</p>
+
+			<div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
+				{value24Videos.map((url, i) => (
+					<a href={url} target="_blank" rel="noopener" class="block rounded-xl overflow-hidden ring-1 ring-white/10 hover:ring-sky-light hover:scale-[1.02] transition-all bg-white/5 backdrop-blur p-5 text-center">
+						<div class="w-12 h-12 mx-auto mb-3 rounded-full bg-sky/20 flex items-center justify-center">
+							<svg class="w-6 h-6 text-sky-light" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+						</div>
+						<p class="text-white font-heading font-semibold text-sm">Video {i + 1}</p>
+						<p class="text-gray-400 text-xs mt-1">YouTube</p>
+					</a>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     YOUTUBE OFFICIAL — BIANCO
+	     ═══════════════════════════════════════════ -->
+	<section class="py-16 md:py-20 bg-white">
+		<div class="max-w-3xl mx-auto px-6 text-center">
+			<div class="section-divider mb-6 mx-auto"></div>
+			<h2 class="text-2xl md:text-3xl font-medium mb-4 text-gray-900">Canale YouTube ufficiale</h2>
+			<p class="text-gray-700 text-base md:text-lg leading-relaxed mb-8">
+				Approfondimenti, talk e interviste sul metodo BEDo direttamente dal canale YouTube di Cristiano Pusca e BPDA srl.
+			</p>
+			<a href="https://www.youtube.com/@MetodoBEDo_BPDAsrl" target="_blank" rel="noopener" class="btn-quiz text-base md:text-lg inline-flex items-center gap-2">
+				<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+				Vai al canale BEDo | Human Value First
+			</a>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     CTA FINALE — DARK
+	     ═══════════════════════════════════════════ -->
+	<section class="py-16 md:py-20 bg-dark-light relative">
+		<div class="absolute inset-0 bg-gradient-to-b from-dark to-dark-light"></div>
+		<div class="max-w-2xl mx-auto px-6 relative text-center">
+			<h2 class="text-2xl md:text-3xl font-medium mb-6 text-white">
+				Vuoi sapere di più sul metodo?
+			</h2>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center">
+				<a href="/metodo-bedo" class="btn-quiz text-base md:text-lg text-center">
+					Scopri il metodo BEDo
+				</a>
+				<a href="/contatti" class="btn-inverted text-base md:text-lg text-center">
+					Scrivimi direttamente
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>
