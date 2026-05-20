@@ -1,0 +1,32 @@
+# cristianopusca.com — Apache rewrite rules
+# Hostinger shared hosting supports .htaccess
+
+# Force HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ───────────────────────────────────────────────
+# 301 redirects: rebranding PDA → Assessment Comportamentale
+# Le mail Mailchimp inviate prima del rebrand continuano a funzionare via redirect
+# ───────────────────────────────────────────────
+Redirect 301 /pda/report-esempio /assessment-comportamentale/esempio
+Redirect 301 /pda /assessment-comportamentale
+
+# Standard caching headers per asset statici
+<IfModule mod_expires.c>
+	ExpiresActive On
+	ExpiresByType image/jpg "access plus 1 year"
+	ExpiresByType image/jpeg "access plus 1 year"
+	ExpiresByType image/png "access plus 1 year"
+	ExpiresByType image/webp "access plus 1 year"
+	ExpiresByType image/svg+xml "access plus 1 year"
+	ExpiresByType application/pdf "access plus 1 month"
+	ExpiresByType text/css "access plus 1 month"
+	ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# Gzip compression
+<IfModule mod_deflate.c>
+	AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json text/xml application/xml image/svg+xml
+</IfModule>

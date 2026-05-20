@@ -1,0 +1,351 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// Sequenza per macro-sezioni logiche: Profilo Naturale → Grafico 5 assi → Skill → Stile di Leadership
+// Campo commentAfter: HTML del commento contestuale inserito DOPO questa slide
+const slides = [
+	// 1. Profilo Naturale (2 pagine)
+	{ src: '/pda-report/slide-01.jpg', alt: 'Descrizione del Profilo Naturale di Cristiano - parte 1', section: 'Profilo Naturale', title: 'Descrizione del Profilo Naturale' },
+	{ src: '/pda-report/slide-02.jpg', alt: 'Descrizione del Profilo Naturale di Cristiano - parte 2', section: 'Profilo Naturale', title: 'Profilo Naturale (continua)' },
+
+	// 2. Grafico dei 5 assi comportamentali (2 pagine)
+	{ src: '/pda-report/slide-03.jpg', alt: 'Indice di Consistenza e Grafico dei 5 assi — Asse del Rischio, Asse dell\'Estroversione', section: 'Grafico · i 5 assi comportamentali', title: 'Indice di Consistenza · Rischio · Estroversione' },
+	{
+		src: '/pda-report/slide-04.jpg',
+		alt: 'Grafico dei 5 assi — Asse della Pazienza, delle Norme, dell\'Autocontrollo',
+		section: 'Grafico · i 5 assi comportamentali',
+		title: 'Pazienza · Norme · Autocontrollo',
+		commentTitle: 'Cosa dice questo grafico, in chiaro',
+		commentBody: [
+			'Asse del rischio: basso. Asse delle norme: alto. Tradotto: organizzo, faccio rispettare i metodi, leggo chi sgarra e chi no. Per la R&D è veleno lento. Per una rete vendita è oro.',
+			'Il punto da portare a casa: <strong>i cinque assi non dicono se la persona vale. Dicono dove vale.</strong> Stesso ragionamento si fa sul tuo venditore, sul tuo capo area, sul candidato che hai in colloquio lunedì.',
+		],
+	},
+
+	// 3. Skill / Compatibilità con le Competenze (6 pagine)
+	{ src: '/pda-report/slide-05.jpg', alt: 'Abilità operative, Autocontrollo, Capacità di negoziazione', section: 'Compatibilità con le Competenze', title: 'Abilità operative · Autocontrollo · Negoziazione' },
+	{ src: '/pda-report/slide-06.jpg', alt: 'Comunicazione, Direzione di persone, Fiducia in se stessi', section: 'Compatibilità con le Competenze', title: 'Comunicazione · Direzione di persone · Fiducia in sé stessi' },
+	{ src: '/pda-report/slide-07.jpg', alt: 'Flessibilita, Impatto e influenza, Iniziativa', section: 'Compatibilità con le Competenze', title: 'Flessibilità · Impatto e influenza · Iniziativa' },
+	{ src: '/pda-report/slide-08.jpg', alt: 'Innovazione, Lavoro in gruppo e cooperazione, Leadership', section: 'Compatibilità con le Competenze', title: 'Innovazione · Lavoro in gruppo · Leadership' },
+	{ src: '/pda-report/slide-09.jpg', alt: 'Orientamento ai risultati, al cliente, al mercato', section: 'Compatibilità con le Competenze', title: 'Orientamento ai risultati · al cliente · al mercato' },
+	{
+		src: '/pda-report/slide-10.jpg',
+		alt: 'Risoluzione di problemi, Sensibilita interpersonale, Sensibilita politica',
+		section: 'Compatibilità con le Competenze',
+		title: 'Risoluzione problemi · Sensibilità interpersonale · Sensibilità politica',
+		commentTitle: 'Maggiore sforzo, Minore sforzo: come si leggono davvero',
+		commentBody: [
+			'Le colonne "Maggiore sforzo" e "Minore sforzo" sono la parte del report che gli imprenditori sottovalutano di più. Non leggetele come "punti deboli" e "punti di forza". Leggetele come <strong>costi di energia</strong>.',
+			'Una competenza ad alto sforzo non è un difetto: è il punto in cui quella persona, ogni giorno, paga un prezzo per fare il proprio lavoro. Se le competenze chiave del ruolo cadono tutte sull\'alto sforzo, quella persona si esaurirà. Magari produce per sei mesi, magari per dodici, ma poi cala, si demotiva, o se ne va.',
+			'Se le competenze chiave cadono sul basso sforzo, hai un venditore che produce senza consumarsi. Stesso impegno, due esiti diversi. <strong>È lì che si decide chi resta tre anni e chi se ne va dopo l\'estate.</strong>',
+		],
+	},
+
+	// 4. Stile di Leadership (2 pagine)
+	{ src: '/pda-report/slide-11.jpg', alt: 'Stile di Leadership e Stile di leadership dei team', section: 'Stile di Leadership', title: 'Stile di Leadership · Leadership dei team' },
+	{ src: '/pda-report/slide-12.jpg', alt: 'Presa di Decisioni, Influenza e comunicazione', section: 'Stile di Leadership', title: 'Presa di Decisioni · Influenza e comunicazione' },
+];
+
+// Riabilito il divisore di sezione: ora le macro-sezioni hanno senso
+let lastSection = '';
+
+---
+
+<Layout
+	title="Esempio di assessment comportamentale — Profilo di Cristiano Pusca"
+	description="Esempio reale di un assessment comportamentale Pusca, basato su uno strumento comportamentale validato. 12 pagine, dal profilo comportamentale al grafico dei 5 assi. Il report che riceveresti tu o il tuo venditore."
+	noindex={true}
+>
+	<!-- ═══════════════════════════════════════════
+	     HERO — DARK
+	     ═══════════════════════════════════════════ -->
+	<section class="relative overflow-hidden pt-28 pb-12 md:pt-32 md:pb-16 bg-dark">
+		<div class="absolute inset-0 bg-gradient-to-br from-dark via-dark-light to-sky-muted/30"></div>
+		<div class="max-w-3xl mx-auto px-6 relative">
+			<p class="text-sky-light text-sm font-heading font-semibold tracking-wider uppercase mb-4">
+				Esempio di assessment comportamentale
+			</p>
+			<h1 class="text-3xl md:text-5xl font-medium leading-[1.15] mb-6 text-white">
+				Il mio assessment, <span class="text-sky-light">in 12 pagine.</span>
+			</h1>
+			<p class="text-gray-300 text-base md:text-lg leading-relaxed mb-6">
+				Lo stesso tipo di documento che riceveresti tu, o un tuo venditore, dopo aver fatto l'assessment con me. Il test è uno strumento. La lettura è la mia.
+			</p>
+			<p class="text-gray-300 text-sm md:text-base leading-relaxed mb-8">
+				12 pagine, quattro parti: <strong class="text-white">Profilo Naturale</strong> (chi sono davvero), <strong class="text-white">Grafico dei 5 assi comportamentali</strong>, <strong class="text-white">Compatibilità con le Competenze</strong> (cosa mi viene naturale e cosa mi costa sforzo) e <strong class="text-white">Stile di Leadership</strong> (come decido e guido).
+			</p>
+			<div class="flex flex-col sm:flex-row gap-4">
+				<a href="/assessment-comportamentale#contatti" class="btn-quiz text-base md:text-lg text-center">
+					Fai un assessment sui tuoi venditori
+				</a>
+				<a href="/pda-report/assessment-cristiano-pusca.pdf" target="_blank" rel="noopener" download class="inline-flex items-center justify-center text-sky-light hover:text-white transition-colors font-heading font-medium text-base px-6 py-4">
+					Scarica il PDF (12 pagine) →
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     COME LEGGERE QUESTO REPORT — BIANCO
+	     ═══════════════════════════════════════════ -->
+	<section class="py-20 md:py-28 bg-white">
+		<div class="max-w-3xl mx-auto px-6">
+			<div class="section-divider mb-6"></div>
+			<h2 class="text-3xl md:text-4xl font-medium mb-3 text-gray-900">
+				Come leggere questo report (e perché ha senso per te)
+			</h2>
+
+			<p class="text-gray-700 text-lg leading-relaxed mb-6">
+				Questo report è il mio. Su di me. Uno dei primi assessment che ho fatto. Te lo mostro per intero perché è il modo più onesto di farti capire come funziona davvero questo strumento — e cosa cambia quando ad analizzarlo è qualcuno che lo legge da anni.
+			</p>
+
+			<h3 class="text-xl md:text-2xl font-medium mb-3 mt-10 text-gray-900">Cosa emerge, in due righe</h3>
+			<p class="text-gray-700 text-lg leading-relaxed mb-4">
+				Soglia di rischio bassa. Conformità alle norme alta. In lingua imprenditore: <strong class="text-gray-900">organizzo, non rompo.</strong> Non è una virtù, non è un difetto. È un dato.
+			</p>
+			<p class="text-gray-700 text-lg leading-relaxed mb-4">
+				Lavoravo da dipendente in una società di consulenza energetica per la pubblica amministrazione. Mi avevano selezionato per ricerca e sviluppo perché avevo <strong class="text-gray-900">le competenze tecniche giuste</strong> sul tema energia. Sulla carta filava tutto.
+			</p>
+			<p class="text-gray-700 text-lg leading-relaxed mb-4">
+				<strong class="text-gray-900">Cinque mesi di fatica.</strong> Per la R&D il mio profilo è un chiodo nella ruota: chi fa ricerca deve infrangere le regole, non rispettarle. Avevo le competenze, mi mancava l'indole.
+			</p>
+			<p class="text-gray-700 text-lg leading-relaxed mb-4">
+				Mi hanno spostato a lavorare con le persone e ad aprire la pubblica amministrazione come cliente. In quel ruolo l'indole era esattamente quella giusta: ho fatto fatturare quella società a livelli che non aveva mai toccato prima.
+			</p>
+			<p class="text-gray-900 text-xl md:text-2xl font-medium leading-snug mb-2 mt-6">
+				Stesso uomo. Stesse competenze tecniche. Ruolo diverso. <span class="text-sky-700 font-semibold">Risultati opposti.</span>
+			</p>
+
+			<h3 class="text-xl md:text-2xl font-medium mb-3 mt-12 text-gray-900">Il punto vero, per chi assume venditori</h3>
+			<p class="text-gray-700 text-lg leading-relaxed mb-6">
+				Una persona sveglia nel ruolo sbagliato non si sblocca. <strong class="text-gray-900">Si consuma.</strong> E tu paghi due volte: paghi il suo stipendio mentre non produce, e paghi il costo nascosto di averla scelta male.
+			</p>
+
+			<!-- Pull-quote: frase MVP confermata cross-buyer -->
+			<div class="my-10 relative bg-slate border-l-4 border-sky rounded-r-2xl p-8 md:p-10">
+				<svg class="absolute top-4 left-4 w-10 h-10 text-sky/20" fill="currentColor" viewBox="0 0 24 24"><path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/></svg>
+				<p class="text-gray-800 text-xl md:text-2xl leading-snug italic font-medium relative pl-8">
+					Una persona sveglia nel ruolo sbagliato non si sblocca. Si consuma.
+				</p>
+			</div>
+
+			<h3 class="text-xl md:text-2xl font-medium mb-3 mt-12 text-gray-900">I numeri che pochi mettono a bilancio</h3>
+			<p class="text-gray-700 text-lg leading-relaxed mb-4">
+				Un'assunzione sbagliata in rete vendita costa tra i <mark class="bg-yellow-100 px-1 py-0.5 rounded font-semibold text-gray-900">33.000 e gli 80.000 €</mark> tra stipendio, formazione, pipeline ferma, clienti persi e contraccolpo sul team.
+			</p>
+			<p class="text-gray-700 text-lg leading-relaxed mb-4">
+				Il tempo medio perché un commerciale B2B arrivi ad essere autonomo è di <mark class="bg-yellow-100 px-1 py-0.5 rounded font-semibold text-gray-900">5,7 mesi</mark> (Bridge Group). Se la persona è nel ruolo sbagliato, quei 5,7 mesi non arrivano mai: arrivano otto, dieci, dodici. Nel frattempo la pipeline si svuota, i clienti notano, il team mormora.
+			</p>
+			<p class="text-gray-700 text-lg leading-relaxed">
+				C'è poi una voce che pochissimi mettono a bilancio: <strong class="text-gray-900">capire dove una persona rende davvero costa meno che sostituirla</strong>. E spesso, dopo averlo capito, non serve sostituirla. Serve spostarla, ridefinire il suo perimetro, smettere di chiederle quello che le costa il triplo.
+			</p>
+
+			<h3 class="text-xl md:text-2xl font-medium mb-3 mt-12 text-gray-900">Cosa fa l'assessment, e cosa non fa</h3>
+			<p class="text-gray-700 text-lg leading-relaxed mb-4">
+				Non promette miracoli. Fa una cosa sola: ti dice <strong class="text-gray-900">dove quella persona rende davvero</strong>, prima che tu lo scopra dai numeri di fine anno. Distingue il ruolo dove c'è fit naturale dal ruolo dove c'è fit forzato.
+			</p>
+			<p class="text-gray-700 text-lg leading-relaxed mb-4">
+				Si può fare al candidato <strong class="text-gray-900">prima della firma del contratto</strong>. O sulla persona che hai già in squadra, per capire se è nel posto giusto.
+			</p>
+			<p class="text-gray-700 text-lg leading-relaxed">
+				Lo <strong class="text-gray-900">strumento</strong> (il test comportamentale) lo conoscono in molti. La <strong class="text-gray-900">lettura</strong> — quella che ti dice cosa fare con il PDF che esce — la faccio io, da assessor certificato che lo legge da anni.
+			</p>
+
+			<h3 class="text-xl md:text-2xl font-medium mb-4 mt-12 text-gray-900">Cosa troverai nelle prossime 12 pagine</h3>
+			<ul class="space-y-3 text-gray-700 text-lg leading-relaxed">
+				<li><strong class="text-gray-900">Profilo Naturale</strong> — chi è la persona quando non deve sforzarsi per adattarsi</li>
+				<li><strong class="text-gray-900">Grafico dei 5 assi</strong> — rischio, norme, pazienza, dettaglio, autonomia. Si legge in 30 secondi</li>
+				<li><strong class="text-gray-900">Skill e Competenze</strong> — quali capacità richiedono poco sforzo, quali ne richiedono molto</li>
+				<li><strong class="text-gray-900">Stile di Leadership</strong> — come questa persona guida, decide, gestisce conflitti</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     GALLERIA SLIDE — BIANCO
+	     ═══════════════════════════════════════════ -->
+	<section class="py-12 md:py-16 bg-white">
+		<div class="max-w-5xl mx-auto px-4 md:px-6">
+			{slides.map((slide, idx) => {
+				const showSectionHeader = slide.section !== lastSection;
+				lastSection = slide.section;
+				return (
+					<>
+						{showSectionHeader && (
+							<div class={`${idx === 0 ? 'mb-8' : 'mt-16 md:mt-24 mb-8'}`}>
+								<div class="section-divider mb-4"></div>
+								<h2 class="text-2xl md:text-4xl font-medium text-gray-900">{slide.section}</h2>
+							</div>
+						)}
+						<div class="mb-10 md:mb-14">
+							<div class="mb-3 flex items-center gap-3">
+								<span class="font-heading font-bold text-sky-700 text-sm tracking-wider uppercase">Pagina {idx + 1} di {slides.length}</span>
+								<span class="h-px flex-1 bg-gray-200"></span>
+							</div>
+							<h3 class="text-lg md:text-xl font-medium text-gray-700 mb-4">{slide.title}</h3>
+							<div class="rounded-2xl overflow-hidden shadow-xl ring-1 ring-gray-200 bg-white">
+								<img
+									src={slide.src}
+									alt={slide.alt}
+									class="w-full h-auto block"
+									loading={idx === 0 ? 'eager' : 'lazy'}
+									decoding="async"
+								/>
+							</div>
+						</div>
+						{slide.commentTitle && slide.commentBody && (
+							<div class="mb-12 md:mb-16 bg-slate border-l-4 border-sky rounded-r-2xl p-6 md:p-8">
+								<p class="text-sky-muted text-xs font-heading font-bold tracking-wider uppercase mb-3">Come leggerlo</p>
+								<h3 class="text-xl md:text-2xl font-medium text-gray-900 mb-4">{slide.commentTitle}</h3>
+								{slide.commentBody.map((para) => (
+									<p class="text-gray-700 text-base md:text-lg leading-relaxed mb-3 last:mb-0" set:html={para}></p>
+								))}
+							</div>
+						)}
+					</>
+				);
+			})}
+
+			<!-- Bottone download PDF dopo galleria -->
+			<div class="mt-12 md:mt-16">
+				<div class="bg-gradient-to-br from-sky-50 to-white border border-sky-100 rounded-2xl p-6 md:p-8 text-center">
+					<p class="text-sky-700 text-xs font-heading font-bold tracking-wider uppercase mb-3">Vuoi tenerlo con te?</p>
+					<h3 class="text-xl md:text-2xl font-medium text-gray-900 mb-4">
+						Scarica l'assessment completo in PDF
+					</h3>
+					<p class="text-gray-700 text-base md:text-lg leading-relaxed mb-6 max-w-xl mx-auto">
+						Dodici pagine, ad alta risoluzione. Te lo porti sul tablet, lo mostri a un socio, lo stampi se serve.
+					</p>
+					<a
+						href="/pda-report/assessment-cristiano-pusca.pdf"
+						target="_blank"
+						rel="noopener"
+						download
+						class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-sky-700 hover:bg-sky text-white font-heading font-semibold text-base shadow-md transition-all"
+					>
+						<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+						Scarica PDF (12 pagine)
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     CTA FINALE — SCURO con 2 binari
+	     ═══════════════════════════════════════════ -->
+	<section class="py-20 md:py-28 bg-dark-light relative">
+		<div class="absolute inset-0 bg-gradient-to-b from-dark to-dark-light"></div>
+		<div class="max-w-4xl mx-auto px-6 relative">
+			<div class="text-center mb-12">
+				<div class="section-divider mb-6 mx-auto"></div>
+				<h2 class="text-3xl md:text-4xl font-medium mb-3 text-white">
+					Vuoi un report come questo, <span class="text-sky-light">sulla tua rete vendita?</span>
+				</h2>
+			</div>
+
+			<div class="grid md:grid-cols-2 gap-6 md:gap-8 mb-12">
+				<!-- Binario 1: Assessment singolo -->
+				<div class="bg-white/[0.05] border border-white/10 rounded-2xl p-7 md:p-8 backdrop-blur-sm">
+					<p class="text-sky-light text-xs font-heading font-bold tracking-wider uppercase mb-3">Assessment singolo</p>
+					<p class="text-white text-3xl md:text-4xl font-heading font-bold mb-1">750 € <span class="text-base text-gray-400 font-normal">+ IVA</span></p>
+					<p class="text-gray-400 text-sm mb-6">Per una persona. Una sola.</p>
+
+					<ul class="space-y-3 mb-6">
+						<li class="text-gray-300 text-base leading-relaxed flex gap-3">
+							<svg class="w-5 h-5 text-sky-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+							<span>Test comportamentale completo (15-20 min)</span>
+						</li>
+						<li class="text-gray-300 text-base leading-relaxed flex gap-3">
+							<svg class="w-5 h-5 text-sky-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+							<span>Report integrale (le 12 pagine viste sopra)</span>
+						</li>
+						<li class="text-gray-300 text-base leading-relaxed flex gap-3">
+							<svg class="w-5 h-5 text-sky-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+							<span>Sessione 1-on-1 di lettura in call o in azienda</span>
+						</li>
+						<li class="text-gray-300 text-base leading-relaxed flex gap-3">
+							<svg class="w-5 h-5 text-sky-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+							<span><strong class="text-white">Risposta scritta:</strong> scelta buona o forzata?</span>
+						</li>
+					</ul>
+
+					<p class="text-gray-300 text-sm italic mb-6">
+						Niente pacchetti a sorpresa. Niente upsell. Una persona, un profilo, una lettura.
+					</p>
+
+					<a href="mailto:info@cristianopusca.com?subject=Assessment%20singolo%20%E2%80%94%20Voglio%20capire%20come%20partire&body=Ciao%20Cristiano%2C%0A%0Ati%20scrivo%20dopo%20aver%20letto%20il%20report%20di%20esempio.%0A%0AVorrei%20fare%20un%20assessment%20su%3A%0A-%20Chi%20%C3%A8%20la%20persona%3A%20%5Bnome%20o%20ruolo%5D%0A-%20Che%20ruolo%20ho%20in%20testa%3A%20%5Bruolo%5D%0A-%20Quando%20vorrei%20muovermi%3A%20%5Bdata%5D%0A%0AGrazie%2C%0A%5BTuo%20nome%20e%20azienda%5D" class="btn-quiz w-full text-center text-base">
+						Scrivimi per un assessment
+					</a>
+				</div>
+
+				<!-- Binario 2: Assessment su intera rete vendita -->
+				<div class="bg-white/[0.05] border border-white/10 rounded-2xl p-7 md:p-8 backdrop-blur-sm">
+					<p class="text-sky-light text-xs font-heading font-bold tracking-wider uppercase mb-3">Assessment su tutta la rete vendita</p>
+					<p class="text-white text-3xl md:text-4xl font-heading font-bold mb-1">Preventivo trasparente</p>
+					<p class="text-gray-400 text-sm mb-6">Da 4 persone in su.</p>
+
+					<ul class="space-y-3 mb-6">
+						<li class="text-gray-300 text-base leading-relaxed flex gap-3">
+							<svg class="w-5 h-5 text-sky-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+							<span>Un assessment completo per ogni persona</span>
+						</li>
+						<li class="text-gray-300 text-base leading-relaxed flex gap-3">
+							<svg class="w-5 h-5 text-sky-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+							<span><strong class="text-white">Mappa comparativa dei 5 assi</strong> su tutta la rete</span>
+						</li>
+						<li class="text-gray-300 text-base leading-relaxed flex gap-3">
+							<svg class="w-5 h-5 text-sky-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+							<span>Dove ridisegnare zone, ruoli, accoppiamenti senior-junior</span>
+						</li>
+						<li class="text-gray-300 text-base leading-relaxed flex gap-3">
+							<svg class="w-5 h-5 text-sky-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+							<span>Prezzo per persona <strong class="text-white">decrescente</strong></span>
+						</li>
+					</ul>
+
+					<p class="text-gray-300 text-sm italic mb-6">
+						Niente economia di scala finta. Solo conto reale, voce per voce.
+					</p>
+
+					<a href="mailto:info@cristianopusca.com?subject=Assessment%20rete%20vendita%20%E2%80%94%20Preventivo&body=Ciao%20Cristiano%2C%0A%0Ati%20scrivo%20dopo%20aver%20letto%20il%20report%20di%20esempio.%0A%0AVorrei%20mappare%20la%20mia%20rete%20vendita%3A%0A-%20Quante%20persone%3A%20%5Bnumero%5D%0A-%20Settore%2Fazienda%3A%20%5Bbreve%20descrizione%5D%0A-%20Quando%20vorrei%20muovermi%3A%20%5Bdata%5D%0A%0AGrazie%2C%0A%5BTuo%20nome%20e%20azienda%5D" class="btn-inverted w-full text-center text-base">
+						Chiedi un preventivo
+					</a>
+				</div>
+			</div>
+
+			<div class="text-center">
+				<p class="text-gray-200 text-base md:text-lg mb-6">
+					Bastano due righe: <strong class="text-white">chi è la persona (o quante), che ruolo hai in testa, quando vorresti muoverti</strong>.
+				</p>
+
+				<!-- WhatsApp diretto, ben visibile -->
+				<a
+					href="https://wa.me/393408217120?text=Ciao%20Cristiano%2C%20ti%20scrivo%20dopo%20aver%20letto%20il%20report%20di%20esempio.%20Vorrei%20capire%20come%20partire%20con%20un%20assessment."
+					target="_blank"
+					rel="noopener"
+					class="inline-flex items-center gap-3 px-7 py-4 rounded-xl bg-[#128C7E] hover:bg-[#0f7d6e] text-white font-heading font-semibold text-base md:text-lg shadow-lg shadow-[#25D366]/30 hover:shadow-[#25D366]/50 transition-all"
+				>
+					<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+						<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+					</svg>
+					Scrivimi su WhatsApp
+				</a>
+
+				<p class="text-gray-400 text-sm mt-6">
+					Oppure via mail: <a href="mailto:info@cristianopusca.com" class="text-sky-light hover:text-white transition-colors underline">info@cristianopusca.com</a>
+				</p>
+
+				<p class="text-gray-300 text-base md:text-lg italic max-w-xl mx-auto mt-10">
+					Cinque mesi a capire che hai sbagliato la persona costano molto più di 750 €.
+				</p>
+
+				<div class="mt-10">
+					<a href="/pda" class="text-sky-light hover:text-white transition-colors text-sm font-heading underline inline-block py-3">
+						← Torna alla pagina assessment
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>

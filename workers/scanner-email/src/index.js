@@ -8,38 +8,241 @@ export default {
 			return jsonResponse({ error: 'Method not allowed' }, 405, env, request);
 		}
 
+		// Route by URL pathname
+		const url = new URL(request.url);
+		const path = url.pathname.replace(/\/+$/, '');
+
 		try {
-			const { firstName, lastName, email, settore, score, cost, newsletter, answers } = await request.json();
-
-			if (!email || score == null || !cost) {
-				return jsonResponse({ error: 'Missing required fields' }, 400, env, request);
+			if (path.endsWith('/assessment')) {
+				return await handleAssessment(request, env);
 			}
-
-			// 1. Save to Mailchimp (subscriber + merge fields + tag)
-			const mcResult = await addToMailchimp(env, email, firstName, lastName, settore, score, cost, newsletter);
-			if (!mcResult.ok) {
-				console.error('Mailchimp error (non-blocking):', mcResult.error);
-			}
-
-			// 2. Send results email to user via Resend
-			const emailResult = await sendResultsEmail(env, email, score, cost);
-			if (!emailResult.ok) {
-				console.error('Resend user email error:', emailResult.error);
-			}
-
-			// 3. Send notification to owner with full details
-			const notifyResult = await sendNotifyEmail(env, email, firstName, lastName, settore, score, cost, answers);
-			if (!notifyResult.ok) {
-				console.error('Resend notify error:', notifyResult.error);
-			}
-
-			return jsonResponse({ success: true, mailchimp: mcResult.ok }, 200, env, request);
+			// Default: scanner rete vendita (back-compat con flow esistente)
+			return await handleScanner(request, env);
 		} catch (err) {
 			console.error('Worker error:', err);
 			return jsonResponse({ error: 'Internal error' }, 500, env, request);
 		}
 	},
 };
+
+// ── Handler: SCANNER RETE VENDITA (esistente) ──────────────
+
+async function handleScanner(request, env) {
+	const { firstName, lastName, email, settore, score, cost, newsletter, answers } = await request.json();
+
+	if (!email || score == null || !cost) {
+		return jsonResponse({ error: 'Missing required fields' }, 400, env, request);
+	}
+
+	const mcResult = await addToMailchimp(env, email, firstName, lastName, settore, score, cost, newsletter);
+	if (!mcResult.ok) console.error('Mailchimp error (non-blocking):', mcResult.error);
+
+	const emailResult = await sendResultsEmail(env, email, score, cost);
+	if (!emailResult.ok) console.error('Resend user email error:', emailResult.error);
+
+	const notifyResult = await sendNotifyEmail(env, email, firstName, lastName, settore, score, cost, answers);
+	if (!notifyResult.ok) console.error('Resend notify error:', notifyResult.error);
+
+	return jsonResponse({ success: true, mailchimp: mcResult.ok }, 200, env, request);
+}
+
+// ── Handler: ASSESSMENT COMPORTAMENTALE (nuovo lead magnet) ─
+
+async function handleAssessment(request, env) {
+	const { firstName, email, consent_assessment, consent_newsletter } = await request.json();
+
+	if (!email || !consent_assessment) {
+		return jsonResponse({ error: 'Email e consenso al trattamento dati sono obbligatori' }, 400, env, request);
+	}
+
+	// Email format basic check
+	if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+		return jsonResponse({ error: 'Email non valida' }, 400, env, request);
+	}
+
+	// 1. Mailchimp subscribe + tags
+	const mcResult = await addAssessmentLead(env, email, firstName, consent_newsletter);
+	if (!mcResult.ok) {
+		console.error('Mailchimp assessment error (non-blocking):', mcResult.error);
+	}
+
+	// 2. Welcome email via Resend (immediata)
+	const welcomeResult = await sendAssessmentWelcome(env, email, firstName);
+	if (!welcomeResult.ok) {
+		console.error('Resend assessment welcome error:', welcomeResult.error);
+		return jsonResponse({ error: 'Errore invio mail. Riprova o scrivi a info@cristianopusca.com' }, 502, env, request);
+	}
+
+	// 3. Notify owner
+	const notifyResult = await sendAssessmentNotify(env, email, firstName, consent_newsletter);
+	if (!notifyResult.ok) console.error('Resend assessment notify error:', notifyResult.error);
+
+	return jsonResponse({ success: true, redirect: '/assessment-comportamentale/esempio' }, 200, env, request);
+}
+
+async function addAssessmentLead(env, email, firstName, consent_newsletter) {
+	const server = env.MAILCHIMP_SERVER;
+	const listId = env.MAILCHIMP_LIST_ID;
+	const apiKey = env.MAILCHIMP_API_KEY;
+	const authHeader = `Basic ${btoa('anystring:' + apiKey)}`;
+	const emailHash = await md5(email.toLowerCase());
+	const url = `https://${server}.api.mailchimp.com/3.0/lists/${listId}/members/${emailHash}`;
+
+	const merge_fields = {};
+	if (firstName) merge_fields.FNAME = firstName;
+
+	// PUT = create-or-update. status 'subscribed' = SOI (DOI è già disabilitato sulla lista).
+	const res = await fetch(url, {
+		method: 'PUT',
+		headers: { Authorization: authHeader, 'Content-Type': 'application/json' },
+		body: JSON.stringify({
+			email_address: email,
+			status_if_new: 'subscribed',
+			merge_fields,
+		}),
+	});
+
+	if (!res.ok) {
+		const body = await res.json();
+		return { ok: false, error: body.detail || body.title };
+	}
+
+	const tags = [{ name: 'assessment-comportamentale', status: 'active' }];
+	if (consent_newsletter) tags.push({ name: 'newsletter-optin', status: 'active' });
+
+	await fetch(`https://${server}.api.mailchimp.com/3.0/lists/${listId}/members/${emailHash}/tags`, {
+		method: 'POST',
+		headers: { Authorization: authHeader, 'Content-Type': 'application/json' },
+		body: JSON.stringify({ tags }),
+	});
+
+	return { ok: true };
+}
+
+async function sendAssessmentWelcome(env, to, firstName) {
+	const html = buildAssessmentWelcomeHtml(firstName);
+	const greeting = firstName ? `${firstName}, ` : '';
+
+	const res = await fetch('https://api.resend.com/emails', {
+		method: 'POST',
+		headers: {
+			Authorization: `Bearer ${env.RESEND_API_KEY}`,
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({
+			// Uso keryxdesign.com perché già DKIM-verified su Resend.
+			// TODO Davide: aggiungere DKIM Resend per cristianopusca.com e cambiare from in cristiano@cristianopusca.com per trust/coerenza
+			from: 'Cristiano Pusca <pusca@keryxdesign.com>',
+			to: [to],
+			reply_to: 'cristiano@be-do.it',
+			subject: `L'esempio dell'assessment, come promesso`,
+			html,
+		}),
+	});
+
+	if (!res.ok) return { ok: false, error: await res.text() };
+	return { ok: true };
+}
+
+async function sendAssessmentNotify(env, userEmail, firstName, consent_newsletter) {
+	const now = new Date().toLocaleString('it-IT', { timeZone: 'Europe/Rome' });
+	const name = firstName || '(non fornito)';
+	const newsletterFlag = consent_newsletter ? 'Sì' : 'No';
+
+	const html = `<!DOCTYPE html><html><body style="margin:0;padding:30px;background:#f9fafb;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
+<table width="600" cellpadding="0" cellspacing="0" align="center" style="background:#fff;border-radius:12px;border:1px solid #e5e7eb;">
+<tr><td style="padding:24px;">
+<h1 style="color:#111827;font-size:18px;margin:0 0 4px;">Nuovo lead Assessment Comportamentale</h1>
+<p style="color:#6b7280;font-size:13px;margin:0 0 20px;">${now}</p>
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f9fafb;border-radius:8px;border:1px solid #e5e7eb;">
+<tr><td style="padding:12px;font-size:13px;font-weight:600;color:#374151;border-bottom:1px solid #e5e7eb;width:160px;">Nome</td><td style="padding:12px;font-size:13px;border-bottom:1px solid #e5e7eb;">${name}</td></tr>
+<tr><td style="padding:12px;font-size:13px;font-weight:600;color:#374151;border-bottom:1px solid #e5e7eb;">Email</td><td style="padding:12px;font-size:13px;border-bottom:1px solid #e5e7eb;"><a href="mailto:${userEmail}" style="color:#0ea5e9;text-decoration:none;">${userEmail}</a></td></tr>
+<tr><td style="padding:12px;font-size:13px;font-weight:600;color:#374151;">Newsletter</td><td style="padding:12px;font-size:13px;">${newsletterFlag}</td></tr>
+</table>
+<p style="margin:20px 0 0;text-align:center;"><a href="mailto:${userEmail}" style="display:inline-block;background:#0ea5e9;color:#fff;padding:10px 24px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;">Rispondi al lead</a></p>
+</td></tr></table>
+</body></html>`;
+
+	const notifyTo = (env.NOTIFY_EMAIL || 'info@keryxdesign.com').split(',').map(e => e.trim());
+
+	const res = await fetch('https://api.resend.com/emails', {
+		method: 'POST',
+		headers: {
+			Authorization: `Bearer ${env.RESEND_API_KEY}`,
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({
+			from: 'Cristiano Pusca <notify@keryxdesign.com>',
+			to: notifyTo,
+			subject: `[Assessment] Nuovo lead: ${name} <${userEmail}>`,
+			html,
+		}),
+	});
+
+	if (!res.ok) return { ok: false, error: await res.text() };
+	return { ok: true };
+}
+
+function buildAssessmentWelcomeHtml(firstName) {
+	const greeting = firstName ? `Ciao ${firstName},` : 'Ciao,';
+	const reportUrl = 'https://cristianopusca.com/assessment-comportamentale/esempio';
+	return `<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'esempio dell'assessment, come promesso</title>
+<style>
+body{margin:0;padding:0;background-color:#f5f5f5;font-family:Georgia,serif;color:#1A1A1A}
+a{color:#B8382B;text-decoration:underline}
+.container{max-width:600px;margin:0 auto;background:#ffffff;padding:48px 36px 44px 36px}
+p{font-size:16px;line-height:1.6;margin:0 0 14px 0;color:#1A1A1A}
+.opener{font-size:18px;line-height:1.55;margin:0 0 18px 0;color:#1A1A1A}
+.cta-section{margin:32px 0;text-align:center}
+.cta-btn{display:inline-block;background:#B8382B;color:#FFFFFF!important;font-family:Lexend,Arial,Helvetica,sans-serif;font-weight:700;font-size:17px;text-decoration:none;padding:14px 28px;border-radius:0;margin:6px 0}
+.signature{font-family:Georgia,serif;font-style:italic;font-weight:700;font-size:18px;color:#1A1A1A;margin:32px 0 0 0}
+.footer{font-size:12px;color:#6B6B6B;text-align:center;padding:24px 0;margin-top:32px;border-top:1px solid #eeeeee}
+.footer a{color:#6B6B6B}
+@media only screen and (max-width:600px){
+	.container{padding:32px 22px 28px 22px}
+	.cta-btn{font-size:16px;padding:13px 24px}
+	.opener{font-size:17px}
+}
+</style>
+</head>
+<body>
+<div style="display:none;font-size:1px;color:#f5f5f5;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">Dodici pagine, ogni paragrafo commentato. Leggilo con calma, non come un oroscopo.</div>
+<div class="container">
+
+<p class="opener">${greeting}</p>
+
+<p>Eccolo qui, come promesso.</p>
+
+<div class="cta-section">
+<a class="cta-btn" href="${reportUrl}">Apri il documento</a>
+</div>
+
+<p>È l'assessment comportamentale che ho fatto su me stesso, dodici pagine, ogni paragrafo affiancato dal mio commento su cosa significa nella pratica e su cosa farei diversamente.</p>
+
+<p>Non leggerlo come un test fatto su di te. È un esempio. Serve a capire che tipo di informazioni emergono da uno strumento del genere, prima ancora di decidere se ha senso farlo fare a un tuo venditore o a un candidato. Le pagine commentate ti aiutano a leggere il documento con lo stesso occhio che ho io quando lo discuto con un imprenditore.</p>
+
+<p>Se mentre lo leggi ti viene un dubbio, o vuoi capire come si applica a una posizione specifica della tua rete vendita, rispondimi a questa mail. Ti rispondo io, di persona. Non è un indirizzo di sistema.</p>
+
+<p>Il link resta attivo, puoi salvarlo e riaprirlo quando vuoi. Se preferisci avere il PDF in locale, dalla pagina puoi scaricarlo.</p>
+
+<p class="signature">A presto,<br>Cristiano</p>
+
+<div class="footer">
+Cristiano Pusca | CEO - BPDA srl<br>
+Via Croce Rossa 36 - TAG, Padova<br><br>
+Hai ricevuto questa mail perché hai richiesto l'assessment d'esempio su cristianopusca.com.<br>
+<a href="https://us13.list-manage.com/unsubscribe?u=d327453d6178f9f8dfe810d6f&id=2a69d16d64">Cancella iscrizione</a>
+</div>
+
+</div>
+</body>
+</html>`;
+}
 
 // ── Mailchimp ──────────────────────────────────────────────
 

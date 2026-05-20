@@ -4,11 +4,13 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  noindex?: boolean;
 }
 
 const {
   title = 'Cristiano Pusca — Perché i risultati della formazione vendita durano quanto un weekend?',
   description = 'Da oltre 35 anni lavoro con le persone dentro le aziende. Non insegno tecniche di vendita. Lavoro su quello che viene prima: l\'essere. Metodo BEDo.',
+  noindex = false,
 } = Astro.props;
 ---
 
@@ -18,6 +20,7 @@ const {
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content={description} />
+		{noindex && <meta name="robots" content="noindex,nofollow" />}
 		<meta name="generator" content={Astro.generator} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
@@ -44,7 +47,7 @@ const {
 				<div class="hidden md:flex items-center gap-8">
 					<a href="/#chi-sono" class="text-gray-400 text-sm font-heading font-medium hover:text-white transition-colors">Cristiano Pusca</a>
 					<a href="/#metodo" class="text-gray-400 text-sm font-heading font-medium hover:text-white transition-colors">Metodo BEDo</a>
-					<a href="/pda" class="text-gray-400 text-sm font-heading font-medium hover:text-white transition-colors">Assessment</a>
+					<a href="/assessment-comportamentale" class="text-gray-400 text-sm font-heading font-medium hover:text-white transition-colors">Assessment</a>
 					<a href="/#pacchetti" class="text-gray-400 text-sm font-heading font-medium hover:text-white transition-colors">Pacchetti</a>
 					<a href="/contatti" class="text-gray-400 text-sm font-heading font-medium hover:text-white transition-colors">Contatti</a>
 					<a href="/scanner" class="btn-quiz !text-sm !py-2.5 !px-5">
@@ -64,7 +67,7 @@ const {
 				<div class="px-6 py-4 flex flex-col gap-4">
 					<a href="/#chi-sono" class="text-gray-300 font-heading hover:text-white transition-colors">Cristiano Pusca</a>
 					<a href="/#metodo" class="text-gray-300 font-heading hover:text-white transition-colors">Metodo BEDo</a>
-					<a href="/pda" class="text-gray-300 font-heading hover:text-white transition-colors">Assessment</a>
+					<a href="/assessment-comportamentale" class="text-gray-300 font-heading hover:text-white transition-colors">Assessment</a>
 					<a href="/#pacchetti" class="text-gray-300 font-heading hover:text-white transition-colors">Pacchetti</a>
 					<a href="/contatti" class="text-gray-300 font-heading hover:text-white transition-colors">Contatti</a>
 					<a href="/scanner" class="btn-quiz text-center !text-sm !py-2.5">Fai il test</a>
