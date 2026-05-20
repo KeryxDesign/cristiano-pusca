@@ -233,10 +233,10 @@ p{font-size:16px;line-height:1.6;margin:0 0 14px 0;color:#1A1A1A}
 <p class="signature">A presto,<br>Cristiano</p>
 
 <div class="footer">
-Cristiano Pusca | CEO - BPDA srl<br>
-Via Croce Rossa 36 - TAG, Padova<br><br>
+&copy; ${new Date().getFullYear()} Cristiano Pusca &middot; BPDA S.R.L.<br>
+Vicolo XX Settembre 11, 31100 Treviso (TV) &middot; P.IVA 04993860263<br><br>
 Hai ricevuto questa mail perché hai richiesto l'assessment d'esempio su cristianopusca.com.<br>
-<a href="https://us13.list-manage.com/unsubscribe?u=d327453d6178f9f8dfe810d6f&id=2a69d16d64">Cancella iscrizione</a>
+<a href="https://cristianopusca.com/privacy">Privacy Policy</a> &middot; <a href="https://us13.list-manage.com/unsubscribe?u=d327453d6178f9f8dfe810d6f&id=2a69d16d64">Cancella iscrizione</a>
 </div>
 
 </div>

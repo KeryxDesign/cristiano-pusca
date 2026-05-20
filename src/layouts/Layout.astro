@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Footer from '../components/Footer.astro';
 
 interface Props {
   title?: string;
@@ -78,6 +79,8 @@ const {
 		<main>
 			<slot />
 		</main>
+
+		<Footer />
 
 		<!-- Cookie Banner -->
 		<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-[70] bg-dark/95 backdrop-blur-xl border-t border-white/10 p-4 md:p-5 hidden">

@@ -1,0 +1,43 @@
+---
+// Footer completo del sito Pusca, dati legali ufficiali BPDA srl.
+// Riusato su tutte le pagine via Layout per consistenza brand e GDPR.
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="py-12 bg-dark border-t border-white/5 scroll-mt-20">
+	<div class="max-w-6xl mx-auto px-6">
+		<div class="grid md:grid-cols-3 gap-8 mb-8">
+			<!-- Brand -->
+			<div>
+				<p class="font-heading font-bold text-lg mb-2">
+					<span class="text-sky-light">Cristiano</span> <span class="text-white">Pusca</span>
+				</p>
+				<p class="text-gray-400 text-sm">Metodo BEDo · Being, Doing</p>
+				<p class="text-gray-400 text-sm mt-1">Human Value First</p>
+			</div>
+			<!-- Contatti -->
+			<div>
+				<p class="text-gray-400 text-xs font-heading font-semibold tracking-wider uppercase mb-3">Contatti</p>
+				<div class="space-y-2">
+					<a href="mailto:cristiano@be-do.it" class="text-gray-400 text-sm hover:text-sky-light transition-colors block">Email</a>
+					<a href="https://www.linkedin.com/in/cristianopusca/" target="_blank" rel="noopener" class="text-gray-400 text-sm hover:text-sky-light transition-colors block">LinkedIn</a>
+					<a href="tel:+393408217120" class="text-gray-400 text-sm hover:text-sky-light transition-colors block">Chiamaci</a>
+					<a href="https://wa.me/393408217120" target="_blank" rel="noopener" class="text-gray-400 text-sm hover:text-sky-light transition-colors block">WhatsApp</a>
+				</div>
+			</div>
+			<!-- Nav -->
+			<div>
+				<p class="text-gray-400 text-xs font-heading font-semibold tracking-wider uppercase mb-3">Navigazione</p>
+				<div class="space-y-2">
+					<a href="/" class="text-gray-400 text-sm hover:text-sky-light transition-colors block">Home</a>
+					<a href="/assessment-comportamentale" class="text-gray-400 text-sm hover:text-sky-light transition-colors block">Assessment comportamentale</a>
+					<a href="/scanner" class="text-gray-400 text-sm hover:text-sky-light transition-colors block">Scanner Rete Vendita</a>
+					<a href="/contatti" class="text-gray-400 text-sm hover:text-sky-light transition-colors block">Contatti</a>
+				</div>
+			</div>
+		</div>
+		<div class="pt-6 border-t border-white/5 text-center md:text-left">
+			<p class="text-gray-400 text-xs">&copy; {currentYear} Cristiano Pusca &middot; BPDA S.R.L. &middot; Vicolo XX Settembre 11, 31100 Treviso (TV) &middot; P.IVA 04993860263 &middot; <a href="/privacy" class="hover:text-sky-light transition-colors underline">Privacy Policy</a></p>
+		</div>
+	</div>
+</footer>

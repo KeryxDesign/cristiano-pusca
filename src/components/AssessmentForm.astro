@@ -75,7 +75,7 @@ const WORKER_ENDPOINT = 'https://pusca-scanner-email.nameless-mouse-7d0f.workers
 					value="1"
 				/>
 				<span>
-					Voglio anche ricevere la newsletter di Cristiano Pusca. Puoi disiscriverti in qualsiasi momento.
+					Iscrivimi anche alla newsletter di Cristiano Pusca: 1-2 mail a settimana con contenuti sulla rete vendita (tipo i "7 ladri di marginalità"). Puoi disiscriverti quando vuoi.
 				</span>
 			</label>
 		</div>
@@ -223,20 +223,91 @@ const WORKER_ENDPOINT = 'https://pusca-scanner-email.nameless-mouse-7d0f.workers
 		pointer-events: none;
 	}
 
-	/* ── Variant HERO (dark background) ── */
+	/* ── Variant HERO (dark background) — v2 contrasto migliorato (audit LORI) ── */
 	.variant-hero .form-label { color: #fff; }
+	.variant-hero .form-optional {
+		color: rgba(255,255,255,0.65);
+		opacity: 1;
+	}
+
 	.variant-hero .form-input {
 		color: #fff;
-		border-color: rgba(255,255,255,0.25);
-		background: rgba(255,255,255,0.05);
+		border-color: rgba(255,255,255,0.45);
+		background: rgba(255,255,255,0.09);
+		backdrop-filter: blur(6px);
+		-webkit-backdrop-filter: blur(6px);
+	}
+	.variant-hero .form-input:hover {
+		border-color: rgba(255,255,255,0.6);
+		background: rgba(255,255,255,0.12);
 	}
 	.variant-hero .form-input:focus {
 		border-color: #0ea5e9;
-		background: rgba(255,255,255,0.08);
+		background: rgba(255,255,255,0.14);
+		box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.35);
 	}
-	.variant-hero .form-input::placeholder { color: rgba(255,255,255,0.4); }
-	.variant-hero .form-checkbox-label { color: rgba(255,255,255,0.85); }
-	.variant-hero .form-microcopy { color: rgba(255,255,255,0.7); }
+	.variant-hero .form-input::placeholder {
+		color: rgba(255,255,255,0.6);
+	}
+
+	.variant-hero .form-checkbox-label {
+		color: rgba(255,255,255,0.92);
+	}
+	.variant-hero .form-checkbox-label input[type="checkbox"] {
+		appearance: none;
+		-webkit-appearance: none;
+		background: rgba(255,255,255,0.08);
+		border: 1.5px solid rgba(255,255,255,0.5);
+		border-radius: 4px;
+		position: relative;
+	}
+	.variant-hero .form-checkbox-label input[type="checkbox"]:checked {
+		background: #0ea5e9;
+		border-color: #0ea5e9;
+	}
+	.variant-hero .form-checkbox-label input[type="checkbox"]:checked::after {
+		content: "";
+		position: absolute;
+		left: 5px; top: 1px;
+		width: 5px; height: 10px;
+		border: solid #fff;
+		border-width: 0 2px 2px 0;
+		transform: rotate(45deg);
+	}
+	.variant-hero .form-checkbox-label input[type="checkbox"]:focus-visible {
+		outline: 2px solid #0ea5e9;
+		outline-offset: 2px;
+	}
+
+	.variant-hero .form-microcopy {
+		color: rgba(255,255,255,0.82);
+		opacity: 1;
+	}
+
+	.variant-hero .form-link {
+		color: #38bdf8;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	.variant-hero .form-cta {
+		box-shadow: 0 4px 14px rgba(184, 56, 43, 0.35);
+	}
+	.variant-hero .form-cta:hover {
+		box-shadow: 0 6px 18px rgba(184, 56, 43, 0.45);
+		opacity: 1;
+	}
+	.variant-hero .form-cta:focus-visible {
+		outline: 3px solid rgba(14, 165, 233, 0.5);
+		outline-offset: 2px;
+	}
+
+	@media (max-width: 640px) {
+		.variant-hero .form-input {
+			background: rgba(255,255,255,0.11);
+			border-color: rgba(255,255,255,0.5);
+		}
+	}
 
 	/* ── Variant FOOTER (light background) ── */
 	.variant-footer .form-label { color: #1f2937; }
