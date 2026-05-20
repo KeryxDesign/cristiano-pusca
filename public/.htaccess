@@ -8,10 +8,12 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # ───────────────────────────────────────────────
 # 301 redirects: rebranding PDA → Assessment Comportamentale
-# Le mail Mailchimp inviate prima del rebrand continuano a funzionare via redirect
+# Le mail Mailchimp inviate prima del rebrand continuano a funzionare via redirect.
+# RedirectMatch con regex anchor $ per matchare SOLO le URL esatte
+# (così /pda/cristiano-hero.jpg e altri asset sotto /pda/ NON vengono toccati).
 # ───────────────────────────────────────────────
-Redirect 301 /pda/report-esempio /assessment-comportamentale/esempio
-Redirect 301 /pda /assessment-comportamentale
+RedirectMatch 301 ^/pda/report-esempio/?$ /assessment-comportamentale/esempio
+RedirectMatch 301 ^/pda/?$ /assessment-comportamentale
 
 # Standard caching headers per asset statici
 <IfModule mod_expires.c>
