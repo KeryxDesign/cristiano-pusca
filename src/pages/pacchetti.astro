@@ -14,17 +14,27 @@ import PacchettiSection from '../components/PacchettiSection.astro';
 		<div class="absolute inset-0 bg-gradient-to-br from-dark via-dark-light to-sky-muted/30"></div>
 		<div class="absolute top-20 right-[10%] w-80 h-80 rounded-full bg-sky/[0.05] blur-[100px]"></div>
 
-		<div class="w-full max-w-4xl mx-auto px-6 relative">
-			<p class="text-sky-light text-sm font-heading font-semibold tracking-wider uppercase mb-5">Pacchetti rete vendita</p>
-			<h1 class="text-3xl md:text-5xl font-medium leading-[1.15] mb-6 text-white">
-				Tre modi per lavorare insieme. <span class="text-sky-light">Stesso metodo, profondità diverse.</span>
-			</h1>
-			<p class="text-gray-300 text-lg md:text-xl leading-relaxed mb-4 max-w-3xl">
-				La differenza tra i pacchetti non è chi siete. È <strong class="text-white">quanto volete che io entri nel merito</strong>: zero, trenta giorni, novanta giorni.
-			</p>
-			<p class="text-gray-300 text-base md:text-lg leading-relaxed max-w-3xl">
-				Ogni pacchetto parte da una base di persone. Se ne avete di più, si aggiungono a tariffa fissa. Nessun tetto, nessun upgrade forzato. Scegliete in base a cosa vi serve, non in base a quanti venditori avete.
-			</p>
+		<div class="w-full max-w-6xl mx-auto px-6 relative">
+			<div class="grid md:grid-cols-[1fr_320px] gap-10 md:gap-14 items-center">
+				<div>
+					<p class="text-sky-light text-sm font-heading font-semibold tracking-wider uppercase mb-5">Pacchetti rete vendita</p>
+					<h1 class="text-3xl md:text-5xl font-medium leading-[1.15] mb-6 text-white">
+						Tre modi per lavorare insieme. <span class="text-sky-light">Stesso metodo, profondità diverse.</span>
+					</h1>
+					<p class="text-gray-300 text-lg md:text-xl leading-relaxed mb-4 max-w-2xl">
+						La differenza tra i pacchetti non è chi siete. È <strong class="text-white">quanto volete che io entri nel merito</strong>: zero, trenta giorni, novanta giorni.
+					</p>
+					<p class="text-gray-300 text-base md:text-lg leading-relaxed max-w-2xl">
+						Ogni pacchetto parte da una base di persone. Se ne avete di più, si aggiungono a tariffa fissa. Nessun tetto, nessun upgrade forzato.
+					</p>
+				</div>
+				<!-- Foto hero -->
+				<div class="hidden md:flex justify-center">
+					<div class="rounded-2xl ring-2 ring-white/10 overflow-hidden shadow-2xl shadow-sky/10">
+						<img src="/img/cristiano-team.jpg" alt="Cristiano Pusca con un team commerciale" class="w-72 lg:w-80 h-auto object-cover" loading="eager" />
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 
@@ -92,6 +102,11 @@ import PacchettiSection from '../components/PacchettiSection.astro';
 	<section class="py-16 md:py-20 bg-dark-light relative">
 		<div class="absolute inset-0 bg-gradient-to-b from-dark to-dark-light"></div>
 		<div class="max-w-2xl mx-auto px-6 relative text-center">
+			<div class="flex justify-center mb-8">
+				<div class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden ring-4 ring-sky/40 ring-offset-4 ring-offset-dark-light shadow-2xl">
+					<img src="/img/cristiano-bio.jpg" alt="Cristiano Pusca" class="w-full h-full object-cover object-top" loading="lazy" />
+				</div>
+			</div>
 			<div class="section-divider mb-6 mx-auto"></div>
 			<h2 class="text-2xl md:text-3xl font-medium mb-6 text-white">
 				Non sei sicuro? Partiamo dall'assessment.
