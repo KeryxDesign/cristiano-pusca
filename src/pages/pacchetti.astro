@@ -39,31 +39,74 @@ import PacchettiSection from '../components/PacchettiSection.astro';
 	</section>
 
 	<!-- ═══════════════════════════════════════════
-	     PACCHETTI — riusati da componente
+	     LIVELLO 0 — ASSESSMENT SINGOLO — BIANCO
 	     ═══════════════════════════════════════════ -->
-	<PacchettiSection includeAnchor={false} />
+	<section class="py-20 md:py-24 bg-white">
+		<div class="max-w-5xl mx-auto px-6">
+			<div class="section-divider mb-6"></div>
+			<p class="text-sky text-xs font-heading font-bold tracking-wider uppercase mb-3">Livello 0 · Da dove cominciare</p>
+			<h2 class="text-3xl md:text-4xl font-medium mb-3 text-gray-900">
+				Prima dei pacchetti: <span class="text-sky">l'assessment singolo.</span>
+			</h2>
+			<p class="text-gray-700 text-lg leading-relaxed mb-10 max-w-3xl">
+				Se non sei ancora sicuro di volere un percorso sulla rete, parti da un assessment comportamentale su una sola persona (tu o un tuo venditore). Capisci come funziona il metodo prima di decidere. Se poi decidi di proseguire con un pacchetto, <strong class="text-gray-900">ti scalo il 50%</strong> dal pacchetto scelto.
+			</p>
 
-	<!-- ═══════════════════════════════════════════
-	     BOX SCALO 50% ASSESSMENT — BIANCO
-	     ═══════════════════════════════════════════ -->
-	<section class="py-16 md:py-20 bg-white">
-		<div class="max-w-3xl mx-auto px-6">
-			<div class="bg-gradient-to-br from-sky-50 to-white border border-sky-100 rounded-2xl p-8 md:p-10 text-center">
-				<p class="text-sky-700 text-xs font-heading font-bold tracking-wider uppercase mb-3">Già fatto un assessment singolo?</p>
-				<h2 class="text-2xl md:text-3xl font-medium text-gray-900 mb-4">
-					<mark class="bg-yellow-100 px-1 py-0.5 rounded font-semibold text-gray-900">Il 50% dei 750 €</mark> te lo scalo dal pacchetto.
-				</h2>
-				<p class="text-gray-700 text-base md:text-lg leading-relaxed">
-					Se hai già fatto un assessment comportamentale (750 € + IVA) e decidi di proseguire con un percorso sulla rete vendita, ti scalo 375 € dal pacchetto scelto. L'assessment non è una vendita aggiuntiva: è il primo passo del lavoro, e parte del suo costo rientra nel pacchetto.
-				</p>
-				<div class="mt-6">
-					<a href="/assessment-comportamentale" class="text-sky font-heading font-semibold inline-flex items-center gap-1.5 hover:text-sky-light transition-colors">
-						Vedi l'assessment comportamentale →
-					</a>
+			<div class="card-light p-7 md:p-9 relative overflow-hidden">
+				<div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-accent to-accent-dark rounded-t-2xl"></div>
+				<div class="grid md:grid-cols-[1fr_280px] gap-8 items-start">
+					<div>
+						<p class="text-accent-dark text-xs font-heading font-bold tracking-wider uppercase mb-2">Assessment comportamentale</p>
+						<h3 class="text-2xl md:text-3xl font-bold mb-1 text-gray-900">Una persona, una sessione</h3>
+						<p class="text-gray-600 text-base font-heading mb-5">15-20 minuti di test online + 1 ora con me a leggere il report insieme.</p>
+
+						<ul class="space-y-2.5 mb-6">
+							<li class="text-gray-700 text-base leading-relaxed flex gap-3">
+								<svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+								<span>Test comportamentale online (15-20 min)</span>
+							</li>
+							<li class="text-gray-700 text-base leading-relaxed flex gap-3">
+								<svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+								<span>Report completo (le 12 pagine commentate)</span>
+							</li>
+							<li class="text-gray-700 text-base leading-relaxed flex gap-3">
+								<svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+								<span>Sessione 1-on-1 di un'ora dove lo leggiamo insieme</span>
+							</li>
+							<li class="text-gray-700 text-base leading-relaxed flex gap-3">
+								<svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+								<span><strong class="text-gray-900">50% scalato dal pacchetto</strong> (375 €) se decidi di proseguire</span>
+							</li>
+						</ul>
+					</div>
+
+					<div class="md:border-l md:border-gray-200 md:pl-8 md:py-2">
+						<p class="text-4xl md:text-5xl font-bold text-gray-900 font-heading">750 <span class="text-base font-normal text-gray-400">€</span></p>
+						<p class="text-gray-500 text-sm mt-1 mb-1">per una persona</p>
+						<p class="text-gray-400 text-xs mb-5">IVA esclusa</p>
+
+						<a href="/assessment-comportamentale" class="btn-quiz w-full text-center text-base block">
+							Vedi l'assessment
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     BANNER FOTO TRA LIVELLI
+	     ═══════════════════════════════════════════ -->
+	<section class="relative h-64 md:h-80 overflow-hidden">
+		<img src="/img/pusca-0125.jpg" alt="Cristiano Pusca in sessione con un team commerciale" class="w-full h-full object-cover" loading="lazy" />
+		<div class="absolute inset-0 bg-gradient-to-t from-slate/60 to-transparent"></div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     PACCHETTI RETE VENDITA — riusati da componente
+	     ═══════════════════════════════════════════ -->
+	<PacchettiSection includeAnchor={false} />
+
 
 	<!-- ═══════════════════════════════════════════
 	     COME SCEGLIERE — SLATE
