@@ -292,3 +292,43 @@ body {
 .high-contrast img {
   filter: contrast(0.77); /* compensa per le immagini */
 }
+
+/* ── Trust bar press loghi: dimensioni uniformi ── */
+.logo-press {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  flex-shrink: 0;
+  transition: opacity .15s ease;
+}
+.logo-press:hover { opacity: 0.7; }
+
+.logo-press img {
+  height: 100%;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  display: block;
+  /* Loghi monocromi su trasparente: converti a bianco */
+  filter: grayscale(1) invert(1) brightness(2);
+}
+
+/* Loghi con sfondo bianco nativo nel PNG (MF, Fanpage, Lattemiele):
+   no filter, ridimensionati. Resi più piccoli per non dominare. */
+.logo-press-bg {
+  height: 36px;
+}
+.logo-press-bg img {
+  filter: none;
+  background: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  max-width: 130px;
+}
+
+@media (min-width: 768px) {
+  .logo-press { height: 48px; }
+  .logo-press-bg { height: 40px; }
+  .logo-press img { max-width: 160px; }
+  .logo-press-bg img { max-width: 150px; }
+}

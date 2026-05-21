@@ -3,54 +3,56 @@ import Layout from '../layouts/Layout.astro';
 import Testimonial from '../components/Testimonial.astro';
 
 // Testimonianze clienti (adattate da raccolta Cristiano, file Drive)
+// <mark> evidenzia il beneficio principale di ogni testimonianza
+const MARK = 'bg-yellow-100 px-1 py-0.5 rounded font-semibold text-gray-900';
 const testimonianze = [
 	{
 		name: 'Leonardo V.',
 		role: 'Amministratore Delegato',
 		company: 'Palladio Spa',
-		text: "Cristiano mi ha aiutato a essere più me stesso e più coerente, e a guardare i lati positivi delle persone con cui lavoro invece dei difetti. Il valore l'ho sentito soprattutto sul piano personale: oggi cerco di comportarmi con più buon senso e onestà, dentro e fuori dall'azienda.",
+		text: `Cristiano mi ha aiutato a <mark class="${MARK}">essere più me stesso e più coerente</mark>, e a guardare i lati positivi delle persone con cui lavoro invece dei difetti. Il valore l'ho sentito soprattutto sul piano personale: oggi cerco di comportarmi con più buon senso e onestà, dentro e fuori dall'azienda.`,
 	},
 	{
 		name: 'Gianluca B.',
 		role: 'Titolare',
 		company: 'Pelletteria Graziella srl',
-		text: "Cristiano mi ha dato la visione e la forza per affrontare una situazione societaria che ormai non era più accettabile. Ho espresso la volontà di liquidare il socio, lui ha accettato, e per me è stato un successo. Da lì continua ad aiutarmi sui problemi con il personale: è il filtro giusto tra proprietà e dipendenti, e il modo giusto per trasmettere la linea aziendale. Adesso stiamo lavorando sulla responsabilità e sul rispetto dell'organigramma, e la strada mi sembra quella giusta.",
+		text: `Cristiano mi ha dato <mark class="${MARK}">la visione e la forza per affrontare una situazione societaria che ormai non era più accettabile</mark>. Ho espresso la volontà di liquidare il socio, lui ha accettato, e per me è stato un successo. Da lì continua ad aiutarmi sui problemi con il personale: è <mark class="${MARK}">il filtro giusto tra proprietà e dipendenti</mark>, e il modo giusto per trasmettere la linea aziendale. Adesso stiamo lavorando sulla responsabilità e sul rispetto dell'organigramma, e la strada mi sembra quella giusta.`,
 	},
 	{
 		name: 'Francesca M.',
 		role: 'HR Manager',
 		company: 'Mistral Group srl',
-		text: "Il lavoro di Cristiano in azienda ha migliorato i processi e i flussi di informazione tra gli uffici. L'aiuto più concreto è arrivato sulle performance: monitorando e premiando i risultati in modo strutturato. Ma il valore più grande è un altro: ha catalizzato un'assunzione di responsabilità nelle persone, generato empowerment vero.",
+		text: `Il lavoro di Cristiano in azienda ha <mark class="${MARK}">migliorato i processi e i flussi di informazione</mark> tra gli uffici. L'aiuto più concreto è arrivato sulle performance: monitorando e premiando i risultati in modo strutturato. Ma il valore più grande è un altro: <mark class="${MARK}">ha catalizzato un'assunzione di responsabilità nelle persone, generato empowerment vero</mark>.`,
 	},
 	{
 		name: 'Claudia B.',
 		role: 'Titolare',
 		company: 'ELPI srl',
-		text: "Quando sono arrivata in azienda avevo timore di tutte le novità, anche del rapporto con chi lavora con noi. Cristiano mi ha aiutato a capire come interfacciarmi meglio con i collaboratori, partendo da una cosa semplice: si lavora per soddisfare i clienti. Oggi chiedo senza pormi troppi problemi quello che devo, non do per scontato che gli altri sappiano. Ho risolto molte delle mie paure, e ci lavoro ogni giorno. Alla base di tutto, ho imparato, c'è il dialogo: ascoltare, condividere problemi e obiettivi, trovare soluzioni insieme.",
+		text: `Quando sono arrivata in azienda avevo timore di tutte le novità, anche del rapporto con chi lavora con noi. Cristiano mi ha aiutato a capire come interfacciarmi meglio con i collaboratori, partendo da una cosa semplice: si lavora per soddisfare i clienti. Oggi <mark class="${MARK}">chiedo senza pormi troppi problemi</mark> quello che devo, non do per scontato che gli altri sappiano. <mark class="${MARK}">Ho risolto molte delle mie paure</mark>, e ci lavoro ogni giorno. Alla base di tutto, ho imparato, c'è il dialogo: ascoltare, condividere problemi e obiettivi, trovare soluzioni insieme.`,
 	},
 	{
 		name: 'Andrea V.',
 		role: 'Titolare',
 		company: 'Sisma srl',
-		text: "Con Cristiano abbiamo costruito una parte commerciale che prima in azienda non esisteva. Mi ha aiutato a formare la persona giusta sulle strategie di vendita, e di fatto abbiamo inserito una nuova figura e una nuova attività dentro l'azienda.",
+		text: `Con Cristiano <mark class="${MARK}">abbiamo costruito una parte commerciale che prima in azienda non esisteva</mark>. Mi ha aiutato a formare la persona giusta sulle strategie di vendita, e di fatto <mark class="${MARK}">abbiamo inserito una nuova figura e una nuova attività dentro l'azienda</mark>.`,
 	},
 	{
 		name: 'Laura B.',
 		role: 'Titolare',
 		company: 'ELPI srl',
-		text: "Cristiano mi ha aperto a nuove idee, ha lavorato sulla mia insicurezza, e mi ha fatto capire quanto sia importante la comunicazione col team e la condivisione degli obiettivi.",
+		text: `Cristiano mi ha aperto a nuove idee, <mark class="${MARK}">ha lavorato sulla mia insicurezza</mark>, e mi ha fatto capire <mark class="${MARK}">quanto sia importante la comunicazione col team e la condivisione degli obiettivi</mark>.`,
 	},
 	{
 		name: 'Francesco N.',
 		role: 'Titolare',
 		company: 'Noal Mobility Care srl',
-		text: "Cristiano mi ha aiutato a capire una cosa che non avevo mai messo a fuoco: il prodotto resta un prodotto qualsiasi finché non sono io a renderlo un prodotto di qualità. Sono io, come persona e come rappresentante dell'azienda, che porto il valore. Mi ha aiutato anche a recuperare sicurezza in me stesso, a esserne consapevole. Oggi sono convinto che il cliente, alla fine, non acquista solo un prodotto: acquista un valore, una soluzione, un'emozione.",
+		text: `Cristiano mi ha aiutato a capire una cosa che non avevo mai messo a fuoco: il prodotto resta un prodotto qualsiasi finché non sono io a renderlo un prodotto di qualità. <mark class="${MARK}">Sono io, come persona e come rappresentante dell'azienda, che porto il valore</mark>. Mi ha aiutato anche a <mark class="${MARK}">recuperare sicurezza in me stesso</mark>. Oggi sono convinto che il cliente, alla fine, non acquista solo un prodotto: acquista un valore, una soluzione, un'emozione.`,
 	},
 	{
 		name: 'Maurizio S.',
 		role: 'Titolare',
 		company: 'Vetroin srl',
-		text: "Ho preso maggior consapevolezza delle mie potenzialità, e ho cominciato a valutare i miei collaboratori sotto un altro punto di vista. So dove devo impegnarmi, ed è grazie all'intervento di Cristiano. Abbiamo risolto criticità importanti, creato nuove procedure, condiviso file e informazioni con tutto il team. I collaboratori hanno preso più responsabilità, e abbiamo fatto scelte chiare su figure chiave dell'azienda. L'obiettivo era creare un team più coeso, allineato su quello che l'azienda si era prefissata. In buona parte ci siamo riusciti.",
+		text: `Ho preso <mark class="${MARK}">maggior consapevolezza delle mie potenzialità</mark>, e ho cominciato a valutare i miei collaboratori sotto un altro punto di vista. So dove devo impegnarmi, ed è grazie all'intervento di Cristiano. <mark class="${MARK}">Abbiamo risolto criticità importanti, creato nuove procedure</mark>, condiviso file e informazioni con tutto il team. <mark class="${MARK}">I collaboratori hanno preso più responsabilità</mark>, e abbiamo fatto scelte chiare su figure chiave dell'azienda. L'obiettivo era creare un team più coeso, allineato su quello che l'azienda si era prefissata. In buona parte ci siamo riusciti.`,
 	},
 ];
 
@@ -173,38 +175,14 @@ const value24Videos = [
 		<div class="max-w-4xl mx-auto px-6 relative">
 			<p class="text-sky-light text-sm font-heading font-semibold tracking-wider uppercase mb-5">Testimonianze · Press · Media</p>
 			<h1 class="text-3xl md:text-5xl font-medium leading-[1.15] mb-6 text-white">
-				Cosa dicono di me. <span class="text-sky-light">Quello che dicono di me.</span>
+				Dicono di me <span class="text-sky-light">e del metodo BEDo.</span>
 			</h1>
 			<p class="text-gray-300 text-base md:text-lg leading-relaxed max-w-2xl">
-				Testimonianze degli imprenditori con cui ho lavorato, più tutte le menzioni press sul metodo BEDo. Ogni voce porta direttamente alla fonte originale.
+				Testate giornalistiche e podcast che hanno raccontato il metodo, più le testimonianze degli imprenditori che lo hanno applicato. Ogni voce porta direttamente alla fonte originale.
 			</p>
 			<div class="mt-8 flex flex-wrap gap-4">
-				<a href="#testimonianze" class="text-sky-light text-sm font-heading font-semibold hover:text-white transition-colors inline-flex items-center gap-1">↓ Testimonianze imprenditori</a>
 				<a href="#press" class="text-sky-light text-sm font-heading font-semibold hover:text-white transition-colors inline-flex items-center gap-1">↓ Press e media</a>
-			</div>
-		</div>
-	</section>
-
-	<!-- ═══════════════════════════════════════════
-	     TESTIMONIANZE IMPRENDITORI — BIANCO
-	     ═══════════════════════════════════════════ -->
-	<section id="testimonianze" class="py-16 md:py-24 bg-white scroll-mt-20">
-		<div class="max-w-4xl mx-auto px-6">
-			<div class="section-divider mb-6"></div>
-			<h2 class="text-2xl md:text-3xl font-medium mb-2 text-gray-900">Cosa dicono gli imprenditori con cui ho lavorato</h2>
-			<p class="text-gray-600 text-base md:text-lg mb-12">Otto risposte raccolte direttamente. Nomi e aziende reali.</p>
-
-			<div class="space-y-6 md:space-y-7">
-				{testimonianze.map((t) => (
-					<Testimonial
-						name={t.name}
-						role={t.role}
-						company={t.company}
-						text={t.text}
-						variant="editorial"
-						theme="light"
-					/>
-				))}
+				<a href="#testimonianze" class="text-sky-light text-sm font-heading font-semibold hover:text-white transition-colors inline-flex items-center gap-1">↓ Testimonianze imprenditori</a>
 			</div>
 		</div>
 	</section>
@@ -324,6 +302,30 @@ const value24Videos = [
 				<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
 				Vai al canale BEDo | Human Value First
 			</a>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     TESTIMONIANZE IMPRENDITORI — BIANCO (dopo press)
+	     ═══════════════════════════════════════════ -->
+	<section id="testimonianze" class="py-16 md:py-24 bg-white scroll-mt-20">
+		<div class="max-w-4xl mx-auto px-6">
+			<div class="section-divider mb-6"></div>
+			<h2 class="text-2xl md:text-3xl font-medium mb-2 text-gray-900">Cosa dicono gli imprenditori con cui ho lavorato</h2>
+			<p class="text-gray-600 text-base md:text-lg mb-12">Otto risposte raccolte direttamente. Nomi e aziende reali. Le evidenziazioni gialle sono i benefici principali.</p>
+
+			<div class="space-y-6 md:space-y-7">
+				{testimonianze.map((t) => (
+					<Testimonial
+						name={t.name}
+						role={t.role}
+						company={t.company}
+						text={t.text}
+						variant="editorial"
+						theme="light"
+					/>
+				))}
+			</div>
 		</div>
 	</section>
 

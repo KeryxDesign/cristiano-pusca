@@ -25,7 +25,7 @@ const isDark = theme === 'dark';
 	</svg>
 
 	<blockquote class="testimonial-text">
-		<p>{text}</p>
+		<p set:html={text}></p>
 	</blockquote>
 
 	<figcaption class="testimonial-attribution">
