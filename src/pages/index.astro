@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Testimonial from '../components/Testimonial.astro';
+import TestimonialCarousel from '../components/TestimonialCarousel.astro';
 ---
 
 <Layout>
@@ -82,6 +82,11 @@ import Testimonial from '../components/Testimonial.astro';
 			<svg class="w-10 h-10 text-white animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
 		</div>
 	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     TESTIMONIANZE CAROSELLO — subito dopo hero
+	     ═══════════════════════════════════════════ -->
+	<TestimonialCarousel />
 
 	<!-- ═══════════════════════════════════════════
 	     SEZIONE 1 — IL PROBLEMA — BIANCO → SLATE
@@ -440,99 +445,6 @@ import Testimonial from '../components/Testimonial.astro';
 		</div>
 	</section>
 
-	<!-- ═══════════════════════════════════════════
-	     ASSESSMENT INDIVIDUALE 750 EUR — GRIGIO CHIARO
-	     ═══════════════════════════════════════════ -->
-	<section id="assessment" class="py-20 md:py-32 bg-white relative scroll-mt-20">
-		<div class="max-w-4xl mx-auto px-6">
-			<div class="text-center mb-12">
-				<div class="section-divider mb-6 mx-auto"></div>
-				<h2 class="text-3xl md:text-5xl font-medium mb-4">
-					Prima di comprare il camion,<br />
-					<span class="text-sky">prova il motore.</span>
-				</h2>
-				<p class="text-gray-500 text-lg leading-relaxed max-w-2xl mx-auto">
-					Un assessment comportamentale completo. Lo stesso strumento brevettato che Cristiano usa sulle reti vendita, applicato a te.
-				</p>
-			</div>
-
-			<div class="card-light p-8 md:p-10 max-w-3xl mx-auto">
-				<p class="text-gray-700 text-[15px] leading-relaxed mb-2 font-medium">
-					Prima di farti spendere migliaia di euro su un pacchetto per il team, ti metto in mano un report di 26 pagine sul tuo profilo comportamentale.
-				</p>
-				<p class="text-gray-500 text-[15px] leading-relaxed mb-8">
-					Poi 60-90 minuti insieme, in videocall, per leggerlo punto per punto. Tu mi interrompi quando vuoi, porti esempi della tua situazione, facciamo domande.
-				</p>
-
-				<!-- Cosa trovi dentro il report -->
-				<p class="text-dark text-sm font-heading font-bold tracking-wider uppercase mb-4">Cosa trovi dentro il report</p>
-				<div class="grid md:grid-cols-2 gap-4 mb-8">
-					<!-- Card 1: Naturale vs Adattato -->
-					<div class="rounded-xl bg-sky-50 border border-sky/10 p-5">
-						<div class="w-10 h-10 rounded-lg bg-sky/10 flex items-center justify-center mb-3">
-							<svg class="w-5 h-5 text-sky" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" /></svg>
-						</div>
-						<p class="text-dark text-sm font-heading font-bold mb-2">Come sei davvero vs come ti comporti oggi</p>
-						<p class="text-gray-600 text-xs leading-relaxed">Il report confronta il tuo profilo <strong class="text-gray-700">Naturale</strong> con quello <strong class="text-gray-700">Adattato</strong>. Misura quanto ti stai sforzando per essere qualcuno che non sei nel ruolo attuale. Se la sera sei cotto, spesso il motivo e' qui.</p>
-					</div>
-					<!-- Card 2: Energia -->
-					<div class="rounded-xl bg-sky-50 border border-sky/10 p-5">
-						<div class="w-10 h-10 rounded-lg bg-sky/10 flex items-center justify-center mb-3">
-							<svg class="w-5 h-5 text-sky" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
-						</div>
-						<p class="text-dark text-sm font-heading font-bold mb-2">Se hai energia in eccesso o in debito</p>
-						<p class="text-gray-600 text-xs leading-relaxed">Un indicatore dice se stai investendo <strong class="text-gray-700">piu' energia</strong> di quanto il ruolo richieda (demotivazione in arrivo) o <strong class="text-gray-700">meno di quanto servirebbe</strong> (risultati sottotono). Dato concreto, non sensazione.</p>
-					</div>
-					<!-- Card 3: Forze che diventano limiti -->
-					<div class="rounded-xl bg-sky-50 border border-sky/10 p-5">
-						<div class="w-10 h-10 rounded-lg bg-sky/10 flex items-center justify-center mb-3">
-							<svg class="w-5 h-5 text-sky" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
-						</div>
-						<p class="text-dark text-sm font-heading font-bold mb-2">Quali punti di forza stanno diventando limiti</p>
-						<p class="text-gray-600 text-xs leading-relaxed">Sezione brutalmente onesta. Le qualita' che ti hanno portato fin qui possono essere quelle che ti frenano adesso. Il report te lo scrive. Io te lo spiego.</p>
-					</div>
-					<!-- Card 4: Stile di vendita -->
-					<div class="rounded-xl bg-sky-50 border border-sky/10 p-5">
-						<div class="w-10 h-10 rounded-lg bg-sky/10 flex items-center justify-center mb-3">
-							<svg class="w-5 h-5 text-sky" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-						</div>
-						<p class="text-dark text-sm font-heading font-bold mb-2">Come vendi davvero (se vendi ancora in prima persona)</p>
-						<p class="text-gray-600 text-xs leading-relaxed">Come apri, come negozi, come chiudi. Il confronto tra il tuo istinto commerciale e quello che il mercato richiede oggi. Vale oro se sei ancora il primo venditore dell'azienda.</p>
-					</div>
-				</div>
-
-				<!-- Il ponte -->
-				<div class="rounded-xl bg-dark/5 border border-dark/10 p-5 my-8">
-					<p class="text-gray-700 text-[15px] leading-relaxed font-medium">
-						Prima di mettere mano ai tuoi venditori, capisco te.
-					</p>
-					<p class="text-gray-500 text-sm leading-relaxed mt-2">
-						Perche' il sistema che costruiremo deve funzionare <strong class="text-gray-700">con il tuo modo di guidare</strong>, non contro. Il Test Drive e' il modo piu' onesto per capire se ha senso proseguire insieme, prima di firmare un pacchetto piu' impegnativo.
-					</p>
-				</div>
-
-				<!-- Nota credito -->
-				<div class="flex items-start gap-3 rounded-xl bg-accent/5 border border-accent/15 p-4 mb-8">
-					<svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-					<p class="text-gray-600 text-sm leading-relaxed">
-						Se dopo l'assessment decidi di acquistare un pacchetto per il team, <strong class="text-gray-700">375 euro (meta' del costo) vengono scalati se acquisti un pacchetto entro 30 giorni</strong>. L'altra meta' copre l'analisi gia' svolta.
-					</p>
-				</div>
-
-				<!-- Prezzo e CTA -->
-				<div class="border-t border-gray-200 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-					<div>
-						<p class="text-3xl font-bold text-gray-800 font-heading">750 <span class="text-base font-normal text-gray-400">&euro;</span></p>
-						<p class="text-gray-400 text-xs mt-1">IVA esclusa · Include profilazione completa + restituzione LIVE</p>
-					</div>
-					<a href="https://wa.me/393408217120?text=Ciao%20Cristiano%2C%20vorrei%20richiedere%20l%27assessment%20individuale%20da%20750%20EUR%20(di%20cui%20375%20euro%20scalabili%20su%20un%20pacchetto%20entro%2030%20giorni).%20Quando%20possiamo%20fissare%3F" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-[#25D366] hover:bg-[#1fb855] text-white font-heading font-semibold text-sm transition-all shadow-md shadow-[#25D366]/20 hover:shadow-lg hover:shadow-[#25D366]/30 whitespace-nowrap">
-						<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-						Richiedi l'assessment individuale
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
 
 	<!-- ═══════════════════════════════════════════
 	     SEZIONE 6 — ANTICIPAZIONE PACCHETTI — SLATE
@@ -568,52 +480,13 @@ import Testimonial from '../components/Testimonial.astro';
 				<!-- Foto -->
 				<div class="hidden md:flex justify-center">
 					<div class="rounded-2xl overflow-hidden shadow-xl ring-4 ring-white">
-						<img src="/img/pusca-0046.jpg" alt="Cristiano Pusca in sessione di lavoro" class="w-80 h-auto object-cover" loading="lazy" />
+						<img src="/img/pusca-0014.jpg" alt="Cristiano Pusca in sessione di lavoro" class="w-80 h-auto object-cover" loading="lazy" />
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- ═══════════════════════════════════════════
-	     TESTIMONIANZE — BIANCO
-	     ═══════════════════════════════════════════ -->
-	<section class="py-20 md:py-24 bg-white">
-		<div class="max-w-5xl mx-auto px-6">
-			<div class="section-divider mb-6"></div>
-			<h2 class="text-3xl md:text-4xl font-medium mb-3 text-gray-900">Cosa dicono gli imprenditori con cui ho lavorato.</h2>
-			<p class="text-gray-600 text-base md:text-lg mb-10">
-				Risposte raccolte direttamente. <a href="/press" class="text-sky underline hover:text-sky-light">Leggi tutte le testimonianze e la rassegna stampa</a>.
-			</p>
-
-			<div class="grid md:grid-cols-3 gap-5 md:gap-6">
-				<Testimonial
-					name="Gianluca B."
-					role="Titolare"
-					company="Pelletteria Graziella srl"
-					text='Cristiano mi ha dato <mark class="bg-yellow-100 px-1 py-0.5 rounded font-semibold text-gray-900">la visione e la forza per affrontare una situazione societaria non più accettabile</mark>. Continua ad aiutarmi sul personale: è il filtro giusto tra proprietà e dipendenti. Adesso lavoriamo sulla responsabilità e sul rispetto dell organigramma.'
-					variant="compact"
-					theme="light"
-				/>
-				<Testimonial
-					name="Francesca M."
-					role="HR Manager"
-					company="Mistral Group srl"
-					text='Il lavoro di Cristiano ha migliorato i processi e i flussi di informazione tra gli uffici. L aiuto più concreto è arrivato sulle performance. Il valore più grande: <mark class="bg-yellow-100 px-1 py-0.5 rounded font-semibold text-gray-900">ha catalizzato un assunzione di responsabilità, empowerment vero</mark>.'
-					variant="compact"
-					theme="light"
-				/>
-				<Testimonial
-					name="Claudia B."
-					role="Titolare"
-					company="ELPI srl"
-					text='Cristiano mi ha aiutato a capire come interfacciarmi meglio con i collaboratori. Oggi <mark class="bg-yellow-100 px-1 py-0.5 rounded font-semibold text-gray-900">chiedo senza pormi troppi problemi</mark> quello che devo. Ho risolto molte delle mie paure. Alla base di tutto: il dialogo.'
-					variant="compact"
-					theme="light"
-				/>
-			</div>
-		</div>
-	</section>
 
 	<!-- ═══════════════════════════════════════════
 	     SCANNER RETE VENDITA — SCURO GRADIENT

@@ -1,0 +1,198 @@
+---
+// TestimonialCarousel.astro - carosello auto-scorrevole orizzontale infinito
+// CSS-only animation (no JS): track duplicato + animation marquee.
+// Pausa on hover. Su mobile resta scorrevole orizzontalmente con touch.
+// Usato dopo l'above-the-fold della home.
+
+const MARK = 'bg-yellow-100 px-1 py-0.5 rounded font-semibold text-gray-900';
+const testimonianze = [
+	{
+		name: 'Gianluca B.',
+		role: 'Titolare',
+		company: 'Pelletteria Graziella srl',
+		text: `Cristiano mi ha dato <mark class="${MARK}">la visione e la forza per affrontare una situazione societaria non più accettabile</mark>. È il filtro giusto tra proprietà e dipendenti. Adesso lavoriamo sulla responsabilità e sul rispetto dell organigramma.`,
+	},
+	{
+		name: 'Francesca M.',
+		role: 'HR Manager',
+		company: 'Mistral Group srl',
+		text: `Il lavoro di Cristiano ha migliorato i processi e i flussi di informazione tra gli uffici. Il valore più grande: <mark class="${MARK}">ha catalizzato un assunzione di responsabilità, empowerment vero</mark>.`,
+	},
+	{
+		name: 'Claudia B.',
+		role: 'Titolare',
+		company: 'ELPI srl',
+		text: `Cristiano mi ha aiutato a capire come interfacciarmi meglio con i collaboratori. Oggi <mark class="${MARK}">chiedo senza pormi troppi problemi</mark> quello che devo. <mark class="${MARK}">Ho risolto molte delle mie paure</mark>.`,
+	},
+	{
+		name: 'Maurizio S.',
+		role: 'Titolare',
+		company: 'Vetroin srl',
+		text: `<mark class="${MARK}">Abbiamo risolto criticità importanti, creato nuove procedure</mark>, condiviso file e informazioni con tutto il team. <mark class="${MARK}">I collaboratori hanno preso più responsabilità</mark>, abbiamo fatto scelte chiare su figure chiave.`,
+	},
+	{
+		name: 'Andrea V.',
+		role: 'Titolare',
+		company: 'Sisma srl',
+		text: `Con Cristiano <mark class="${MARK}">abbiamo costruito una parte commerciale che prima in azienda non esisteva</mark>. Mi ha aiutato a formare la persona giusta sulle strategie di vendita.`,
+	},
+	{
+		name: 'Francesco N.',
+		role: 'Titolare',
+		company: 'Noal Mobility Care srl',
+		text: `<mark class="${MARK}">Sono io che porto il valore</mark>, non il prodotto da solo. Cristiano mi ha aiutato a <mark class="${MARK}">recuperare sicurezza in me stesso</mark>. Il cliente acquista un valore, una soluzione, un emozione.`,
+	},
+	{
+		name: 'Leonardo V.',
+		role: 'Amministratore Delegato',
+		company: 'Palladio Spa',
+		text: `Cristiano mi ha aiutato a <mark class="${MARK}">essere più me stesso e più coerente</mark>, e a guardare i lati positivi delle persone con cui lavoro. Oggi cerco di comportarmi con più buon senso e onestà.`,
+	},
+	{
+		name: 'Laura B.',
+		role: 'Titolare',
+		company: 'ELPI srl',
+		text: `Cristiano mi ha aperto a nuove idee, <mark class="${MARK}">ha lavorato sulla mia insicurezza</mark>, e mi ha fatto capire <mark class="${MARK}">quanto sia importante la comunicazione col team</mark>.`,
+	},
+];
+
+// Duplico la lista per loop seamless del carousel
+const looped = [...testimonianze, ...testimonianze];
+---
+
+<section class="py-16 md:py-20 bg-white overflow-hidden">
+	<div class="max-w-6xl mx-auto px-6 mb-10">
+		<div class="section-divider mb-6"></div>
+		<h2 class="text-2xl md:text-3xl font-medium text-gray-900 mb-2">Cosa dicono gli imprenditori con cui ho lavorato.</h2>
+		<p class="text-gray-600 text-base md:text-lg">
+			Le evidenziazioni sono i benefici principali. <a href="/press#testimonianze" class="text-sky underline hover:text-sky-light">Leggi tutte le testimonianze</a>.
+		</p>
+	</div>
+
+	<div class="testimonial-marquee" aria-label="Carosello testimonianze">
+		<div class="testimonial-track">
+			{looped.map((t, idx) => (
+				<figure class="testimonial-card" aria-hidden={idx >= testimonianze.length ? 'true' : 'false'}>
+					<svg class="testimonial-quote" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+						<path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
+					</svg>
+					<blockquote class="testimonial-body">
+						<p set:html={t.text}></p>
+					</blockquote>
+					<figcaption class="testimonial-attribution">
+						<p class="testimonial-name">{t.name}</p>
+						<p class="testimonial-role">{t.role} · <span class="testimonial-company">{t.company}</span></p>
+					</figcaption>
+				</figure>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.testimonial-marquee {
+		width: 100%;
+		overflow: hidden;
+		position: relative;
+		-webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+		mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+	}
+
+	.testimonial-track {
+		display: flex;
+		gap: 24px;
+		width: max-content;
+		animation: marquee 80s linear infinite;
+	}
+
+	.testimonial-marquee:hover .testimonial-track,
+	.testimonial-marquee:focus-within .testimonial-track {
+		animation-play-state: paused;
+	}
+
+	@keyframes marquee {
+		from { transform: translateX(0); }
+		to   { transform: translateX(-50%); }
+	}
+
+	.testimonial-card {
+		flex: 0 0 380px;
+		max-width: 380px;
+		background: #ffffff;
+		border: 1px solid #e5e7eb;
+		border-radius: 16px;
+		padding: 24px 26px;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		min-height: 240px;
+	}
+
+	.testimonial-quote {
+		width: 24px;
+		height: 24px;
+		color: #0ea5e9;
+		opacity: 0.25;
+	}
+
+	.testimonial-body {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		flex: 1;
+	}
+
+	.testimonial-body p {
+		margin: 0;
+		font-family: Georgia, 'Times New Roman', serif;
+		font-size: 15px;
+		line-height: 1.55;
+		color: #1f2937;
+	}
+
+	.testimonial-attribution {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+		padding-top: 8px;
+		border-top: 1px solid #f3f4f6;
+	}
+
+	.testimonial-name {
+		margin: 0;
+		font-family: 'Lexend', system-ui, sans-serif;
+		font-weight: 700;
+		font-size: 14px;
+		color: #111827;
+	}
+
+	.testimonial-role {
+		margin: 0;
+		font-family: 'Inter', system-ui, sans-serif;
+		font-size: 12px;
+		color: #6b7280;
+	}
+
+	.testimonial-company {
+		font-weight: 500;
+		color: #374151;
+	}
+
+	@media (max-width: 640px) {
+		.testimonial-card {
+			flex: 0 0 280px;
+			max-width: 280px;
+			padding: 20px 22px;
+			min-height: 220px;
+		}
+		.testimonial-body p { font-size: 14px; }
+	}
+
+	/* Accessibility: utenti con preferenza reduced-motion */
+	@media (prefers-reduced-motion: reduce) {
+		.testimonial-track {
+			animation-duration: 240s; /* rallenta drasticamente */
+		}
+	}
+</style>
