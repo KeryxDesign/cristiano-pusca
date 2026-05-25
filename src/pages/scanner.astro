@@ -26,14 +26,30 @@ const description = '10 domande, 3 minuti, un numero in euro. Calcola quanto ti 
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 		<title>{title}</title>
 
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-K4HYZQSY1T"></script>
+		<!-- Google tag (gtag.js) con Consent Mode v2 -->
 		<script is:inline>
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
+			gtag('consent', 'default', {
+				'ad_storage': 'denied',
+				'ad_user_data': 'denied',
+				'ad_personalization': 'denied',
+				'analytics_storage': 'denied',
+				'functionality_storage': 'granted',
+				'security_storage': 'granted',
+				'wait_for_update': 500
+			});
+			try {
+				if (localStorage.getItem('cookie-consent') === 'accepted') {
+					gtag('consent', 'update', {
+						'analytics_storage': 'granted'
+					});
+				}
+			} catch(e) {}
 			gtag('js', new Date());
-			gtag('config', 'G-K4HYZQSY1T');
+			gtag('config', 'G-K4HYZQSY1T', { 'anonymize_ip': true });
 		</script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-K4HYZQSY1T"></script>
 	</head>
 	<body class="bg-dark min-h-screen">
 

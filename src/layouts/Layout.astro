@@ -37,14 +37,32 @@ const {
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 		<title>{title}</title>
 
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-K4HYZQSY1T"></script>
+		<!-- Google tag (gtag.js) con Consent Mode v2 -->
 		<script is:inline>
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
+			// Default: tutto NEGATO finche' utente non accetta
+			gtag('consent', 'default', {
+				'ad_storage': 'denied',
+				'ad_user_data': 'denied',
+				'ad_personalization': 'denied',
+				'analytics_storage': 'denied',
+				'functionality_storage': 'granted',
+				'security_storage': 'granted',
+				'wait_for_update': 500
+			});
+			// Se l'utente ha gia' accettato in passato, ripristina il consenso
+			try {
+				if (localStorage.getItem('cookie-consent') === 'accepted') {
+					gtag('consent', 'update', {
+						'analytics_storage': 'granted'
+					});
+				}
+			} catch(e) {}
 			gtag('js', new Date());
-			gtag('config', 'G-K4HYZQSY1T');
+			gtag('config', 'G-K4HYZQSY1T', { 'anonymize_ip': true });
 		</script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-K4HYZQSY1T"></script>
 	</head>
 	<body class="bg-dark min-h-screen">
 		<!-- HEADER -->
@@ -99,15 +117,15 @@ const {
 		<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-[70] bg-dark/95 backdrop-blur-xl border-t border-white/10 p-4 md:p-5 hidden">
 			<div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center gap-4">
 				<p class="text-gray-300 text-sm leading-relaxed flex-1">
-					Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. Non utilizziamo cookie di profilazione.
+					Questo sito usa cookie tecnici per funzionare e cookie analitici (Google Analytics) per misurare l'audience in forma anonimizzata. Puoi accettarli o rifiutarli. I cookie tecnici restano attivi in ogni caso.
 					<a href="/privacy" class="text-sky-light underline hover:text-white ml-1">Privacy Policy</a>
 				</p>
 				<div class="flex gap-3 shrink-0">
 					<button id="cookie-reject" class="px-4 py-2 rounded-lg border border-white/20 text-gray-300 text-sm font-heading font-medium hover:bg-white/5 transition-colors">
-						Rifiuta
+						Rifiuta analytics
 					</button>
 					<button id="cookie-accept" class="px-4 py-2 rounded-lg bg-sky text-white text-sm font-heading font-semibold hover:bg-sky-light transition-colors">
-						Accetta
+						Accetta tutti
 					</button>
 				</div>
 			</div>
@@ -178,6 +196,12 @@ const {
 			function closeCookie(value) {
 				localStorage.setItem('cookie-consent', value);
 				cookieBanner?.classList.add('hidden');
+				// Aggiorna Google Consent Mode v2
+				if (typeof gtag === 'function') {
+					gtag('consent', 'update', {
+						'analytics_storage': value === 'accepted' ? 'granted' : 'denied'
+					});
+				}
 			}
 			cookieAccept?.addEventListener('click', () => closeCookie('accepted'));
 			cookieReject?.addEventListener('click', () => closeCookie('rejected'));
