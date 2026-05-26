@@ -40,7 +40,7 @@ import Layout from '../../layouts/Layout.astro';
 					<h2 class="text-2xl md:text-3xl font-medium mb-6 text-gray-900">Il contesto.</h2>
 					<div class="space-y-4 text-gray-700 text-base md:text-lg leading-relaxed">
 						<p>
-							<strong class="text-gray-900">Davide F.</strong>, professionista con esperienza solida e formazione tecnica. Si candida per un ruolo di <mark class="bg-amber-200/60 px-1 rounded text-gray-900 font-semibold">Commerciale Negoziatore</mark> (profilo Comunicatore, Promotore, Pubbliche Relazioni) in una PMI italiana.
+							<strong class="text-gray-900">Davide F.</strong>, professionista con esperienza solida e formazione tecnica. Si candida per un ruolo di <mark class="bg-amber-200/60 px-1 rounded text-gray-900 font-semibold">Commerciale Negoziatore</mark> (profilo Comunicatore, Promotore, Pubbliche Relazioni) in una <strong class="text-gray-900">PMI manifatturiera del Nord-Est, circa 180 dipendenti, fatturato 30M</strong>.
 						</p>
 						<p>
 							Sulla carta: <mark class="bg-amber-200/60 px-1 rounded text-gray-900 font-semibold">candidato eccellente</mark>. Esperienza coerente, competenze in linea con la posizione, buona presenza. Il manager funzione lo legge e dice: <em>"questo lo vediamo, sembra perfetto"</em>.
@@ -211,7 +211,30 @@ import Layout from '../../layouts/Layout.astro';
 				</div>
 				<div class="bg-white/5 backdrop-blur-sm p-5 rounded-lg border border-white/10">
 					<p class="text-sky-light text-xs font-heading font-bold tracking-wider uppercase mb-2">Costo bruciato</p>
-					<p class="text-white text-base leading-relaxed">Tra ricerca, formazione, retribuzione e mancato fatturato: <span class="text-sky-light font-semibold">decine di migliaia di euro.</span></p>
+					<p class="text-white text-base leading-relaxed">Tra ricerca, formazione, retribuzione e mancato fatturato: <span class="text-sky-light font-semibold">60.000 - 140.000 euro per uscita.</span></p>
+				</div>
+			</div>
+
+			<!-- Box calcolo costo: il numero che porti al CFO -->
+			<div class="mt-8 bg-white/[0.07] backdrop-blur-sm rounded-lg border border-sky-light/30 p-6 md:p-8">
+				<p class="text-sky-light text-xs font-heading font-bold tracking-wider uppercase mb-4">Il calcolo del costo · da portare al CFO</p>
+				<div class="grid md:grid-cols-2 gap-6 text-base">
+					<div class="space-y-2 text-gray-300">
+						<div class="flex justify-between border-b border-white/10 pb-2"><span>Stipendio annuo lordo commerciale</span><span class="text-white font-semibold">35-45.000 €</span></div>
+						<div class="flex justify-between border-b border-white/10 pb-2"><span>Costo azienda (con contributi)</span><span class="text-white font-semibold">50-60.000 €</span></div>
+						<div class="flex justify-between border-b border-white/10 pb-2"><span>Ricerca + onboarding + formazione</span><span class="text-white font-semibold">8-12.000 €</span></div>
+						<div class="flex justify-between border-b border-white/10 pb-2"><span>Stipendio bruciato (6-12 mesi)</span><span class="text-white font-semibold">25-50.000 €</span></div>
+						<div class="flex justify-between border-b border-white/10 pb-2"><span>Mancato fatturato (budget commerciale non centrato)</span><span class="text-white font-semibold">30-80.000 €</span></div>
+						<div class="flex justify-between pt-3 text-lg"><span class="text-sky-light font-semibold">Costo totale per uscita</span><span class="text-sky-light font-bold">60-140.000 €</span></div>
+					</div>
+					<div class="text-gray-400 text-sm leading-relaxed border-l border-white/10 pl-6">
+						<p class="mb-3">
+							<strong class="text-white">Range di mercato verificato</strong> su fonti italiane 2024-2026: AdHR riporta fino a 154.000 € per bad hire RAL 49k. SHRM (citato in fonti italiane): 3-4x stipendio annuo per ruoli ad alto impatto. Salesline: 2-3x costo azienda per profilo commerciale PMI.
+						</p>
+						<p>
+							Il range coperto qui è <strong class="text-white">conservativo per il caso medio</strong>. Per ruoli con responsabilità di area o portafoglio cliente, la stima sale fino a 200.000 €+.
+						</p>
+					</div>
 				</div>
 			</div>
 
@@ -244,10 +267,33 @@ import Layout from '../../layouts/Layout.astro';
 				<p>
 					Tre domande di colloquio comportamentali, costruite a partire dal profilo del ruolo, avrebbero rivelato il mismatch in quindici minuti.
 				</p>
-				<p class="text-gray-900 font-medium text-lg pt-2">
-					<mark class="bg-amber-200/70 px-2 rounded">Nessuno gliele ha fatte.</mark>
-				</p>
 			</div>
+
+			<!-- Esempio domanda colloquio -->
+			<div class="mt-8 bg-sky-50 border-l-4 border-sky rounded-r-lg p-6 md:p-8">
+				<p class="text-sky-700 text-xs font-heading font-bold tracking-wider uppercase mb-3">Esempio · domanda per scoprire l'Asse Estroversione</p>
+				<p class="text-gray-900 text-lg md:text-xl font-heading font-medium italic leading-snug mb-5">
+					"Raccontami l'ultima volta che hai chiuso un accordo difficile con un cliente nuovo. Cosa hai detto nei primi due minuti? Cosa hai osservato di lui mentre parlavi?"
+				</p>
+				<div class="space-y-3 text-gray-700 text-base leading-relaxed">
+					<p>
+						<strong class="text-gray-900">Cosa cercare nella risposta:</strong>
+					</p>
+					<ul class="list-none space-y-2 pl-0">
+						<li class="flex gap-3"><span class="text-sky font-bold flex-shrink-0">→</span> <span>Spontaneità nel raccontare l'interazione umana (parole, gesti, sguardi dell'altro)</span></li>
+						<li class="flex gap-3"><span class="text-sky font-bold flex-shrink-0">→</span> <span>Ricchezza di dettagli verbali e sensoriali, non solo descrizione del prodotto</span></li>
+						<li class="flex gap-3"><span class="text-sky font-bold flex-shrink-0">→</span> <span>Energia narrativa: la persona si accende quando racconta, oppure ricostruisce a fatica</span></li>
+						<li class="flex gap-3"><span class="text-sky font-bold flex-shrink-0">→</span> <span>Uso di "io ho detto", non "il prodotto offre"</span></li>
+					</ul>
+					<p class="pt-2 text-gray-900 font-medium">
+						Davide a questa domanda risponderebbe parlando di specifiche tecniche del prodotto, non di interazione. <mark class="bg-amber-200/60 px-1 rounded">In due minuti capisci che non è una persona di vendita relazionale. Senza assessment.</mark>
+					</p>
+				</div>
+			</div>
+
+			<p class="text-gray-900 font-medium text-lg pt-8">
+				<mark class="bg-amber-200/70 px-2 rounded">Nessuno gliele ha fatte.</mark>
+			</p>
 		</div>
 	</section>
 
