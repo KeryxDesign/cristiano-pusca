@@ -84,9 +84,8 @@ import Layout from '../../layouts/Layout.astro';
 			<div class="bg-white rounded-lg shadow-md p-6 md:p-10 ring-1 ring-gray-200">
 				<p class="text-xs font-heading font-bold tracking-wider uppercase text-sky-700 mb-3">Grafico Radar Comportamentale</p>
 				<p class="text-sm text-gray-600 mb-4">Sovrapposizione del profilo di Davide (rosso) con il profilo richiesto dal ruolo (blu) su 16 competenze comportamentali.</p>
-				<div class="aspect-square max-w-[520px] mx-auto bg-gray-50 ring-1 ring-gray-200 rounded flex items-center justify-center">
-					<img src="/img/pda-esempio/radar-comportamentale.png" alt="Grafico radar comportamentale: profilo candidato vs profilo richiesto dal ruolo" class="w-full h-auto" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-					<p class="hidden text-gray-400 text-sm text-center px-6">[Inserire qui screenshot anonimizzato del grafico radar comportamentale dal report PDA, pagina 2]</p>
+				<div class="max-w-[640px] mx-auto">
+					<img src="/img/pda-esempio/radar-comportamentale.webp" alt="Grafico radar comportamentale PDA: profilo candidato vs profilo richiesto dal ruolo Commerciale Negoziatore" class="w-full h-auto rounded" loading="lazy" />
 				</div>
 			</div>
 		</div>
@@ -111,7 +110,7 @@ import Layout from '../../layouts/Layout.astro';
 						<span class="text-2xl">✓</span>
 						<p class="text-sky-700 text-xs font-heading font-bold tracking-wider uppercase">Asse del Rischio · Compatibile</p>
 					</div>
-					<p class="font-heading font-semibold text-gray-900 mb-2">Cauto ↔ Rischioso</p>
+					<img src="/img/pda-esempio/asse-rischio.webp" alt="Asse del Rischio PDA: pallino candidato e pallino ruolo molto vicini, compatibilità alta" class="w-full h-auto mb-4 rounded" loading="lazy" />
 					<p class="text-gray-700 leading-relaxed text-base">
 						Il ruolo richiede una persona diretta, esigente, competitiva, motivata dall'assunzione di rischi moderati. <strong class="text-gray-900">Davide possiede queste caratteristiche nel suo stile naturale.</strong>
 					</p>
@@ -123,7 +122,7 @@ import Layout from '../../layouts/Layout.astro';
 						<span class="text-2xl">⚠</span>
 						<p class="text-red-700 text-xs font-heading font-bold tracking-wider uppercase">Asse dell'Estroversione · Mismatch forte</p>
 					</div>
-					<p class="font-heading font-semibold text-gray-900 mb-2">Introverso ↔ Estroverso</p>
+					<img src="/img/pda-esempio/asse-estroversione.webp" alt="Asse dell'Estroversione PDA: pallino candidato all'estrema sinistra (introverso), pallino ruolo a destra (estroverso), mismatch massimo" class="w-full h-auto mb-4 rounded" loading="lazy" />
 					<p class="text-gray-700 leading-relaxed text-base">
 						Il ruolo richiede una persona amichevole, estroversa, persuasiva, perspicace, motivata dall'interazione con le persone. <strong class="text-gray-900">Davide nel suo stile naturale è serio, distante, un po' introverso e poco socievole. Dovrà fare sforzi continui per rispondere alle esigenze del ruolo.</strong>
 					</p>
@@ -135,7 +134,7 @@ import Layout from '../../layouts/Layout.astro';
 						<span class="text-2xl">⚠</span>
 						<p class="text-amber-700 text-xs font-heading font-bold tracking-wider uppercase">Asse della Pazienza · Mismatch moderato</p>
 					</div>
-					<p class="font-heading font-semibold text-gray-900 mb-2">Inquieto/Impaziente ↔ Pacato/Paziente</p>
+					<img src="/img/pda-esempio/asse-pazienza.webp" alt="Asse della Pazienza PDA: pallino candidato spostato a destra (più paziente), pallino ruolo al centro, mismatch moderato" class="w-full h-auto mb-4 rounded" loading="lazy" />
 					<p class="text-gray-700 leading-relaxed text-base">
 						Il ruolo richiede una persona versatile, capace di alternare ritmi calmi e dinamici, motivata da versatilità e consistenza. <strong class="text-gray-900">Davide nel suo stile naturale è più paziente e calmo di quanto richiesto dal posto di lavoro.</strong>
 					</p>
@@ -147,7 +146,7 @@ import Layout from '../../layouts/Layout.astro';
 						<span class="text-2xl">⚠</span>
 						<p class="text-red-700 text-xs font-heading font-bold tracking-wider uppercase">Asse delle Norme · Mismatch</p>
 					</div>
-					<p class="font-heading font-semibold text-gray-900 mb-2">Indipendente ↔ Soggetto alle norme</p>
+					<img src="/img/pda-esempio/asse-norme.webp" alt="Asse delle Norme PDA: pallino candidato a destra (più strutturato), pallino ruolo a sinistra (più indipendente), mismatch" class="w-full h-auto mb-4 rounded" loading="lazy" />
 					<p class="text-gray-700 leading-relaxed text-base">
 						Il ruolo richiede una persona indipendente, sicura di sé, con criterio proprio, motivata dall'indipendenza e dalla libertà di agire. <strong class="text-gray-900">Davide è minuzioso e strutturato in funzione di norme e procedure, più di quanto richiesto da questo posto di lavoro.</strong>
 					</p>
