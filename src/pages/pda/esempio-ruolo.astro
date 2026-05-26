@@ -1,0 +1,305 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// Pagina di esempio mismatch: caso reale Davide F. anonimizzato, PDA Compatibility Report.
+// Funzione: pre-call hook per outreach LinkedIn verso HR Manager target.
+// Cristiano la linka nei DM. Sara la legge, capisce il valore, prenota la call.
+---
+
+<Layout
+	title="Quando assumi un commerciale al 15% di compatibilità: un caso reale | Cristiano Pusca"
+	description="Caso reale di mismatch tra profilo comportamentale e ruolo. Cosa dicono i 4 assi del PDA, perché la maggior parte degli HR non lo vede prima, come si sarebbe potuto evitare."
+>
+	<!-- ═══════════════════════════════════════════
+	     HERO — DARK
+	     ═══════════════════════════════════════════ -->
+	<section class="relative overflow-hidden pt-28 pb-16 md:pt-32 md:pb-20 bg-dark">
+		<div class="absolute inset-0 bg-gradient-to-br from-dark via-dark-light to-sky-muted/30"></div>
+		<div class="absolute top-20 right-[10%] w-80 h-80 rounded-full bg-sky/[0.05] blur-[100px]"></div>
+
+		<div class="max-w-4xl mx-auto px-6 relative">
+			<p class="text-sky-light text-sm font-heading font-semibold tracking-wider uppercase mb-5">Caso reale anonimizzato</p>
+			<h1 class="text-3xl md:text-5xl font-medium leading-[1.15] mb-6 text-white">
+				Quando assumi un commerciale negoziatore con il <span class="text-sky-light">15% di compatibilità.</span>
+			</h1>
+			<p class="text-gray-300 text-base md:text-lg leading-relaxed max-w-2xl">
+				Un caso reale di mismatch tra profilo comportamentale e ruolo. Cosa dicono quattro numeri al colloquio. Perché la maggior parte degli HR non lo vede prima. E come si sarebbe potuto evitare in quindici minuti.
+			</p>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     IL CONTESTO — BIANCO
+	     ═══════════════════════════════════════════ -->
+	<section class="py-16 md:py-20 bg-white">
+		<div class="max-w-3xl mx-auto px-6">
+			<div class="section-divider mb-6"></div>
+			<h2 class="text-2xl md:text-3xl font-medium mb-6 text-gray-900">Il contesto.</h2>
+			<div class="space-y-4 text-gray-700 text-base md:text-lg leading-relaxed">
+				<p>
+					<strong class="text-gray-900">Davide F.</strong>, professionista con esperienza solida e formazione tecnica. Si candida per un ruolo di <strong class="text-gray-900">Commerciale Negoziatore</strong> (profilo Comunicatore - Promotore - Pubbliche Relazioni) in una PMI italiana.
+				</p>
+				<p>
+					Sulla carta: candidato eccellente. Esperienza coerente, competenze in linea con la posizione, buona presenza. Il manager funzione lo legge e dice: <em>"questo lo vediamo, sembra perfetto"</em>.
+				</p>
+				<p class="text-gray-900 font-medium">
+					Quello che il curriculum non dice, e che nessuno ha chiesto, è una cosa sola: come si comporta Davide quando deve negoziare, persuadere, esporsi.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     IL DATO CHE CAMBIA TUTTO — SLATE
+	     ═══════════════════════════════════════════ -->
+	<section class="py-16 md:py-24 bg-slate">
+		<div class="max-w-4xl mx-auto px-6">
+			<div class="section-divider mb-6"></div>
+			<h2 class="text-2xl md:text-3xl font-medium mb-8 text-gray-900">Il dato che cambia tutto.</h2>
+
+			<div class="grid md:grid-cols-[200px_1fr] gap-8 md:gap-12 items-start mb-10">
+				<!-- Cerchio compatibilita -->
+				<div class="flex justify-center md:justify-start">
+					<div class="w-44 h-44 rounded-full border-[10px] border-sky flex flex-col items-center justify-center bg-white shadow-md">
+						<p class="text-5xl md:text-6xl font-heading font-bold text-sky">15<span class="text-3xl">%</span></p>
+						<p class="text-xs font-heading font-semibold tracking-wider uppercase text-gray-500 mt-1">Compatibilità</p>
+					</div>
+				</div>
+
+				<!-- Spiegazione -->
+				<div class="space-y-4 text-gray-700 text-base md:text-lg leading-relaxed">
+					<p>
+						Questa è la compatibilità tra il profilo comportamentale naturale di Davide e il profilo richiesto dal ruolo di Commerciale Negoziatore, misurata da un assessment PDA standard.
+					</p>
+					<p class="bg-white border-l-4 border-sky p-4 text-base">
+						Quando la compatibilità è in questa fascia, il sistema dichiara onestamente: <em>"non ci sono possibilità che la persona possa rispondere con successo ai requisiti comportamentali della posizione. È probabile che possa tollerare la situazione e adattarsi, ma difficilmente si senta motivata."</em>
+					</p>
+					<p>
+						Tradotto: Davide può fare un anno di sforzo. Non produrrà. E poi se ne andrà.
+					</p>
+				</div>
+			</div>
+
+			<!-- Grafico radar comportamentale (placeholder per immagine reale) -->
+			<div class="bg-white rounded-lg shadow-md p-6 md:p-10 ring-1 ring-gray-200">
+				<p class="text-xs font-heading font-bold tracking-wider uppercase text-sky-700 mb-3">Grafico Radar Comportamentale</p>
+				<p class="text-sm text-gray-600 mb-4">Sovrapposizione del profilo di Davide (rosso) con il profilo richiesto dal ruolo (blu) su 16 competenze comportamentali.</p>
+				<div class="aspect-square max-w-[520px] mx-auto bg-gray-50 ring-1 ring-gray-200 rounded flex items-center justify-center">
+					<img src="/img/pda-esempio/radar-comportamentale.png" alt="Grafico radar comportamentale: profilo candidato vs profilo richiesto dal ruolo" class="w-full h-auto" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+					<p class="hidden text-gray-400 text-sm text-center px-6">[Inserire qui screenshot anonimizzato del grafico radar comportamentale dal report PDA, pagina 2]</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     I 4 ASSI — BIANCO
+	     ═══════════════════════════════════════════ -->
+	<section class="py-16 md:py-24 bg-white">
+		<div class="max-w-5xl mx-auto px-6">
+			<div class="section-divider mb-6"></div>
+			<h2 class="text-2xl md:text-3xl font-medium mb-4 text-gray-900">Cosa dicono i quattro assi.</h2>
+			<p class="text-gray-600 text-base md:text-lg leading-relaxed mb-10 max-w-3xl">
+				PDA misura il profilo comportamentale su quattro assi fondamentali. Su questo caso, uno solo è in linea con il ruolo. Tre sono in mismatch netto.
+			</p>
+
+			<div class="grid md:grid-cols-2 gap-5 md:gap-6">
+
+				<!-- Asse 1: Rischio -->
+				<div class="card-light p-6 border-l-4 border-emerald-500">
+					<div class="flex items-center gap-3 mb-3">
+						<span class="text-2xl">✓</span>
+						<p class="text-sky-700 text-xs font-heading font-bold tracking-wider uppercase">Asse del Rischio · Compatibile</p>
+					</div>
+					<p class="font-heading font-semibold text-gray-900 mb-2">Cauto ↔ Rischioso</p>
+					<p class="text-gray-700 leading-relaxed text-base">
+						Il ruolo richiede una persona diretta, esigente, competitiva, motivata dall'assunzione di rischi moderati. <strong class="text-gray-900">Davide possiede queste caratteristiche nel suo stile naturale.</strong>
+					</p>
+				</div>
+
+				<!-- Asse 2: Estroversione -->
+				<div class="card-light p-6 border-l-4 border-red-500">
+					<div class="flex items-center gap-3 mb-3">
+						<span class="text-2xl">⚠</span>
+						<p class="text-red-700 text-xs font-heading font-bold tracking-wider uppercase">Asse dell'Estroversione · Mismatch forte</p>
+					</div>
+					<p class="font-heading font-semibold text-gray-900 mb-2">Introverso ↔ Estroverso</p>
+					<p class="text-gray-700 leading-relaxed text-base">
+						Il ruolo richiede una persona amichevole, estroversa, persuasiva, perspicace, motivata dall'interazione con le persone. <strong class="text-gray-900">Davide nel suo stile naturale è serio, distante, un po' introverso e poco socievole. Dovrà fare sforzi continui per rispondere alle esigenze del ruolo.</strong>
+					</p>
+				</div>
+
+				<!-- Asse 3: Pazienza -->
+				<div class="card-light p-6 border-l-4 border-amber-500">
+					<div class="flex items-center gap-3 mb-3">
+						<span class="text-2xl">⚠</span>
+						<p class="text-amber-700 text-xs font-heading font-bold tracking-wider uppercase">Asse della Pazienza · Mismatch moderato</p>
+					</div>
+					<p class="font-heading font-semibold text-gray-900 mb-2">Inquieto/Impaziente ↔ Pacato/Paziente</p>
+					<p class="text-gray-700 leading-relaxed text-base">
+						Il ruolo richiede una persona versatile, capace di alternare ritmi calmi e dinamici, motivata da versatilità e consistenza. <strong class="text-gray-900">Davide nel suo stile naturale è più paziente e calmo di quanto richiesto dal posto di lavoro.</strong>
+					</p>
+				</div>
+
+				<!-- Asse 4: Norme -->
+				<div class="card-light p-6 border-l-4 border-red-500">
+					<div class="flex items-center gap-3 mb-3">
+						<span class="text-2xl">⚠</span>
+						<p class="text-red-700 text-xs font-heading font-bold tracking-wider uppercase">Asse delle Norme · Mismatch</p>
+					</div>
+					<p class="font-heading font-semibold text-gray-900 mb-2">Indipendente ↔ Soggetto alle norme</p>
+					<p class="text-gray-700 leading-relaxed text-base">
+						Il ruolo richiede una persona indipendente, sicura di sé, con criterio proprio, motivata dall'indipendenza e dalla libertà di agire. <strong class="text-gray-900">Davide è minuzioso e strutturato in funzione di norme e procedure, più di quanto richiesto da questo posto di lavoro.</strong>
+					</p>
+				</div>
+
+			</div>
+
+			<p class="text-gray-600 text-sm md:text-base italic mt-8 max-w-3xl">
+				I quattro indicatori sono leggibili in due minuti, anche da un manager senza training psicologico. È esattamente quello che oggi al colloquio, in molte selezioni, manca.
+			</p>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     IL COSTO — DARK-LIGHT
+	     ═══════════════════════════════════════════ -->
+	<section class="py-16 md:py-24 bg-dark-light text-white">
+		<div class="max-w-3xl mx-auto px-6">
+			<div class="section-divider mb-6"></div>
+			<h2 class="text-2xl md:text-3xl font-medium mb-6 text-white">Quello che vedi non è il problema del candidato. È il costo di farlo stare in quel ruolo.</h2>
+
+			<div class="space-y-5 text-gray-300 text-base md:text-lg leading-relaxed">
+				<p>
+					Tre dei quattro assi in mismatch. Davide può tollerare il ruolo. Può anche fare uno sforzo enorme per adattarsi. Quello che il PDA chiama <strong class="text-white">"costo emotivo"</strong> è esattamente lo sforzo continuo per essere diverso da come si è.
+				</p>
+				<p>
+					Tradotto in numeri che il CFO capisce:
+				</p>
+			</div>
+
+			<div class="grid md:grid-cols-3 gap-4 md:gap-5 mt-8">
+				<div class="bg-white/5 backdrop-blur-sm p-5 rounded-lg border border-white/10">
+					<p class="text-sky-light text-xs font-heading font-bold tracking-wider uppercase mb-2">Dopo 6 mesi</p>
+					<p class="text-white text-base leading-relaxed">Risultati insufficienti. Il manager comincia a dire: "non sta funzionando".</p>
+				</div>
+				<div class="bg-white/5 backdrop-blur-sm p-5 rounded-lg border border-white/10">
+					<p class="text-sky-light text-xs font-heading font-bold tracking-wider uppercase mb-2">Dopo 12 mesi</p>
+					<p class="text-white text-base leading-relaxed">Davide si dimette o viene licenziato. L'HR si prende la responsabilità.</p>
+				</div>
+				<div class="bg-white/5 backdrop-blur-sm p-5 rounded-lg border border-white/10">
+					<p class="text-sky-light text-xs font-heading font-bold tracking-wider uppercase mb-2">Costo bruciato</p>
+					<p class="text-white text-base leading-relaxed">Tra ricerca, formazione, retribuzione e mancato fatturato: decine di migliaia di euro.</p>
+				</div>
+			</div>
+
+			<div class="mt-10 space-y-4 text-gray-300 text-base md:text-lg leading-relaxed">
+				<p>
+					E alla fine il manager dice: <em class="text-white">"questa persona non va bene"</em>.
+				</p>
+				<p class="text-white font-medium text-lg">
+					Ma il problema non era Davide. Davide è un ottimo profilo, in un altro ruolo. Il problema era che nessuno aveva confrontato il suo profilo comportamentale con quello richiesto dal ruolo. Prima.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     COSA SI SAREBBE POTUTO FARE — BIANCO
+	     ═══════════════════════════════════════════ -->
+	<section class="py-16 md:py-24 bg-white">
+		<div class="max-w-3xl mx-auto px-6">
+			<div class="section-divider mb-6"></div>
+			<h2 class="text-2xl md:text-3xl font-medium mb-6 text-gray-900">Cosa si sarebbe potuto fare. In quindici minuti.</h2>
+
+			<div class="space-y-5 text-gray-700 text-base md:text-lg leading-relaxed">
+				<p>
+					Quattro numeri al colloquio (Rischio, Estroversione, Pazienza, Norme) avrebbero detto già al primo incontro che Davide non era il candidato giusto per quel ruolo specifico.
+				</p>
+				<p>
+					<strong class="text-gray-900">Non vuol dire che Davide non sia un buon professionista.</strong> Vuol dire che è un buon professionista per ruoli analitici, strutturati, di pensiero. Non per ruoli di vendita relazionale in prima linea.
+				</p>
+				<p>
+					Tre domande di colloquio comportamentali, costruite a partire dal profilo del ruolo, avrebbero rivelato il mismatch in quindici minuti.
+				</p>
+				<p class="text-gray-900 font-medium text-lg pt-2">
+					Nessuno gliele ha fatte.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     COSA FA BEDo — SLATE
+	     ═══════════════════════════════════════════ -->
+	<section class="py-16 md:py-24 bg-slate">
+		<div class="max-w-3xl mx-auto px-6">
+			<div class="section-divider mb-6"></div>
+			<h2 class="text-2xl md:text-3xl font-medium mb-6 text-gray-900">Cosa fa BEDo che il tuo assessment attuale probabilmente non fa.</h2>
+
+			<div class="space-y-5 text-gray-700 text-base md:text-lg leading-relaxed">
+				<p>
+					La maggior parte degli strumenti di assessment che si usano oggi (DISC, MBTI, Big Five in versione abbreviata) ti restituiscono <strong class="text-gray-900">un profilo della persona</strong>. Ti dicono chi è il candidato.
+				</p>
+				<p>
+					BEDo restituisce due cose, insieme:
+				</p>
+				<ul class="list-none space-y-3 pl-0">
+					<li class="flex gap-3"><span class="text-sky font-bold flex-shrink-0">→</span> <span>Il profilo comportamentale della persona</span></li>
+					<li class="flex gap-3"><span class="text-sky font-bold flex-shrink-0">→</span> <span>Il profilo comportamentale richiesto dal ruolo specifico, in quel settore, in quella azienda</span></li>
+				</ul>
+				<p>
+					E ti mostra lo scarto tra i due, numero per numero. Senza questo confronto, ogni selezione è una scommessa. Con questo confronto, il manager funzione e l'HR parlano la stessa lingua:
+				</p>
+				<p class="bg-white border-l-4 border-sky p-5 text-gray-900 font-medium text-lg">
+					"Questo candidato è compatibile al 15% con il ruolo che hai aperto. Cerchiamo qualcun altro."
+				</p>
+				<p>
+					Quattro numeri. Una decisione. Niente discussioni di pancia.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     CTA FINALE — DARK
+	     ═══════════════════════════════════════════ -->
+	<section class="py-20 md:py-28 bg-dark relative overflow-hidden">
+		<div class="absolute inset-0 bg-gradient-to-b from-dark-light to-dark"></div>
+		<div class="absolute top-10 right-[10%] w-72 h-72 rounded-full bg-sky/[0.08] blur-[100px]"></div>
+
+		<div class="max-w-3xl mx-auto px-6 relative">
+			<div class="section-divider mb-6"></div>
+			<h2 class="text-2xl md:text-4xl font-medium mb-6 text-white leading-tight">
+				Hai una selezione aperta <span class="text-sky-light">in questo momento?</span>
+			</h2>
+
+			<div class="space-y-4 text-gray-300 text-base md:text-lg leading-relaxed mb-10">
+				<p>
+					Trenta minuti di call. Tu mi descrivi il ruolo che stai cercando. Io ti restituisco:
+				</p>
+				<ul class="list-none space-y-2 pl-0">
+					<li class="flex gap-3"><span class="text-sky-light font-bold flex-shrink-0">→</span> <span>Il profilo comportamentale ideale del ruolo (quattro assi + competenze chiave)</span></li>
+					<li class="flex gap-3"><span class="text-sky-light font-bold flex-shrink-0">→</span> <span>Tre domande di colloquio costruite per beccare i candidati allineati</span></li>
+					<li class="flex gap-3"><span class="text-sky-light font-bold flex-shrink-0">→</span> <span>Un PDF di due pagine, usabile lunedì mattina</span></li>
+				</ul>
+				<p class="pt-2">
+					Niente pitch in call. Lo dico subito perché so cosa sembra. Lo faccio per validare un nuovo segmento di clienti.
+				</p>
+			</div>
+
+			<div class="flex flex-col sm:flex-row gap-4">
+				<a href="/contatti" class="btn-quiz text-base md:text-lg text-center">
+					Prenota la call gratuita
+				</a>
+				<a href="/assessment-comportamentale" class="btn-inverted text-base md:text-lg text-center">
+					Vedi il metodo BEDo
+				</a>
+			</div>
+
+			<p class="text-gray-400 text-sm mt-10 pt-6 border-t border-white/10">
+				<strong class="text-gray-300">Cristiano Pusca</strong> · Trent'anni di reti vendita italiane · CEO BPDA srl, distributore PDA International Italia
+			</p>
+		</div>
+	</section>
+</Layout>
