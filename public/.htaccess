@@ -7,13 +7,20 @@ RewriteCond %{HTTPS} !=on
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # ───────────────────────────────────────────────
-# 301 redirects: rebranding PDA → Assessment Comportamentale
-# Le mail Mailchimp inviate prima del rebrand continuano a funzionare via redirect.
+# 301 redirects: dismissione assessment 747 → Chi Tiene il Gioco (490)
+# Le mail Mailchimp inviate in passato continuano a funzionare via redirect.
 # RedirectMatch con regex anchor $ per matchare SOLO le URL esatte
 # (così /pda/cristiano-hero.jpg e altri asset sotto /pda/ NON vengono toccati).
+# Ordine: prima le URL più specifiche (i figli), poi i genitori.
 # ───────────────────────────────────────────────
-RedirectMatch 301 ^/pda/report-esempio/?$ /assessment-comportamentale/esempio
-RedirectMatch 301 ^/pda/?$ /assessment-comportamentale
+
+# Galleria esempio report: vecchi path → nuovo URL pulito /esempio-report
+RedirectMatch 301 ^/assessment-comportamentale/esempio/?$ /esempio-report
+RedirectMatch 301 ^/pda/report-esempio/?$ /esempio-report
+
+# Sales page 747 dismessa → primo passo a 490
+RedirectMatch 301 ^/assessment-comportamentale/?$ /chi-tiene-il-gioco
+RedirectMatch 301 ^/pda/?$ /chi-tiene-il-gioco
 
 # Standard caching headers per asset statici
 <IfModule mod_expires.c>
