@@ -7,7 +7,7 @@ import TestimonialCarousel from '../components/TestimonialCarousel.astro';
 	<!-- ═══════════════════════════════════════════
 	     HERO — SCURO con gradient di sfondo
 	     ═══════════════════════════════════════════ -->
-	<section class="relative overflow-hidden pt-22 pb-8 md:pt-28 md:pb-10 min-h-[100svh] flex items-center bg-dark">
+	<section class="relative overflow-hidden pt-24 pb-14 md:pt-28 md:pb-20 min-h-[72vh] md:min-h-[78vh] flex items-start bg-dark">
 		<div class="absolute inset-0 bg-gradient-to-br from-dark via-dark-light to-sky-muted/40"></div>
 		<div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-sky/[0.07] to-transparent"></div>
 		<div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-accent/[0.05] to-transparent"></div>
@@ -24,10 +24,10 @@ import TestimonialCarousel from '../components/TestimonialCarousel.astro';
 			<div class="flex flex-col md:flex-row md:items-center md:gap-16">
 				<div class="flex-1">
 					<h1 class="text-3xl md:text-4xl lg:text-5xl font-medium leading-[1.1] mb-4 text-white">
-						Nessun corso di vendita funziona su un team che ha <span class="text-sky-light">perso il senso</span> di quello che fa.
+						Sei il primo commerciale della tua azienda. <span class="text-sky-light">È la tua forza ed è il tuo tetto.</span>
 					</h1>
-					<p class="text-gray-300 text-sm md:text-base leading-relaxed mb-4 max-w-xl">
-						Hai provato corsi, coach, script. Ma nonostante le tecniche avanzate, <strong class="text-white">la rete vendita continua ad arrancare</strong>
+					<p class="text-gray-200 text-base md:text-lg leading-relaxed mb-6 max-w-xl">
+						Costruisco reti vendita che camminano anche quando l'imprenditore non è al volante. Primo passo: <strong class="text-white">misurare chi hai in squadra</strong>. Così le decisioni le prendi su un numero, non su una sensazione.
 					</p>
 
 					<div class="block mb-8">
@@ -40,30 +40,18 @@ import TestimonialCarousel from '../components/TestimonialCarousel.astro';
 					<!-- Trust bar testate giornalistiche (sotto headline) -->
 					<div class="mt-2">
 						<p class="text-gray-400 text-[11px] font-heading font-medium tracking-wider uppercase mb-3">Hanno parlato del metodo BEDo</p>
-						<div class="flex flex-wrap items-center gap-x-6 md:gap-x-7 gap-y-4">
+						<div class="flex flex-wrap items-center gap-x-9 md:gap-x-12 gap-y-5">
 							<a href="https://stream24.ilsole24ore.com/video/italia/valorizzare-capitale-umano-crescere-metodo-bedo/AFSRTxED" target="_blank" rel="noopener" aria-label="Il Sole 24 Ore" class="logo-press">
 								<img src="/logos/press/ilsole24ore-o-2021.svg" alt="Il Sole 24 Ore" loading="eager" />
-							</a>
-							<a href="https://www.fortuneita.com/2025/05/22/imprese-familiari-a-rischio-il-92-delle-pmi-italiane-affronta-la-sfida-della-successione/" target="_blank" rel="noopener" aria-label="Fortune Italia" class="logo-press">
-								<img src="/logos/press/fortune-500-logo-png_seeklogo-433786.png" alt="Fortune" loading="eager" />
 							</a>
 							<a href="https://mcusercontent.com/d327453d6178f9f8dfe810d6f/files/911d4179-3ced-d483-8aab-4cb1d4b40fd6/Pagina_MF_Milano_Finanza_Metodo_BEDo.pdf" target="_blank" rel="noopener" aria-label="Milano Finanza" class="logo-press logo-press-bg">
 								<img src="/logos/press/Milano_Finanza_Logo-700x233.png" alt="Milano Finanza" loading="eager" />
 							</a>
+							<a href="https://www.fortuneita.com/2025/05/22/imprese-familiari-a-rischio-il-92-delle-pmi-italiane-affronta-la-sfida-della-successione/" target="_blank" rel="noopener" aria-label="Fortune Italia" class="logo-press">
+								<img src="/logos/press/fortune-500-logo-png_seeklogo-433786.png" alt="Fortune" loading="eager" />
+							</a>
 							<a href="https://youmedia.fanpage.it/video/ZrDLi-SwCrwzV-f3" target="_blank" rel="noopener" aria-label="Fanpage video" class="logo-press logo-press-bg">
 								<img src="/logos/press/Fanpage.it.png" alt="Fanpage" loading="eager" />
-							</a>
-							<a href="https://mcusercontent.com/d327453d6178f9f8dfe810d6f/images/1d27a41e-7aba-eadf-110a-9b3df234ed3d.jpg" target="_blank" rel="noopener" aria-label="Capital" class="logo-press">
-								<img src="/logos/press/capital-logo.svg" alt="Capital" loading="eager" />
-							</a>
-							<a href="https://www.lattemiele.com/podcasts/cristiano-pusca/" target="_blank" rel="noopener" aria-label="Lattemiele" class="logo-press logo-press-bg">
-								<img src="/logos/press/lattemiele.png" alt="Lattemiele" loading="eager" />
-							</a>
-							<a href="https://www.animaimpresa.it/bpda-srl-intervista-a-cristiano-pusca/" target="_blank" rel="noopener" aria-label="Animaimpresa" class="logo-press">
-								<img src="/logos/press/animaimpresa.png" alt="Animaimpresa" loading="eager" />
-							</a>
-							<a href="https://comunicazioneitaliana.net/persone/cristiano-pusca" target="_blank" rel="noopener" aria-label="Comunicazione Italiana" class="logo-press">
-								<img src="/logos/press/comunicazione-italiana.png" alt="Comunicazione Italiana" loading="eager" />
 							</a>
 						</div>
 					</div>
@@ -99,8 +87,8 @@ import TestimonialCarousel from '../components/TestimonialCarousel.astro';
 					Quando le persone si spengono,<br />
 					<span class="text-sky">l'azienda paga.</span>
 				</h2>
-				<p class="text-gray-500 text-lg leading-relaxed max-w-2xl mx-auto">
-					Il <strong class="text-sky">31,8%</strong> dei lavoratori italiani vive forme di burnout. Il 39% <strong class="text-gray-700">non si sente riconosciuto</strong>. Una persona che non si sente vista non vende. <strong class="text-gray-700">Sopravvive</strong>.
+				<p class="text-gray-700 text-lg leading-relaxed max-w-2xl mx-auto">
+					Il <strong class="text-sky">31,8%</strong> dei lavoratori italiani vive forme di burnout. Il 39% <strong class="text-gray-900">non si sente riconosciuto</strong>. Una persona che non si sente vista non vende. <strong class="text-gray-900">Sopravvive</strong>.
 				</p>
 				<p class="text-gray-400 text-xs mt-3 font-body">Rapporto Censis-Eudaimon 2025</p>
 			</div>
@@ -113,8 +101,8 @@ import TestimonialCarousel from '../components/TestimonialCarousel.astro';
 						<svg class="w-6 h-6 text-sky" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
 					</div>
 					<h3 class="text-2xl md:text-3xl font-bold mb-3 text-sky">Sei diventato il primo venditore in azienda, quando dovresti fare l'imprenditore</h3>
-					<p class="text-gray-500 text-[15px] leading-relaxed mb-4">
-						Chiudi tutto da solo perché <strong class="text-gray-700">nessun altro si prende la responsabilità</strong>. Le figure chiave? Hai il terrore che se ne vadano. E quando succede, portano via clienti e know-how.
+					<p class="text-gray-700 text-[15px] leading-relaxed mb-4">
+						Chiudi tutto da solo perché <strong class="text-gray-900">nessun altro si prende la responsabilità</strong>. Le figure chiave? Hai il terrore che se ne vadano. E quando succede, portano via clienti e know-how.
 					</p>
 					<p class="text-gray-800 text-[15px] font-bold">
 						Non sei un imprenditore. Sei diventato il venditore più pagato della tua azienda
@@ -127,12 +115,12 @@ import TestimonialCarousel from '../components/TestimonialCarousel.astro';
 					<div class="w-12 h-12 rounded-2xl bg-sky-50 flex items-center justify-center mb-5">
 						<svg class="w-6 h-6 text-sky" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" /></svg>
 					</div>
-					<h3 class="text-2xl md:text-3xl font-bold mb-3 text-sky">Il team esegue ma non ci crede davvero</h3>
-					<p class="text-gray-500 text-[15px] leading-relaxed mb-4">
-						Non c'è struttura, non c'è metodo. I clienti sono pochi e faticano a cercarne di nuovi.
+					<h3 class="text-2xl md:text-3xl font-bold mb-3 text-sky">Non hai un dato vero su chi produce e chi galleggia</h3>
+					<p class="text-gray-700 text-[15px] leading-relaxed mb-4">
+						Sai quanto fattura ognuno, ma non sai perché. Due venditori funzionano, due tirano avanti, su uno non sapresti dire cosa fa in una giornata. E non hai il tempo di scoprirlo.
 					</p>
 					<p class="text-gray-800 text-[15px] font-bold">
-						Un venditore che ha perso fiducia in sé non vende. Esegue
+						Gestisci una rete che in parte non vedi.
 					</p>
 				</div>
 
@@ -143,8 +131,8 @@ import TestimonialCarousel from '../components/TestimonialCarousel.astro';
 						<svg class="w-6 h-6 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
 					</div>
 					<h3 class="text-2xl md:text-3xl font-bold mb-3 text-sky">Corri per fatturare. Ma non controlli i margini</h3>
-					<p class="text-gray-500 text-[15px] leading-relaxed mb-4">
-						Tutto il focus è sul <strong class="text-gray-700">fatturato a breve</strong>. Nessuno guarda il profitto, la marginalità, il controllo di gestione. I problemi di liquidità sono la conseguenza.
+					<p class="text-gray-700 text-[15px] leading-relaxed mb-4">
+						Tutto il focus è sul <strong class="text-gray-900">fatturato a breve</strong>. Nessuno guarda il profitto, la marginalità, il controllo di gestione. I problemi di liquidità sono la conseguenza.
 					</p>
 					<p class="text-gray-800 text-[15px] font-bold">
 						Senza una strategia sulle persone, stai costruendo su sabbia
@@ -173,11 +161,11 @@ import TestimonialCarousel from '../components/TestimonialCarousel.astro';
 						<svg class="w-5 h-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
 					</div>
 					<h3 class="text-2xl md:text-3xl font-bold mb-3 text-red-500">Il corso intensivo di 3 giorni</h3>
-					<p class="text-gray-500 text-[15px] leading-relaxed mb-3">
-						Tre giorni di entusiasmo. Ma <strong class="text-gray-700">non tocca la persona</strong>. Tocca la superficie.
+					<p class="text-gray-700 text-[15px] leading-relaxed mb-3">
+						Tre giorni di entusiasmo. Ma <strong class="text-gray-900">non tocca la persona</strong>. Tocca la superficie.
 					</p>
-					<p class="text-gray-400 text-[15px] italic leading-relaxed">
-						L'effetto aspirina: il dolore si attenua per un'ora. Poi <strong class="text-gray-600 not-italic">torna tutto come prima</strong>.
+					<p class="text-gray-600 text-[15px] italic leading-relaxed">
+						L'effetto aspirina: il dolore si attenua per un'ora. Poi <strong class="text-gray-800 not-italic">torna tutto come prima</strong>.
 					</p>
 				</div>
 
@@ -186,11 +174,11 @@ import TestimonialCarousel from '../components/TestimonialCarousel.astro';
 						<svg class="w-5 h-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
 					</div>
 					<h3 class="text-2xl md:text-3xl font-bold mb-3 text-red-500">Il guru che spinge sull'aggressività</h3>
-					<p class="text-gray-500 text-[15px] leading-relaxed mb-3">
-						Porta qualche lead, ma <strong class="text-gray-700">brucia le persone</strong>. Quelle stesse persone che dovrebbero essere il tuo asset più importante.
+					<p class="text-gray-700 text-[15px] leading-relaxed mb-3">
+						Porta qualche lead, ma <strong class="text-gray-900">brucia le persone</strong>. Quelle stesse persone che dovrebbero essere il tuo asset più importante.
 					</p>
-					<p class="text-gray-400 text-[15px] italic leading-relaxed">
-						Più pressione su persone già esauste <strong class="text-gray-600 not-italic">non produce vendite. Produce dimissioni</strong>.
+					<p class="text-gray-600 text-[15px] italic leading-relaxed">
+						Più pressione su persone già esauste <strong class="text-gray-800 not-italic">non produce vendite. Produce dimissioni</strong>.
 					</p>
 				</div>
 
@@ -199,11 +187,11 @@ import TestimonialCarousel from '../components/TestimonialCarousel.astro';
 						<svg class="w-5 h-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
 					</div>
 					<h3 class="text-2xl md:text-3xl font-bold mb-3 text-red-500">Il modello accademico da multinazionale</h3>
-					<p class="text-gray-500 text-[15px] leading-relaxed mb-3">
-						Framework sofisticati. <strong class="text-gray-700">Sigle incomprensibili</strong>. Slide bellissime. Ma la tua PMI ha bisogno di qualcosa che funzioni <strong class="text-gray-700">il martedì mattina</strong>.
+					<p class="text-gray-700 text-[15px] leading-relaxed mb-3">
+						Framework sofisticati. <strong class="text-gray-900">Sigle incomprensibili</strong>. Slide bellissime. Ma la tua PMI ha bisogno di qualcosa che funzioni <strong class="text-gray-900">il martedì mattina</strong>.
 					</p>
-					<p class="text-gray-400 text-[15px] italic leading-relaxed">
-						<strong class="text-gray-600 not-italic">Non di una tesi di laurea</strong>.
+					<p class="text-gray-600 text-[15px] italic leading-relaxed">
+						<strong class="text-gray-800 not-italic">Non di una tesi di laurea</strong>.
 					</p>
 				</div>
 			</div>
@@ -214,11 +202,10 @@ import TestimonialCarousel from '../components/TestimonialCarousel.astro';
 					<p class="text-sky text-xs font-heading font-bold tracking-wide uppercase">Il vero punto</p>
 				</div>
 				<p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium mt-2 mb-4">
-					Tutti questi approcci lavorano su quello che le persone <span class="text-sky font-bold">fanno</span>.<br />
-					Nessuno lavora su quello che le persone <span class="text-sky font-bold">sono</span>.
+					Quasi tutti intervengono sul processo: nuovo CRM, nuovo corso, nuovo affiancamento. Il problema è che <span class="text-sky font-bold">intervengono al buio</span>.
 				</p>
-				<p class="text-gray-500 text-base leading-relaxed">
-					Le tecniche non reggono se chi le usa è <strong class="text-gray-700">svuotato</strong>, <strong class="text-gray-700">insicuro</strong>, o ha <strong class="text-gray-700">perso il senso del proprio lavoro</strong>.
+				<p class="text-gray-700 text-base leading-relaxed">
+					Non sai con certezza chi dei tuoi venditori è nel ruolo giusto e chi no. Lo intuisci dai numeri, ma i numeri arrivano tardi e non ti dicono il perché. <strong class="text-gray-900">Io misuro le persone prima di toccare qualsiasi processo.</strong> Così quando intervieni, sai su chi e perché. Decidi con un dato, non con una sensazione.
 				</p>
 			</div>
 		</div>
@@ -227,8 +214,8 @@ import TestimonialCarousel from '../components/TestimonialCarousel.astro';
 	<!-- ═══════════════════════════════════════════
 	     BANNER FOTO TRA SEZIONI
 	     ═══════════════════════════════════════════ -->
-	<section class="relative h-56 md:h-80 overflow-hidden">
-		<img src="/img/pusca-0155.webp" alt="Cristiano Pusca durante un intervento" class="w-full h-full object-cover" loading="lazy" />
+	<section class="relative h-56 md:h-80 overflow-hidden bg-dark">
+		<img src="/img/pusca-0155.webp" alt="Cristiano Pusca durante un intervento" width="1600" height="600" class="w-full h-full object-cover" loading="lazy" decoding="async" />
 		<div class="absolute inset-0 bg-gradient-to-t from-slate/40 to-transparent"></div>
 	</section>
 
@@ -240,8 +227,8 @@ import TestimonialCarousel from '../components/TestimonialCarousel.astro';
 			<div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
 				<!-- Foto Cristiano -->
 				<div class="flex justify-center">
-					<div class="w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden shadow-xl shadow-gray-200/50 ring-4 ring-sky/20 ring-offset-4 ring-offset-white">
-						<img src="/img/cristiano-bio.webp" alt="Cristiano Pusca, analista comportamentale" width="1080" height="628" loading="lazy" class="w-full h-full object-cover object-top" />
+					<div class="w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden shadow-xl shadow-gray-200/50 ring-4 ring-sky/20 ring-offset-4 ring-offset-white bg-slate">
+						<img src="/img/cristiano-bio.webp" alt="Cristiano Pusca, analista comportamentale" width="1080" height="628" loading="lazy" decoding="async" class="w-full h-full object-cover object-top" />
 					</div>
 				</div>
 
@@ -251,11 +238,11 @@ import TestimonialCarousel from '../components/TestimonialCarousel.astro';
 					<h2 class="text-3xl md:text-5xl font-medium mb-6">
 						<span class="text-sky">Cristiano</span> Pusca
 					</h2>
-					<p class="text-gray-600 text-lg leading-relaxed mb-4">
-						<strong class="text-gray-800">Analista comportamentale certificato</strong> e studioso di neuroscienze cognitive. Il mio passato da rugbista mi porta ad affrontare ogni progetto con <strong class="text-gray-800">energia e responsabilità</strong>.
+					<p class="text-gray-700 text-lg leading-relaxed mb-4">
+						Sono nel mondo delle vendite <strong class="text-gray-900">dal 1988</strong>. Ho selezionato, formato e gestito una rete di 100 venditori, 14 area manager e 22 depositi. So come funziona davvero una rete vendita perché ci sono stato dentro, ai due lati: <strong class="text-gray-900">chi vende e chi la rete la deve far reggere</strong>.
 					</p>
-					<p class="text-gray-600 text-lg leading-relaxed mb-8">
-						Non cerco clienti che abbiano bisogno dei miei servizi. Cerco <strong class="text-gray-800">compagni di viaggio</strong> che condividano i miei valori: fiducia, rispetto e libertà.
+					<p class="text-gray-700 text-lg leading-relaxed mb-8">
+						Da analista comportamentale certificato PDA (Senior Analyst) oggi faccio una cosa precisa: <strong class="text-gray-900">misuro le persone prima di toccare il processo</strong>.
 					</p>
 
 					<div class="space-y-4 mb-6">
@@ -263,37 +250,37 @@ import TestimonialCarousel from '../components/TestimonialCarousel.astro';
 							<div class="w-8 h-8 rounded-lg bg-accent-50 flex items-center justify-center shrink-0 mt-0.5">
 								<svg class="w-4 h-4 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
 							</div>
-							<p class="text-gray-600 text-base">Dal <strong class="text-gray-800">'88</strong> nel mondo vendite. Ho selezionato, formato e gestito <strong class="text-gray-800">una rete commerciale composta da 100 venditori, 14 area manager, 22 depositi</strong>.</p>
+							<p class="text-gray-700 text-base">Dal <strong class="text-gray-900">'88</strong> nel mondo vendite. Ho selezionato, formato e gestito <strong class="text-gray-800">una rete commerciale composta da 100 venditori, 14 area manager, 22 depositi</strong>.</p>
 						</div>
 						<div class="flex items-start gap-3">
 							<div class="w-8 h-8 rounded-lg bg-accent-50 flex items-center justify-center shrink-0 mt-0.5">
 								<svg class="w-4 h-4 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
 							</div>
-							<p class="text-gray-600 text-base">CEO e CoFounder di <strong class="text-gray-800">BPDA</strong>, società attiva dal 2012 che si occupa di Assessment, Coaching e Training.</p>
+							<p class="text-gray-700 text-base">CEO e CoFounder di <strong class="text-gray-900">BPDA</strong>, società attiva dal 2012 che si occupa di Assessment, Coaching e Training.</p>
 						</div>
 						<div class="flex items-start gap-3">
 							<div class="w-8 h-8 rounded-lg bg-accent-50 flex items-center justify-center shrink-0 mt-0.5">
 								<svg class="w-4 h-4 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
 							</div>
-							<p class="text-gray-600 text-base">Socio Fondatore di <strong class="text-gray-800">EcoGeoBuilding</strong>, rete d'imprese con <strong class="text-gray-800">28+ soci</strong>, attiva dal 2017.</p>
+							<p class="text-gray-700 text-base">Socio Fondatore di <strong class="text-gray-900">EcoGeoBuilding</strong>, rete d'imprese con <strong class="text-gray-900">28+ soci</strong>, attiva dal 2017.</p>
 						</div>
 						<div class="flex items-start gap-3">
 							<div class="w-8 h-8 rounded-lg bg-accent-50 flex items-center justify-center shrink-0 mt-0.5">
 								<svg class="w-4 h-4 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
 							</div>
-							<p class="text-gray-600 text-base">Creatore del metodo <strong class="text-gray-800">BEDo</strong>: Being, Doing. Prima chi sei, poi cosa fai.</p>
+							<p class="text-gray-700 text-base">Creatore del metodo <strong class="text-gray-900">BEDo</strong>: Being, Doing. Prima chi sei, poi cosa fai.</p>
 						</div>
 						<div class="flex items-start gap-3">
 							<div class="w-8 h-8 rounded-lg bg-accent-50 flex items-center justify-center shrink-0 mt-0.5">
 								<svg class="w-4 h-4 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
 							</div>
-							<p class="text-gray-600 text-base">Autore del libro <strong class="text-gray-800">"LA FIDUCIA, conditio sine qua non"</strong> e di 5 pubblicazioni su leadership, vendita e management.</p>
+							<p class="text-gray-700 text-base">Autore del libro <strong class="text-gray-900">"LA FIDUCIA, conditio sine qua non"</strong> e di 5 pubblicazioni su leadership, vendita e management.</p>
 						</div>
 					</div>
 
 					<div class="p-6 rounded-2xl bg-slate border border-gray-200">
-						<p class="text-gray-800 text-base leading-relaxed italic">
-							"Non esistono aziende vincenti, ma <strong class="not-italic">persone che vincendo nei singoli ruoli fanno vincere l'azienda</strong> nel proprio mercato."
+						<p class="text-gray-800 text-base leading-relaxed">
+							Non lavoro sulle aziende. Lavoro sulle persone che le fanno funzionare. Una rete vendita va bene quando ogni venditore è nel ruolo dove rende davvero. Il resto è una conseguenza.
 						</p>
 					</div>
 				</div>
@@ -315,54 +302,60 @@ import TestimonialCarousel from '../components/TestimonialCarousel.astro';
 				<h2 class="text-3xl md:text-5xl font-medium mb-3 !text-white">
 					Il metodo <span class="text-sky-light">BEDo</span>
 				</h2>
-				<p class="text-gray-200 text-lg max-w-2xl mx-auto">Being, Doing. <strong class="text-white">Prima la persona</strong>, poi il processo. Non è un corso. È un percorso che cambia le cose <strong class="text-white">in modo permanente</strong>.</p>
+				<p class="text-gray-200 text-lg max-w-2xl mx-auto">Being, Doing. <strong class="text-white">Prima misuri chi hai</strong>, poi sistemi come vende.</p>
 			</div>
 
 			<div class="grid md:grid-cols-3 gap-8 mt-14">
 				<!-- Step 1 -->
 				<div class="relative">
-					<div class="card-dark p-7 md:p-8">
+					<div class="card-dark p-7 md:p-8 h-full flex flex-col">
 						<div class="step-number mb-6">1</div>
-						<h3 class="text-2xl md:text-3xl font-bold !text-white mb-2">La persona ritrova sé stessa</h3>
-						<p class="text-sky-light text-sm font-heading font-medium mb-4">Non recita più un ruolo. Vende come persona intera.</p>
+						<h3 class="text-2xl md:text-3xl font-bold !text-white mb-2">Misuri chi hai davvero in squadra</h3>
+						<p class="text-sky-light text-sm font-heading font-medium mb-4">Attitudini, motivazioni, dove ognuno rende.</p>
 						<p class="text-gray-200 text-[15px] leading-relaxed mb-4">
-							Con <strong class="text-white">assessment comportamentali</strong> validati e certificati, scopriamo attitudini e motivazioni. Lavoriamo sui blocchi profondi: <strong class="text-white">paura del rifiuto, senso di inadeguatezza, conflitto tra chi sei e cosa ti chiedono di fare</strong>.
+							Ogni venditore viene profilato con un <strong class="text-white">assessment comportamentale validato</strong>. Non un test della personalità da rivista: una misurazione che dice come ragiona, cosa lo spinge, in quale tipo di vendita rende e in quale si spegne. <strong class="text-white">Smetti di immaginare i tuoi commerciali. Inizi a vederli.</strong>
 						</p>
-						<div class="flex items-center gap-2 mt-4 p-3 rounded-xl bg-white border border-gray-200">
+						<div class="flex items-center gap-2 mt-auto p-3 rounded-xl bg-white border border-gray-200">
 							<svg class="w-4 h-4 text-sky shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
-							<p class="text-gray-700 text-xs font-heading font-medium">Strumento: Assessment Comportamentali</p>
+							<p class="text-gray-700 text-xs font-heading font-medium">Assessment certificati PDA International (Senior Analyst)</p>
 						</div>
 					</div>
 				</div>
 
 				<!-- Step 2 -->
 				<div class="relative">
-					<div class="card-dark p-7 md:p-8">
+					<div class="card-dark p-7 md:p-8 h-full flex flex-col">
 						<div class="step-number mb-6">2</div>
-						<h3 class="text-2xl md:text-3xl font-bold !text-white mb-2">Il leader impara a vedere le persone</h3>
-						<p class="text-sky-light text-sm font-heading font-medium mb-4">Non a controllarle. A riconoscerle.</p>
+						<h3 class="text-2xl md:text-3xl font-bold !text-white mb-2">Hai un profilo scritto su ogni venditore</h3>
+						<p class="text-sky-light text-sm font-heading font-medium mb-4">Decidi con un dato in mano, non a sensazione.</p>
 						<p class="text-gray-200 text-[15px] leading-relaxed mb-4">
-							Con il <strong class="text-white">Coaching Valoriale</strong> (metodologia brevettata) esplicitiamo i <strong class="text-white">valori personali e aziendali</strong> per allinearli. Un leader che sa riconoscere il valore unico di ogni persona crea un ambiente dove la gente resta.
+							Il titolare smette di gestire la rete a impressioni. Su ognuno dei tuoi venditori hai un profilo <strong class="text-white">nero su bianco</strong>: chi va affiancato, chi va spostato di ruolo, chi sta nel posto giusto e va solo lasciato lavorare. Le decisioni che rimandavi da mesi diventano semplici, perché hai il dato che le regge.
 						</p>
-						<div class="flex items-center gap-2 mt-4 p-3 rounded-xl bg-white border border-gray-200">
+						<div class="flex items-center gap-2 mt-auto p-3 rounded-xl bg-white border border-gray-200">
 							<svg class="w-4 h-4 text-sky shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
-							<p class="text-gray-700 text-xs font-heading font-medium">Strumento: Coaching Valoriale (brevettato)</p>
+							<p class="text-gray-700 text-xs font-heading font-medium">Coaching valoriale (metodo proprietario)</p>
 						</div>
 					</div>
 				</div>
 
 				<!-- Step 3 -->
 				<div>
-					<div class="card-dark p-7 md:p-8 !border-accent/20 hover:!border-accent/30">
+					<div class="card-dark p-7 md:p-8 h-full flex flex-col !border-accent/20 hover:!border-accent/30">
 						<div class="step-number mb-6 !bg-gradient-to-br !from-accent !to-accent-dark !shadow-accent/25">3</div>
-						<h3 class="text-2xl md:text-3xl font-bold !text-white mb-2">Le vendite diventano una conseguenza</h3>
-						<p class="text-accent-glow text-sm font-heading font-medium mb-4">Non una forzatura. Una conseguenza naturale.</p>
+						<h3 class="text-2xl md:text-3xl font-bold !text-white mb-2">Dal profilo alla struttura che cammina</h3>
+						<p class="text-accent-glow text-sm font-heading font-medium mb-4">La persona giusta nel ruolo giusto.</p>
 						<p class="text-gray-200 text-[15px] leading-relaxed mb-4">
-							Con i <strong class="text-white">Training Neuroscientifici</strong>, addestriamo le persone a <strong class="text-white">generare valore</strong> per sé e per l'azienda. Persone solide, guidate da un leader consapevole, dentro un processo chiaro.
+							Qui sta il lavoro vero, ed è la parte che quasi nessuno fa. Avere i profili è metà strada: serve <strong class="text-white">tradurli in struttura operativa</strong>. Con i dati in mano rimettiamo ogni venditore dove rende: chi è bravo a chiudere non lo lascio a inseguire contatti freddi, chi tiene la relazione non lo costringo a fare il cacciatore. Ridisegniamo ruoli e zone sulla base di chi hai davvero.
 						</p>
-						<div class="flex items-center gap-2 mt-4 p-3 rounded-xl bg-white border border-gray-200">
+						<p class="text-gray-200 text-[15px] leading-relaxed mb-4">
+							Poi non ti lascio con un PDF. <strong class="text-white">Ti accompagno sul campo</strong>, sulle trattative vere, insieme ai tuoi venditori, finché il modo nuovo di lavorare non diventa il loro modo normale. Ogni due settimane ci sediamo a verificare cosa funziona e cosa no, così aggiusti la rotta mentre succede, non a fine anno.
+						</p>
+						<p class="text-gray-200 text-[15px] leading-relaxed mb-4">
+							Quando la struttura regge, <strong class="text-white">torni a fare l'imprenditore e non il primo commerciale</strong>. Non perché i tuoi venditori hanno trovato la motivazione. Perché ognuno è finalmente nel ruolo dove può rendere.
+						</p>
+						<div class="flex items-center gap-2 mt-auto p-3 rounded-xl bg-white border border-gray-200">
 							<svg class="w-4 h-4 text-accent-dark shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-							<p class="text-gray-700 text-xs font-heading font-medium">Strumento: Training Neuroscientifici</p>
+							<p class="text-gray-700 text-xs font-heading font-medium">Formazione costruita sul profilo di ogni venditore, non corsi uguali per tutti</p>
 						</div>
 					</div>
 				</div>
@@ -422,23 +415,26 @@ import TestimonialCarousel from '../components/TestimonialCarousel.astro';
 		<div class="max-w-6xl mx-auto px-6">
 			<div class="text-center mb-10">
 				<h2 class="text-2xl md:text-4xl font-medium text-white">
-					<span class="text-sky">35+ aziende</span> hanno scelto di lavorare<br />
-					sulle persone prima che sulle vendite.
+					<span class="text-sky">35+ aziende del Nord-Est</span>, una scelta in comune:<br />
+					misurare chi hanno in squadra prima di intervenire sulla rete vendita.
 				</h2>
 			</div>
 
 			<div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3 md:gap-4">
 				{[
+					/* Manifatturieri Nord-Est più riconoscibili: primo colpo d'occhio del target */
 					{ name: 'Snaidero', logo: 'snaidero.svg' },
 					{ name: 'Zoppas Industries', logo: 'zoppas.svg' },
+					{ name: 'Bottecchia', logo: 'bottecchia.svg' },
+					{ name: 'Sisma', logo: 'sisma.jpg' },
+					{ name: 'Vetroin', logo: 'vetroin.webp' },
+					{ name: 'Calvi Holding', logo: 'calvi.svg' },
+					{ name: 'General Filter', logo: 'generalfilter.png' },
+					/* Resto del parco clienti */
 					{ name: 'Banca Finint', logo: 'finint.svg' },
 					{ name: 'Confindustria Veneto Est', logo: 'confindustria-ve.png' },
-					{ name: 'Bottecchia', logo: 'bottecchia.svg' },
-					{ name: 'Calvi Holding', logo: 'calvi.svg' },
 					{ name: 'L\'Ottocento', logo: 'lottocento.svg' },
-					{ name: 'Sisma', logo: 'sisma.jpg' },
 					{ name: 'Mistral Group', logo: 'mistral.png' },
-					{ name: 'General Filter', logo: 'generalfilter.png' },
 					{ name: 'Addviser', logo: 'addviser.png' },
 					{ name: 'Elpi', logo: 'elpi.png' },
 					{ name: 'CMD Officine', logo: 'cmd.png' },
@@ -453,7 +449,6 @@ import TestimonialCarousel from '../components/TestimonialCarousel.astro';
 					{ name: 'ASTEL', logo: 'astel.svg' },
 					{ name: 'Pennellificio Pol', logo: 'pol.png' },
 					{ name: 'BAOBAB', logo: 'baobab.svg' },
-					{ name: 'Vetroin', logo: 'vetroin.webp' },
 					{ name: 'FLEX', logo: 'flex.png' },
 					{ name: 'Dotto Research', logo: 'dottoresearch.svg' },
 					{ name: 'Digital Automations', logo: 'digitalaut.png' },
@@ -507,8 +502,8 @@ import TestimonialCarousel from '../components/TestimonialCarousel.astro';
 
 				<!-- Foto -->
 				<div class="hidden md:flex justify-center">
-					<div class="rounded-2xl overflow-hidden shadow-xl ring-4 ring-white">
-						<img src="/img/pusca-0014.webp" alt="Cristiano Pusca in sessione di lavoro" class="w-80 h-auto object-cover" loading="lazy" />
+					<div class="rounded-2xl overflow-hidden shadow-xl ring-4 ring-white bg-slate min-h-[20rem]">
+						<img src="/img/pusca-0014.webp" alt="Cristiano Pusca in sessione di lavoro" width="640" height="800" class="w-80 h-auto object-cover" loading="lazy" decoding="async" />
 					</div>
 				</div>
 			</div>
