@@ -23,11 +23,17 @@ jobs:
         npm run build
 
     - name: Carica il sito su Hostinger
+      timeout-minutes: 8
       run: |
         sudo apt-get install -y lftp
         lftp -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" "${{ secrets.FTP_SERVER }}" -e "
           set ssl:verify-certificate no;
           set ftp:ssl-allow yes;
-          mirror --reverse --verbose --no-perms --exclude DO_NOT_UPLOAD_HERE ./dist/ .;
+          set net:timeout 15;
+          set net:max-retries 2;
+          set net:reconnect-interval-base 5;
+          set net:persist-retries 2;
+          set cmd:fail-exit yes;
+          mirror --reverse --verbose --no-perms --parallel=4 --exclude DO_NOT_UPLOAD_HERE ./dist/ .;
           quit
         "
