@@ -11,12 +11,15 @@ interface Props {
 	text: string;
 	variant?: 'editorial' | 'compact';
 	theme?: 'light' | 'dark';
+	logo?: string;     // path del logo azienda, es. "/logos/sisma.jpg" — opzionale
+	logoAlt?: string;  // alt esplicito; default: "Logo {company}"
 }
 
-const { name, role, company, text, variant = 'compact', theme = 'light' } = Astro.props;
+const { name, role, company, text, variant = 'compact', theme = 'light', logo, logoAlt } = Astro.props;
 
 const isEditorial = variant === 'editorial';
 const isDark = theme === 'dark';
+const logoAltText = logoAlt ?? `Logo ${company}`;
 ---
 
 <figure class={`testimonial ${isEditorial ? 'editorial' : 'compact'} ${isDark ? 'dark' : 'light'}`}>
@@ -28,9 +31,22 @@ const isDark = theme === 'dark';
 		<p set:html={text}></p>
 	</blockquote>
 
-	<figcaption class="testimonial-attribution">
-		<p class="testimonial-name">{name}</p>
-		<p class="testimonial-role"><span>{role}</span> · <span class="testimonial-company">{company}</span></p>
+	<figcaption class={`testimonial-attribution ${logo ? 'has-logo' : ''}`}>
+		<div class="testimonial-attribution-text">
+			<p class="testimonial-name">{name}</p>
+			<p class="testimonial-role"><span>{role}</span> · <span class="testimonial-company">{company}</span></p>
+		</div>
+		{logo && (
+			<div class="testimonial-logo-chip">
+				<img
+					class="testimonial-logo"
+					src={logo}
+					alt={logoAltText}
+					loading="lazy"
+					decoding="async"
+				/>
+			</div>
+		)}
 	</figcaption>
 </figure>
 
@@ -71,6 +87,49 @@ const isDark = theme === 'dark';
 		gap: 2px;
 	}
 
+	/* Quando c'e' un logo: riga orizzontale (testo a sx, logo a dx) */
+	.testimonial-attribution.has-logo {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+	}
+
+	.testimonial-attribution-text {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+		min-width: 0;
+	}
+
+	/* Contenitore del logo — chip neutro, normalizza l'altezza */
+	.testimonial-logo-chip {
+		flex: 0 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 10px;
+		padding: 7px 12px;
+	}
+
+	.testimonial-logo {
+		height: 30px;
+		width: auto;
+		max-width: 130px;
+		object-fit: contain;
+		display: block;
+	}
+
+	@media (max-width: 480px) {
+		.testimonial-logo {
+			height: 26px;
+			max-width: 110px;
+		}
+		.testimonial-logo-chip {
+			padding: 6px 10px;
+		}
+	}
+
 	.testimonial-name {
 		margin: 0;
 		font-family: 'Lexend', system-ui, sans-serif;
@@ -108,12 +167,21 @@ const isDark = theme === 'dark';
 		font-size: 16px;
 	}
 
+	.testimonial.editorial .testimonial-logo {
+		height: 34px;
+		max-width: 150px;
+	}
+
 	@media (max-width: 640px) {
 		.testimonial.editorial {
 			padding: 28px 24px;
 		}
 		.testimonial.editorial .testimonial-text p {
 			font-size: 17px;
+		}
+		.testimonial.editorial .testimonial-logo {
+			height: 30px;
+			max-width: 120px;
 		}
 	}
 
@@ -127,6 +195,11 @@ const isDark = theme === 'dark';
 	.testimonial.light .testimonial-name { color: #111827; }
 	.testimonial.light .testimonial-role { color: #6b7280; }
 	.testimonial.light .testimonial-company { color: #374151; }
+	/* Chip logo su card chiara — fondo neutro morbido, integra i jpg con sfondo bianco */
+	.testimonial.light .testimonial-logo-chip {
+		background: #f6f8fb;
+		border: 1px solid #e9edf3;
+	}
 
 	/* ── Tema DARK ───────────────────────────── */
 	.testimonial.dark {
@@ -140,4 +213,10 @@ const isDark = theme === 'dark';
 	.testimonial.dark .testimonial-name { color: #ffffff; }
 	.testimonial.dark .testimonial-role { color: rgba(255,255,255,0.65); }
 	.testimonial.dark .testimonial-company { color: rgba(255,255,255,0.85); }
+	/* Chip logo su card scura — chip bianco (come la griglia loghi della home),
+	   altrimenti i loghi scuri/colorati sparirebbero sul fondo navy */
+	.testimonial.dark .testimonial-logo-chip {
+		background: rgba(255, 255, 255, 0.95);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+	}
 </style>

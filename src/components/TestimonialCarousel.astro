@@ -10,36 +10,42 @@ const testimonianze = [
 		name: 'Gianluca B.',
 		role: 'Titolare',
 		company: 'Pelletteria Graziella srl',
+		logo: '/logos/graziella.jpg',
 		text: `Cristiano mi ha dato <mark class="${MARK}">la visione e la forza per affrontare una situazione societaria non più accettabile</mark>. È il filtro giusto tra proprietà e dipendenti. Adesso lavoriamo sulla responsabilità e sul rispetto dell'organigramma.`,
 	},
 	{
 		name: 'Francesca M.',
 		role: 'HR Manager',
 		company: 'Mistral Group srl',
+		logo: '/logos/mistral.png',
 		text: `Il lavoro di Cristiano ha migliorato i processi e i flussi di informazione tra gli uffici. Il valore più grande: <mark class="${MARK}">ha catalizzato un'assunzione di responsabilità, empowerment vero</mark>.`,
 	},
 	{
 		name: 'Claudia B.',
 		role: 'Titolare',
 		company: 'ELPI srl',
+		logo: '/logos/elpi.png',
 		text: `Cristiano mi ha aiutato a capire come interfacciarmi meglio con i collaboratori. Oggi <mark class="${MARK}">chiedo senza pormi troppi problemi</mark> quello che devo. <mark class="${MARK}">Ho risolto molte delle mie paure</mark>.`,
 	},
 	{
 		name: 'Maurizio S.',
 		role: 'Titolare',
 		company: 'Vetroin srl',
+		logo: '/logos/vetroin.webp',
 		text: `<mark class="${MARK}">Abbiamo risolto criticità importanti, creato nuove procedure</mark>, condiviso file e informazioni con tutto il team. <mark class="${MARK}">I collaboratori hanno preso più responsabilità</mark>, abbiamo fatto scelte chiare su figure chiave.`,
 	},
 	{
 		name: 'Andrea V.',
 		role: 'Titolare',
 		company: 'Sisma srl',
+		logo: '/logos/sisma.jpg',
 		text: `Con Cristiano <mark class="${MARK}">abbiamo costruito una parte commerciale che prima in azienda non esisteva</mark>. Mi ha aiutato a formare la persona giusta sulle strategie di vendita.`,
 	},
 	{
 		name: 'Francesco N.',
 		role: 'Titolare',
 		company: 'Noal Mobility Care srl',
+		logo: '/logos/mobilitycare.png',
 		text: `<mark class="${MARK}">Sono io che porto il valore</mark>, non il prodotto da solo. Cristiano mi ha aiutato a <mark class="${MARK}">recuperare sicurezza in me stesso</mark>. Il cliente acquista un valore, una soluzione, un'emozione.`,
 	},
 	{
@@ -52,6 +58,7 @@ const testimonianze = [
 		name: 'Laura B.',
 		role: 'Titolare',
 		company: 'ELPI srl',
+		logo: '/logos/elpi.png',
 		text: `Cristiano mi ha aperto a nuove idee, <mark class="${MARK}">ha lavorato sulla mia insicurezza</mark>, e mi ha fatto capire <mark class="${MARK}">quanto sia importante la comunicazione col team</mark>.`,
 	},
 ];
@@ -79,9 +86,16 @@ const looped = [...testimonianze, ...testimonianze];
 					<blockquote class="testimonial-body">
 						<p set:html={t.text}></p>
 					</blockquote>
-					<figcaption class="testimonial-attribution">
-						<p class="testimonial-name">{t.name}</p>
-						<p class="testimonial-role">{t.role} · <span class="testimonial-company">{t.company}</span></p>
+					<figcaption class={`testimonial-attribution ${t.logo ? 'has-logo' : ''}`}>
+						<div class="testimonial-attribution-text">
+							<p class="testimonial-name">{t.name}</p>
+							<p class="testimonial-role">{t.role} · <span class="testimonial-company">{t.company}</span></p>
+						</div>
+						{t.logo && (
+							<div class="testimonial-logo-chip">
+								<img class="testimonial-logo" src={t.logo} alt={`Logo ${t.company}`} loading="lazy" decoding="async" />
+							</div>
+						)}
 					</figcaption>
 				</figure>
 			))}
@@ -157,6 +171,39 @@ const looped = [...testimonianze, ...testimonianze];
 		gap: 2px;
 		padding-top: 8px;
 		border-top: 1px solid #f3f4f6;
+	}
+
+	.testimonial-attribution.has-logo {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		gap: 14px;
+	}
+
+	.testimonial-attribution-text {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+		min-width: 0;
+	}
+
+	.testimonial-logo-chip {
+		flex: 0 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 9px;
+		padding: 6px 10px;
+		background: #f6f8fb;
+		border: 1px solid #e9edf3;
+	}
+
+	.testimonial-logo {
+		height: 26px;
+		width: auto;
+		max-width: 110px;
+		object-fit: contain;
+		display: block;
 	}
 
 	.testimonial-name {
