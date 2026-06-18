@@ -301,6 +301,7 @@ body {
 	color: #1f2937; /* gray-800, WCAG AA su bianco */
 	font-size: 1.25rem; /* 20px mobile (colonna stretta) */
 	line-height: 1.7;
+	font-weight: 300; /* corpo piu' leggero (Inter Light) */
 }
 
 .prose-caso h2 {
