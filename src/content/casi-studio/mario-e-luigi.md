@@ -1,8 +1,7 @@
 ---
 title: "Due selezioni, lo stesso ruolo. Due esiti opposti."
-headline: "Il top performer arrivato dal concorrente mi faceva perdere soldi a ogni ordine. Il fattorino che consegnava mozzarelle è arrivato a oltre un milione."
 kicker: "UN CASO REALE DI SELEZIONE"
-hook: "Stessa azienda. Stesso ruolo da commerciale. Due scelte diverse. La differenza non è stata il fiuto. È stato un criterio."
+hook: "Il top performer arrivato dal concorrente mi faceva perdere soldi a ogni ordine. Il fattorino che consegnava mozzarelle è arrivato a oltre un milione. La differenza non è stata il fiuto, è stato un criterio."
 excerpt: "Presi il top performer dal concorrente perché aveva i numeri giusti sul curriculum. Mi faceva perdere soldi a ogni ordine. La seconda volta scelsi un ragazzo che consegnava mozzarelle col furgone. Ecco perché, e cosa è cambiato."
 order: 1
 cover: "/img/pusca-0073.webp"

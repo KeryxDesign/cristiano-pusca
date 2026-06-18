@@ -5,8 +5,7 @@ import { glob } from 'astro/loaders';
 const casiStudio = defineCollection({
 	loader: glob({ pattern: '**/*.md', base: './src/content/casi-studio' }),
 	schema: z.object({
-		title: z.string(), // titolo breve (card, breadcrumb, <title>)
-		headline: z.string(), // titolo lungo dell'hero (H1)
+		title: z.string(), // titolo (card + H1 hero, coerenti)
 		kicker: z.string().default('UN CASO REALE'),
 		hook: z.string(), // sottotitolo hero
 		excerpt: z.string(), // paragrafo della card in indice
