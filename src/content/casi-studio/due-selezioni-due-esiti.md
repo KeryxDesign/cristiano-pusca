@@ -37,11 +37,6 @@ E non andò come in una favola. I primi mesi furono duri, e a un certo punto pen
 
 La cosa che conta non è il numero. È che su Matteo **lo sapevo prima che lo dimostrasse.**
 
-<aside class="caso-testi">
-<p>"Abbiamo risolto criticità importanti, creato nuove procedure, condiviso file e informazioni con tutto il team. I collaboratori hanno preso più responsabilità, abbiamo fatto scelte chiare su figure chiave. Volevamo un team più coeso, ci siamo riusciti."</p>
-<cite>Maurizio S. &mdash; Vetroin srl</cite>
-</aside>
-
 ## La persona giusta non si riconosce da cosa ha fatto. Si riconosce da come è fatta.
 
 Roberto l'ho scelto su cosa aveva fatto. Matteo su come era fatto. Tutta la differenza sta lì.
