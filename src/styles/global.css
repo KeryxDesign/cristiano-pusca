@@ -299,8 +299,8 @@ body {
 .prose-caso {
 	font-family: var(--font-body);
 	color: #1f2937; /* gray-800, WCAG AA su bianco */
-	font-size: 1.1875rem; /* 19px */
-	line-height: 1.75;
+	font-size: 1.25rem; /* 20px anche mobile, vista matura */
+	line-height: 1.65;
 }
 
 .prose-caso > * + * {
@@ -323,12 +323,12 @@ body {
 }
 
 @media (min-width: 768px) {
-	.prose-caso { font-size: 1.25rem; }
+	.prose-caso { line-height: 1.6; }
 	.prose-caso h2 { font-size: 2rem; }
 }
 
 .prose-caso p {
-	margin: 0 0 1.5em 0;
+	margin: 0 0 1em 0;
 }
 
 .prose-caso > :last-child {
@@ -340,13 +340,13 @@ body {
 	color: #111827;
 }
 
-.prose-caso a {
+.prose-caso a:not(.caso-cta-soft__btn) {
 	color: #0369a1; /* sky-700 */
 	text-decoration: underline;
 	text-underline-offset: 2px;
-	font-weight: 600;
+	font-weight: 500;
 }
-.prose-caso a:hover { color: #0ea5e9; }
+.prose-caso a:not(.caso-cta-soft__btn):hover { color: #0ea5e9; }
 
 /* Liste "per chi è / per chi non è" */
 .prose-caso ul {
