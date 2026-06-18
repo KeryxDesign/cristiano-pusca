@@ -1,0 +1,82 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const casi = (await getCollection('casi-studio', ({ data }) => !data.draft))
+	.sort((a, b) => a.data.order - b.data.order);
+---
+
+<Layout
+	title="Casi studio: storie vere di reti vendita | Cristiano Pusca"
+	description="Casi reali di selezione e rete vendita nelle PMI italiane. Cosa succede quando si sceglie una persona sul curriculum, e cosa cambia quando si misura prima come è fatta."
+>
+	<!-- ═══════════════════════════════════════════
+	     HERO — DARK
+	     ═══════════════════════════════════════════ -->
+	<section class="relative overflow-hidden pt-28 pb-14 md:pt-32 md:pb-20 bg-dark">
+		<div class="absolute inset-0 bg-gradient-to-br from-dark via-dark-light to-sky-muted/30"></div>
+		<div class="absolute top-20 right-[10%] w-80 h-80 rounded-full bg-sky/[0.05] blur-[100px]"></div>
+
+		<div class="max-w-3xl mx-auto px-6 relative">
+			<p class="text-sky-light text-sm font-heading font-semibold tracking-wider uppercase mb-5">Casi studio</p>
+			<h1 class="text-3xl md:text-5xl font-medium leading-[1.15] mb-6 text-white">
+				Storie vere di <span class="text-sky-light">reti vendita.</span>
+			</h1>
+			<p class="text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl">
+				Niente teoria. Casi reali di PMI come la tua: cosa succede quando si sceglie una persona sul curriculum, e cosa cambia quando si misura prima come è fatta.
+			</p>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     GRIGLIA CASI — BIANCO
+	     ═══════════════════════════════════════════ -->
+	<section class="py-16 md:py-24 bg-white">
+		<div class="max-w-5xl mx-auto px-6">
+			<div class="grid md:grid-cols-2 gap-6 md:gap-8">
+				{casi.map((caso) => (
+					<a href={`/casi-studio/${caso.id}`} class="card-light overflow-hidden flex flex-col group">
+						{caso.data.cover && (
+							<div class="h-48 overflow-hidden">
+								<img src={caso.data.cover} alt={caso.data.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+							</div>
+						)}
+						<div class="p-6 md:p-7 flex flex-col flex-1">
+							<p class="text-sky-700 text-xs font-heading font-bold tracking-wider uppercase mb-3">{caso.data.kicker}</p>
+							<h2 class="text-gray-900 font-medium text-xl md:text-2xl leading-snug mb-3">{caso.data.title}</h2>
+							<p class="text-gray-600 text-base leading-relaxed mb-5 flex-1">{caso.data.excerpt}</p>
+							<span class="text-sky font-heading font-semibold text-base inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+								Leggi il caso
+								<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+							</span>
+						</div>
+					</a>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     CTA — DARK
+	     ═══════════════════════════════════════════ -->
+	<section class="py-16 md:py-20 bg-dark-light relative">
+		<div class="absolute inset-0 bg-gradient-to-b from-dark to-dark-light"></div>
+		<div class="max-w-2xl mx-auto px-6 relative text-center">
+			<div class="section-divider mb-6 mx-auto"></div>
+			<h2 class="text-2xl md:text-3xl font-medium mb-6 text-white">
+				Quanto ti costa la tua rete vendita, davvero?
+			</h2>
+			<p class="text-gray-300 text-lg leading-relaxed mb-10">
+				Dieci domande, tre minuti, un numero in euro. Lo Scanner Rete Vendita ti dice dove perdi margine, e se dipendi troppo da te o da una o due persone chiave.
+			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center">
+				<a href="/scanner" class="btn-quiz text-base md:text-lg text-center">
+					Fai lo Scanner
+				</a>
+				<a href="/contatti" class="btn-inverted text-base md:text-lg text-center">
+					Scrivimi direttamente
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>

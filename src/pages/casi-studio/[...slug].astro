@@ -1,0 +1,83 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+	const casi = await getCollection('casi-studio', ({ data }) => !data.draft);
+	return casi.map((caso) => ({
+		params: { slug: caso.id },
+		props: { caso },
+	}));
+}
+
+const { caso } = Astro.props;
+const { Content } = await render(caso);
+const { title, headline, kicker, hook, ctaHook } = caso.data;
+---
+
+<Layout
+	title={`${title} | Caso studio Cristiano Pusca`}
+	description={hook}
+	image={`/casi-studio/og/${caso.id}.png`}
+>
+	<!-- ═══════════════════════════════════════════
+	     HERO — DARK
+	     ═══════════════════════════════════════════ -->
+	<section class="relative overflow-hidden pt-28 pb-14 md:pt-32 md:pb-20 bg-dark">
+		<div class="absolute inset-0 bg-gradient-to-br from-dark via-dark-light to-sky-muted/30"></div>
+		<div class="absolute top-20 right-[10%] w-80 h-80 rounded-full bg-sky/[0.05] blur-[100px]"></div>
+
+		<div class="max-w-3xl mx-auto px-6 relative">
+			<a href="/casi-studio" class="inline-flex items-center gap-1.5 text-sky-light text-sm font-heading font-medium mb-8 hover:text-white transition-colors">
+				<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+				Casi studio
+			</a>
+			<p class="text-sky-light text-sm font-heading font-semibold tracking-wider uppercase mb-5">{kicker}</p>
+			<h1 class="text-3xl md:text-5xl font-medium leading-[1.15] mb-6 text-white">
+				{headline}
+			</h1>
+			<p class="text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl">
+				{hook}
+			</p>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     CORPO ARTICOLO — BIANCO
+	     ═══════════════════════════════════════════ -->
+	<section class="py-16 md:py-24 bg-white">
+		<article class="prose-caso max-w-2xl mx-auto px-6">
+			<Content />
+		</article>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     CTA FINALE — DARK
+	     ═══════════════════════════════════════════ -->
+	<section class="py-20 md:py-24 bg-dark-light relative">
+		<div class="absolute inset-0 bg-gradient-to-b from-dark to-dark-light"></div>
+		<div class="max-w-2xl mx-auto px-6 relative text-center">
+			<div class="flex justify-center mb-8">
+				<div class="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden ring-4 ring-sky/40 ring-offset-4 ring-offset-dark-light shadow-2xl">
+					<img src="/img/cristiano-cta.webp" alt="Cristiano Pusca" class="w-full h-full object-cover object-top" loading="lazy" />
+				</div>
+			</div>
+			<div class="section-divider mb-6 mx-auto"></div>
+			<h2 class="text-2xl md:text-3xl font-medium mb-6 text-white">
+				{ctaHook}
+			</h2>
+			<p class="text-gray-300 text-lg leading-relaxed mb-10">
+				Dieci domande, tre minuti, un numero in euro: lo Scanner ti dice se nella tua rete c'è un Mario, e quanto ti costa. Poi, se vuoi, ne parliamo da pari.
+			</p>
+
+			<div class="flex flex-col sm:flex-row gap-4 justify-center">
+				<a href="/scanner" class="btn-quiz text-base md:text-lg text-center">
+					Fai lo Scanner
+				</a>
+				<a href="/contatti" class="btn-inverted text-base md:text-lg text-center">
+					Parliamone
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>

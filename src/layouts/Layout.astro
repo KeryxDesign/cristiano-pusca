@@ -6,13 +6,18 @@ interface Props {
   title?: string;
   description?: string;
   noindex?: boolean;
+  image?: string;
 }
 
 const {
   title = 'Cristiano Pusca — Perché i risultati della formazione vendita durano quanto un weekend?',
   description = 'Da oltre 35 anni lavoro con le persone dentro le aziende. Non insegno tecniche di vendita. Lavoro su quello che viene prima: l\'essere. Metodo BEDo.',
   noindex = false,
+  image = '/cristiano-pusca.jpg',
 } = Astro.props;
+
+// og:image assoluto (richiesto dagli scraper social)
+const ogImage = new URL(image, Astro.site ?? Astro.url).href;
 ---
 
 <html lang="it">
@@ -25,12 +30,14 @@ const {
 		<meta name="generator" content={Astro.generator} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta property="og:image" content="/cristiano-pusca.jpg" />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
 		<meta property="og:type" content="website" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content="/cristiano-pusca.jpg" />
+		<meta name="twitter:image" content={ogImage} />
 		<link rel="canonical" href={`https://cristianopusca.com${Astro.url.pathname}`} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -75,6 +82,7 @@ const {
 				<div class="hidden md:flex items-center gap-8">
 					<a href="/chi-sono" class="text-gray-400 text-sm font-heading font-medium hover:text-white transition-colors">Chi sono</a>
 					<a href="/metodo-bedo" class="text-gray-400 text-sm font-heading font-medium hover:text-white transition-colors">Metodo BEDo</a>
+						<a href="/casi-studio" class="text-gray-400 text-sm font-heading font-medium hover:text-white transition-colors">Casi studio</a>
 					<a href="/chi-tiene-il-gioco" class="text-gray-400 text-sm font-heading font-medium hover:text-white transition-colors">Primo passo</a>
 					<a href="/pacchetti" class="text-gray-400 text-sm font-heading font-medium hover:text-white transition-colors">Pacchetti</a>
 					<a href="/libri" class="text-gray-400 text-sm font-heading font-medium hover:text-white transition-colors">Libri</a>
@@ -97,6 +105,7 @@ const {
 				<div class="px-6 py-4 flex flex-col gap-4">
 					<a href="/chi-sono" class="text-gray-300 font-heading hover:text-white transition-colors">Chi sono</a>
 					<a href="/metodo-bedo" class="text-gray-300 font-heading hover:text-white transition-colors">Metodo BEDo</a>
+						<a href="/casi-studio" class="text-gray-300 font-heading hover:text-white transition-colors">Casi studio</a>
 					<a href="/chi-tiene-il-gioco" class="text-gray-300 font-heading hover:text-white transition-colors">Primo passo</a>
 					<a href="/pacchetti" class="text-gray-300 font-heading hover:text-white transition-colors">Pacchetti</a>
 					<a href="/libri" class="text-gray-300 font-heading hover:text-white transition-colors">Libri</a>

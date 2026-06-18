@@ -13,9 +13,12 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.1",
+    "@fontsource/lexend": "^5.2.11",
+    "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/vite": "^4.2.1",
     "astro": "^6.0.4",
     "docx": "^9.6.1",
+    "satori": "^0.26.0",
     "tailwindcss": "^4.2.1"
   }
 }
