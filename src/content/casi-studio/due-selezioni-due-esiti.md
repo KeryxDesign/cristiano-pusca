@@ -6,7 +6,7 @@ excerpt: "Presi il top performer dal concorrente perché aveva i numeri giusti s
 order: 1
 cover: "/img/pusca-0073.webp"
 ogImage: "/img/cristiano-cta.webp"
-ctaHook: "Se nella tua rete c'è un Mario che non hai ancora visto, parliamone."
+ctaHook: "Se nella tua rete c'è un Roberto che non hai ancora visto, parliamone."
 ---
 
 ## Il tavolo
@@ -17,7 +17,7 @@ Si prende il primo. Sempre.
 
 Adesso ti racconto come è andata davvero. E perché chi ha preso il primo, quella volta, ero io.
 
-## Mario fatturava. E mi faceva perdere soldi a ogni ordine.
+## Roberto fatturava. E mi faceva perdere soldi a ogni ordine.
 
 L'avevo preso sul curriculum. Top performer dal concorrente, esattamente il profilo che cercavo. Poi è partito. I report non li compilava. Le politiche dell'azienda erano sempre sbagliate, secondo lui. Ai clienti faceva condizioni sue, sconti fuori scala, e ogni ordine arrivava con la marginalità vicina allo zero.
 
@@ -25,7 +25,7 @@ Un commerciale che fatturava e che mi faceva perdere soldi a ogni ordine.
 
 Non era incapace. Non era fatto per come lavoravamo noi. L'avevo scelto su cosa aveva fatto prima, e il curriculum diceva la verità. Solo che **la verità del curriculum non era la verità che mi serviva.**
 
-## Luigi non aveva mai venduto niente. Ma sapevo come era fatto.
+## Matteo non aveva mai venduto niente. Ma sapevo come era fatto.
 
 La seconda volta ho cambiato l'ordine delle cose. Prima dei colloqui ho capito come era fatta ogni persona davanti a me: come ragiona, cosa la muove, come reagisce quando la giornata si mette male.
 
@@ -35,7 +35,7 @@ Lo presi.
 
 E non andò come in una favola. I primi mesi furono duri, e a un certo punto pensai di aver sbagliato di nuovo. Poi trovò il passo. In circa diciotto mesi è passato da qualche migliaio a <span class="caso-num">oltre un milione</span>, non perché fosse un fenomeno, ma perché era la persona giusta nel posto giusto.
 
-La cosa che conta non è il numero. È che su Luigi **lo sapevo prima che lo dimostrasse.**
+La cosa che conta non è il numero. È che su Matteo **lo sapevo prima che lo dimostrasse.**
 
 <aside class="caso-testi">
 <p>"Abbiamo risolto criticità importanti, creato nuove procedure, condiviso file e informazioni con tutto il team. I collaboratori hanno preso più responsabilità, abbiamo fatto scelte chiare su figure chiave. Volevamo un team più coeso, ci siamo riusciti."</p>
@@ -44,9 +44,9 @@ La cosa che conta non è il numero. È che su Luigi **lo sapevo prima che lo dim
 
 ## La persona giusta non si riconosce da cosa ha fatto. Si riconosce da come è fatta.
 
-Mario l'ho scelto su cosa aveva fatto. Luigi su come era fatto. Tutta la differenza sta lì.
+Roberto l'ho scelto su cosa aveva fatto. Matteo su come era fatto. Tutta la differenza sta lì.
 
-Mario era leggibile prima ancora di assumerlo. Lo sono anche i tuoi cinque venditori, adesso, mentre leggi.
+Roberto era leggibile prima ancora di assumerlo. Lo sono anche i tuoi cinque venditori, adesso, mentre leggi.
 
 ## Non è fiuto, è uno strumento
 
@@ -66,7 +66,7 @@ Non è una qualità mia che ti tocca invidiare. È un metodo, e si misura. Se pr
 
 Un'altra azienda, problema diverso. Sei milioni di fatturato, impianti elettrici e antifurti, tre venditori più il titolare. Il problema non era un'assunzione sbagliata: era il titolare. Vendeva meglio di tutti, si teneva i clienti grossi e non aveva mai un'ora per far crescere i suoi. Era lui il collo di bottiglia.
 
-Stesso criterio di Mario e Luigi: prima capire come sono fatte le persone, poi decidere cosa far loro fare. I venditori, fino a quel momento, lavoravano demotivati sui clienti di serie B mentre il titolare si teneva i grossi. Abbiamo ridistribuito i clienti in modo equo, lavorato uno a uno con i venditori e addestrato il titolare a dare valore ai suoi invece di sostituirli.
+Stesso criterio di Roberto e Matteo: prima capire come sono fatte le persone, poi decidere cosa far loro fare. I venditori, fino a quel momento, lavoravano demotivati sui clienti di serie B mentre il titolare si teneva i grossi. Abbiamo ridistribuito i clienti in modo equo, lavorato uno a uno con i venditori e addestrato il titolare a dare valore ai suoi invece di sostituirli.
 
 A parità di mercato, i venditori finalmente messi in condizione di vendere hanno fatto <span class="caso-num">+16,9% di vendite</span>. E con meno sconti di quanti ne facesse il titolare, <span class="caso-num">+10% di marginalità</span> sul singolo ordine.
 
@@ -74,14 +74,14 @@ Azienda diversa, problema diverso, stesso strumento. E nessuno dei due era un co
 
 <div class="caso-cta-soft">
 <a class="caso-cta-soft__btn" href="/scanner">Fai lo Scanner Rete Vendita &rarr;</a>
-<p>Se nella tua rete c'è un Mario, lo Scanner te lo dice. Dieci domande, tre minuti, un numero in euro: quanto ti costa la rete così com'è.</p>
+<p>Se nella tua rete c'è un Roberto, lo Scanner te lo dice. Dieci domande, tre minuti, un numero in euro: quanto ti costa la rete così com'è.</p>
 </div>
 
 ## Chi ha letto quei due
 
 Non è stata fortuna. Dietro c'erano trentotto anni dentro le reti vendita.
 
-Sto in mezzo alle reti vendita dal 1988. Ho preso Luigi al posto di Mario perché avevo quasi quarant'anni di rete vera alle spalle, non perché ci ho azzeccato. Negli anni ho gestito reti grosse e reti piccole. Ma il punto non è la dimensione di quello che ho gestito. Il punto è che ho passato trentotto anni a guardare come sono fatti i venditori, in aziende di ogni misura. **Compresa la tua.**
+Sto in mezzo alle reti vendita dal 1988. Ho preso Matteo al posto di Roberto perché avevo quasi quarant'anni di rete vera alle spalle, non perché ci ho azzeccato. Negli anni ho gestito reti grosse e reti piccole. Ma il punto non è la dimensione di quello che ho gestito. Il punto è che ho passato trentotto anni a guardare come sono fatti i venditori, in aziende di ogni misura. **Compresa la tua.**
 
 [La mia storia per esteso &rarr;](/chi-sono)
 
