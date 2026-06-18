@@ -23,16 +23,31 @@ jobs:
         npm run build
 
     - name: Carica il sito su Hostinger
-      timeout-minutes: 10
+      timeout-minutes: 25
       run: |
         sudo apt-get install -y lftp
-        lftp -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" "${{ secrets.FTP_SERVER }}" -e "
-          set ssl:verify-certificate no;
-          set ftp:ssl-allow yes;
-          set net:timeout 20;
-          set net:max-retries 5;
-          set net:reconnect-interval-base 5;
-          set net:reconnect-interval-multiplier 1;
-          mirror --reverse --verbose --no-perms --parallel=2 --exclude DO_NOT_UPLOAD_HERE ./dist/ .;
-          quit
-        "
+        upload() {
+          lftp -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" "${{ secrets.FTP_SERVER }}" -e "
+            set ssl:verify-certificate no;
+            set ftp:ssl-allow yes;
+            set net:timeout 30;
+            set net:max-retries 8;
+            set net:reconnect-interval-base 8;
+            set net:reconnect-interval-multiplier 1.5;
+            set net:persist-retries 5;
+            mirror --reverse --verbose --no-perms --parallel=2 --exclude DO_NOT_UPLOAD_HERE ./dist/ .;
+            quit
+          "
+        }
+        attempt=1
+        max=3
+        until upload; do
+          if [ "$attempt" -ge "$max" ]; then
+            echo "::error::Upload FTP fallito dopo $max tentativi."
+            exit 1
+          fi
+          echo "::warning::Upload FTP fallito (tentativo $attempt/$max). Ritento tra 30s..."
+          attempt=$((attempt+1))
+          sleep 30
+        done
+        echo "Upload FTP riuscito (tentativo $attempt/$max)."
