@@ -10,7 +10,6 @@ const testimonianze = [
 		name: 'Gianluca B.',
 		role: 'Titolare',
 		company: 'Pelletteria Graziella srl',
-		logo: '/logos/graziella.jpg',
 		text: `Cristiano mi ha dato <mark class="${MARK}">la visione e la forza per affrontare una situazione societaria non più accettabile</mark>. È il filtro giusto tra proprietà e dipendenti. Adesso lavoriamo sulla responsabilità e sul rispetto dell'organigramma.`,
 	},
 	{
@@ -24,14 +23,12 @@ const testimonianze = [
 		name: 'Claudia B.',
 		role: 'Titolare',
 		company: 'ELPI srl',
-		logo: '/logos/elpi.png',
 		text: `Cristiano mi ha aiutato a capire come interfacciarmi meglio con i collaboratori. Oggi <mark class="${MARK}">chiedo senza pormi troppi problemi</mark> quello che devo. <mark class="${MARK}">Ho risolto molte delle mie paure</mark>.`,
 	},
 	{
 		name: 'Maurizio S.',
 		role: 'Titolare',
 		company: 'Vetroin srl',
-		logo: '/logos/vetroin.webp',
 		text: `<mark class="${MARK}">Abbiamo risolto criticità importanti, creato nuove procedure</mark>, condiviso file e informazioni con tutto il team. <mark class="${MARK}">I collaboratori hanno preso più responsabilità</mark>, abbiamo fatto scelte chiare su figure chiave.`,
 	},
 	{
@@ -58,7 +55,6 @@ const testimonianze = [
 		name: 'Laura B.',
 		role: 'Titolare',
 		company: 'ELPI srl',
-		logo: '/logos/elpi.png',
 		text: `Cristiano mi ha aperto a nuove idee, <mark class="${MARK}">ha lavorato sulla mia insicurezza</mark>, e mi ha fatto capire <mark class="${MARK}">quanto sia importante la comunicazione col team</mark>.`,
 	},
 ];
@@ -93,7 +89,7 @@ const looped = [...testimonianze, ...testimonianze];
 						</div>
 						{t.logo && (
 							<div class="testimonial-logo-chip">
-								<img class="testimonial-logo" src={t.logo} alt={`Logo ${t.company}`} loading="lazy" decoding="async" />
+								<img class="testimonial-logo" src={t.logo} alt={`Logo ${t.company}`} loading="eager" decoding="async" />
 							</div>
 						)}
 					</figcaption>
