@@ -37,7 +37,7 @@ async function handleScanner(request, env) {
 	const mcResult = await addToMailchimp(env, email, firstName, lastName, settore, score, cost, newsletter);
 	if (!mcResult.ok) console.error('Mailchimp error (non-blocking):', mcResult.error);
 
-	const emailResult = await sendResultsEmail(env, email, score, cost);
+	const emailResult = await sendResultsEmail(env, email, firstName);
 	if (!emailResult.ok) console.error('Resend user email error:', emailResult.error);
 
 	const notifyResult = await sendNotifyEmail(env, email, firstName, lastName, settore, score, cost, answers);
@@ -130,9 +130,8 @@ async function sendAssessmentWelcome(env, to, firstName) {
 			'Content-Type': 'application/json',
 		},
 		body: JSON.stringify({
-			// Uso keryxdesign.com perché già DKIM-verified su Resend.
-			// TODO Davide: aggiungere DKIM Resend per cristianopusca.com e cambiare from in cristiano@cristianopusca.com per trust/coerenza
-			from: 'Cristiano Pusca <pusca@keryxdesign.com>',
+			// DKIM Resend cristianopusca.com verificato (record DNS aggiunti 20 mag 2026).
+			from: 'Cristiano Pusca <info@cristianopusca.com>',
 			to: [to],
 			reply_to: 'cristiano@be-do.it',
 			subject: `L'esempio dell'assessment, come promesso`,
@@ -185,61 +184,48 @@ async function sendAssessmentNotify(env, userEmail, firstName, consent_newslette
 
 function buildAssessmentWelcomeHtml(firstName) {
 	const greeting = firstName ? `Ciao ${firstName},` : 'Ciao,';
-	const reportUrl = 'https://cristianopusca.com/assessment-comportamentale/esempio';
+	const reportUrl = 'https://cristianopusca.com/esempio-report';
+	const P = 'font-size:16px;line-height:1.6;margin:0 0 16px 0;color:#1A1A1A;font-family:Georgia,serif;';
 	return `<!DOCTYPE html>
 <html lang="it">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>L'esempio dell'assessment, come promesso</title>
-<style>
-body{margin:0;padding:0;background-color:#f5f5f5;font-family:Georgia,serif;color:#1A1A1A}
-a{color:#B8382B;text-decoration:underline}
-.container{max-width:600px;margin:0 auto;background:#ffffff;padding:48px 36px 44px 36px}
-p{font-size:16px;line-height:1.6;margin:0 0 14px 0;color:#1A1A1A}
-.opener{font-size:18px;line-height:1.55;margin:0 0 18px 0;color:#1A1A1A}
-.cta-section{margin:32px 0;text-align:center}
-.cta-btn{display:inline-block;background:#B8382B;color:#FFFFFF!important;font-family:Lexend,Arial,Helvetica,sans-serif;font-weight:700;font-size:17px;text-decoration:none;padding:14px 28px;border-radius:0;margin:6px 0}
-.signature{font-family:Georgia,serif;font-style:italic;font-weight:700;font-size:18px;color:#1A1A1A;margin:32px 0 0 0}
-.footer{font-size:12px;color:#6B6B6B;text-align:center;padding:24px 0;margin-top:32px;border-top:1px solid #eeeeee}
-.footer a{color:#6B6B6B}
-@media only screen and (max-width:600px){
-	.container{padding:32px 22px 28px 22px}
-	.cta-btn{font-size:16px;padding:13px 24px}
-	.opener{font-size:17px}
-}
-</style>
-</head>
-<body>
-<div style="display:none;font-size:1px;color:#f5f5f5;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">Dodici pagine, ogni paragrafo commentato. Leggilo con calma, non come un oroscopo.</div>
-<div class="container">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>L'esempio dell'assessment, come promesso</title></head>
+<body style="margin:0;padding:0;background-color:#f4f4f4;">
+<div style="display:none;font-size:1px;color:#f4f4f4;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">Dodici pagine, ogni paragrafo commentato. Leggilo con calma, non come un oroscopo.</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f4f4;"><tr><td align="center" style="padding:36px 14px;">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;">
+<tr><td style="padding:44px 36px 36px 36px;">
 
-<p class="opener">${greeting}</p>
+<p style="font-size:18px;line-height:1.55;margin:0 0 18px 0;color:#1A1A1A;font-family:Georgia,serif;">${greeting}</p>
 
-<p>Eccolo qui, come promesso.</p>
+<p style="${P}">Eccolo, come promesso.</p>
 
-<div class="cta-section">
-<a class="cta-btn" href="${reportUrl}">Apri il documento</a>
+<table role="presentation" cellpadding="0" cellspacing="0" style="margin:26px 0;"><tr><td style="background:#B8382B;">
+<a href="${reportUrl}" style="display:inline-block;padding:14px 30px;font-family:Lexend,Arial,Helvetica,sans-serif;font-weight:700;font-size:17px;color:#ffffff;text-decoration:none;">Apri l'esempio di assessment</a>
+</td></tr></table>
+
+<p style="${P}">È l'assessment comportamentale che ho fatto <strong>su me stesso</strong>. Dodici pagine, e accanto a ogni paragrafo il mio commento: <em>cosa vuol dire nella pratica, e cosa farei diversamente</em>.</p>
+
+<p style="${P}">Non è un test su di te. È un esempio, e serve a una cosa sola: <strong>farti vedere che tipo di informazioni tira fuori uno strumento così</strong> su una persona vera. Le leggi con lo stesso occhio con cui le guardo io quando le discuto con un imprenditore.</p>
+
+<p style="${P}">Se mentre lo leggi ti viene in mente <strong>la faccia di un tuo venditore</strong>, o vuoi capire come si applica a una posizione precisa della tua rete, rispondi a questa mail. Ti rispondo <em>io</em>, di persona. Non è un indirizzo di sistema.</p>
+
+<table role="presentation" cellpadding="0" cellspacing="0" style="margin:34px 0 0 0;border-collapse:collapse;"><tr>
+<td style="vertical-align:middle;padding-right:14px;width:60px;">
+<img src="https://mcusercontent.com/d327453d6178f9f8dfe810d6f/images/45216a28-af41-c024-0d7b-22b263a7de4b.jpg" width="58" height="58" alt="Cristiano Pusca" style="display:block;width:58px;height:58px;border-radius:50%;">
+</td>
+<td style="vertical-align:middle;">
+<span style="font-family:Georgia,serif;font-style:italic;font-weight:700;font-size:18px;color:#1A1A1A;">Cristiano Pusca</span><br>
+<span style="font-family:Lexend,Arial,Helvetica,sans-serif;font-size:13px;line-height:1.4;color:#595959;">Aiuto le PMI a costruire una rete vendita che cammina senza dipendere dal titolare</span>
+</td></tr></table>
+
+<div style="font-size:12px;color:#6B6B6B;line-height:1.5;padding:26px 0 0 0;margin-top:28px;border-top:1px solid #eeeeee;font-family:Arial,Helvetica,sans-serif;">
+&copy; ${new Date().getFullYear()} Cristiano Pusca &middot; BPDA S.R.L. &middot; Vicolo XX Settembre 11, 31100 Treviso (TV) &middot; P.IVA 04993860263<br><br>
+Hai ricevuto questa mail perché hai richiesto l'esempio di assessment su cristianopusca.com.<br>
+<a href="https://cristianopusca.com/privacy" style="color:#6B6B6B;">Privacy Policy</a> &middot; <a href="https://us13.list-manage.com/unsubscribe?u=d327453d6178f9f8dfe810d6f&id=2a69d16d64" style="color:#6B6B6B;">Cancella iscrizione</a>
 </div>
 
-<p>È l'assessment comportamentale che ho fatto su me stesso, dodici pagine, ogni paragrafo affiancato dal mio commento su cosa significa nella pratica e su cosa farei diversamente.</p>
-
-<p>Non leggerlo come un test fatto su di te. È un esempio. Serve a capire che tipo di informazioni emergono da uno strumento del genere, prima ancora di decidere se ha senso farlo fare a un tuo venditore o a un candidato. Le pagine commentate ti aiutano a leggere il documento con lo stesso occhio che ho io quando lo discuto con un imprenditore.</p>
-
-<p>Se mentre lo leggi ti viene un dubbio, o vuoi capire come si applica a una posizione specifica della tua rete vendita, rispondimi a questa mail. Ti rispondo io, di persona. Non è un indirizzo di sistema.</p>
-
-<p>Il link resta attivo, puoi salvarlo e riaprirlo quando vuoi. Se preferisci avere il PDF in locale, dalla pagina puoi scaricarlo.</p>
-
-<p class="signature">A presto,<br>Cristiano</p>
-
-<div class="footer">
-&copy; ${new Date().getFullYear()} Cristiano Pusca &middot; BPDA S.R.L.<br>
-Vicolo XX Settembre 11, 31100 Treviso (TV) &middot; P.IVA 04993860263<br><br>
-Hai ricevuto questa mail perché hai richiesto l'assessment d'esempio su cristianopusca.com.<br>
-<a href="https://cristianopusca.com/privacy">Privacy Policy</a> &middot; <a href="https://us13.list-manage.com/unsubscribe?u=d327453d6178f9f8dfe810d6f&id=2a69d16d64">Cancella iscrizione</a>
-</div>
-
-</div>
+</td></tr></table>
+</td></tr></table>
 </body>
 </html>`;
 }
@@ -264,7 +250,7 @@ async function addToMailchimp(env, email, firstName, lastName, settore, score, c
 		headers: { Authorization: authHeader, 'Content-Type': 'application/json' },
 		body: JSON.stringify({
 			email_address: email,
-			status_if_new: newsletter ? 'pending' : 'transactional',
+			status_if_new: newsletter ? 'subscribed' : 'transactional',
 			merge_fields,
 		}),
 	});
@@ -288,8 +274,73 @@ async function addToMailchimp(env, email, firstName, lastName, settore, score, c
 
 // ── Results email to user ──────────────────────────────────
 
-async function sendResultsEmail(env, to, score, cost) {
-	const html = buildResultsHtml(score, cost);
+function buildScannerEmailHtml(firstName) {
+	const greeting = firstName ? `Ciao ${firstName},` : 'Ciao,';
+	const P = 'font-family:Georgia,serif;font-size:17px;line-height:27px;color:#1A1A1A;-webkit-text-fill-color:#1A1A1A;margin:0 0 16px 0;';
+	return `<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>Quello che il numero non ti ha ancora detto</title>
+<style>:root,body{color-scheme:light;supported-color-schemes:light;}</style>
+</head>
+<body style="margin:0;padding:0;background-color:#ffffff;color-scheme:light;-webkit-text-size-adjust:100%;">
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:#ffffff;font-size:1px;line-height:1px;">Dodici pagine. Il mio assessment, quello da cui è partito tutto. Senza giri.</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="background-color:#ffffff;"><tr><td align="center" style="padding:28px 16px;">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="max-width:600px;width:100%;background-color:#ffffff;">
+<tr><td style="padding:24px 30px 36px 30px;">
+
+<p style="font-family:Georgia,serif;font-size:18px;line-height:28px;color:#1A1A1A;-webkit-text-fill-color:#1A1A1A;margin:0 0 18px 0;">${greeting}</p>
+
+<p style="${P}">hai appena visto il tuo numero.</p>
+
+<p style="${P}">Non te lo ripeto. Lo hai già davanti, e probabilmente ti ha dato fastidio per il motivo giusto: <strong>conferma una cosa che sapevi già ma che nessuno aveva ancora messo in cifra.</strong></p>
+
+<p style="${P}">Quel numero ti dice <em>quanto</em> dipendi dalla tua rete vendita. Non ti dice <strong>perché.</strong></p>
+
+<p style="${P}">E il perché non sta nei fatturati. Sta nelle persone che hai in squadra. In <em>chi</em> sono, non in quanto vendono.</p>
+
+<p style="${P}">Tu i tuoi numeri li conosci. Sai chi è sotto target e chi tiene. Quello che non vedi è come lavora davvero ognuno quando tu non sei in macchina con lui. Non perché non guardi. <strong>Perché non è una cosa che si guarda a occhio. Si misura.</strong></p>
+
+<p style="font-family:Lexend,Arial,sans-serif;font-size:19px;line-height:26px;font-weight:700;color:#1A1A1A;-webkit-text-fill-color:#1A1A1A;margin:30px 0 12px 0;">Te lo faccio vedere su di me</p>
+
+<p style="${P}">L'assessment comportamentale che ho fatto <strong>su me stesso</strong>. Dodici pagine, ogni paragrafo col mio commento a margine: come decido, dove vado forte, dove mi costa fatica.</p>
+
+<p style="${P}">Non è un documento qualunque. È lo strumento che mi ha cambiato la vita: da quando ho capito chi ero davvero, <strong>ho guidato una rete di cento commerciali e contribuito a portare l'azienda per cui lavoravo oltre i cento milioni di fatturato.</strong> Non è il tuo, è il mio. Ma è la stessa foto che manca quando una rete vendita dipende ancora dal titolare. Si parte sempre da una persona sola, anche se oggi ne hai cinque.</p>
+
+<p style="${P}">Guardalo con calma. Bastano cinque minuti.</p>
+
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" style="margin:30px auto 6px auto;"><tr>
+<td align="center" bgcolor="#B8382B" style="border-radius:8px;background-color:#B8382B;">
+<a href="https://cristianopusca.com/esempio-report" target="_blank" style="display:inline-block;padding:18px 42px;font-family:Lexend,Arial,sans-serif;font-size:18px;line-height:18px;font-weight:700;color:#FFFFFF;-webkit-text-fill-color:#FFFFFF;text-decoration:none;border-radius:8px;">Apri l'esempio di assessment</a>
+</td></tr></table>
+<p style="font-family:Arial,sans-serif;font-size:13px;line-height:20px;color:#6B6B6B;text-align:center;margin:0 0 30px 0;">Oppure apri: <a href="https://cristianopusca.com/esempio-report" style="color:#B8382B;text-decoration:underline;">cristianopusca.com/esempio-report</a></p>
+
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" style="margin-top:6px;"><tr>
+<td width="56" valign="top" style="padding-right:14px;">
+<img src="https://mcusercontent.com/d327453d6178f9f8dfe810d6f/images/45216a28-af41-c024-0d7b-22b263a7de4b.jpg" width="56" height="56" alt="Cristiano Pusca" style="display:block;width:56px;height:56px;border-radius:28px;border:0;outline:none;">
+</td>
+<td valign="middle">
+<div style="font-family:Lexend,Arial,sans-serif;font-size:16px;font-weight:600;color:#1A1A1A;line-height:22px;">Cristiano Pusca</div>
+<div style="font-family:Georgia,serif;font-size:14px;line-height:20px;color:#6B6B6B;">Aiuto le PMI a costruire una rete vendita che cammina senza dipendere dal titolare</div>
+</td></tr></table>
+
+<div style="font-family:Arial,sans-serif;font-size:12px;line-height:18px;color:#9A9A9A;padding-top:26px;margin-top:28px;border-top:1px solid #eeeeee;">
+&copy; ${new Date().getFullYear()} Cristiano Pusca &middot; BPDA S.R.L. &middot; Vicolo XX Settembre 11, 31100 Treviso (TV) &middot; P.IVA 04993860263<br><br>
+Hai ricevuto questa mail perché hai fatto il test "Misura la rete vendita" su cristianopusca.com. &middot; <a href="https://us13.list-manage.com/unsubscribe?u=d327453d6178f9f8dfe810d6f&id=2a69d16d64" style="color:#9A9A9A;">Cancella iscrizione</a>
+</div>
+
+</td></tr></table>
+</td></tr></table>
+</body>
+</html>`;
+}
+
+async function sendResultsEmail(env, to, firstName) {
+	const html = buildScannerEmailHtml(firstName);
 
 	const res = await fetch('https://api.resend.com/emails', {
 		method: 'POST',
@@ -298,9 +349,10 @@ async function sendResultsEmail(env, to, score, cost) {
 			'Content-Type': 'application/json',
 		},
 		body: JSON.stringify({
-			from: 'Scanner Rete Vendita <scanner@keryxdesign.com>',
+			from: 'Cristiano Pusca <info@cristianopusca.com>',
 			to: [to],
-			subject: `Il tuo Indice di Rischio Dipendenza: ${score}/100`,
+			reply_to: 'cristiano@be-do.it',
+			subject: 'Quello che il numero non ti ha ancora detto',
 			html,
 		}),
 	});
@@ -313,16 +365,16 @@ async function sendResultsEmail(env, to, score, cost) {
 
 const QUESTIONS = [
 	'', // Q0 placeholder
-	'Quanti venditori hai nella tua rete?',
-	'Quanti ne hai persi o sostituiti negli ultimi 24 mesi?',
-	'Quanto tempo ci mette un venditore nuovo a raggiungere il regime?',
-	'Se domani il tuo miglior venditore se ne andasse, che % di fatturato perderesti?',
-	'Quante ore/settimana dedichi TU a seguire clienti o trattative dei venditori?',
-	'Quando un venditore perde un cliente importante, cosa succede?',
-	'Differenza di fatturato tra il miglior e il peggior venditore?',
-	'Quanti venditori nuovi NON hanno reso come ti aspettavi?',
-	'I tuoi venditori vendono tutti allo stesso modo?',
-	'Se tu sparissi per un mese, le vendite...',
+	'Quanti venditori o agenti hai nella rete?',
+	'Quante ore a settimana passi ancora tu dentro le vendite?',
+	'Con chi parlano davvero i clienti più importanti?',
+	'Se sparissi per un mese, le vendite...',
+	'Quando non ci sei, le decisioni commerciali...',
+	'Su cosa ti basi quando assumi un commerciale?',
+	'Hai venditori che mancano il budget da oltre un anno e non hai spostato?',
+	'Quanto ci mette un venditore nuovo ad arrivare a regime?',
+	'Quanti venditori persi o sostituiti negli ultimi 12 mesi?',
+	'In che fascia di fatturato sei?',
 ];
 
 async function sendNotifyEmail(env, userEmail, firstName, lastName, settore, score, cost, answers) {
@@ -343,6 +395,9 @@ async function sendNotifyEmail(env, userEmail, firstName, lastName, settore, sco
 		}
 	}
 
+	const sNum = Number(score) || 0;
+	const fascia = sNum >= 76 ? 'CRITICA' : sNum >= 51 ? 'ALTA' : sNum >= 26 ? 'MODERATA' : 'BASSA';
+	const fColor = sNum >= 76 ? '#dc2626' : sNum >= 51 ? '#ea580c' : sNum >= 26 ? '#ca8a04' : '#16a34a';
 	const html = `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
 <body style="margin:0;padding:0;background:#f9fafb;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
 <table width="100%" cellpadding="0" cellspacing="0" style="background:#f9fafb;"><tr><td align="center" style="padding:30px 20px;">
@@ -356,9 +411,11 @@ async function sendNotifyEmail(env, userEmail, firstName, lastName, settore, sco
 <tr><td style="padding:20px 24px;">
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
-<td style="padding:12px 16px;background:#f0f9ff;border-radius:8px;text-align:center;width:50%;">
-<p style="color:#6b7280;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin:0 0 4px;">Score</p>
-<p style="color:#0ea5e9;font-size:28px;font-weight:700;margin:0;">${score}/100</p>
+<td style="padding:12px 16px;background:#f9fafb;border-radius:8px;text-align:center;width:50%;border:1px solid #e5e7eb;">
+<p style="color:#6b7280;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin:0 0 4px;">Indice di Dipendenza</p>
+<p style="color:${fColor};font-size:28px;font-weight:700;margin:0;">${score}/100</p>
+<p style="color:${fColor};font-size:12px;font-weight:700;letter-spacing:0.5px;margin:4px 0 0;">DIPENDENZA ${fascia}</p>
+<p style="color:#9ca3af;font-size:10px;margin:3px 0 0;">più alto = più dipendente da te</p>
 </td>
 <td style="width:12px;"></td>
 <td style="padding:12px 16px;background:#f0fdf4;border-radius:8px;text-align:center;width:50%;">

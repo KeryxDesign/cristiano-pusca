@@ -68,8 +68,8 @@ A parità di mercato, i venditori finalmente messi in condizione di vendere hann
 Azienda diversa, problema diverso, stesso strumento. E nessuno dei due era un colosso.
 
 <div class="caso-cta-soft">
-<a class="caso-cta-soft__btn" href="/scanner">Fai lo Scanner Rete Vendita &rarr;</a>
-<p>Se nella tua rete c'è un Roberto, lo Scanner te lo dice. Dieci domande, tre minuti, un numero in euro: quanto ti costa la rete così com'è.</p>
+<a class="caso-cta-soft__btn" href="/scanner">Misura la rete vendita &rarr;</a>
+<p>Se nella tua rete c'è un Roberto, il test te lo dice. Dieci domande, tre minuti, un numero in euro: quanto ti costa la rete così com'è.</p>
 </div>
 
 ## Chi ha letto quei due
