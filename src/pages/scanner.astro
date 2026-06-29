@@ -378,15 +378,20 @@ const description = '10 domande, 3 minuti. Scopri quanto la tua rete vendita dip
 						<p class="text-ink-soft mb-10" style="font-size: 14px;">A spanne, sui tuoi numeri, una rete così pesa <span id="scanner-cost-seed" class="text-ink font-semibold"></span> l'anno. È una stima ruvida, non un preventivo: il numero vero esce solo misurando chi hai in squadra, una persona alla volta. Ma l'ordine di grandezza è quello, e cresce finché resta così.</p>
 
 						<!-- Sintomi-spia personalizzati -->
-						<div id="scanner-sintomi-block" class="mb-14">
+						<div id="scanner-sintomi-block" class="mb-10">
 							<p class="text-ink text-sm font-heading font-semibold tracking-wider uppercase mb-4">Cosa dicono le tue risposte</p>
 							<ul id="scanner-sintomi" class="space-y-3"></ul>
 						</div>
 
+						<!-- ░░ ASSAGGIO per fascia — il gancio onesto prima del gate ░░ -->
+						<div id="scanner-assaggio-block" class="mb-14 pl-4 border-l-2" style="border-color:#B07A2E;">
+							<p id="scanner-assaggio" class="text-ink leading-relaxed" style="font-size:16px;"></p>
+						</div>
+
 						<!-- ░░ GATE MAIL — invito, non paywall: card chiara ░░ -->
 						<div id="scanner-email-gate" class="card-light p-7 md:p-9 mb-8">
-							<p class="text-ink font-heading font-semibold text-xl md:text-[1.4rem] leading-snug mb-3">Te lo faccio vedere su di me: lo strumento con cui ho capito chi avevo davvero in squadra.</p>
-							<p class="text-ink-soft text-[0.95rem] leading-relaxed mb-6">Il risultato te l'ho dato qui, senza chiederti niente. Questo è altra roba: l'assessment vero con cui ho capito chi avevo in squadra. Se vuoi vederlo, lasciami la mail e te lo mando. Nessuno spam, nessuna telefonata a freddo.</p>
+							<p class="text-ink font-heading font-semibold text-xl md:text-[1.4rem] leading-snug mb-3">Il numero te l'ho dato. La lettura, no: te la mando per mail.</p>
+							<p class="text-ink-soft text-[0.95rem] leading-relaxed mb-6">Qui sopra hai il numero, senza chiederti niente. Quello che non sta a schermo è cosa vuol dire <em>per te</em>, letto dalle tue risposte: dove sei, perché ci sei finito, da dove si esce. Lasciami la mail e te la scrivo. Nessuno spam, nessuna telefonata a freddo.</p>
 							<form id="scanner-email-form" class="space-y-4">
 								<input id="scanner-firstname" type="text" placeholder="Nome" required autocomplete="given-name" maxlength="40" class="scanner-input-light w-full px-5 py-3.5 rounded-xl text-ink text-base" />
 								<input id="scanner-email" type="email" placeholder="La tua email aziendale" required autocomplete="email" class="scanner-input-light w-full px-5 py-3.5 rounded-xl text-ink text-base" />
@@ -411,7 +416,7 @@ const description = '10 domande, 3 minuti. Scopri quanto la tua rete vendita dip
 									<span class="text-ink-soft text-xs leading-relaxed">Voglio ricevere anche "Il Risveglio della Rete Vendita": un principio a settimana per ripensare come guidi chi vende per te.</span>
 								</label>
 								<button type="submit" id="scanner-email-btn" class="w-full text-base font-heading font-semibold text-white rounded-xl px-6 py-4 transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-deep" style="background-color: var(--color-teal-deep); min-height: 48px;" onmouseover="this.style.opacity='0.92'" onmouseout="this.style.opacity='1'">
-									Mostrami l'esempio
+									Mandami la lettura del mio numero
 								</button>
 								<p class="text-ink-soft text-[11px] text-center leading-relaxed mt-2">I tuoi dati sono trattati da Cristiano Pusca ai sensi dell'Art. 6(1)(b) GDPR per inviarti il contenuto richiesto. Non li condividiamo con terzi. Puoi richiedere cancellazione in qualsiasi momento. <a href="/privacy" class="underline hover:text-ink transition-colors">Informativa privacy</a>.</p>
 							</form>
@@ -421,15 +426,11 @@ const description = '10 domande, 3 minuti. Scopri quanto la tua rete vendita dip
 						<!-- ░░ DIETRO IL GATE — solo due cose, una colonna ░░ -->
 						<div id="scanner-gated" class="hidden">
 
-							<!-- 1. Esempio assessment (la ricompensa della mail) -->
+							<!-- 1. La lettura è partita via mail (il deliverable) -->
 							<div class="card-light p-7 md:p-9 mb-5 text-center">
-								<p class="text-teal-deep text-xs font-heading font-semibold tracking-wider uppercase mb-2">Il tuo esempio è pronto</p>
-								<p class="text-ink text-lg md:text-xl font-heading font-medium mb-2">Un assessment comportamentale, su una persona reale.</p>
-								<p class="text-ink-soft text-sm leading-relaxed mb-6">Dodici pagine, ogni paragrafo commentato da Cristiano. È lo stesso documento che riceverebbe un tuo venditore. Guardalo con calma: serve a capire cosa emerge da uno strumento del genere, prima ancora di decidere se farlo.</p>
-								<a href="/esempio-report" class="inline-flex items-center justify-center font-heading font-semibold text-white rounded-xl px-7 py-3.5 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-deep" style="background-color: var(--color-teal-deep); min-height: 48px;" onmouseover="this.style.opacity='0.92'" onmouseout="this.style.opacity='1'">
-									Apri l'esempio di assessment
-									<svg class="inline w-5 h-5 ml-2 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-								</a>
+								<p class="text-teal-deep text-xs font-heading font-semibold tracking-wider uppercase mb-2">Controlla la mail</p>
+								<p class="text-ink text-lg md:text-xl font-heading font-medium mb-2">Ti ho mandato la lettura del tuo numero.</p>
+								<p class="text-ink-soft text-sm leading-relaxed">È nella tua casella, controllala (se non la vedi, guarda nello spam o tra le promozioni). Dentro c'è cosa dice davvero il tuo risultato, letto sulle tue risposte. Si risponde a quella mail: rispondo io, di persona.</p>
 							</div>
 
 							<!-- 2. Il ponte: Chi Tiene il Gioco (qui il rosso e' la conversione) -->
@@ -557,6 +558,14 @@ const description = '10 domande, 3 minuti. Scopri quanto la tua rete vendita dip
 				return 'Dipendenza critica: non hai una rete vendita, hai collaboratori che vendono quando li guidi tu. È una fascia più comune di quanto sembri tra le PMI, e senza di te si ferma quasi tutto.';
 			}
 
+			// assaggio a schermo per fascia (gancio onesto sopra il gate)
+			function assaggioText(i) {
+				if (i <= 25) return 'Numero basso: la tua rete cammina davvero senza di te, e non è scontato. C\'è una sola domanda che il numero non chiude: la regge un sistema, o una-due persone brave?';
+				if (i <= 50) return 'È la zona grigia, e non è la più tranquilla: è la più scivolosa. Funziona abbastanza. Cioè non abbastanza male da spingerti a muoverti, non abbastanza bene da scalare. Per questo resta uguale anno dopo anno, mentre la rete lascia soldi sul tavolo ogni mese.';
+				if (i <= 75) return 'Le tue risposte dicono una cosa che forse non vuoi sentirti dire: sei ancora tu il primo commerciale della tua azienda. E la parte scomoda è che ci hai già provato a uscirne, e sei ancora qui.';
+				return 'Le tue risposte dicono che non hai una rete vendita. Hai persone che vendono quando le guidi tu. E il problema non è "se" un giorno non puoi esserci. È quando.';
+			}
+
 			function showResults() {
 				const r = calculateResults();
 				lastResults = r;
@@ -592,6 +601,10 @@ const description = '10 domande, 3 minuti. Scopri quanto la tua rete vendita dip
 						ul.appendChild(li);
 					});
 				}
+
+				// assaggio per fascia (il gancio onesto sopra il gate)
+				const assaggioEl = $('#scanner-assaggio');
+				if (assaggioEl) assaggioEl.textContent = assaggioText(r.indice);
 
 				// costo a spanne (sobrio, sotto l'indice; il valore va anche nel payload)
 				const totCost = (r.cost && r.cost.tot) || 0;
@@ -675,7 +688,7 @@ const description = '10 domande, 3 minuti. Scopri quanto la tua rete vendita dip
 
 				btn.disabled = true; btn.textContent = 'Un attimo...';
 
-				// raccolta risposte per il lead
+				// raccolta risposte per il lead (label leggibili, per la notify owner)
 				const answers = {};
 				const q1 = $('input[name="sq1"]');
 				if (q1) answers.venditori = q1.value;
@@ -687,8 +700,14 @@ const description = '10 domande, 3 minuti. Scopri quanto la tua rete vendita dip
 					}
 				}
 
+				// valori numerici grezzi (0-3) per il giudizio server-side (innesti val(n))
+				const vals = {};
+				for (let i = 2; i <= 9; i++) vals['q' + i] = val(i);
+
 				const payload = {
-					firstName, email, settore, newsletter: nlOptin, answers,
+					firstName, email, settore, newsletter: nlOptin, answers, vals,
+					venditori: lastResults ? lastResults.N : (parseInt($('input[name="sq1"]').value) || 0),
+					fatturatoVal: lastResults ? lastResults.F : 0,
 					score: lastResults ? String(lastResults.indice) : '',
 					cost: lastResults ? eur(lastResults.cost.tot) + '/anno' : '',
 					fatturato: lastResults ? fattLabel(lastResults.F) : '',
