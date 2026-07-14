@@ -1,20 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import TestimonialCarousel from '../components/TestimonialCarousel.astro';
 
 // Chi Tiene il Gioco — primo gradino del percorso "Leggere la Squadra" (490 € + IVA)
-// Copy validato sui buyer, registro TU. Vedi strategia-2026/copy-pagine-listino.md (PAGINA A).
+// Copy v2 APPROVATO (diagnosi→prescrizione, 3 mosse): strategia-2026/copy-chi-tiene-il-gioco-v2.md
+// Impianto DR: strategia-2026/impianto-lori-chi-tiene-il-gioco.md
+// Registro TU. Sequenza fondi 5-ruoli: dark→white→slate→white→sky-50→white→dark→white→sky-50→dark→white→gray-50→white→dark
 
-const WA_CHI =
-  'https://wa.me/393408217120?text=' +
-  encodeURIComponent('Ciao Cristiano, vorrei partire da Chi Tiene il Gioco (490 € + IVA). Quando possiamo fissare?');
+const WA_BASE = 'https://wa.me/393408217120?text=';
+// Prefill diversi per sezione (attribuzione soft), conversione sempre bottone verde WhatsApp
+const WA_HERO = WA_BASE + encodeURIComponent('Ciao Cristiano, vorrei partire da Chi Tiene il Gioco (490 € + IVA). Quando possiamo fissare?');
+const WA_MOSSE = WA_BASE + encodeURIComponent('Ciao Cristiano, ho letto le tre mosse di Chi Tiene il Gioco. Vorrei partire dal primo passo: quando possiamo fissare?');
+const WA_REPORT = WA_BASE + encodeURIComponent("Ciao Cristiano, ho visto l'esempio di report di Chi Tiene il Gioco. Vorrei partire dal primo passo (490 € + IVA).");
+const WA_MADRE = WA_BASE + encodeURIComponent('Ciao Cristiano, voglio prenotare il primo passo di Chi Tiene il Gioco (490 € + IVA). Quando possiamo fissare?');
 ---
 
 <Layout
-	title="Chi Tiene il Gioco — il primo dato è su di te, non sui venditori | Cristiano Pusca"
-	description="Un assessment comportamentale sull'imprenditore, non sui suoi commerciali. 90 minuti di restituzione e un report scritto sui tre sintomi della tua rete vendita. 490 € + IVA, che si scalano interi se prosegui entro 60 giorni. Punto di partenza, non impegno a proseguire."
+	title="Chi Tiene il Gioco — novanta minuti, e le tre mosse da fare da lunedì | Cristiano Pusca"
+	description="Misuriamo come decidi, deleghi e comunichi sotto pressione. Da lì escono tre mosse concrete da iniziare lunedì sulla tua rete vendita. 90 minuti di call, un report scritto, 490 € + IVA che si scalano interi se prosegui entro 60 giorni. Punto di partenza, nessun impegno a proseguire."
 >
 	<!-- ═══════════════════════════════════════════
-	     HERO — DARK
+	     B1 · HERO — DARK
 	     ═══════════════════════════════════════════ -->
 	<section class="relative overflow-hidden pt-28 pb-14 md:pt-32 md:pb-20 bg-dark">
 		<div class="absolute inset-0 bg-gradient-to-br from-dark via-dark-light to-sky-muted/30"></div>
@@ -23,16 +29,16 @@ const WA_CHI =
 		<div class="w-full max-w-6xl mx-auto px-6 relative">
 			<div class="grid md:grid-cols-[1fr_300px] gap-10 md:gap-14 items-center">
 				<div>
-					<p class="text-sky-light text-sm font-heading font-semibold tracking-wider uppercase mb-5">Il primo gradino · 490 € + IVA</p>
-					<h1 class="text-3xl md:text-5xl font-medium leading-[1.15] mb-6 text-white">
-						Chi Tiene il Gioco.<br class="hidden md:block" />
-						<span class="text-sky-light">Il primo dato non è sui venditori. È su di te.</span>
+					<p class="text-sky-light text-xs md:text-sm font-heading font-bold tracking-wider uppercase mb-5">Il primo gradino · 490 € + IVA</p>
+					<h1 class="text-[26px] sm:text-3xl md:text-5xl font-medium leading-[1.15] mb-6 text-white">
+						Chi Tiene il Gioco. Novanta minuti, io e te. Esci con <span class="text-sky-light">le tre mosse da fare da lunedì</span> sulla tua rete.
 					</h1>
-					<p class="text-gray-300 text-lg md:text-xl leading-relaxed mb-8 max-w-2xl">
-						Un assessment comportamentale fatto sull'imprenditore, non sui suoi commerciali. Novanta minuti di restituzione e un report scritto sui tre sintomi che la tua rete sta mostrando adesso. Punto di partenza, non impegno a proseguire.
+					<p class="text-gray-300 text-lg md:text-xl leading-relaxed mb-7 max-w-2xl">
+						Misuriamo come decidi, deleghi e comunichi quando sei sotto pressione. Da lì si vede dove la rete si è appoggiata su di te negli anni. E da lì tiriamo fuori <strong class="text-white font-semibold">tre mosse concrete da iniziare lunedì mattina.</strong> 490 euro + IVA, che si scalano interi se prosegui entro 60 giorni. Un punto di partenza. Nessun impegno a proseguire.
 					</p>
+
 					<div class="flex flex-col sm:flex-row gap-4">
-						<a href={WA_CHI} target="_blank" rel="noopener" class="flex items-center justify-center gap-2 py-3.5 px-7 rounded-xl bg-[#25D366] hover:bg-[#1fb855] text-white font-heading font-semibold text-base transition-all shadow-md shadow-[#25D366]/20 hover:shadow-lg hover:shadow-[#25D366]/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-light">
+						<a href={WA_HERO} target="_blank" rel="noopener" class="flex items-center justify-center gap-2 py-3.5 px-7 rounded-xl bg-[#25D366] hover:bg-[#1fb855] text-white font-heading font-semibold text-base transition-all shadow-md shadow-[#25D366]/20 hover:shadow-lg hover:shadow-[#25D366]/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-light">
 							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 							Parti da qui
 						</a>
@@ -40,9 +46,25 @@ const WA_CHI =
 							Vedi come funziona
 						</a>
 					</div>
+
+					<!-- Micro-stat inline -->
+					<div class="flex flex-wrap gap-2.5 mt-6">
+						<span class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full bg-white/[0.06] border border-white/10 text-gray-300 text-sm font-heading">
+							<svg class="w-3.5 h-3.5 text-sky-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+							90 min
+						</span>
+						<span class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full bg-white/[0.06] border border-white/10 text-gray-300 text-sm font-heading">
+							<svg class="w-3.5 h-3.5 text-sky-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
+							Io e te, 1:1
+						</span>
+						<span class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full bg-white/[0.06] border border-white/10 text-gray-300 text-sm font-heading">
+							<svg class="w-3.5 h-3.5 text-sky-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+							Report scritto
+						</span>
+					</div>
 				</div>
 
-				<!-- Foto Cristiano: per la call io-e-te i buyer vogliono farsi un'idea di chi hanno davanti -->
+				<!-- Foto Cristiano: per la call io-e-te i buyer vogliono un'idea di chi hanno davanti -->
 				<div class="flex md:justify-center">
 					<div class="rounded-2xl ring-2 ring-white/10 overflow-hidden shadow-2xl shadow-sky/10 max-w-[260px] md:max-w-none">
 						<img src="/img/cristiano-bio.webp" alt="Cristiano Pusca, analista comportamentale certificato PDA Senior Analyst" class="w-full md:w-72 lg:w-80 h-auto object-cover" loading="eager" />
@@ -50,7 +72,7 @@ const WA_CHI =
 				</div>
 			</div>
 
-			<!-- RIGA AUTORITA' — richiesta presto dai buyer, piccola ma visibile -->
+			<!-- RIGA AUTORITA' -->
 			<div class="mt-10 md:mt-12 pt-7 border-t border-white/10">
 				<div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
 					<div class="flex items-center gap-2 shrink-0">
@@ -66,7 +88,7 @@ const WA_CHI =
 	</section>
 
 	<!-- ═══════════════════════════════════════════
-	     IL PROBLEMA — BIANCO
+	     B2 · IL PROBLEMA — BIANCO
 	     ═══════════════════════════════════════════ -->
 	<section class="py-20 md:py-28 bg-white">
 		<div class="max-w-3xl mx-auto px-6">
@@ -76,87 +98,270 @@ const WA_CHI =
 				Finché ci sei tu, la rete cammina.<br />
 				<span class="text-sky">E nessuno ti ha mai misurato.</span>
 			</h2>
-			<div class="space-y-5 text-gray-700 text-lg leading-relaxed">
+			<div class="space-y-6 text-gray-700 text-lg leading-relaxed">
 				<p>
 					In azienda fai il regista. Chiami tu i clienti che pesano. Decidi tu sugli sconti, sulle priorità, su chi va dove. La rete cammina finché ci sei tu a dirle dove andare.
 				</p>
-				<p class="text-gray-900 font-medium">
+				<!-- EVIDENZIA: lead in-flow (NON box) -->
+				<p class="text-xl md:text-2xl font-medium text-gray-900 leading-snug">
 					Funziona. Fino al giorno in cui ti fermi, e si ferma tutto con te.
 				</p>
 				<p>
-					Nessuno ti ha mai misurato. Sai di essere il punto fermo dell'azienda, ma <strong class="text-gray-900">"punto fermo" è una sensazione, non un dato.</strong> Qui partiamo da lì: mettere un numero su una cosa che oggi sai solo a intuito.
+					Nessuno ti ha mai misurato. Sai di essere il punto fermo dell'azienda, ma <strong class="text-gray-900">"punto fermo" è una sensazione. Non è un dato.</strong> Qui partiamo da lì: mettere un numero su una cosa che oggi sai solo a intuito.
 				</p>
 			</div>
 		</div>
 	</section>
 
 	<!-- ═══════════════════════════════════════════
-	     COSA MISURA — SLATE
+	     B3 · IL REFRAME — SLATE
 	     ═══════════════════════════════════════════ -->
 	<section class="py-20 md:py-28 bg-slate">
+		<div class="max-w-3xl mx-auto px-6">
+			<div class="section-divider mb-6"></div>
+			<p class="text-sky text-xs font-heading font-bold tracking-wider uppercase mb-3">Il punto</p>
+			<h2 class="text-2xl md:text-4xl font-medium mb-8 text-gray-900 leading-[1.2]">
+				Quello che ti ha portato a quattro milioni,<br class="hidden sm:block" />
+				<span class="text-sky"> oggi in parte ti frena.</span>
+			</h2>
+			<div class="space-y-6 text-gray-700 text-lg leading-relaxed">
+				<p>
+					A intuito hai costruito una rete che gira quando ci sei tu. Lo stesso modo di decidere, delegare e comunicare che ti ha fatto arrivare fin qui è anche il motivo per cui certe cose si fermano la settimana che sei in fiera.
+				</p>
+				<!-- EVIDENZIA: lead in-flow (NON box) -->
+				<p class="text-xl md:text-2xl font-medium text-gray-900 leading-snug">
+					Qui non ti chiedo di cambiare. Ti mostro dove quello che già sei sta <span class="text-sky-700">lavorando contro di te</span>, e come recuperarlo.
+				</p>
+				<p>
+					Non hai bisogno di diventare un imprenditore diverso. Hai bisogno che qualcuno ti misuri, per la prima volta, e ti dica dove stai lasciando valore per terra ogni giorno senza accorgertene.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     B4 · LA MECCANICA — BIANCO
+	     ═══════════════════════════════════════════ -->
+	<section class="py-20 md:py-28 bg-white">
 		<div class="max-w-4xl mx-auto px-6">
 			<div class="section-divider mb-6"></div>
-			<p class="text-sky text-xs font-heading font-bold tracking-wider uppercase mb-3">Cosa misura</p>
+			<p class="text-sky text-xs font-heading font-bold tracking-wider uppercase mb-3">La meccanica</p>
 			<h2 class="text-2xl md:text-4xl font-medium mb-6 text-gray-900 leading-[1.2]">
-				Non un test della personalità.<br />
-				<span class="text-sky">Una misurazione validata.</span>
+				Misuriamo tre comportamenti.<br />
+				<span class="text-sky">Sono gli stessi che hanno dato alla tua rete la forma che ha oggi.</span>
 			</h2>
-			<p class="text-gray-700 text-lg leading-relaxed mb-4 max-w-2xl">
-				Si chiama assessment comportamentale. È lo stesso strumento (PDA International) che uso da analista certificato Senior Analyst sulle reti vendita: una misurazione validata, non un test della personalità da rivista. Non ti dice se sei introverso o estroverso.
+			<p class="text-gray-700 text-lg leading-relaxed mb-8 max-w-2xl">
+				È lo stesso strumento validato (PDA International) che uso da analista certificato Senior Analyst sulle reti vendita. Una misura, non un test della personalità da rivista. Non ti dice se sei introverso o estroverso.
 			</p>
 
-			<a href="/esempio-report" class="inline-flex items-center gap-2 text-sky font-heading font-semibold text-base hover:text-sky-light transition-colors group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky">
-				<svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-				Vedi un esempio di report (12 pagine)
-				<svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-			</a>
-
-			<div class="card-light p-7 md:p-8 my-8">
-				<p class="text-gray-500 text-sm font-heading font-bold tracking-wider uppercase mb-4">Misura tre comportamenti</p>
+			<div class="card-light p-7 md:p-8 mb-8">
+				<p class="text-gray-500 text-sm font-heading font-bold tracking-wider uppercase mb-4">Misura tre cose</p>
 				<p class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
-					Come <span class="text-sky">decidi</span>, come <span class="text-sky">deleghi</span> e come <span class="text-sky">comunichi</span> quando sei sotto pressione.
+					Come <span class="text-sky-700">decidi</span>, come <span class="text-sky-700">deleghi</span> e come <span class="text-sky-700">comunichi</span> quando sei sotto pressione.
 				</p>
 				<p class="text-gray-600 text-base leading-relaxed mt-3">
-					Cioè i tre comportamenti che, ripetuti ogni giorno per anni, hanno dato alla tua rete vendita la forma che ha oggi.
+					Cioè i tre comportamenti che, ripetuti ogni giorno per anni, hanno dato alla tua rete vendita la forma che ha adesso.
 				</p>
 			</div>
 
+			<!-- BOX neutro -->
 			<div class="rounded-2xl bg-dark/[0.04] border border-dark/10 p-7 md:p-8 mb-8">
 				<p class="text-gray-900 text-lg font-medium mb-3">Si parte da te per un motivo preciso.</p>
 				<p class="text-gray-700 text-base leading-relaxed">
-					I tuoi tre comportamenti sotto pressione sono la chiave per leggere la rete: spiegano perché i venditori aspettano il tuo via, perché certe decisioni restano ferme, perché certi clienti parlano solo con te. Misurare te prima rende molto più precisa la lettura della rete, dopo. Non è un esercizio su di te: è <strong class="text-gray-900">la prima lettura di un sistema.</strong>
+					I tuoi tre comportamenti sotto pressione spiegano perché i venditori aspettano il tuo via prima di muoversi, perché certe decisioni restano ferme sulla tua scrivania quando sei in trasferta, perché certi clienti parlano solo con te. Misurare te prima rende molto più precisa la lettura della rete, dopo. È <strong class="text-gray-900">la prima lettura di un sistema,</strong> e il sistema parte da chi lo tiene in piedi.
 				</p>
 			</div>
 
-			<p class="text-gray-900 text-lg font-medium mb-5">Da lì escono i tre sintomi della tua rete. Esempi del tipo di cosa emerge:</p>
-			<div class="grid md:grid-cols-3 gap-4">
-				<div class="card-light p-6">
-					<div class="w-10 h-10 rounded-lg bg-sky/10 flex items-center justify-center mb-3">
-						<span class="text-sky font-heading font-bold text-lg">1</span>
-					</div>
-					<p class="text-gray-700 text-[15px] leading-relaxed">I venditori che aspettano sempre il tuo via prima di muoversi, e perché.</p>
-				</div>
-				<div class="card-light p-6">
-					<div class="w-10 h-10 rounded-lg bg-sky/10 flex items-center justify-center mb-3">
-						<span class="text-sky font-heading font-bold text-lg">2</span>
-					</div>
-					<p class="text-gray-700 text-[15px] leading-relaxed">Le decisioni che restano ferme sulla tua scrivania quando sei in trasferta.</p>
-				</div>
-				<div class="card-light p-6">
-					<div class="w-10 h-10 rounded-lg bg-sky/10 flex items-center justify-center mb-3">
-						<span class="text-sky font-heading font-bold text-lg">3</span>
-					</div>
-					<p class="text-gray-700 text-[15px] leading-relaxed">I clienti che non hanno mai parlato con nessuno che non sia te.</p>
-				</div>
-			</div>
-			<p class="text-gray-600 text-base leading-relaxed mt-6 max-w-2xl">
-				Non sono opinioni. Sono i tre punti dove oggi la rete dipende da te più di quanto tu creda.
+			<p class="text-gray-900 text-lg font-medium max-w-2xl">
+				Da qui esce la mappa: dove la rete oggi si appoggia su di te più di quanto tu creda. <span class="text-sky-700">E dalla mappa escono le mosse.</span>
 			</p>
 		</div>
 	</section>
 
 	<!-- ═══════════════════════════════════════════
-	     COME FUNZIONA — BIANCO
+	     B5 · LE TRE MOSSE (cardine) — SKY-50
+	     ═══════════════════════════════════════════ -->
+	<section class="py-20 md:py-28 bg-sky-50">
+		<div class="max-w-5xl mx-auto px-6">
+			<div class="section-divider mb-6"></div>
+			<p class="text-sky text-xs font-heading font-bold tracking-wider uppercase mb-3">Il prodotto</p>
+			<h2 class="text-2xl md:text-4xl font-medium mb-6 text-gray-900 leading-[1.2]">
+				Non esci con una diagnosi.<br />
+				Esci con <span class="text-sky">tre mosse da fare da lunedì.</span>
+			</h2>
+			<div class="space-y-5 text-gray-700 text-lg leading-relaxed max-w-3xl mb-10">
+				<p>
+					Molti test si fermano al profilo: ecco chi sei, arrangiati. Qui il profilo è il mezzo. Il prodotto sono <strong class="text-gray-900">tre mosse concrete,</strong> cucite su come lavori tu, che puoi iniziare a mettere in pratica la settimana dopo la call.
+				</p>
+				<p>
+					Il report è la mappa: il tuo profilo comportamentale e i punti dove la rete pende da te. Le tre mosse le tiriamo fuori insieme, io e te, nei novanta minuti di call. La mappa ti dice dov'è il problema. Le mosse ti dicono cosa fare, e in che ordine.
+				</p>
+			</div>
+
+			<p class="text-gray-900 text-lg font-medium mb-5 max-w-3xl">Il tipo di mossa che esce (esempi, le tue dipendono dal tuo profilo):</p>
+			<div class="grid md:grid-cols-3 gap-5">
+				<div class="card-light p-6 md:p-7">
+					<div class="w-11 h-11 rounded-xl bg-sky/10 flex items-center justify-center mb-4">
+						<span class="text-sky font-heading font-bold text-xl">1</span>
+					</div>
+					<p class="text-gray-800 text-[15px] leading-relaxed">
+						<strong class="text-gray-900">La decisione che oggi passa sempre da te</strong> e che da lunedì può iniziare a passare da un tuo venditore, senza che tu perda il controllo. Quale, e come cederla per gradi.
+					</p>
+				</div>
+				<div class="card-light p-6 md:p-7">
+					<div class="w-11 h-11 rounded-xl bg-sky/10 flex items-center justify-center mb-4">
+						<span class="text-sky font-heading font-bold text-xl">2</span>
+					</div>
+					<p class="text-gray-800 text-[15px] leading-relaxed">
+						<strong class="text-gray-900">Il cliente che parla solo con te:</strong> da dove cominciare a passarlo, a chi della rete affidarlo viste le sue caratteristiche, con che tempi.
+					</p>
+				</div>
+				<div class="card-light p-6 md:p-7">
+					<div class="w-11 h-11 rounded-xl bg-sky/10 flex items-center justify-center mb-4">
+						<span class="text-sky font-heading font-bold text-xl">3</span>
+					</div>
+					<p class="text-gray-800 text-[15px] leading-relaxed">
+						<strong class="text-gray-900">Il "via" che i venditori aspettano da te:</strong> come darlo in modo che la rete si muova prima, invece di restare ferma in attesa di un tuo cenno.
+					</p>
+				</div>
+			</div>
+			<!-- Caption obbligatoria sotto le 3 mosse -->
+			<p class="text-gray-500 text-sm italic mt-5">Esempi del tipo di mossa. Le tue escono dal tuo profilo, nella call.</p>
+
+			<!-- CTA #1 -->
+			<div class="mt-10 flex flex-col sm:flex-row sm:items-center gap-4">
+				<a href={WA_MOSSE} target="_blank" rel="noopener" class="w-full sm:w-auto flex items-center justify-center gap-2.5 py-4 px-8 rounded-xl bg-[#25D366] hover:bg-[#1fb855] text-white font-heading font-semibold text-base transition-all shadow-md shadow-[#25D366]/20 hover:shadow-lg hover:shadow-[#25D366]/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky">
+					<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+					Voglio le mie tre mosse
+				</a>
+				<p class="text-gray-600 text-sm leading-relaxed">Punto di partenza. Nessun impegno a proseguire.</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     B6 · LA PROVA — BIANCO
+	     ═══════════════════════════════════════════ -->
+	<section class="py-20 md:py-28 bg-white">
+		<div class="max-w-4xl mx-auto px-6">
+			<div class="section-divider mb-6"></div>
+			<p class="text-sky text-xs font-heading font-bold tracking-wider uppercase mb-3">La prova</p>
+			<h2 class="text-2xl md:text-4xl font-medium mb-6 text-gray-900 leading-[1.2]">
+				Guarda com'è fatto un report vero.<br />
+				<span class="text-sky">Dodici pagine, il mio, su di me.</span>
+			</h2>
+			<p class="text-gray-700 text-lg leading-relaxed mb-10 max-w-3xl">
+				Prima di darmi 490 euro hai diritto di vedere cosa ti arriva in mano. Ti mostro per intero uno dei primi assessment che ho fatto: il mio. Profilo comportamentale, grafico dei cinque assi, competenze ad alto e basso sforzo, stile di leadership. È il documento su cui, nella call, costruiamo le tue tre mosse.
+			</p>
+
+			<!-- Anteprima report incorniciata: crop parte alta slide-01 + fade-out bianco -->
+			<div class="max-w-md mx-auto mb-8">
+				<figure>
+					<div class="relative rounded-2xl overflow-hidden shadow-xl ring-1 ring-gray-200 bg-white">
+						<img src="/pda-report/slide-01.jpg" alt="Prima pagina dell'assessment comportamentale PDA di Cristiano Pusca: Descrizione del Profilo Naturale" class="w-full h-[340px] md:h-[400px] object-cover object-top" loading="lazy" />
+						<div class="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-white via-white/85 to-transparent"></div>
+					</div>
+					<figcaption class="text-gray-500 text-sm leading-relaxed mt-3 text-center">
+						Una pagina dell'assessment che ho fatto su di me. Le altre undici sono nell'esempio completo.
+					</figcaption>
+				</figure>
+			</div>
+
+			<div class="text-center mb-12">
+				<a href="/esempio-report" class="inline-flex items-center gap-2 text-sky font-heading font-semibold text-base hover:text-sky-light transition-colors group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky">
+					<svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+					Vedi un esempio di report (12 pagine)
+					<svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+				</a>
+			</div>
+
+			<!-- CASO alla tua scala — stato qualitativo verificato (stilato diverso dalle testimonianze del B11) -->
+			<!-- FUTURO (quando Cristiano manda i numeri pre/post, scala 4-5M / rete 5-6):
+			     sostituire il blocco-citazione qui sotto con una card before/after a 2 colonne,
+			     numeri in display sky-700 (es. "Prima: 1 commerciale · Dopo 12 mesi: reparto da 3").
+			     La cornice, l'eyebrow e l'attribuzione restano: non serve ridisegnare. -->
+			<div class="rounded-2xl bg-sky-50 border border-sky/15 p-7 md:p-9">
+				<div class="flex items-center gap-2 mb-4">
+					<svg class="w-4 h-4 text-sky-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/></svg>
+					<p class="text-sky-700 text-xs font-heading font-bold tracking-wider uppercase">Un caso, alla tua scala</p>
+				</div>
+				<blockquote class="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
+					"Con Cristiano abbiamo costruito una parte commerciale che prima in azienda non esisteva. Mi ha aiutato a formare la persona giusta sulle strategie di vendita."
+				</blockquote>
+				<div class="flex items-center gap-3 mt-5 pt-5 border-t border-sky/15">
+					<div class="w-10 h-10 rounded-lg bg-white border border-gray-200 flex items-center justify-center overflow-hidden shrink-0">
+						<img src="/logos/sisma.jpg" alt="Logo Sisma srl" class="max-w-[34px] max-h-[26px] object-contain" loading="lazy" />
+					</div>
+					<div>
+						<p class="text-gray-900 font-heading font-bold text-[15px]">Andrea V.</p>
+						<p class="text-gray-600 text-sm">Titolare · Sisma srl</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- CTA #2 -->
+			<div class="mt-10 flex flex-col sm:flex-row sm:items-center gap-4">
+				<a href={WA_REPORT} target="_blank" rel="noopener" class="w-full sm:w-auto flex items-center justify-center gap-2.5 py-4 px-7 rounded-xl bg-[#25D366] hover:bg-[#1fb855] text-white font-heading font-semibold text-[15px] md:text-base leading-tight text-center transition-all shadow-md shadow-[#25D366]/20 hover:shadow-lg hover:shadow-[#25D366]/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky">
+					<svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+					Metti un numero su quello che oggi sai a intuito
+				</a>
+				<p class="text-gray-600 text-sm leading-relaxed">Ti rispondo io entro 24 ore.</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     B7 · PERCHÉ IO, NON L'ENNESIMO CORSO — DARK
+	     ═══════════════════════════════════════════ -->
+	<section class="py-20 md:py-28 bg-dark relative overflow-hidden">
+		<div class="absolute inset-0 bg-gradient-to-br from-dark via-dark-light to-sky-muted/25"></div>
+		<div class="absolute -top-10 right-[12%] w-72 h-72 rounded-full bg-sky/[0.05] blur-[110px]"></div>
+		<div class="max-w-5xl mx-auto px-6 relative">
+			<p class="text-sky-light text-xs font-heading font-bold tracking-wider uppercase mb-3">Perché io</p>
+			<h2 class="text-2xl md:text-4xl font-medium mb-10 text-white leading-[1.2]">
+				Hai già provato tre strade.<br />
+				<span class="text-sky-light">Ecco perché non hanno cambiato la rete.</span>
+			</h2>
+
+			<div class="grid md:grid-cols-3 gap-5 mb-12">
+				<div class="card-dark p-6 md:p-7">
+					<div class="w-11 h-11 rounded-xl bg-white/[0.06] border border-white/10 flex items-center justify-center mb-4">
+						<svg class="w-6 h-6 text-sky-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.62 48.62 0 0112 20.904a48.62 48.62 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/></svg>
+					</div>
+					<h3 class="text-white font-heading font-semibold text-lg mb-2">Il corso di tre giorni.</h3>
+					<p class="text-gray-300 text-[15px] leading-relaxed">
+						Torni in azienda gasato. Dopo due settimane sei come prima. L'aspirina fa passare il mal di testa per un giorno. Non ti dice perché ti viene.
+					</p>
+				</div>
+				<div class="card-dark p-6 md:p-7">
+					<div class="w-11 h-11 rounded-xl bg-white/[0.06] border border-white/10 flex items-center justify-center mb-4">
+						<svg class="w-6 h-6 text-sky-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46"/></svg>
+					</div>
+					<h3 class="text-white font-heading font-semibold text-lg mb-2">Il guru dell'aggressività.</h3>
+					<p class="text-gray-300 text-[15px] leading-relaxed">
+						"Vendi di più, chiudi di più, non mollare." Alza il volume. La musica resta quella. Se il problema è come è messa la rete, urlare più forte non lo sposta.
+					</p>
+				</div>
+				<div class="card-dark p-6 md:p-7">
+					<div class="w-11 h-11 rounded-xl bg-white/[0.06] border border-white/10 flex items-center justify-center mb-4">
+						<svg class="w-6 h-6 text-sky-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605"/></svg>
+					</div>
+					<h3 class="text-white font-heading font-semibold text-lg mb-2">Il consulente con le slide.</h3>
+					<p class="text-gray-300 text-[15px] leading-relaxed">
+						Modelli, matrici, teoria. Belle da vedere in sala riunioni. Ferme sulla scrivania il lunedì mattina.
+					</p>
+				</div>
+			</div>
+
+			<!-- EVIDENZIA: lead in-flow (NON box) -->
+			<p class="text-xl md:text-2xl font-medium text-white leading-snug max-w-3xl">
+				Io sono in rete vendita <span class="text-sky-light">dal 1988</span>. Misuro con uno strumento validato, leggo i dati di persona, e alla fine ti lascio <span class="text-sky-light">tre mosse da fare da lunedì</span>. Non dispense da archiviare.
+			</p>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     B8 · COME FUNZIONA — BIANCO
 	     ═══════════════════════════════════════════ -->
 	<section id="come-funziona" class="py-20 md:py-28 bg-white scroll-mt-20">
 		<div class="max-w-5xl mx-auto px-6">
@@ -168,11 +373,11 @@ const WA_CHI =
 						Tre passaggi, tempi chiari.
 					</h2>
 
-					<div class="space-y-5">
+					<div class="space-y-6">
 						<div class="flex gap-5">
 							<div class="step-number">1</div>
 							<div>
-								<h3 class="text-lg md:text-xl font-medium text-gray-900 mb-1">L'assessment</h3>
+								<h3 class="text-lg md:text-xl font-medium text-gray-900 mb-1">La misurazione</h3>
 								<p class="text-gray-700 leading-relaxed">Trenta minuti tuoi, online, quando vuoi. Rispondi tu, da solo.</p>
 							</div>
 						</div>
@@ -180,14 +385,14 @@ const WA_CHI =
 							<div class="step-number">2</div>
 							<div>
 								<h3 class="text-lg md:text-xl font-medium text-gray-900 mb-1">La call di restituzione</h3>
-								<p class="text-gray-700 leading-relaxed">Novanta minuti, io e te. Ti leggo i dati, ti mostro i tre sintomi, ti spiego cosa significano per come è messa la rete adesso. Tu fai domande. Niente slide motivazionali.</p>
+								<p class="text-gray-700 leading-relaxed">Novanta minuti, io e te. Ti leggo i dati, ti mostro dove la rete pende su di te, e insieme tiriamo fuori le tre mosse. Tu fai domande. Niente slide motivazionali.</p>
 							</div>
 						</div>
 						<div class="flex gap-5">
 							<div class="step-number">3</div>
 							<div>
 								<h3 class="text-lg md:text-xl font-medium text-gray-900 mb-1">Il report scritto</h3>
-								<p class="text-gray-700 leading-relaxed">Te lo lascio nero su bianco. Lo rileggi con calma, lo passi a chi vuoi, lo tieni per confronto tra sei mesi.</p>
+								<p class="text-gray-700 leading-relaxed">Te lo lascio nero su bianco, con le mosse annotate. Lo rileggi con calma, lo passi a chi vuoi, lo tieni per confronto tra sei mesi.</p>
 							</div>
 						</div>
 					</div>
@@ -198,15 +403,15 @@ const WA_CHI =
 					<div class="rounded-2xl overflow-hidden ring-1 ring-gray-200 shadow-lg">
 						<img src="/img/cristiano-1on1.webp" alt="Cristiano Pusca durante una sessione di restituzione individuale" class="w-full h-auto object-cover" loading="lazy" />
 					</div>
-					<p class="text-gray-400 text-xs mt-3 leading-relaxed">La restituzione è io e te in videocall. Nessuna aula, nessuna platea.</p>
+					<p class="text-gray-500 text-sm mt-3 leading-relaxed">La restituzione è io e te in videocall. Nessuna aula, nessuna platea.</p>
 				</div>
 			</div>
 
-			<!-- Cosa ti porti a casa -->
+			<!-- BOX caldo: cosa ti porti a casa -->
 			<div class="mt-10 rounded-2xl bg-sky-50 border border-sky/15 p-7 md:p-8">
-				<p class="text-dark text-sm font-heading font-bold tracking-wider uppercase mb-3">Cosa ti porti a casa, in concreto</p>
+				<p class="text-dark text-sm font-heading font-bold tracking-wider uppercase mb-3">Cosa ti porti a casa</p>
 				<p class="text-gray-700 text-lg leading-relaxed">
-					Tre dati che oggi non hai, scritti, sui tre punti dove la rete dipende da te. Se dopo la restituzione decidi che ti basta così, hai comunque in mano una fotografia che prima non esisteva.
+					Tre mosse concrete da iniziare lunedì, più la fotografia scritta di dove la rete dipende da te. Anche se ti fermi qui, hai in mano qualcosa che prima non esisteva.
 				</p>
 				<div class="flex items-center gap-2.5 mt-4 pt-4 border-t border-sky/15">
 					<svg class="w-5 h-5 text-accent-dark shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
@@ -217,7 +422,30 @@ const WA_CHI =
 	</section>
 
 	<!-- ═══════════════════════════════════════════
-	     IL CREDITO SCALABILE — DARK (rischio percepito basso)
+	     B9 · LA GARANZIA — SKY-50
+	     ═══════════════════════════════════════════ -->
+	<section class="py-16 md:py-20 bg-sky-50">
+		<div class="max-w-3xl mx-auto px-6">
+			<div class="rounded-2xl bg-white border border-sky/15 border-l-4 border-l-accent shadow-sm p-7 md:p-10">
+				<div class="flex items-start gap-4 md:gap-5">
+					<div class="w-12 h-12 rounded-xl bg-accent-50 flex items-center justify-center shrink-0">
+						<svg class="w-6 h-6 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
+					</div>
+					<div>
+						<h2 class="text-2xl md:text-3xl font-medium text-gray-900 leading-[1.2] mb-3">
+							Se non ti lascia niente in mano, non li tengo.
+						</h2>
+						<p class="text-gray-700 text-lg leading-relaxed">
+							La call la conduco io, ci metto la faccia. Se dopo i novanta minuti pensi di non aver ricevuto niente che valga i 490 euro, <strong class="text-gray-900">te li ridò.</strong> Senza discutere e senza farti spiegare perché.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     B10 · CREDITO SCALABILE + TRASPARENZA — DARK
 	     ═══════════════════════════════════════════ -->
 	<section class="py-20 md:py-28 bg-dark-light relative overflow-hidden">
 		<div class="absolute inset-0 bg-gradient-to-br from-dark via-dark-light to-sky-muted/20"></div>
@@ -225,32 +453,130 @@ const WA_CHI =
 		<div class="max-w-3xl mx-auto px-6 relative">
 			<div class="section-divider mb-6"></div>
 			<p class="text-sky-light text-xs font-heading font-bold tracking-wider uppercase mb-3">Il credito scalabile</p>
-			<h2 class="text-2xl md:text-4xl font-medium mb-8 text-white leading-[1.2]">
-				I 490 euro non sono una spesa a vuoto.
+			<h2 class="text-2xl md:text-4xl font-medium mb-6 text-white leading-[1.2]">
+				Sì, dopo i 490 c'è dell'altro.<br />
+				<span class="text-sky-light">Te lo dico adesso.</span>
 			</h2>
+			<p class="text-gray-300 text-lg leading-relaxed mb-8">
+				Chi Tiene il Gioco è il primo gradino. Se i dati dicono che vale la pena, esiste un percorso più grande: misurare la rosa dei venditori, ridisegnare ruoli e zone sui dati, schierare la squadra che regge anche quando non ci sei. Non te lo nascondo per fartelo scoprire dopo.
+			</p>
 
-			<div class="rounded-2xl bg-white/[0.07] border border-white/10 p-7 md:p-8 mb-6">
+			<div class="rounded-2xl bg-white/[0.07] border border-white/10 p-7 md:p-8 mb-5">
 				<div class="flex items-start gap-4">
 					<svg class="w-7 h-7 text-accent-glow shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" /></svg>
-					<p class="text-gray-200 text-lg leading-relaxed">
-						Se entro 60 giorni decidi di proseguire su uno dei pacchetti, <strong class="text-white">i 490 euro si scalano per intero</strong> da quello che scegli. Non un buono, non uno sconto: un anticipo su un lavoro più grande, se quel lavoro lo decidi tu.
-					</p>
+					<div>
+						<p class="text-white font-heading font-semibold text-lg mb-1.5">
+							I 490 euro non si perdono. Si scalano interi entro <span class="text-sky-light">60 giorni</span>.
+						</p>
+						<p class="text-gray-300 text-base leading-relaxed">
+							Se entro 60 giorni passi a uno dei pacchetti, si scalano per intero da quello che scegli. Diventano parte del prezzo: un anticipo su un lavoro più grande, se quel lavoro lo decidi tu.
+						</p>
+					</div>
 				</div>
 			</div>
 
 			<div class="rounded-2xl bg-white/[0.04] border border-white/10 p-7 md:p-8">
 				<div class="flex items-start gap-4">
 					<svg class="w-7 h-7 text-sky-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-					<p class="text-gray-200 text-lg leading-relaxed">
-						Se invece ti fermi qui, ti fermi qui. <strong class="text-white">Nessun rinnovo automatico, nessun obbligo a continuare.</strong> Paghi il primo gradino e vedi cosa c'è scritto sul report. Poi decidi.
-					</p>
+					<div>
+						<p class="text-white font-heading font-semibold text-lg mb-1.5">E se ti fermi qui, ti fermi qui.</p>
+						<p class="text-gray-300 text-base leading-relaxed">
+							Nessun rinnovo automatico, nessun obbligo a continuare. Paghi il primo gradino, leggi il report, decidi tu se salire.
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- ═══════════════════════════════════════════
-	     PREZZO + CTA — BIANCO
+	     B11 · TESTIMONIANZE — BIANCO
+	     ═══════════════════════════════════════════ -->
+	<TestimonialCarousel />
+
+	<!-- Riga credibilità: stat-strip sobria (credenziali di carriera, NON display gigante) -->
+	<section class="bg-white pb-16 md:pb-20">
+		<div class="max-w-5xl mx-auto px-6">
+			<div class="pt-8 border-t border-gray-200">
+				<div class="flex flex-wrap items-center gap-x-6 gap-y-3 text-gray-600 text-sm md:text-[15px]">
+					<span><strong class="text-gray-900 font-heading font-semibold">35+</strong> aziende manifatturiere</span>
+					<span class="text-gray-300" aria-hidden="true">·</span>
+					<span>nelle vendite <strong class="text-gray-900 font-heading font-semibold">dal 1988</strong></span>
+					<span class="text-gray-300" aria-hidden="true">·</span>
+					<span><strong class="text-gray-900 font-heading font-semibold">100</strong> venditori gestiti</span>
+					<span class="text-gray-300" aria-hidden="true">·</span>
+					<span><strong class="text-gray-900 font-heading font-semibold">14</strong> area manager</span>
+					<span class="text-gray-300" aria-hidden="true">·</span>
+					<span><strong class="text-gray-900 font-heading font-semibold">22</strong> depositi</span>
+					<span class="text-gray-300" aria-hidden="true">·</span>
+					<span>analista certificato PDA, Senior Analyst</span>
+					<span class="text-gray-300" aria-hidden="true">·</span>
+					<span>autore de <em class="text-gray-900 not-italic font-medium">"La Fiducia, conditio sine qua non"</em></span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     B12 · FAQ — GRAY-50
+	     ═══════════════════════════════════════════ -->
+	<section class="py-20 md:py-28 bg-gray-50">
+		<div class="max-w-3xl mx-auto px-6">
+			<div class="section-divider mb-6"></div>
+			<p class="text-sky text-xs font-heading font-bold tracking-wider uppercase mb-3">Domande</p>
+			<h2 class="text-2xl md:text-4xl font-medium mb-10 text-gray-900 leading-[1.2]">
+				Le domande che mi fanno prima di partire.
+			</h2>
+
+			<div class="space-y-8">
+				<div>
+					<h3 class="flex gap-3 text-lg font-medium text-gray-900 mb-2 leading-snug">
+						<span class="text-sky shrink-0" aria-hidden="true">—</span>
+						<span>"Non ho tempo per l'ennesimo corso."</span>
+					</h3>
+					<p class="text-gray-700 text-base leading-relaxed pl-7">Non è un corso. Sono 30 minuti tuoi più 90 di call. Ne esci con tre mosse da fare, non con dispense da leggere.</p>
+				</div>
+				<div>
+					<h3 class="flex gap-3 text-lg font-medium text-gray-900 mb-2 leading-snug">
+						<span class="text-sky shrink-0" aria-hidden="true">—</span>
+						<span>"Ho già fatto formazione commerciale e non è cambiato niente."</span>
+					</h3>
+					<p class="text-gray-700 text-base leading-relaxed pl-7">I corsi caricano e poi passano. Qui prima misuriamo come lavori, poi ti do mosse cucite su di te. Il punto di partenza è diverso, per questo l'arrivo lo è.</p>
+				</div>
+				<div>
+					<h3 class="flex gap-3 text-lg font-medium text-gray-900 mb-2 leading-snug">
+						<span class="text-sky shrink-0" aria-hidden="true">—</span>
+						<span>"Perché misurare me e non i venditori?"</span>
+					</h3>
+					<p class="text-gray-700 text-base leading-relaxed pl-7">Perché la rete ha preso la forma dei tuoi comportamenti sotto pressione, anno dopo anno. Misurare te prima rende la lettura della rete molto più precisa dopo. I venditori vengono al gradino successivo, se decidi di salire.</p>
+				</div>
+				<div>
+					<h3 class="flex gap-3 text-lg font-medium text-gray-900 mb-2 leading-snug">
+						<span class="text-sky shrink-0" aria-hidden="true">—</span>
+						<span>"490 euro per un test? Il test lo trovo online."</span>
+					</h3>
+					<p class="text-gray-700 text-base leading-relaxed pl-7">Il test è uno strumento. Paghi la lettura di chi lo fa da anni e le tre mosse che ne tira fuori. E i 490 si scalano interi se prosegui.</p>
+				</div>
+				<div>
+					<h3 class="flex gap-3 text-lg font-medium text-gray-900 mb-2 leading-snug">
+						<span class="text-sky shrink-0" aria-hidden="true">—</span>
+						<span>"E se dopo la call penso di aver buttato i soldi?"</span>
+					</h3>
+					<p class="text-gray-700 text-base leading-relaxed pl-7"><strong class="text-gray-900">Te li ridò.</strong> È scritto sopra: se la restituzione non ti lascia niente in mano, non me li tengo.</p>
+				</div>
+				<div>
+					<h3 class="flex gap-3 text-lg font-medium text-gray-900 mb-2 leading-snug">
+						<span class="text-sky shrink-0" aria-hidden="true">—</span>
+						<span>"Devo per forza proseguire con i pacchetti?"</span>
+					</h3>
+					<p class="text-gray-700 text-base leading-relaxed pl-7">No. Nessun rinnovo automatico, nessun obbligo. Paghi il primo gradino e ti fermi quando vuoi.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     B13 · PREZZO + CTA MADRE — BIANCO
 	     ═══════════════════════════════════════════ -->
 	<section class="py-20 md:py-28 bg-white">
 		<div class="max-w-3xl mx-auto px-6">
@@ -266,34 +592,54 @@ const WA_CHI =
 					</div>
 				</div>
 
-				<p class="text-gray-700 text-lg leading-relaxed text-center max-w-xl mx-auto mb-8">
-					Un assessment su di te, una call di novanta minuti, un report scritto sui tre sintomi della tua rete. I 490 si scalano interi se prosegui entro 60 giorni.
+				<!-- Deliverable: 3 righe icona-check verde -->
+				<div class="max-w-md mx-auto space-y-3 mb-7">
+					<div class="flex items-center gap-3">
+						<svg class="w-5 h-5 text-accent-dark shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+						<p class="text-gray-700 text-base">Una misurazione su di te</p>
+					</div>
+					<div class="flex items-center gap-3">
+						<svg class="w-5 h-5 text-accent-dark shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+						<p class="text-gray-700 text-base">Una call di novanta minuti, io e te</p>
+					</div>
+					<div class="flex items-center gap-3">
+						<svg class="w-5 h-5 text-accent-dark shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+						<p class="text-gray-700 text-base">Un report scritto con le tue tre mosse</p>
+					</div>
+				</div>
+
+				<p class="text-gray-700 text-[15px] leading-relaxed text-center max-w-xl mx-auto mb-8">
+					I 490 si scalano interi se prosegui entro 60 giorni. Se la call non vale il prezzo, te li ridò.
 				</p>
 
 				<div class="flex justify-center">
-					<a href={WA_CHI} target="_blank" rel="noopener" class="flex items-center justify-center gap-2.5 py-4 px-8 rounded-xl bg-[#25D366] hover:bg-[#1fb855] text-white font-heading font-semibold text-base md:text-lg transition-all shadow-md shadow-[#25D366]/20 hover:shadow-lg hover:shadow-[#25D366]/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky">
+					<a href={WA_MADRE} target="_blank" rel="noopener" class="w-full sm:w-auto flex items-center justify-center gap-2.5 py-4 px-8 rounded-xl bg-[#25D366] hover:bg-[#1fb855] text-white font-heading font-semibold text-base md:text-lg transition-all shadow-md shadow-[#25D366]/20 hover:shadow-lg hover:shadow-[#25D366]/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky">
 						<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 						Prenota il primo passo
 					</a>
 				</div>
 
-				<!-- Microcopy che abbassa il rischio percepito -->
 				<p class="text-center text-gray-500 text-sm mt-5 leading-relaxed">
 					Ti rispondo io entro 24 ore. Niente call center, niente sequenza automatica.
+				</p>
+
+				<!-- Ragione per partire ora (vera, sobria) — NESSUN countdown -->
+				<p class="text-center text-gray-500 text-sm mt-6 pt-6 border-t border-gray-200 leading-relaxed max-w-xl mx-auto">
+					La call di novanta minuti la conduco io, di persona. Per questo prendo pochi imprenditori al mese, intorno a cinque: è quanti ne seguo bene facendo le cose come vanno fatte. Se vuoi partire, meglio scrivere adesso che tra due mesi.
 				</p>
 			</div>
 		</div>
 	</section>
 
 	<!-- ═══════════════════════════════════════════
-	     PONTE → /pacchetti — DARK
+	     B14 · PONTE → /pacchetti — DARK
 	     ═══════════════════════════════════════════ -->
 	<section class="py-16 md:py-24 bg-dark relative overflow-hidden">
 		<div class="absolute inset-0 bg-gradient-to-b from-dark-light to-dark"></div>
 		<div class="max-w-3xl mx-auto px-6 relative text-center">
 			<div class="section-divider mb-6 mx-auto"></div>
 			<h2 class="text-2xl md:text-3xl font-medium mb-6 text-white leading-[1.25]">
-				Questo è il primo gradino: misurare chi tiene il gioco prima di toccare la rete.
+				Questo è il primo gradino: capire chi tiene il gioco, prima di toccare la rete.
 			</h2>
 			<p class="text-gray-300 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
 				Dopo, se i dati dicono che vale la pena, c'è il percorso completo: misurare la rosa dei venditori, ridisegnare ruoli e zone sui dati, schierare la squadra che regge anche quando non ci sei.
