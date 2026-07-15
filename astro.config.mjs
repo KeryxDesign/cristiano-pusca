@@ -11,7 +11,10 @@ export default defineConfig({
   redirects: {
     '/casi-studio/mario-e-luigi': '/casi-studio/due-selezioni-due-esiti',
   },
-  integrations: [sitemap()],
+  integrations: [
+    // /proposta-home e' una demo interna noindex: fuori dal sitemap
+    sitemap({ filter: (page) => !page.includes('/proposta-home') }),
+  ],
   vite: {
     plugins: [tailwindcss()],
     resolve: {

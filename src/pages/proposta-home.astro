@@ -1,0 +1,533 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TestimonialCarousel from '../components/TestimonialCarousel.astro';
+
+// PROPOSTA NUOVA HOME A OMBRELLO - pagina DEMO parallela (la home live resta index.astro)
+// Copy VINCOLANTE: strategia-2026/copy-home-ombrello-v1.md (headline V1, zero riscritture)
+// Impianto DRD: strategia-2026/impianto-lori-home-ombrello.md
+// Sequenza fondi: dark > white > slate > dark > sky-50 > [foto] > white > dark > gray-50 > white > footer dark
+// Pagina noindex + esclusa dal sitemap (filtro in astro.config.mjs). Nav e footer invariati.
+---
+
+<Layout
+	noindex={true}
+	title="Cristiano Pusca — Proposta nuova home (demo)"
+	description="Anteprima di lavoro della nuova homepage. Pagina non indicizzata."
+>
+	<!-- ═══════════════════════════════════════════
+	     B1 · HERO · DARK (R1)
+	     ═══════════════════════════════════════════ -->
+	<section class="relative overflow-hidden pt-24 pb-16 md:pt-28 md:pb-20 bg-dark">
+		<div class="absolute inset-0 bg-gradient-to-br from-dark via-dark-light to-sky-muted/40"></div>
+		<div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-sky/[0.07] to-transparent"></div>
+		<div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-accent/[0.05] to-transparent"></div>
+		<div class="absolute top-20 right-[10%] w-80 h-80 rounded-full bg-sky/[0.05] blur-[100px]"></div>
+
+		<div class="w-full max-w-6xl mx-auto px-6 relative">
+			<!-- Foto mobile (sopra il testo, budget altezza hero) -->
+			<div class="flex md:hidden justify-center mb-6">
+				<div class="w-28 h-28 rounded-full ring-3 ring-sky/40 ring-offset-2 ring-offset-dark overflow-hidden shadow-xl shadow-sky/10">
+					<img src="/cristiano-pusca.webp" alt="Cristiano Pusca" width="1080" height="628" class="w-full h-full object-cover object-top" />
+				</div>
+			</div>
+
+			<div class="flex flex-col md:flex-row md:items-center md:gap-16">
+				<div class="flex-1 min-w-0">
+					<p class="text-sky-light text-xs md:text-sm font-heading font-bold tracking-wider uppercase mb-4">Cristiano Pusca · Analista comportamentale</p>
+					<h1 class="text-[26px] sm:text-3xl md:text-4xl lg:text-5xl font-medium leading-[1.1] mb-4 text-white">
+						Se manchi due settimane, <span class="text-sky-light">cosa si ferma in azienda?</span>
+					</h1>
+					<p class="text-gray-200 text-base md:text-lg leading-relaxed mb-6 max-w-xl">
+						Sono Cristiano Pusca, analista comportamentale. Metto un numero su quello che oggi sai a intuito: <strong class="text-white">chi in squadra rende davvero e quanto l'azienda si regge su di te</strong>. Prima si misura, poi si allinea, poi si addestra. Vale per la rete vendita come per una nuova assunzione o per il passaggio in famiglia.
+					</p>
+
+					<div class="mb-3">
+						<a href="/metodo-bedo" class="btn-inverted text-base md:text-lg">
+							Guarda come lavoro
+							<svg class="inline w-5 h-5 ml-2 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+						</a>
+					</div>
+					<a href="#porte" class="inline-block text-sky-light font-heading font-semibold text-base py-2 mb-4">Oppure vai dritto al tuo caso ↓</a>
+
+					<!-- Trust bar testate giornalistiche (markup live invariato) -->
+					<div class="mt-2">
+						<p class="text-gray-400 text-[11px] font-heading font-medium tracking-wider uppercase mb-3">Hanno parlato del metodo BEDo</p>
+						<div class="flex flex-wrap items-center gap-x-9 md:gap-x-12 gap-y-4">
+							<a href="https://stream24.ilsole24ore.com/video/italia/valorizzare-capitale-umano-crescere-metodo-bedo/AFSRTxED" target="_blank" rel="noopener" aria-label="Il Sole 24 Ore" class="logo-press">
+								<img src="/logos/press/ilsole24ore-o-2021.svg" alt="Il Sole 24 Ore" loading="eager" />
+							</a>
+							<a href="https://mcusercontent.com/d327453d6178f9f8dfe810d6f/files/911d4179-3ced-d483-8aab-4cb1d4b40fd6/Pagina_MF_Milano_Finanza_Metodo_BEDo.pdf" target="_blank" rel="noopener" aria-label="Milano Finanza" class="logo-press logo-press-bg">
+								<img src="/logos/press/Milano_Finanza_Logo-700x233.png" alt="Milano Finanza" loading="eager" />
+							</a>
+							<a href="https://www.fortuneita.com/2025/05/22/imprese-familiari-a-rischio-il-92-delle-pmi-italiane-affronta-la-sfida-della-successione/" target="_blank" rel="noopener" aria-label="Fortune Italia" class="logo-press">
+								<img src="/logos/press/fortune-500-logo-png_seeklogo-433786.png" alt="Fortune" loading="eager" />
+							</a>
+							<a href="https://youmedia.fanpage.it/video/ZrDLi-SwCrwzV-f3" target="_blank" rel="noopener" aria-label="Fanpage video" class="logo-press logo-press-bg">
+								<img src="/logos/press/Fanpage.it.png" alt="Fanpage" loading="eager" />
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<!-- Foto Cristiano desktop -->
+				<div class="hidden md:flex shrink-0 items-center justify-center">
+					<div class="w-72 h-72 lg:w-96 lg:h-96 rounded-full ring-4 ring-sky/40 ring-offset-4 ring-offset-dark overflow-hidden shadow-2xl shadow-sky/10">
+						<img src="/cristiano-pusca.webp" alt="Cristiano Pusca" width="1080" height="628" class="w-full h-full object-cover object-top" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Freccia animata -->
+		<div class="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2">
+			<svg class="w-10 h-10 text-white animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     B2 · CAROSELLO TESTIMONIANZE · WHITE (R2, componente fisso)
+	     ═══════════════════════════════════════════ -->
+	<TestimonialCarousel />
+
+	<!-- ═══════════════════════════════════════════
+	     B3 · IL PROBLEMA TRASVERSALE · SLATE (R3)
+	     ═══════════════════════════════════════════ -->
+	<section class="py-20 md:py-28 bg-slate">
+		<div class="max-w-6xl mx-auto px-6">
+			<div class="text-center mb-14">
+				<div class="section-divider mb-6 mx-auto"></div>
+				<h2 class="text-3xl md:text-5xl font-medium mb-4 text-gray-900">
+					Le tre frasi che sento più spesso<br />
+					<span class="text-sky">alla prima riunione.</span>
+				</h2>
+				<p class="text-gray-600 text-lg leading-relaxed">Settori diversi, stessa partenza.</p>
+			</div>
+
+			<div class="grid md:grid-cols-3 gap-6">
+				<!-- Card-problema 1: voce del cliente, nessuna icona, nessun link -->
+				<div class="card-light p-7">
+					<h3 class="text-lg md:text-xl font-bold text-gray-900 mb-3 leading-snug"><span class="text-sky">«</span>Se mi fermo io, si ferma tutto.<span class="text-sky">»</span></h3>
+					<p class="text-base text-gray-700 leading-relaxed">
+						E finché non ti fermi, il limite dell'azienda resta la tua agenda. Ordini, sconti, clienti che vogliono solo te: <strong class="text-gray-900">tutto torna sulla stessa scrivania.</strong>
+					</p>
+				</div>
+				<!-- Card-problema 2 -->
+				<div class="card-light p-7">
+					<h3 class="text-lg md:text-xl font-bold text-gray-900 mb-3 leading-snug"><span class="text-sky">«</span>Due funzionano, due sopravvivono, uno non so cosa faccia tutto il giorno.<span class="text-sky">»</span></h3>
+					<p class="text-base text-gray-700 leading-relaxed">
+						I fatturati per persona li conosci. Il perché no. Così ogni scelta su ruoli e zone resta un azzardo, <strong class="text-gray-900">e la rimandi.</strong>
+					</p>
+				</div>
+				<!-- Card-problema 3 -->
+				<div class="card-light p-7">
+					<h3 class="text-lg md:text-xl font-bold text-gray-900 mb-3 leading-snug"><span class="text-sky">«</span>Ho già dato: corsi, consulenti.<span class="text-sky">»</span></h3>
+					<p class="text-base text-gray-700 leading-relaxed">
+						Ed è durato poco, perché si è intervenuti sul processo restando al buio sulle persone. <strong class="text-gray-900">Il pezzo che mancava è una misura fatta prima.</strong>
+					</p>
+				</div>
+			</div>
+
+			<!-- EVIDENZIA: in-flow, mai boxato -->
+			<p class="text-xl md:text-2xl font-medium text-gray-900 max-w-3xl mx-auto text-center leading-snug mt-12">
+				Per questo il mio lavoro comincia sempre da lì: una misura sulle persone. <span class="text-sky-700">La tua compresa.</span>
+			</p>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     B4 · IL METODO BEDo · DARK (R1)
+	     ═══════════════════════════════════════════ -->
+	<section class="py-20 md:py-28 relative overflow-hidden bg-dark">
+		<div class="absolute inset-0 bg-gradient-to-br from-dark via-dark-light to-sky-muted/30"></div>
+		<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-sky/[0.04] blur-[120px]"></div>
+
+		<div class="max-w-6xl mx-auto px-6 relative">
+			<div class="text-center mb-12">
+				<div class="section-divider mb-6 mx-auto"></div>
+				<p class="text-sky-light text-xs md:text-sm font-heading font-bold tracking-wider uppercase mb-3">Il metodo BEDo</p>
+				<h2 class="text-3xl md:text-5xl font-medium mb-6 !text-white">
+					Tre fasi, <span class="text-sky-light">nell'ordine che quasi nessuno rispetta.</span>
+				</h2>
+				<!-- EVIDENZIA 1: in-flow, mai boxato -->
+				<p class="text-xl md:text-2xl font-medium text-white leading-snug max-w-3xl mx-auto">
+					«Quando entro in azienda non faccio coaching motivazionale.»
+				</p>
+			</div>
+
+			<div class="grid md:grid-cols-3 gap-6 md:gap-8">
+				<!-- Fase 1 -->
+				<div class="card-dark p-7 md:p-8 h-full flex flex-col">
+					<div class="step-number mb-6">1</div>
+					<h3 class="!text-white text-xl lg:text-2xl font-bold mb-3">Prima la misura: come lavora ognuno, sotto pressione.</h3>
+					<p class="text-gray-200 text-base leading-relaxed mb-4">
+						Assessment comportamentale validato (PDA International) su ogni persona coinvolta, dal titolare fino a un candidato da assumere.
+					</p>
+					<p class="border-l-2 border-sky/50 pl-3 text-white font-medium text-base leading-relaxed mt-auto">
+						«Il curriculum dice cosa hai fatto. L'assessment comportamentale dice come stai quando lo fai.»
+					</p>
+				</div>
+				<!-- Fase 2 -->
+				<div class="card-dark p-7 md:p-8 h-full flex flex-col">
+					<div class="step-number mb-6">2</div>
+					<h3 class="!text-white text-xl lg:text-2xl font-bold mb-3">Poi l'allineamento: la persona giusta nel posto giusto, con i motivi scritti.</h3>
+					<p class="text-gray-200 text-base leading-relaxed">
+						I profili si incrociano con i ruoli e con i numeri veri dell'azienda. Da lì escono decisioni firmabili: <strong class="text-white">chi spostare, chi affiancare, chi lasciare lavorare in pace.</strong>
+					</p>
+				</div>
+				<!-- Fase 3 (variante accent: l'arrivo) -->
+				<div class="card-dark p-7 md:p-8 h-full flex flex-col !border-accent/20 hover:!border-accent/30">
+					<div class="step-number mb-6 !bg-gradient-to-br !from-accent !to-accent-dark !shadow-accent/25">3</div>
+					<h3 class="!text-white text-xl lg:text-2xl font-bold mb-3">Solo alla fine l'addestramento, cucito sul profilo.</h3>
+					<p class="text-gray-200 text-base leading-relaxed">
+						Formazione e affiancamento sul campo, con verifiche ogni due settimane. <strong class="text-white">Il protocollo porta soluzioni strategiche in nove settimane.</strong>
+					</p>
+				</div>
+			</div>
+
+			<!-- EVIDENZIA 2: in-flow, mai boxato -->
+			<p class="text-xl md:text-2xl font-medium text-white leading-snug text-center max-w-3xl mx-auto mt-12">
+				«Non è fiuto, è <span class="text-sky-light">uno strumento</span>.»
+			</p>
+			<div class="text-center mt-8">
+				<a href="/metodo-bedo" class="inline-block text-sky-light font-heading font-semibold text-base py-2">Il metodo, per intero →</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     B5 · LE PORTE · SKY-50 (R4, cuore della pagina)
+	     ═══════════════════════════════════════════ -->
+	<section id="porte" class="py-20 md:py-28 bg-sky-50 scroll-mt-20">
+		<div class="max-w-6xl mx-auto px-6">
+			<div class="text-center mb-14">
+				<div class="section-divider mb-6 mx-auto"></div>
+				<p class="text-sky text-xs md:text-sm font-heading font-bold tracking-wider uppercase mb-3">Dove si applica</p>
+				<h2 class="text-3xl md:text-5xl font-medium mb-4 text-gray-900">
+					Lo strumento è uno. <span class="text-sky">Le porte per entrare sono sei.</span>
+				</h2>
+				<p class="max-w-2xl mx-auto text-gray-700 text-lg leading-relaxed">
+					Sotto c'è sempre lo stesso lavoro: misurare le persone, allinearle al ruolo, addestrarle. Cambia il punto dove l'azienda sta perdendo di più. Entra dal tuo.
+				</p>
+			</div>
+
+			<div class="grid md:grid-cols-2 gap-6 md:gap-8">
+				<!-- PORTA 1 · Rete vendita (FEATURED) -->
+				<article class="card-light p-7 md:p-9 relative overflow-hidden h-full flex flex-col">
+					<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-sky to-accent"></div>
+					<span class="inline-flex self-start text-xs font-heading font-bold uppercase tracking-wider text-sky-700 bg-sky-50 border border-sky/20 rounded-full px-3 py-1">Rete vendita</span>
+					<h3 class="text-xl md:text-2xl font-bold text-gray-900 mt-4 mb-3 leading-snug">La rete vende quando ci sei tu in mezzo.</h3>
+					<p class="text-base text-gray-700 leading-relaxed">
+						Misuro i venditori con l'assessment, incrocio i profili con zone e numeri veri, ridisegno i ruoli. La formazione arriva dopo, dove i dati dicono che serve.
+					</p>
+					<div class="rounded-xl bg-sky-50 border border-sky/15 p-4 mt-4 mb-5">
+						<p class="text-xs font-heading font-bold uppercase tracking-wider text-sky-700 mb-2">Prova</p>
+						<p class="text-base text-gray-800 leading-relaxed">
+							Azienda di impianti elettrici, 6 milioni, 3 venditori più il titolare: <strong class="text-gray-900"><span class="caso-num">+16,9%</span> di vendite e <span class="caso-num">+10%</span> di marginalità sul singolo ordine</strong>, a parità di mercato.
+						</p>
+					</div>
+					<div class="border-t border-gray-100 mt-auto pt-4">
+						<a href="/pacchetti" class="inline-block text-sky-700 hover:text-sky font-heading font-semibold py-2 transition-colors">Il percorso completo →</a>
+						<a href="/chi-tiene-il-gioco" class="block text-sm text-gray-600 underline underline-offset-2 hover:text-sky-700 py-2 transition-colors">Il primo gradino: Chi Tiene il Gioco, 490 € + IVA →</a>
+					</div>
+				</article>
+
+				<!-- PORTA 2 · Sblocco del titolare (FEATURED) -->
+				<article class="card-light p-7 md:p-9 relative overflow-hidden h-full flex flex-col">
+					<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-sky to-accent"></div>
+					<span class="inline-flex self-start text-xs font-heading font-bold uppercase tracking-wider text-sky-700 bg-sky-50 border border-sky/20 rounded-full px-3 py-1">Sblocco del titolare</span>
+					<h3 class="text-xl md:text-2xl font-bold text-gray-900 mt-4 mb-3 leading-snug">Ogni decisione passa ancora dalla tua scrivania.</h3>
+					<p class="text-base text-gray-700 leading-relaxed">
+						Lavoro uno a uno col titolare. Misuriamo come decidi e come comunichi sotto pressione, poi le decisioni si cedono una alla volta, senza che tu perda il controllo.
+					</p>
+					<div class="rounded-xl bg-sky-50 border border-sky/15 p-4 mt-4 mb-5">
+						<p class="text-xs font-heading font-bold uppercase tracking-wider text-sky-700 mb-2">Prova</p>
+						<p class="text-base text-gray-800 leading-relaxed">
+							Lo stesso caso da 6 milioni, lato titolare: <strong class="text-gray-900"><span class="caso-num">880 ore</span> recuperate in un anno</strong>, un valore tra <span class="caso-num">163.000 e 281.000 euro</span>.
+						</p>
+					</div>
+					<div class="border-t border-gray-100 mt-auto pt-4">
+						<a href="/chi-tiene-il-gioco" class="inline-block text-sky-700 hover:text-sky font-heading font-semibold py-2 transition-colors">Parti dalla misura su di te →</a>
+						<a href="/casi-studio/impianti-elettrici-prigioniero" class="block text-sm text-gray-600 underline underline-offset-2 hover:text-sky-700 py-2 transition-colors">Il caso intero →</a>
+					</div>
+				</article>
+
+				<!-- PORTA 3 · Selezione -->
+				<article class="card-light p-6 md:p-7 h-full flex flex-col">
+					<span class="inline-flex self-start text-xs font-heading font-bold uppercase tracking-wider text-sky-700 bg-sky-50 border border-sky/20 rounded-full px-3 py-1">Selezione</span>
+					<h3 class="text-lg md:text-xl font-bold text-gray-900 mt-4 mb-3 leading-snug">Un assunto su tre non finisce i sei mesi di prova.</h3>
+					<p class="text-base text-gray-700 leading-relaxed">
+						Prima della firma misuro il candidato sul profilo comportamentale del ruolo. Io porto la mappa e la lettura: la selezione resta tua.
+					</p>
+					<div class="rounded-xl bg-sky-50 border border-sky/15 p-4 mt-4 mb-5">
+						<p class="text-xs font-heading font-bold uppercase tracking-wider text-sky-700 mb-2">Prova</p>
+						<p class="text-base text-gray-800 leading-relaxed">
+							Roberto, perfetto sul curriculum: marginalità vicina allo zero. Matteo, arrivato come fattorino: <strong class="text-gray-900"><span class="caso-num">oltre un milione</span> di fatturato in un anno e mezzo.</strong>
+						</p>
+					</div>
+					<div class="border-t border-gray-100 mt-auto pt-4">
+						<a href="/casi-studio/due-selezioni-due-esiti" class="inline-block text-sky-700 hover:text-sky font-heading font-semibold py-2 transition-colors">Leggi il caso →</a>
+					</div>
+				</article>
+
+				<!-- PORTA 4 · Formazione su misura -->
+				<article class="card-light p-6 md:p-7 h-full flex flex-col">
+					<span class="inline-flex self-start text-xs font-heading font-bold uppercase tracking-wider text-sky-700 bg-sky-50 border border-sky/20 rounded-full px-3 py-1">Formazione su misura</span>
+					<h3 class="text-lg md:text-xl font-bold text-gray-900 mt-4 mb-3 leading-snug">L'ultimo corso è scivolato via in due settimane.</h3>
+					<p class="text-base text-gray-700 leading-relaxed">
+						Qui la formazione parte dopo la misura e l'affiancamento sul campo: prima si trova l'errore vero, poi si addestra ognuno su quello.
+					</p>
+					<div class="rounded-xl bg-sky-50 border border-sky/15 p-4 mt-4 mb-5">
+						<p class="text-xs font-heading font-bold uppercase tracking-wider text-sky-700 mb-2">Prova</p>
+						<p class="text-base text-gray-800 leading-relaxed">
+							Società di servizi, 4,5 milioni, 7 commerciali formati per la vendita a caldo mentre lavoravano a freddo. Corretto l'errore: <strong class="text-gray-900"><span class="caso-num">+14%</span> di produzione in <span class="caso-num">9 settimane</span>.</strong>
+						</p>
+					</div>
+					<div class="border-t border-gray-100 mt-auto pt-4">
+						<a href="/casi-studio/formazione-su-misura" class="inline-block text-sky-700 hover:text-sky font-heading font-semibold py-2 transition-colors">Leggi il caso →</a>
+					</div>
+				</article>
+
+				<!-- PORTA 5 · Negoziazione e conflitti (prova = testimonianza, serif, nessun numero) -->
+				<article class="card-light p-6 md:p-7 h-full flex flex-col">
+					<span class="inline-flex self-start text-xs font-heading font-bold uppercase tracking-wider text-sky-700 bg-sky-50 border border-sky/20 rounded-full px-3 py-1">Negoziazione e conflitti</span>
+					<h3 class="text-lg md:text-xl font-bold text-gray-900 mt-4 mb-3 leading-snug">C'è una trattativa che ti costa da mesi.</h3>
+					<p class="text-base text-gray-700 leading-relaxed">
+						Un socio da liquidare, un cliente che schiaccia i prezzi. Preparo la trattativa con te e ti affianco al tavolo, a difesa dei margini e dei rapporti.
+					</p>
+					<div class="rounded-xl bg-sky-50 border border-sky/15 p-4 mt-4 mb-5">
+						<p class="text-xs font-heading font-bold uppercase tracking-wider text-sky-700 mb-2">Prova</p>
+						<blockquote class="text-base text-gray-800 leading-relaxed italic" style="font-family: Georgia, 'Times New Roman', serif;">
+							«Cristiano mi ha dato la visione e la forza per affrontare una situazione societaria non più accettabile.»
+						</blockquote>
+						<p class="font-heading font-bold text-sm text-gray-900 not-italic mt-3">Gianluca B., titolare, Pelletteria Graziella srl</p>
+					</div>
+					<div class="border-t border-gray-100 mt-auto pt-4">
+						<a href="/contatti" class="inline-block text-sky-700 hover:text-sky font-heading font-semibold py-2 transition-colors">Parliamone →</a>
+					</div>
+				</article>
+
+				<!-- PORTA 6 · Passaggio generazionale (2 link) -->
+				<article class="card-light p-6 md:p-7 h-full flex flex-col">
+					<span class="inline-flex self-start text-xs font-heading font-bold uppercase tracking-wider text-sky-700 bg-sky-50 border border-sky/20 rounded-full px-3 py-1">Passaggio generazionale</span>
+					<h3 class="text-lg md:text-xl font-bold text-gray-900 mt-4 mb-3 leading-snug">Tuo figlio è in azienda. Le chiavi le hai ancora tutte tu.</h3>
+					<p class="text-base text-gray-700 leading-relaxed">
+						Un passaggio generazionale si prepara anni prima: misurando chi entra e chi lascia, scrivendo ruoli e tempi. Dal notaio si firma solo la fine del lavoro.
+					</p>
+					<div class="rounded-xl bg-sky-50 border border-sky/15 p-4 mt-4 mb-5">
+						<p class="text-xs font-heading font-bold uppercase tracking-wider text-sky-700 mb-2">Prova</p>
+						<p class="text-base text-gray-800 leading-relaxed">
+							<strong class="text-gray-900">Il <span class="caso-num">92%</span> delle PMI familiari italiane</strong> ha davanti questo passaggio <span class="text-gray-500 text-sm">(Fortune Italia)</span>. Ne ho scritto una guida in 13 punti.
+						</p>
+					</div>
+					<div class="border-t border-gray-100 mt-auto pt-4">
+						<a href="/libri" class="inline-block text-sky-700 hover:text-sky font-heading font-semibold py-2 transition-colors">La guida è tra i libri →</a>
+						<a href="/contatti" class="block text-sm text-gray-600 underline underline-offset-2 hover:text-sky-700 py-2 transition-colors">Parliamone →</a>
+					</div>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     BANNER FOTO · stacco scenico (riuso live)
+	     ═══════════════════════════════════════════ -->
+	<section class="relative h-56 md:h-80 overflow-hidden bg-dark">
+		<img src="/img/pusca-0155.webp" alt="Cristiano Pusca durante un intervento in azienda" width="1600" height="600" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+		<div class="absolute inset-0 bg-gradient-to-t from-white/40 to-transparent"></div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     B6 · CHI SONO · WHITE (R2)
+	     ═══════════════════════════════════════════ -->
+	<section class="py-20 md:py-28 bg-white">
+		<div class="max-w-6xl mx-auto px-6">
+			<div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+				<!-- Foto tonda -->
+				<div class="flex justify-center">
+					<div class="w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden shadow-xl shadow-gray-200/50 ring-4 ring-sky/20 ring-offset-4 ring-offset-white bg-slate">
+						<img src="/img/cristiano-bio.webp" alt="Cristiano Pusca, analista comportamentale" width="1080" height="628" loading="lazy" decoding="async" class="w-full h-full object-cover object-top" />
+					</div>
+				</div>
+
+				<!-- Copy -->
+				<div class="min-w-0">
+					<p class="text-sky text-xs md:text-sm font-heading font-bold tracking-wider uppercase mb-4">Chi sono</p>
+					<h2 class="text-3xl md:text-4xl font-medium mb-6 text-gray-900 leading-[1.15]">
+						Prima di misurare le squadre degli altri, <span class="text-sky">ne ho guidata una da 82,5 milioni.</span>
+					</h2>
+					<p class="text-lg text-gray-700 leading-relaxed mb-5">
+						Sono nelle vendite <strong class="text-gray-900">dal 1988</strong>.
+					</p>
+
+					<!-- Stat-row sobria (stesso testo del copy, zero parole nuove) -->
+					<p class="text-sm text-gray-500 mb-2">La divisione che ho gestito</p>
+					<div class="border-y border-gray-200 py-4 flex flex-wrap gap-x-8 gap-y-2 mb-5">
+						<span class="font-heading font-semibold text-gray-900 text-base">100 venditori</span>
+						<span class="font-heading font-semibold text-gray-900 text-base">14 area manager</span>
+						<span class="font-heading font-semibold text-gray-900 text-base">22 depositi</span>
+					</div>
+
+					<!-- TODO [DA CONFERMARE] dicitura certificazione -->
+					<p class="text-lg text-gray-700 leading-relaxed mb-6">
+						Dal 2012 guido BPDA, a Treviso. Analista comportamentale certificato, autore di «LA FIDUCIA, conditio sine qua non».
+					</p>
+
+					<!-- EVIDENZIA: in-flow, mai boxato -->
+					<p class="text-xl md:text-2xl font-medium text-gray-900 leading-snug mb-6">
+						«Con le teorie non ci paghiamo <span class="text-sky-700">gli stipendi o gli F24</span>.»
+					</p>
+
+					<a href="/chi-sono" class="inline-block text-sky-700 hover:text-sky font-heading font-semibold py-2 transition-colors">La storia intera →</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     B7 · LOGHI · DARK (R1, griglia invariata, H2 nuovo)
+	     ═══════════════════════════════════════════ -->
+	<section class="py-16 md:py-24 bg-dark relative">
+		<div class="max-w-6xl mx-auto px-6">
+			<div class="text-center mb-10">
+				<h2 class="text-2xl md:text-4xl font-medium text-white max-w-4xl mx-auto text-balance">
+					<span class="text-sky">Più di 35 aziende del Nord-Est</span>, una scelta in comune:<br />
+					misurare le persone prima di mettere mano ai processi.
+				</h2>
+			</div>
+
+			<div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3 md:gap-4">
+				{[
+					/* Manifatturieri Nord-Est più riconoscibili: primo colpo d'occhio del target */
+					{ name: 'Snaidero', logo: 'snaidero.svg' },
+					{ name: 'Zoppas Industries', logo: 'zoppas.svg' },
+					{ name: 'Bottecchia', logo: 'bottecchia.svg' },
+					{ name: 'Sisma', logo: 'sisma.jpg' },
+					{ name: 'Calvi Holding', logo: 'calvi.svg' },
+					{ name: 'General Filter', logo: 'generalfilter.png' },
+					/* Resto del parco clienti */
+					{ name: 'Banca Finint', logo: 'finint.svg' },
+					{ name: 'Confindustria Veneto Est', logo: 'confindustria-ve.png' },
+					{ name: 'Mistral Group', logo: 'mistral.png' },
+					{ name: 'Addviser', logo: 'addviser.png' },
+					{ name: 'CMD Officine', logo: 'cmd.png' },
+					{ name: 'Projetcover', logo: 'projetcover.png' },
+					{ name: 'Gruppo Bettin', logo: 'bettin.png' },
+					{ name: 'GMP Engineering', logo: 'gmp.png' },
+					{ name: 'Essay Group', logo: 'essay.svg' },
+					{ name: 'Bertoldo', logo: 'bertoldo.png' },
+					{ name: 'DRC', logo: 'drc.png' },
+					{ name: 'ASTEL', logo: 'astel.svg' },
+					{ name: 'Pennellificio Pol', logo: 'pol.png' },
+					{ name: 'BAOBAB', logo: 'baobab.svg' },
+					{ name: 'FLEX', logo: 'flex.png' },
+					{ name: 'Dotto Research', logo: 'dottoresearch.svg' },
+					{ name: 'Digital Automations', logo: 'digitalaut.png' },
+					{ name: 'Gregolo', logo: 'gregolo.png' },
+					{ name: 'Hevelop', logo: 'hevelop.svg' },
+					{ name: 'La Cruz', logo: 'lacruz.svg' },
+					{ name: 'Mobility Care', logo: 'mobilitycare.png' },
+					{ name: 'GM Finishing', logo: 'gmfinishing.jpg' },
+					{ name: 'FIAP', logo: 'fiap.jpg' },
+				].map((client) => (
+					<div class="h-20 md:h-24 rounded-xl bg-white/95 flex items-center justify-center p-3 md:p-4 hover:bg-white hover:scale-105 transition-all">
+						<img src={`/logos/${client.logo}`} alt={client.name} loading="lazy" class="max-h-full max-w-full w-auto h-auto object-contain" />
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     B8 · SCANNER · GRAY-50 con card scura inset (R5)
+	     ═══════════════════════════════════════════ -->
+	<section class="py-20 md:py-28 bg-gray-50">
+		<div class="max-w-6xl mx-auto px-6">
+			<div class="relative max-w-4xl mx-auto rounded-3xl overflow-hidden p-8 md:p-14 text-center shadow-2xl shadow-sky/10">
+				<div class="absolute inset-0 bg-gradient-to-br from-dark via-sky-muted to-dark"></div>
+				<div class="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent"></div>
+				<div class="absolute top-10 right-10 w-64 h-64 rounded-full bg-accent/10 blur-[100px]"></div>
+				<div class="absolute bottom-10 left-10 w-96 h-96 rounded-full bg-sky/10 blur-[100px]"></div>
+
+				<div class="relative">
+					<div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 flex items-center justify-center">
+						<svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+							<path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M9 17h6" />
+						</svg>
+					</div>
+					<p class="text-sky-light text-xs md:text-sm font-heading font-bold tracking-wider uppercase mb-4">Test gratuito · rete vendita</p>
+					<h2 class="text-2xl md:text-4xl font-medium mb-5 !text-white leading-[1.2]">
+						Dieci domande per sapere <span class="text-sky-light">quanto ti costa la rete che hai adesso.</span>
+					</h2>
+					<p class="text-white text-base md:text-lg leading-relaxed mb-2">
+						<strong class="text-white">Tre minuti, un numero in euro.</strong>
+					</p>
+					<p class="text-white/70 text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto">
+						Il fatturato della tua rete lo conosci già. Qui vedi il costo che non compare nei report: turnover e venditori nel ruolo sbagliato.
+					</p>
+					<a href="/scanner" class="btn-quiz !inline-flex items-center justify-center gap-2 w-full sm:w-auto text-base md:text-lg">
+						Calcola il costo della tua rete
+						<svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════════════════════
+	     B9 · CHIUSURA: IL PRIMO PASSO · WHITE (R2)
+	     ═══════════════════════════════════════════ -->
+	<section class="py-20 md:py-28 bg-white">
+		<div class="max-w-6xl mx-auto px-6">
+			<div class="text-center mb-12">
+				<div class="section-divider mb-6 mx-auto"></div>
+				<h2 class="text-3xl md:text-5xl font-medium mb-4 text-gray-900">
+					Il primo passo dipende <span class="text-sky">da dove ti fa male.</span>
+				</h2>
+				<p class="text-gray-600 text-lg leading-relaxed">Tre partenze, tutte con un perimetro chiaro.</p>
+			</div>
+
+			<!-- BOX le tre partenze: unico box della pagina -->
+			<div class="card-light max-w-3xl mx-auto p-8 md:p-10 relative overflow-hidden">
+				<div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-sky to-accent rounded-t-2xl"></div>
+				<div class="divide-y divide-gray-200">
+					<!-- Riga 1 -->
+					<div class="pb-5">
+						<p class="font-heading font-semibold text-gray-900 text-base md:text-lg mb-2">Se il punto è la rete vendita, o quanto si regge su di te:</p>
+						<p class="text-base text-gray-700 leading-relaxed">
+							parti da <strong class="text-gray-900">Chi Tiene il Gioco</strong>. Una misura su di te, novanta minuti di call, tre mosse da lunedì. <strong class="text-gray-900">490 € + IVA, che si scalano interi se prosegui entro 60 giorni</strong>. Se la call non ti lascia niente in mano, <strong class="text-gray-900">te li ridò</strong>.
+						</p>
+						<a href="/chi-tiene-il-gioco" class="inline-block text-sky-700 hover:text-sky font-heading font-semibold py-2 mt-1 transition-colors">Chi Tiene il Gioco →</a>
+					</div>
+					<!-- Riga 2 -->
+					<div class="py-5">
+						<p class="font-heading font-semibold text-gray-900 text-base md:text-lg mb-2">Se prima vuoi un numero, <strong class="font-bold">gratis</strong>:</p>
+						<p class="text-base text-gray-700 leading-relaxed">
+							fai lo scanner. Dieci domande, tre minuti, il costo della tua rete in euro.
+						</p>
+						<a href="/scanner" class="inline-block text-sky-700 hover:text-sky font-heading font-semibold py-2 mt-1 transition-colors">Fai lo scanner →</a>
+					</div>
+					<!-- Riga 3 -->
+					<div class="pt-5">
+						<p class="font-heading font-semibold text-gray-900 text-base md:text-lg mb-2">Se il punto è un altro (una selezione, una trattativa, un passaggio):</p>
+						<p class="text-base text-gray-700 leading-relaxed">
+							scrivimi due righe sul tuo caso. Ti rispondo io <strong class="text-gray-900">entro 24 ore</strong>.
+						</p>
+						<a href="/contatti" class="inline-block text-sky-700 hover:text-sky font-heading font-semibold py-2 mt-1 transition-colors">Scrivimi due righe →</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- EVIDENZIA: in-flow, voce bassa, nessun colore -->
+			<p class="text-lg md:text-xl font-medium text-gray-900 text-center max-w-2xl mx-auto leading-relaxed mt-10">
+				Le misurazioni le leggo io, le call le tengo io. Seguo pochi imprenditori al mese, intorno a cinque.
+			</p>
+
+			<!-- CTA madre: unico bottone verde della pagina -->
+			<div class="text-center mt-8">
+				<a href="/chi-tiene-il-gioco" class="btn-primary !inline-flex items-center justify-center w-full sm:w-auto text-base md:text-lg">
+					Parti da Chi Tiene il Gioco
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>
