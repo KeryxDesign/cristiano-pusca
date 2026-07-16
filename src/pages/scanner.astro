@@ -2,7 +2,7 @@
 import '../styles/global.css';
 
 const title = 'Quanto regge la tua rete vendita senza di te? — Cristiano Pusca';
-const description = '10 domande, 3 minuti. Scopri quanto la tua rete vendita dipende da te, e quanto ti costa ogni anno.';
+const description = 'Scopri quanto ti costa ogni anno la rete vendita che hai adesso. 10 domande, 3 minuti, una cifra in euro.';
 ---
 
 <html lang="it">
@@ -110,16 +110,16 @@ const description = '10 domande, 3 minuti. Scopri quanto la tua rete vendita dip
 					<div class="max-w-5xl mx-auto px-6 pt-14 md:pt-20 pb-12 md:pb-16">
 						<div class="text-center mb-10 md:mb-12">
 							<p class="text-teal-deep text-xs font-heading font-semibold tracking-wider uppercase mb-3">Cosa metti a fuoco in 3 minuti</p>
-							<h2 class="font-heading font-medium text-3xl md:text-4xl text-ink leading-snug">Il tuo Indice di Dipendenza</h2>
-							<p class="text-ink-soft text-base md:text-lg mt-2">un numero da <span class="text-teal-deep font-semibold">0</span> a <span class="text-teal-deep font-semibold">100</span></p>
+							<h2 class="font-heading font-medium text-3xl md:text-4xl text-ink leading-snug">Quanto ti costa la rete che hai adesso</h2>
+							<p class="text-ink-soft text-base md:text-lg mt-2">una cifra in euro, stimata sui tuoi numeri</p>
 						</div>
 
 						<div class="grid md:grid-cols-3 gap-5">
 							<!-- Card 1 -->
 							<div class="card-light p-6">
 								<div class="w-9 h-9 rounded-full bg-teal-deep text-white font-heading font-bold text-base flex items-center justify-center mb-4">1</div>
-								<h3 class="font-heading font-semibold text-ink text-lg mb-2">Indice di Dipendenza</h3>
-								<p class="text-ink-soft text-sm leading-relaxed">Da 0 a 100: quanto la rete regge solo perché ci sei tu.</p>
+								<h3 class="font-heading font-semibold text-ink text-lg mb-2">Quanto la rete poggia su di te</h3>
+								<p class="text-ink-soft text-sm leading-relaxed">Da 0 a 100: quanto regge solo perché ci sei tu.</p>
 							</div>
 							<!-- Card 2 — motore DR, enfatizzata -->
 							<div class="card-light p-6 border-2 border-teal-deep/40 border-t-4 border-t-teal-deep">
@@ -357,14 +357,23 @@ const description = '10 domande, 3 minuti. Scopri quanto la tua rete vendita dip
 					<!-- RISULTATI -->
 					<div id="scanner-results" class="hidden">
 
-						<!-- ░░ INDICE — il protagonista ░░ -->
-						<p class="text-ink-soft text-xs font-heading font-semibold tracking-[0.18em] uppercase mb-5">Il tuo risultato</p>
+						<!-- ░░ COSTO — il protagonista ░░ -->
+						<p class="text-ink-soft text-xs font-heading font-semibold tracking-[0.18em] uppercase mb-3">Il tuo risultato</p>
+						<h2 class="font-heading font-semibold text-ink leading-snug mb-4" style="font-size: 22px;">Quanto ti costa la rete che hai adesso</h2>
 
-						<div class="flex items-end gap-3 mb-1">
-							<span id="scanner-score" class="font-heading font-bold leading-none" style="font-size: 88px; line-height: 0.9;"></span>
-							<span class="font-heading font-semibold text-ink-soft mb-2" style="font-size: 22px;">/100</span>
+						<div class="flex items-end gap-2 mb-1 flex-wrap">
+							<span id="scanner-cost" class="font-heading font-bold leading-none text-ink" style="font-size: 52px; line-height: 0.95;"></span>
+							<span class="font-heading font-semibold text-ink-soft mb-1" style="font-size: 18px;">l'anno</span>
 						</div>
-						<p class="text-ink-soft text-sm font-heading font-medium mb-5">Indice di Dipendenza</p>
+
+						<!-- Riga-hedge: onestà, senza numero (il numero è l'eroe sopra) -->
+						<p class="text-ink-soft mb-8" style="font-size: 14px;">A spanne, sui tuoi numeri. Ti dà l'ordine di grandezza. La cifra esatta esce solo misurando chi hai in squadra, una persona alla volta. Ma la scala è questa, e cresce finché resta così.</p>
+
+						<!-- Sotto-lettura: quanto poggia su di te (0-100 demotato) -->
+						<div class="flex items-baseline gap-2 mb-2">
+							<span id="scanner-score" class="font-heading font-bold leading-none" style="font-size: 28px;"></span>
+							<span class="font-heading font-semibold text-ink-soft" style="font-size: 15px;">/100 &middot; quanto la tua rete poggia su di te</span>
+						</div>
 
 						<!-- Barra fascia -->
 						<div class="w-full rounded-full overflow-hidden mb-6" style="height: 10px; background-color: #E1E8F0;">
@@ -372,10 +381,7 @@ const description = '10 domande, 3 minuti. Scopri quanto la tua rete vendita dip
 						</div>
 
 						<!-- Lettura fascia + benchmark fuso nella stessa frase -->
-						<p id="scanner-score-text" class="text-ink leading-relaxed mb-6" style="font-size: 18px;"></p>
-
-						<!-- Riga-seme costo: senza numero, mai rosso -->
-						<p class="text-ink-soft mb-10" style="font-size: 14px;">A spanne, sui tuoi numeri, una rete così pesa <span id="scanner-cost-seed" class="text-ink font-semibold"></span> l'anno. È una stima ruvida, non un preventivo: il numero vero esce solo misurando chi hai in squadra, una persona alla volta. Ma l'ordine di grandezza è quello, e cresce finché resta così.</p>
+						<p id="scanner-score-text" class="text-ink leading-relaxed mb-10" style="font-size: 18px;"></p>
 
 						<!-- Sintomi-spia personalizzati -->
 						<div id="scanner-sintomi-block" class="mb-10">
@@ -552,10 +558,10 @@ const description = '10 domande, 3 minuti. Scopri quanto la tua rete vendita dip
 
 			// lettura fascia con benchmark FUSO nella stessa frase (niente riquadro a parte)
 			function bandText(i) {
-				if (i <= 25) return 'Dipendenza bassa: la tua rete ha una struttura solida, e sei messo meglio della maggior parte delle PMI con rete vendita. Resta solo da renderla indipendente del tutto.';
-				if (i <= 50) return 'Dipendenza moderata: la rete funziona, ma poggia troppo su di te o su 1-2 persone, e sei più o meno dove sta la maggioranza delle PMI che misuriamo. Se qualcosa cambia, i numeri calano.';
-				if (i <= 75) return 'Dipendenza alta: stai compensando con il tuo lavoro personale le lacune della rete, ed è la fascia in cui finisce la maggior parte delle reti vendita PMI che misuriamo. La differenza la fa chi decide di metterci ordine.';
-				return 'Dipendenza critica: non hai una rete vendita, hai collaboratori che vendono quando li guidi tu. È una fascia più comune di quanto sembri tra le PMI, e senza di te si ferma quasi tutto.';
+				if (i <= 25) return 'La tua rete ha una struttura solida, e sei messo meglio della maggior parte delle PMI con rete vendita. Resta solo da renderla indipendente del tutto.';
+				if (i <= 50) return 'La rete funziona, ma poggia troppo su di te o su 1-2 persone, e sei più o meno dove sta la maggioranza delle PMI che misuriamo. Se qualcosa cambia, i numeri calano.';
+				if (i <= 75) return 'Stai compensando con il tuo lavoro personale le lacune della rete, ed è la fascia in cui finisce la maggior parte delle reti vendita PMI che misuriamo. La differenza la fa chi decide di metterci ordine.';
+				return 'Non hai una rete vendita, hai collaboratori che vendono quando li guidi tu. È una fascia più comune di quanto sembri tra le PMI, e senza di te si ferma quasi tutto.';
 			}
 
 			// assaggio a schermo per fascia (gancio onesto sopra il gate)
@@ -606,14 +612,10 @@ const description = '10 domande, 3 minuti. Scopri quanto la tua rete vendita dip
 				const assaggioEl = $('#scanner-assaggio');
 				if (assaggioEl) assaggioEl.textContent = assaggioText(r.indice);
 
-				// costo a spanne (sobrio, sotto l'indice; il valore va anche nel payload)
+				// costo — il numero eroe (il valore va anche nel payload)
 				const totCost = (r.cost && r.cost.tot) || 0;
-				const seed = $('#scanner-cost-seed');
-				if (seed && totCost > 0) {
-					const lo = Math.round(totCost * 0.8 / 1000) * 1000;
-					const hi = Math.round(totCost * 1.2 / 1000) * 1000;
-					seed.textContent = 'tra ' + lo.toLocaleString('it-IT') + ' € e ' + hi.toLocaleString('it-IT') + ' €';
-				}
+				const costEl = $('#scanner-cost');
+				if (costEl && totCost > 0) costEl.textContent = eur(totCost);
 
 				window.scrollTo({ top: 0, behavior: 'smooth' });
 			}

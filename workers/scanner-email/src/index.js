@@ -16,6 +16,12 @@ export default {
 			if (path.endsWith('/assessment')) {
 				return await handleAssessment(request, env);
 			}
+			if (path.endsWith('/due-settimane')) {
+				return await handleTestDueSettimane(request, env);
+			}
+			if (path.endsWith('/guida')) {
+				return await handleGuida(request, env);
+			}
 			// Default: scanner rete vendita (back-compat con flow esistente)
 			return await handleScanner(request, env);
 		} catch (err) {
@@ -37,13 +43,19 @@ async function handleScanner(request, env) {
 	const mcResult = await addToMailchimp(env, email, firstName, lastName, settore, score, cost, newsletter);
 	if (!mcResult.ok) console.error('Mailchimp error (non-blocking):', mcResult.error);
 
+	// Dual-write: anche su Kit, ma solo con consenso newsletter (Kit = marketing)
+	const kitResult = newsletter
+		? await addToKit(env, email, firstName, lastName, settore, score, cost, fasciaFromScore(score))
+		: { ok: true, skipped: true };
+	if (!kitResult.ok) console.error('Kit error (non-blocking):', kitResult.error);
+
 	const emailResult = await sendResultsEmail(env, email, firstName, { score, vals, venditori, fatturatoVal });
 	if (!emailResult.ok) console.error('Resend user email error:', emailResult.error);
 
 	const notifyResult = await sendNotifyEmail(env, email, firstName, lastName, settore, score, cost, answers);
 	if (!notifyResult.ok) console.error('Resend notify error:', notifyResult.error);
 
-	return jsonResponse({ success: true, mailchimp: mcResult.ok }, 200, env, request);
+	return jsonResponse({ success: true, mailchimp: mcResult.ok, kit: kitResult.ok }, 200, env, request);
 }
 
 // ── Handler: ASSESSMENT COMPORTAMENTALE (nuovo lead magnet) ─
@@ -230,6 +242,343 @@ Hai ricevuto questa mail perché hai richiesto l'esempio di assessment su cristi
 </html>`;
 }
 
+// ── Handler: TEST DUE SETTIMANE (quiz dipendenza dal titolare) ─
+// Payload dal client (SENZA nomi dei collaboratori del passo naming):
+// { firstName, email, newsletter, N, M, fascia, righeSenzaNome[], answers{}, vals{}, q1, q10 }
+
+async function handleTestDueSettimane(request, env) {
+	const body = await request.json();
+	const { firstName, email, newsletter, righeSenzaNome, answers, vals, q1, q10 } = body;
+
+	if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+		return jsonResponse({ error: 'Email non valida' }, 400, env, request);
+	}
+
+	const N = Math.max(0, Math.min(8, parseInt(body.N, 10) || 0));
+	const M = Math.max(0, Math.min(8, parseInt(body.M, 10) || 0));
+	const fascia = tdsFascia(body.fascia, N, M);
+	const righe = Array.isArray(righeSenzaNome) ? righeSenzaNome.filter((r) => typeof r === 'string').slice(0, 8) : [];
+
+	// 1. Mailchimp (create-or-update): sempre; subscribed se newsletter, altrimenti transactional
+	const mcResult = await addTdsToMailchimp(env, email, firstName, N, M, fascia, newsletter);
+	if (!mcResult.ok) console.error('Mailchimp TDS error (non-blocking):', mcResult.error);
+
+	// 2. Kit v4 (marketing): SOLO con consenso newsletter, TAG NUOVO dedicato (mai lo scanner)
+	const kitResult = newsletter
+		? await addTdsToKit(env, email, firstName, N, M, fascia)
+		: { ok: true, skipped: true };
+	if (!kitResult.ok) console.error('Kit TDS error (non-blocking):', kitResult.error);
+
+	// 3. Resend: mail di consegna (vademecum + riepilogo, MAI i nomi candidati)
+	const emailResult = await sendTdsEmail(env, email, firstName, { N, M, fascia, righe });
+	if (!emailResult.ok) console.error('Resend TDS user email error:', emailResult.error);
+
+	// 4. Resend: notify owner
+	const notifyResult = await sendTdsNotify(env, email, firstName, { N, M, fascia, answers, q1, q10, newsletter });
+	if (!notifyResult.ok) console.error('Resend TDS notify error:', notifyResult.error);
+
+	return jsonResponse({ success: true, mailchimp: mcResult.ok, kit: kitResult.ok }, 200, env, request);
+}
+
+// fascia 1-4: fidati del client se valida, altrimenti ricalcola da S = 2N + M
+function tdsFascia(clientFascia, N, M) {
+	const f = parseInt(clientFascia, 10);
+	if (f >= 1 && f <= 4) return f;
+	const S = 2 * N + M;
+	return S <= 3 ? 1 : S <= 8 ? 2 : S <= 12 ? 3 : 4;
+}
+
+async function addTdsToMailchimp(env, email, firstName, N, M, fascia, newsletter) {
+	const server = env.MAILCHIMP_SERVER;
+	const listId = env.MAILCHIMP_LIST_ID;
+	const apiKey = env.MAILCHIMP_API_KEY;
+	const authHeader = `Basic ${btoa('anystring:' + apiKey)}`;
+	const emailHash = await md5(email.toLowerCase());
+	const url = `https://${server}.api.mailchimp.com/3.0/lists/${listId}/members/${emailHash}`;
+
+	const merge_fields = { N_DS: String(N), M_DS: String(M), FASCIA_DS: String(fascia) };
+	if (firstName) merge_fields.FNAME = firstName;
+
+	const res = await fetch(url, {
+		method: 'PUT',
+		headers: { Authorization: authHeader, 'Content-Type': 'application/json' },
+		body: JSON.stringify({
+			email_address: email,
+			status_if_new: newsletter ? 'subscribed' : 'transactional',
+			merge_fields,
+		}),
+	});
+
+	if (!res.ok) {
+		const b = await res.json();
+		return { ok: false, error: b.detail || b.title };
+	}
+
+	const tags = [{ name: 'test-due-settimane', status: 'active' }];
+	if (newsletter) tags.push({ name: 'newsletter-optin', status: 'active' });
+
+	await fetch(`https://${server}.api.mailchimp.com/3.0/lists/${listId}/members/${emailHash}/tags`, {
+		method: 'POST',
+		headers: { Authorization: authHeader, 'Content-Type': 'application/json' },
+		body: JSON.stringify({ tags }),
+	});
+
+	return { ok: true };
+}
+
+// Kit v4: subscribe + TAG NUOVO via env.KIT_TDS_TAG_ID. MAI l'id 20820661 dello scanner.
+async function addTdsToKit(env, email, firstName, N, M, fascia) {
+	const key = env.KIT_API_KEY;
+	if (!key) return { ok: false, error: 'KIT_API_KEY mancante' };
+	const headers = { 'X-Kit-Api-Key': key, 'Content-Type': 'application/json', Accept: 'application/json' };
+
+	const fields = { n_due_settimane: String(N), m_due_settimane: String(M), fascia_ds: String(fascia) };
+
+	const res = await fetch('https://api.kit.com/v4/subscribers', {
+		method: 'POST',
+		headers,
+		body: JSON.stringify({ email_address: email, first_name: firstName || '', state: 'active', fields }),
+	});
+	if (!res.ok) {
+		const b = await res.text();
+		return { ok: false, error: `subscriber ${res.status}: ${b.slice(0, 140)}` };
+	}
+
+	// TAG dedicato al test. Nessun fallback all'id scanner: se manca, si logga e si salta il tag.
+	const tagId = env.KIT_TDS_TAG_ID;
+	if (!tagId) return { ok: false, error: 'KIT_TDS_TAG_ID mancante (subscriber creato, tag non applicato)' };
+	if (String(tagId) === '20820661') return { ok: false, error: 'KIT_TDS_TAG_ID coincide con il tag scanner: bloccato' };
+
+	await fetch(`https://api.kit.com/v4/tags/${tagId}/subscribers`, {
+		method: 'POST',
+		headers,
+		body: JSON.stringify({ email_address: email }),
+	});
+
+	// sequenza educativa dedicata (opzionale)
+	if (env.KIT_TDS_SEQUENCE_ID) {
+		await fetch(`https://api.kit.com/v4/sequences/${env.KIT_TDS_SEQUENCE_ID}/subscribers`, {
+			method: 'POST',
+			headers,
+			body: JSON.stringify({ email_address: email }),
+		});
+	}
+
+	return { ok: true };
+}
+
+// Chiusura di fascia per la mail (testo definitivo copy E). F3/F4 contengono il link CTG.
+function tdsClosure(fascia) {
+	if (fascia === 1) {
+		return { text: 'Il tuo foglio regge già oggi, e non è comune. La prova vera è una sola: due settimane, telefono spento. Quando le farai, scrivimi com’è andata.', link: null };
+	}
+	if (fascia === 2) {
+		return { text: 'Parti dalla riga peggiore del foglio: è lì che l’azienda ti aspetta di più. Sistemata quella, rifai il conto.', link: null };
+	}
+	if (fascia === 3) {
+		return {
+			text: 'Se poi vuoi la stessa misura fatta con lo strumento invece che a occhio, il primo gradino è Chi Tiene il Gioco: novanta minuti di call, tre mosse da lunedì, 490 euro + IVA che si scalano interi se prosegui entro 60 giorni. Le call le tengo io.',
+			link: 'https://cristianopusca.com/chi-tiene-il-gioco',
+		};
+	}
+	if (fascia === 4) {
+		return {
+			text: 'Un’ultima cosa: la tua fotografia è la più comune che raccolgo, da anni. Quando vorrai farla cambiare con una misura fatta con lo strumento invece che a occhio, il primo gradino è piccolo: Chi Tiene il Gioco, novanta minuti di call, tre mosse da lunedì, 490 euro + IVA che si scalano se prosegui. Se la call non ti lascia niente in mano, te li ridò.',
+			link: 'https://cristianopusca.com/chi-tiene-il-gioco',
+		};
+	}
+	return { text: 'Nel vademecum, l’ultimo capitolo dice qual è il passo dopo, se e quando vorrai farlo. Il foglio intanto è tuo.', link: null };
+}
+
+function buildTdsEmailHtml(firstName, ctx) {
+	const greeting = firstName ? `Ciao ${firstName},` : 'Ciao,';
+	const P = 'font-family:Georgia,serif;font-size:17px;line-height:27px;color:#1A1A1A;-webkit-text-fill-color:#1A1A1A;margin:0 0 16px 0;';
+	const N = Number(ctx.N) || 0;
+	const M = Number(ctx.M) || 0;
+	const fascia = ctx.fascia;
+	const righe = Array.isArray(ctx.righe) ? ctx.righe : [];
+	// segnaposto vademecum: risolto pre-go-live (fallback innocuo, non un URL inventato)
+	const vademecumUrl = env_or(ctx.vademecumUrl, '#vademecum-todo');
+
+	// riepilogo risultato
+	let recap;
+	if (N === 0) {
+		recap = `<p style="${P}"><strong>Il tuo risultato, così resta in casella:</strong> nessuna delle tue 8 funzioni chiave si ferma senza di te${M > 0 ? `, ${M === 1 ? 'una rallenta' : M + ' rallentano'}` : ''}.</p>`;
+	} else {
+		const nPhrase = N === 1 ? '1 delle tue 8 funzioni chiave si ferma senza di te' : `${N} delle tue 8 funzioni chiave si fermano senza di te`;
+		const mPhrase = M === 0 ? '' : (M === 1 ? ', un’altra rallenta' : `, altre ${M} rallentano`);
+		const listItems = righe.map((r) => `<li style="margin:0 0 6px 0;">${escapeHtmlWorker(r)}</li>`).join('');
+		recap = `<p style="${P}"><strong>Il tuo risultato, così resta in casella:</strong> ${nPhrase}${mPhrase}. Le righe rimaste senza nome sono queste:</p>` +
+			(listItems ? `<ul style="font-family:Georgia,serif;font-size:17px;line-height:24px;color:#1A1A1A;-webkit-text-fill-color:#1A1A1A;margin:0 0 16px 0;padding-left:22px;">${listItems}</ul>` : '');
+	}
+
+	const closure = tdsClosure(fascia);
+	let closureHtml = `<p style="${P}">${escapeHtmlWorker(closure.text)}</p>`;
+	if (closure.link) {
+		closureHtml += `<p style="${P}"><a href="${closure.link}" style="color:#B8382B;text-decoration:underline;font-weight:700;">Come funziona Chi Tiene il Gioco &rarr;</a></p>`;
+	}
+
+	return `<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>Il tuo foglio delle due settimane</title>
+<style>:root,body{color-scheme:light;supported-color-schemes:light;}</style>
+</head>
+<body style="margin:0;padding:0;background-color:#ffffff;color-scheme:light;-webkit-text-size-adjust:100%;">
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:#ffffff;font-size:1px;line-height:1px;">Il vademecum e il tuo risultato: le righe rimaste senza un nome, così tra tre mesi puoi ricontarle.</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="background-color:#ffffff;"><tr><td align="center" style="padding:28px 16px;">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="max-width:600px;width:100%;background-color:#ffffff;">
+<tr><td style="padding:24px 30px 36px 30px;">
+
+<p style="font-family:Georgia,serif;font-size:18px;line-height:28px;color:#1A1A1A;-webkit-text-fill-color:#1A1A1A;margin:0 0 18px 0;">${greeting}</p>
+
+<p style="${P}">come promesso, ecco il vademecum e il tuo risultato.</p>
+
+<p style="${P}">Il vademecum "dal Management all'Engagement": venti minuti di lettura. Dentro trovi il metodo, i numeri di chi l'ha applicato e le cinque azioni da fare da solo, a costo zero. La prima è il foglio delle due settimane, quello che hai appena compilato.</p>
+
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" style="margin:18px 0 26px 0;"><tr>
+<td align="center" bgcolor="#B8382B" style="border-radius:8px;background-color:#B8382B;">
+<a href="${vademecumUrl}" target="_blank" style="display:inline-block;padding:15px 36px;font-family:Lexend,Arial,sans-serif;font-size:16px;line-height:16px;font-weight:700;color:#FFFFFF;-webkit-text-fill-color:#FFFFFF;text-decoration:none;border-radius:8px;">Scarica il vademecum</a>
+</td></tr></table>
+
+${recap}
+
+<p style="${P}">Il foglio coi nomi che hai scritto è rimasto sul tuo dispositivo: qui non ce l'ho, e va bene così.</p>
+
+<p style="${P}">Un consiglio da campo: quelle righe, contale di nuovo tra tre mesi. Quello è il numero da far scendere.</p>
+
+${closureHtml}
+
+<p style="${P}">Se hai una domanda sul tuo foglio, rispondi a questa mail: la leggo io.</p>
+
+<p style="${P}">Buon lavoro,</p>
+
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" style="margin-top:8px;"><tr>
+<td width="56" valign="top" style="padding-right:14px;">
+<img src="https://mcusercontent.com/d327453d6178f9f8dfe810d6f/images/45216a28-af41-c024-0d7b-22b263a7de4b.jpg" width="56" height="56" alt="Cristiano Pusca" style="display:block;width:56px;height:56px;border-radius:28px;border:0;outline:none;">
+</td>
+<td valign="middle">
+<div style="font-family:Lexend,Arial,sans-serif;font-size:16px;font-weight:600;color:#1A1A1A;line-height:22px;">Cristiano Pusca</div>
+<div style="font-family:Georgia,serif;font-size:14px;line-height:20px;color:#6B6B6B;">Aiuto le PMI a costruire un'azienda che cammina anche senza il titolare</div>
+</td></tr></table>
+
+<div style="font-family:Arial,sans-serif;font-size:12px;line-height:18px;color:#9A9A9A;padding-top:26px;margin-top:28px;border-top:1px solid #eeeeee;">
+&copy; ${new Date().getFullYear()} Cristiano Pusca &middot; BPDA S.R.L. &middot; Vicolo XX Settembre 11, 31100 Treviso (TV) &middot; P.IVA 04993860263<br><br>
+Hai ricevuto questa mail perché hai fatto il test delle due settimane su cristianopusca.com. &middot; <a href="https://us13.list-manage.com/unsubscribe?u=d327453d6178f9f8dfe810d6f&id=2a69d16d64" style="color:#9A9A9A;">Cancella iscrizione</a>
+</div>
+
+</td></tr></table>
+</td></tr></table>
+</body>
+</html>`;
+}
+
+async function sendTdsEmail(env, to, firstName, ctx) {
+	const html = buildTdsEmailHtml(firstName, { ...ctx, vademecumUrl: env.VADEMECUM_URL });
+	const N = Number(ctx.N) || 0;
+	const subject = N > 0
+		? `Test delle due settimane: ${N === 1 ? '1 riga' : N + ' righe'} su 8 senza un nome`
+		: 'Il tuo foglio delle due settimane, compilato con le tue risposte';
+
+	const res = await fetch('https://api.resend.com/emails', {
+		method: 'POST',
+		headers: {
+			Authorization: `Bearer ${env.RESEND_API_KEY}`,
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({
+			from: 'Cristiano Pusca <info@cristianopusca.com>',
+			to: [to],
+			reply_to: 'cristiano@be-do.it',
+			subject,
+			html,
+		}),
+	});
+
+	if (!res.ok) return { ok: false, error: await res.text() };
+	return { ok: true };
+}
+
+async function sendTdsNotify(env, userEmail, firstName, ctx) {
+	const now = new Date().toLocaleString('it-IT', { timeZone: 'Europe/Rome' });
+	const name = firstName || '(non fornito)';
+	const N = Number(ctx.N) || 0;
+	const M = Number(ctx.M) || 0;
+	const fascia = ctx.fascia;
+	const newsletterFlag = ctx.newsletter ? 'Sì' : 'No';
+
+	let answersHtml = '';
+	const a = ctx.answers || {};
+	for (let i = 1; i <= 10; i++) {
+		const val = a['q' + i];
+		if (val) {
+			answersHtml += `<tr><td style="padding:8px 12px;border-bottom:1px solid #eee;color:#666;font-size:13px;">Q${i}</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-weight:600;font-size:13px;">${escapeHtmlWorker(String(val))}</td></tr>`;
+		}
+	}
+
+	const html = `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#f9fafb;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f9fafb;"><tr><td align="center" style="padding:30px 20px;">
+<table width="600" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:12px;border:1px solid #e5e7eb;overflow:hidden;">
+<tr><td style="padding:24px 24px 16px;border-bottom:1px solid #e5e7eb;">
+<h1 style="color:#111827;font-size:18px;font-weight:700;margin:0 0 4px;">Nuovo lead Test Due Settimane</h1>
+<p style="color:#6b7280;font-size:13px;margin:0;">${now}</p>
+</td></tr>
+<tr><td style="padding:20px 24px;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f9fafb;border-radius:8px;border:1px solid #e5e7eb;">
+<tr><td style="padding:12px;font-size:13px;font-weight:600;color:#374151;border-bottom:1px solid #e5e7eb;width:150px;">Nome</td><td style="padding:12px;font-size:13px;border-bottom:1px solid #e5e7eb;font-weight:600;">${name}</td></tr>
+<tr><td style="padding:12px;font-size:13px;font-weight:600;color:#374151;border-bottom:1px solid #e5e7eb;">Email</td><td style="padding:12px;font-size:13px;border-bottom:1px solid #e5e7eb;"><a href="mailto:${userEmail}" style="color:#0ea5e9;text-decoration:none;">${userEmail}</a></td></tr>
+<tr><td style="padding:12px;font-size:13px;font-weight:600;color:#374151;border-bottom:1px solid #e5e7eb;">Si ferma (N)</td><td style="padding:12px;font-size:13px;border-bottom:1px solid #e5e7eb;font-weight:600;">${N} su 8</td></tr>
+<tr><td style="padding:12px;font-size:13px;font-weight:600;color:#374151;border-bottom:1px solid #e5e7eb;">Rallenta (M)</td><td style="padding:12px;font-size:13px;border-bottom:1px solid #e5e7eb;">${M} su 8</td></tr>
+<tr><td style="padding:12px;font-size:13px;font-weight:600;color:#374151;border-bottom:1px solid #e5e7eb;">Fascia</td><td style="padding:12px;font-size:13px;border-bottom:1px solid #e5e7eb;font-weight:600;">${fascia}</td></tr>
+<tr><td style="padding:12px;font-size:13px;font-weight:600;color:#374151;">Newsletter</td><td style="padding:12px;font-size:13px;">${newsletterFlag}</td></tr>
+</table>
+</td></tr>
+${answersHtml ? `<tr><td style="padding:0 24px 20px;">
+<p style="color:#374151;font-size:13px;font-weight:600;margin:0 0 8px;">Risposte (Q1-Q10)</p>
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f9fafb;border-radius:8px;border:1px solid #e5e7eb;">${answersHtml}</table>
+</td></tr>` : ''}
+<tr><td style="padding:16px 24px;background:#f9fafb;text-align:center;">
+<a href="mailto:${userEmail}" style="display:inline-block;background:#0ea5e9;color:#fff;padding:10px 24px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;">Rispondi al lead</a>
+</td></tr>
+</table>
+</td></tr></table>
+</body></html>`;
+
+	const notifyTo = (env.NOTIFY_EMAIL || 'info@keryxdesign.com').split(',').map((e) => e.trim());
+
+	const res = await fetch('https://api.resend.com/emails', {
+		method: 'POST',
+		headers: {
+			Authorization: `Bearer ${env.RESEND_API_KEY}`,
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({
+			from: 'Cristiano Pusca <notify@keryxdesign.com>',
+			to: notifyTo,
+			subject: `[Due Settimane] ${name} <${userEmail}> - N ${N}/8, fascia ${fascia}`,
+			html,
+		}),
+	});
+
+	if (!res.ok) return { ok: false, error: await res.text() };
+	return { ok: true };
+}
+
+// helper: valore o fallback (per il segnaposto vademecum)
+function env_or(v, fallback) {
+	return v && String(v).trim() ? v : fallback;
+}
+
+// escape per interpolazioni HTML nel worker
+function escapeHtmlWorker(s) {
+	return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
 // ── Mailchimp ──────────────────────────────────────────────
 
 async function addToMailchimp(env, email, firstName, lastName, settore, score, cost, newsletter) {
@@ -275,6 +624,49 @@ async function addToMailchimp(env, email, firstName, lastName, settore, score, c
 // ── Results email to user: IL GIUDIZIO per fascia ──────────
 
 // fascia dallo score (stessa logica della notify)
+// ── Kit (ConvertKit) dual-write ────────────────────────────
+// Aggiunge/aggiorna il lead dello scanner in Kit con i campi profilo
+// e il tag 'scanner'. Non-bloccante come Mailchimp. Chiamato solo con
+// consenso newsletter (Kit e' marketing; il giudizio resta transactional).
+async function addToKit(env, email, firstName, lastName, settore, score, cost, fascia) {
+	const key = env.KIT_API_KEY;
+	if (!key) return { ok: false, error: 'KIT_API_KEY mancante' };
+	const headers = { 'X-Kit-Api-Key': key, 'Content-Type': 'application/json', Accept: 'application/json' };
+
+	// custom field keys allineati alla migrazione Kit
+	const fields = { score: String(score), costo: String(cost), fascia };
+	if (lastName) fields.cognome = lastName;
+	if (settore) fields.settore = settore;
+
+	const res = await fetch('https://api.kit.com/v4/subscribers', {
+		method: 'POST',
+		headers,
+		body: JSON.stringify({ email_address: email, first_name: firstName || '', state: 'active', fields }),
+	});
+	if (!res.ok) {
+		const body = await res.text();
+		return { ok: false, error: `subscriber ${res.status}: ${body.slice(0, 140)}` };
+	}
+
+	// tag 'scanner' (id dalla migrazione; override via env se cambia)
+	const tagId = env.KIT_SCANNER_TAG_ID || '20820661';
+	await fetch(`https://api.kit.com/v4/tags/${tagId}/subscribers`, {
+		method: 'POST',
+		headers,
+		body: JSON.stringify({ email_address: email }),
+	});
+
+	// iscrizione alla sequenza educativa "Le lezioni" (Mail 1 a +1g, dopo il giudizio Resend)
+	const seqId = env.KIT_SEQUENCE_ID || '2813724';
+	await fetch(`https://api.kit.com/v4/sequences/${seqId}/subscribers`, {
+		method: 'POST',
+		headers,
+		body: JSON.stringify({ email_address: email }),
+	});
+
+	return { ok: true };
+}
+
 function fasciaFromScore(score) {
 	const s = Number(score) || 0;
 	return s >= 76 ? 'CRITICA' : s >= 51 ? 'ALTA' : s >= 26 ? 'MODERATA' : 'BASSA';
@@ -740,3 +1132,123 @@ function jsonResponse(data, status, env, request) {
 
 // ── Export per test logica (no impatto sul worker) ─────────
 export { buildScannerEmailHtml, buildInnesti, judgmentFrame, fasciaFromScore };
+
+// ── Handler: GUIDA (lead magnet vademecum "dal Management all'Engagement") ──
+async function handleGuida(request, env) {
+	const { nome, email } = await request.json();
+	if (!email) {
+		return jsonResponse({ error: 'Missing email' }, 400, env, request);
+	}
+	const firstName = String(nome || '').trim();
+
+	const kitResult = await addGuidaToKit(env, email, firstName);
+	if (!kitResult.ok) console.error('Kit guida error (non-blocking):', kitResult.error);
+
+	const emailResult = await sendGuidaEmail(env, email, firstName);
+	if (!emailResult.ok) console.error('Resend guida error (non-blocking):', emailResult.error);
+
+	const notifyResult = await sendGuidaNotify(env, email, firstName);
+	if (!notifyResult.ok) console.error('Resend guida notify error (non-blocking):', notifyResult.error);
+
+	return jsonResponse({ success: true, kit: kitResult.ok, email: emailResult.ok }, 200, env, request);
+}
+
+// Kit v4: subscribe + TAG dedicato via env.KIT_GUIDA_TAG_ID. MAI l'id 20820661 dello scanner.
+async function addGuidaToKit(env, email, firstName) {
+	const key = env.KIT_API_KEY;
+	if (!key) return { ok: false, error: 'KIT_API_KEY mancante' };
+	const headers = { 'X-Kit-Api-Key': key, 'Content-Type': 'application/json', Accept: 'application/json' };
+
+	const res = await fetch('https://api.kit.com/v4/subscribers', {
+		method: 'POST',
+		headers,
+		body: JSON.stringify({ email_address: email, first_name: firstName || '', state: 'active', fields: { fonte: 'guida-vademecum' } }),
+	});
+	if (!res.ok) {
+		const b = await res.text();
+		return { ok: false, error: `subscriber ${res.status}: ${b.slice(0, 140)}` };
+	}
+
+	const tagId = env.KIT_GUIDA_TAG_ID;
+	if (!tagId) return { ok: false, error: 'KIT_GUIDA_TAG_ID mancante (subscriber creato, tag non applicato)' };
+	if (String(tagId) === '20820661') return { ok: false, error: 'KIT_GUIDA_TAG_ID coincide con il tag scanner: bloccato' };
+
+	await fetch(`https://api.kit.com/v4/tags/${tagId}/subscribers`, {
+		method: 'POST',
+		headers,
+		body: JSON.stringify({ email_address: email }),
+	});
+
+	if (env.KIT_GUIDA_SEQUENCE_ID) {
+		await fetch(`https://api.kit.com/v4/sequences/${env.KIT_GUIDA_SEQUENCE_ID}/subscribers`, {
+			method: 'POST',
+			headers,
+			body: JSON.stringify({ email_address: email }),
+		});
+	}
+
+	return { ok: true };
+}
+
+// Resend: mail di consegna della guida (voce Cristiano, anticipa il test)
+async function sendGuidaEmail(env, to, firstName) {
+	const pdf = env.GUIDA_PDF_URL || 'https://cristianopusca.com/lead-magnet/dal-management-all-engagement.pdf';
+	const html = buildGuidaHtml(firstName, pdf);
+	const res = await fetch('https://api.resend.com/emails', {
+		method: 'POST',
+		headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+		body: JSON.stringify({
+			from: 'Cristiano Pusca <info@cristianopusca.com>',
+			to: [to],
+			reply_to: 'cristiano@be-do.it',
+			subject: 'La tua guida, come promesso',
+			html,
+		}),
+	});
+	if (!res.ok) return { ok: false, error: await res.text() };
+	return { ok: true };
+}
+
+function buildGuidaHtml(firstName, pdf) {
+	const safe = String(firstName || '').replace(/[<>&"]/g, '');
+	const ciao = safe ? `Ciao ${safe},` : 'Ciao,';
+	return `<!DOCTYPE html><html lang="it"><head><meta charset="utf-8"><meta name="color-scheme" content="light only"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="margin:0;padding:0;background-color:#f2f5f8;color-scheme:light;">
+<table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#f2f5f8;padding:28px 16px;"><tr><td align="center">
+<table width="560" cellpadding="0" cellspacing="0" role="presentation" style="max-width:560px;width:100%;background-color:#ffffff;border-radius:14px;border:1px solid #e2e8f0;">
+<tr><td style="padding:30px 30px 8px;">
+<p style="margin:0 0 16px;font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.6;color:#1b2431;">${ciao}</p>
+<p style="margin:0 0 16px;font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.6;color:#1b2431;">ecco la guida che hai chiesto, <strong>dal Management all'Engagement</strong>. Sono venti minuti di lettura, meglio dal telefono e con calma.</p>
+</td></tr>
+<tr><td align="center" style="padding:6px 30px 22px;">
+<a href="${pdf}" style="display:inline-block;background-color:#1F6E8C;color:#ffffff;font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:bold;text-decoration:none;padding:14px 30px;border-radius:10px;">Scarica la guida</a>
+</td></tr>
+<tr><td style="padding:0 30px 26px;">
+<p style="margin:0 0 16px;font-family:Georgia,'Times New Roman',serif;font-size:15px;line-height:1.6;color:#41506a;">Un avviso: verso la fine trovi un test di tre minuti per misurare quanto la tua azienda, oggi, si regge su di te. Fallo quando ci arrivi: ti d&agrave; un numero e un foglio da tenere.</p>
+<p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:15px;line-height:1.6;color:#41506a;">Se hai una domanda, rispondi a questa mail: la leggo io.</p>
+</td></tr>
+<tr><td style="padding:0 30px 30px;">
+<p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:15px;line-height:1.6;color:#1b2431;">Buona lettura,<br><strong>Cristiano Pusca</strong></p>
+</td></tr>
+</table></td></tr></table></body></html>`;
+}
+
+async function sendGuidaNotify(env, userEmail, firstName) {
+	const now = new Date().toLocaleString('it-IT', { timeZone: 'Europe/Rome' });
+	const name = String(firstName || '').replace(/[<>&"]/g, '') || '(non fornito)';
+	const html = `<!DOCTYPE html><html><body style="margin:0;padding:24px;background:#f9fafb;font-family:Helvetica,Arial,sans-serif;">
+<table width="560" cellpadding="0" cellspacing="0" align="center" style="background:#fff;border-radius:12px;border:1px solid #e5e7eb;"><tr><td style="padding:22px;">
+<h1 style="color:#111827;font-size:17px;margin:0 0 4px;">Nuovo lead - Guida vademecum</h1>
+<p style="color:#6b7280;font-size:13px;margin:0 0 16px;">${now}</p>
+<p style="font-size:14px;color:#374151;margin:0 0 6px;"><strong>Nome:</strong> ${name}</p>
+<p style="font-size:14px;color:#374151;margin:0;"><strong>Email:</strong> <a href="mailto:${userEmail}" style="color:#1F6E8C;">${userEmail}</a></p>
+</td></tr></table></body></html>`;
+	const notifyTo = (env.NOTIFY_EMAIL || 'info@keryxdesign.com').split(',').map((e) => e.trim());
+	const res = await fetch('https://api.resend.com/emails', {
+		method: 'POST',
+		headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+		body: JSON.stringify({ from: 'Guida Pusca <notify@keryxdesign.com>', to: notifyTo, reply_to: userEmail, subject: `Nuovo lead guida: ${name}`, html }),
+	});
+	if (!res.ok) return { ok: false, error: await res.text() };
+	return { ok: true };
+}

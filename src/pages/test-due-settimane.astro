@@ -1,0 +1,964 @@
+---
+import '../styles/global.css';
+
+const title = 'Il test delle due settimane · Cristiano Pusca';
+const description = 'Se domani mattina sparissi per due settimane, cosa si fermerebbe nella tua azienda? 10 domande, 3 minuti, risultato subito a schermo.';
+---
+
+<html lang="it">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content={description} />
+		<meta name="generator" content={Astro.generator} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="/cristiano-pusca.jpg" />
+		<meta property="og:type" content="website" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<link rel="canonical" href="https://cristianopusca.com/test-due-settimane" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+		<title>{title}</title>
+
+		<!-- Google tag (gtag.js) con Consent Mode v2 -->
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('consent', 'default', {
+				'ad_storage': 'denied',
+				'ad_user_data': 'denied',
+				'ad_personalization': 'denied',
+				'analytics_storage': 'denied',
+				'functionality_storage': 'granted',
+				'security_storage': 'granted',
+				'wait_for_update': 500
+			});
+			try {
+				if (localStorage.getItem('cookie-consent') === 'accepted') {
+					gtag('consent', 'update', { 'analytics_storage': 'granted' });
+				}
+			} catch(e) {}
+			gtag('js', new Date());
+			gtag('config', 'G-K4HYZQSY1T', { 'anonymize_ip': true });
+		</script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-K4HYZQSY1T"></script>
+
+		<style is:inline>
+			/* ==== Foglio stampabile: nascosto a schermo, isolato in stampa ==== */
+			#tds-foglio-print { display: none; }
+			@media print {
+				body > *:not(#tds-foglio-print) { display: none !important; }
+				#tds-foglio-print { display: block !important; }
+				@page { margin: 18mm; }
+			}
+		</style>
+	</head>
+	<body class="min-h-screen" style="background-color: var(--color-paper); color: var(--color-ink);">
+
+		<!-- Header minimo -->
+		<header class="bg-paper/90 backdrop-blur-xl border-b border-paper-line">
+			<nav class="max-w-2xl mx-auto px-5 sm:px-6 h-16 flex items-center justify-between">
+				<a href="/" class="font-heading font-bold text-xl tracking-tight">
+					<span class="text-teal-deep">Cristiano</span><span class="text-ink"> Pusca</span>
+				</a>
+				<a href="/" class="text-ink-soft text-sm font-heading font-medium hover:text-ink transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-deep rounded">
+					&larr; Torna al sito
+				</a>
+			</nav>
+		</header>
+
+		<main class="relative">
+
+			<!-- ============================================================
+			     INTRO / AVVIO == 4 bande full-bleed (famiglia scanner)
+			     ============================================================ -->
+			<div id="tds-intro">
+
+				<!-- BANDA 1 == HERO (teal full-bleed) -->
+				<section class="relative overflow-hidden" style="background: linear-gradient(135deg,#1F6E8C 0%,#18596F 60%,#123F4F 100%);">
+					<div class="absolute top-0 right-0 w-96 h-96 rounded-full bg-white/[0.07] blur-[100px] pointer-events-none"></div>
+
+					<div class="max-w-6xl mx-auto px-6 py-16 md:py-24 relative">
+						<div class="grid md:grid-cols-[1fr_360px] gap-10 md:gap-12 items-center">
+
+							<!-- Foto (mobile sopra, desktop a destra) -->
+							<div class="order-1 md:order-2 hero-rise" style="animation-delay:.05s">
+								<div class="rounded-2xl ring-1 ring-white/15 shadow-2xl overflow-hidden bg-white/5 aspect-[16/10] md:aspect-[4/5] max-h-[210px] md:max-h-none">
+									<img src="/img/cristiano-hero.webp" alt="Cristiano Pusca, fondatore del metodo BEDo" width="798" height="1200" loading="eager" decoding="async" class="w-full h-full object-cover object-top" />
+								</div>
+							</div>
+
+							<!-- Testo -->
+							<div class="order-2 md:order-1">
+								<p class="text-white/85 text-xs font-heading font-semibold tracking-wider uppercase mb-3 hero-rise" style="animation-delay:.1s">Il test delle due settimane</p>
+								<h1 class="text-white text-[1.8rem] sm:text-4xl md:text-5xl font-medium leading-[1.12] mb-5 hero-rise" style="animation-delay:.2s">Se domani mattina sparissi per due settimane, <span style="color:#7dd3fc;">cosa si fermerebbe</span> nella tua azienda?</h1>
+								<p class="text-white/85 text-base md:text-lg leading-relaxed max-w-xl mb-7 hero-rise" style="animation-delay:.32s">
+									Dieci domande sul primo lunedì senza di te: le firme, i clienti, gli ordini, la cassa. Alla fine hai il foglio delle tue 8 funzioni chiave, con <strong class="text-white font-semibold">quello che regge, quello che rallenta e quello che si ferma</strong>. E il numero da far scendere.
+								</p>
+								<div class="hero-rise" style="animation-delay:.44s">
+									<button id="tds-start-btn-top" class="btn-quiz text-lg cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+										Comincia il test
+										<svg class="inline w-5 h-5 ml-2 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+									</button>
+									<p class="text-white/85 text-sm mt-4">Gratis &middot; 10 domande &middot; 3 minuti &middot; risultato subito, senza lasciare la mail</p>
+									<p class="text-white/70 text-sm mt-1">Niente fatturato, niente dati aziendali: si parte e basta.</p>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</section>
+
+				<!-- BANDA 2 == COSA OTTIENI (paper) -->
+				<section style="background-color: var(--color-paper);">
+					<div class="max-w-5xl mx-auto px-6 pt-14 md:pt-20 pb-12 md:pb-16">
+						<div class="text-center mb-10 md:mb-12">
+							<p class="text-teal-deep text-xs font-heading font-semibold tracking-wider uppercase mb-3">Cosa metti a fuoco in 3 minuti</p>
+							<h2 class="font-heading font-medium text-3xl md:text-4xl text-ink leading-snug">Il foglio delle tue 8 funzioni chiave</h2>
+							<p class="text-ink-soft text-base md:text-lg mt-2">quello che regge, quello che rallenta, quello che si ferma</p>
+						</div>
+
+						<div class="grid md:grid-cols-3 gap-5">
+							<div class="card-light p-6">
+								<div class="w-9 h-9 rounded-full bg-teal-deep text-white font-heading font-bold text-base flex items-center justify-center mb-4">1</div>
+								<h3 class="font-heading font-semibold text-ink text-lg mb-2">Il tuo foglio</h3>
+								<p class="text-ink-soft text-sm leading-relaxed">Le 8 righe, una per una: chi le tiene in piedi quando non ci sei, e chi no.</p>
+							</div>
+							<div class="card-light p-6 border-2 border-teal-deep/40 border-t-4 border-t-teal-deep">
+								<div class="w-9 h-9 rounded-full bg-teal-deep text-white font-heading font-bold text-base flex items-center justify-center mb-4">2</div>
+								<h3 class="font-heading font-semibold text-ink text-lg mb-2">Il numero da far scendere</h3>
+								<p class="text-ink-soft text-sm leading-relaxed">Quante righe restano senza un nome. È un conteggio delle tue risposte, non una formula.</p>
+							</div>
+							<div class="card-light p-6">
+								<div class="w-9 h-9 rounded-full bg-teal-deep text-white font-heading font-bold text-base flex items-center justify-center mb-4">3</div>
+								<h3 class="font-heading font-semibold text-ink text-lg mb-2">Da dove partire</h3>
+								<p class="text-ink-soft text-sm leading-relaxed">La prima riga da cui cominciare lunedì, con un nome accanto.</p>
+							</div>
+						</div>
+
+						<p class="text-ink-soft text-sm text-center max-w-2xl mx-auto mt-10">10 domande. Non ti chiedo fatturato né dati aziendali: rispondi su come gira la tua settimana, non su come ti senti.</p>
+					</div>
+				</section>
+
+				<!-- BANDA 3 == PROVA SOCIALE (bianco) -->
+				<section style="background-color:#ffffff;">
+					<div class="max-w-5xl mx-auto px-6 py-14 md:py-20">
+
+						<div class="flex items-center gap-4 mb-12">
+							<img src="/img/cristiano-bio.webp" alt="Cristiano Pusca" loading="lazy" class="rounded-full object-cover object-top shrink-0 w-16 h-16 md:w-[72px] md:h-[72px]" />
+							<div>
+								<p class="text-ink text-base font-heading font-semibold leading-tight">Cristiano Pusca</p>
+								<p class="text-ink-soft text-sm leading-snug mt-1 max-w-xl">Fondatore del metodo BEDo. Aiuta le PMI a costruire un'azienda che cammina anche senza il titolare.</p>
+							</div>
+						</div>
+
+						<div class="mb-12">
+							<p class="text-ink-soft text-[11px] font-heading font-medium tracking-wider uppercase mb-4">Hanno parlato del metodo BEDo</p>
+							<div class="flex flex-wrap items-center gap-x-9 md:gap-x-12 gap-y-5 press-on-light">
+								<a href="https://stream24.ilsole24ore.com/video/italia/valorizzare-capitale-umano-crescere-metodo-bedo/AFSRTxED" target="_blank" rel="noopener" aria-label="Il Sole 24 Ore" class="logo-press">
+									<img src="/logos/press/ilsole24ore-o-2021.svg" alt="Il Sole 24 Ore" loading="lazy" />
+								</a>
+								<a href="https://mcusercontent.com/d327453d6178f9f8dfe810d6f/files/911d4179-3ced-d483-8aab-4cb1d4b40fd6/Pagina_MF_Milano_Finanza_Metodo_BEDo.pdf" target="_blank" rel="noopener" aria-label="Milano Finanza" class="logo-press logo-press-bg">
+									<img src="/logos/press/Milano_Finanza_Logo-700x233.png" alt="Milano Finanza" loading="lazy" />
+								</a>
+								<a href="https://www.fortuneita.com/2025/05/22/imprese-familiari-a-rischio-il-92-delle-pmi-italiane-affronta-la-sfida-della-successione/" target="_blank" rel="noopener" aria-label="Fortune Italia" class="logo-press">
+									<img src="/logos/press/fortune-500-logo-png_seeklogo-433786.png" alt="Fortune" loading="lazy" />
+								</a>
+								<a href="https://youmedia.fanpage.it/video/ZrDLi-SwCrwzV-f3" target="_blank" rel="noopener" aria-label="Fanpage video" class="logo-press logo-press-bg">
+									<img src="/logos/press/Fanpage.it.png" alt="Fanpage" loading="lazy" />
+								</a>
+							</div>
+						</div>
+
+						<div class="caso-testi flex flex-col sm:flex-row sm:items-center gap-5 mb-2">
+							<div class="flex-1">
+								<p>«Con Cristiano abbiamo costruito una parte commerciale che prima non esisteva. Mi ha aiutato a formare la persona giusta sulle strategie di vendita.»</p>
+								<cite>Andrea V., Sisma srl</cite>
+							</div>
+							<div class="shrink-0 h-12 flex items-center sm:pl-5">
+								<img src="/logos/sisma.jpg" alt="Sisma srl" loading="lazy" class="max-h-12 w-auto object-contain" />
+							</div>
+						</div>
+
+					</div>
+				</section>
+
+				<!-- BANDA 4 == CTA FINALE (teal full-bleed) -->
+				<section class="relative overflow-hidden" style="background: linear-gradient(135deg,#1F6E8C 0%,#18596F 60%,#123F4F 100%);">
+					<div class="absolute top-0 right-0 w-96 h-96 rounded-full bg-white/[0.07] blur-[100px] pointer-events-none"></div>
+					<div class="max-w-3xl mx-auto px-6 py-16 md:py-24 text-center relative">
+						<h2 class="text-white text-2xl md:text-3xl font-medium leading-snug mb-8">Il primo lunedì senza di te: cosa regge, cosa si ferma?</h2>
+						<button id="tds-start-btn" class="btn-quiz text-lg cursor-pointer w-full max-w-md mx-auto focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+							Comincia il test
+							<svg class="inline w-5 h-5 ml-2 -mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+						</button>
+						<p class="text-white/85 text-xs mt-4">Gratis. Risultato subito a schermo. Non serve la mail per vederlo.</p>
+					</div>
+				</section>
+
+			</div><!-- /tds-intro -->
+
+			<!-- ============================================================
+			     QUIZ + PROGRESS + RISULTATI == colonna stretta
+			     ============================================================ -->
+			<div class="relative mx-auto px-5 sm:px-6 py-10 md:py-16" style="max-width: 34rem;">
+
+				<!-- PROGRESS BAR -->
+				<div id="tds-progress" class="hidden mb-6 md:mb-9">
+					<div class="flex items-center justify-between mb-2">
+						<span class="text-ink-soft text-xs font-heading font-semibold tracking-wider uppercase">Il test delle due settimane</span>
+						<span id="tds-progress-label" class="text-ink-soft text-xs font-heading font-semibold">Domanda 1 di 10</span>
+					</div>
+					<div class="w-full h-2 rounded-full overflow-hidden" style="background-color: var(--color-paper-line);">
+						<div id="tds-progress-bar" class="h-full rounded-full bg-gradient-to-r from-sky to-sky-light transition-all duration-500 ease-out" style="width: 10%"></div>
+					</div>
+					<!-- riga scenario fissa (Q2-Q9) -->
+					<div id="tds-scenario" class="hidden mt-4 flex items-start gap-2">
+						<svg class="w-4 h-4 shrink-0 mt-0.5 text-ink-soft" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+						<p class="text-ink-soft text-sm leading-snug">Lo scenario non cambia: da domani mattina, telefono spento per quattordici giorni.</p>
+					</div>
+				</div>
+
+				<!-- DOMANDE -->
+				<div id="tds-questions" class="hidden">
+					<form id="tds-form">
+
+						<!-- Q1 == Collaudo (non somma) -->
+						<div class="tds-q hidden" data-q="1">
+							<p class="text-teal-deep text-xs font-heading font-semibold tracking-wider uppercase mb-3">Domanda 1 di 10</p>
+							<h4 class="text-lg md:text-2xl font-medium text-ink mb-6 leading-snug">Partiamo dai fatti. Quando è stata l'ultima volta che sei stato via dall'azienda per più di tre giorni, telefono spento compreso?</h4>
+							<div class="space-y-3">
+								<label class="scanner-option"><input type="radio" name="tdsq1" value="0" class="hidden" /><span>Nell'ultimo anno o due: una settimana o più, e ha retto</span></label>
+								<label class="scanner-option"><input type="radio" name="tdsq1" value="1" class="hidden" /><span>Sono stato via, ma col telefono acceso: rispondevo io</span></label>
+								<label class="scanner-option"><input type="radio" name="tdsq1" value="2" class="hidden" /><span>Più di due anni fa</span></label>
+								<label class="scanner-option"><input type="radio" name="tdsq1" value="3" class="hidden" /><span>Mai, da quando c'è l'azienda</span></label>
+							</div>
+						</div>
+
+						<!-- Q2 == Firme e autorizzazioni -->
+						<div class="tds-q hidden" data-q="2">
+							<p class="text-teal-deep text-xs font-heading font-semibold tracking-wider uppercase mb-3">Domanda 2 di 10</p>
+							<h4 class="text-lg md:text-2xl font-medium text-ink mb-6 leading-snug">Primo lunedì senza di te. I preventivi da approvare, gli sconti da autorizzare: chi ci mette la firma?</h4>
+							<div class="space-y-3">
+								<label class="scanner-option"><input type="radio" name="tdsq2" value="0" class="hidden" /><span>Una persona precisa, con limiti chiari: lo fa già oggi</span></label>
+								<label class="scanner-option"><input type="radio" name="tdsq2" value="1" class="hidden" /><span>Qualcuno potrebbe, ma oggi passano quasi tutti da me</span></label>
+								<label class="scanner-option"><input type="radio" name="tdsq2" value="2" class="hidden" /><span>Restano sulla mia scrivania, ad aspettarmi</span></label>
+							</div>
+						</div>
+
+						<!-- Q3 == Clienti chiave -->
+						<div class="tds-q hidden" data-q="3">
+							<p class="text-teal-deep text-xs font-heading font-semibold tracking-wider uppercase mb-3">Domanda 3 di 10</p>
+							<h4 class="text-lg md:text-2xl font-medium text-ink mb-6 leading-snug">Terzo giorno. Uno dei tuoi clienti più importanti chiama con un problema serio. Chi lo prende in mano?</h4>
+							<div class="space-y-3">
+								<label class="scanner-option"><input type="radio" name="tdsq3" value="0" class="hidden" /><span>Il suo riferimento in azienda: lo conosce e chiude lui</span></label>
+								<label class="scanner-option"><input type="radio" name="tdsq3" value="1" class="hidden" /><span>C'è chi risponde, ma il cliente vorrebbe comunque me</span></label>
+								<label class="scanner-option"><input type="radio" name="tdsq3" value="2" class="hidden" /><span>Quel cliente parla solo con me: aspetta, o si innervosisce</span></label>
+								<label class="scanner-option"><input type="radio" name="tdsq3" value="2" class="hidden" /><span>Non lo so: finora ci sono sempre stato io</span></label>
+							</div>
+						</div>
+
+						<!-- Q4 == Decisioni fuori standard -->
+						<div class="tds-q hidden" data-q="4">
+							<p class="text-teal-deep text-xs font-heading font-semibold tracking-wider uppercase mb-3">Domanda 4 di 10</p>
+							<h4 class="text-lg md:text-2xl font-medium text-ink mb-6 leading-snug">Arriva una richiesta fuori listino: condizioni particolari, un caso mai visto. Chi decide?</h4>
+							<div class="space-y-3">
+								<label class="scanner-option"><input type="radio" name="tdsq4" value="0" class="hidden" /><span>Chi ha quel ruolo: decide lui, dentro regole scritte</span></label>
+								<label class="scanner-option"><input type="radio" name="tdsq4" value="1" class="hidden" /><span>Qualcuno decide, poi mi aggiorna al rientro</span></label>
+								<label class="scanner-option"><input type="radio" name="tdsq4" value="2" class="hidden" /><span>La decisione mi aspetta: nessuno se la prende</span></label>
+							</div>
+						</div>
+
+						<!-- Q5 == Vendite e trattative -->
+						<div class="tds-q hidden" data-q="5">
+							<p class="text-teal-deep text-xs font-heading font-semibold tracking-wider uppercase mb-3">Domanda 5 di 10</p>
+							<h4 class="text-lg md:text-2xl font-medium text-ink mb-6 leading-snug">Le trattative aperte, in quelle due settimane: chi le porta avanti?</h4>
+							<div class="space-y-3">
+								<label class="scanner-option"><input type="radio" name="tdsq5" value="0" class="hidden" /><span>I venditori, ognuno le sue: comprese quelle grosse</span></label>
+								<label class="scanner-option"><input type="radio" name="tdsq5" value="1" class="hidden" /><span>Le loro camminano. Quelle importanti sono in mano mia: rallentano</span></label>
+								<label class="scanner-option"><input type="radio" name="tdsq5" value="2" class="hidden" /><span>Le trattative che contano le seguo io: restano ferme</span></label>
+							</div>
+						</div>
+
+						<!-- Q6 == Ordini e consegne -->
+						<div class="tds-q hidden" data-q="6">
+							<p class="text-teal-deep text-xs font-heading font-semibold tracking-wider uppercase mb-3">Domanda 6 di 10</p>
+							<h4 class="text-lg md:text-2xl font-medium text-ink mb-6 leading-snug">Gli ordini in corso: escono, si spediscono, si fatturano?</h4>
+							<div class="space-y-3">
+								<label class="scanner-option"><input type="radio" name="tdsq6" value="0" class="hidden" /><span>Sì: il ciclo va avanti senza passare da me</span></label>
+								<label class="scanner-option"><input type="radio" name="tdsq6" value="1" class="hidden" /><span>L'ordinario esce, gli intoppi aspettano me</span></label>
+								<label class="scanner-option"><input type="radio" name="tdsq6" value="2" class="hidden" /><span>Su ordini e consegne ho le mani io, tutti i giorni</span></label>
+							</div>
+						</div>
+
+						<!-- Q7 == Emergenze -->
+						<div class="tds-q hidden" data-q="7">
+							<p class="text-teal-deep text-xs font-heading font-semibold tracking-wider uppercase mb-3">Domanda 7 di 10</p>
+							<h4 class="text-lg md:text-2xl font-medium text-ink mb-6 leading-snug">Un fornitore critico va in ritardo, o si blocca qualcosa in produzione. Chi gestisce senza chiamarti?</h4>
+							<div class="space-y-3">
+								<label class="scanner-option"><input type="radio" name="tdsq7" value="0" class="hidden" /><span>C'è un nome: gestisce lui, e me lo racconta al rientro</span></label>
+								<label class="scanner-option"><input type="radio" name="tdsq7" value="1" class="hidden" /><span>Le piccole le gestiscono, per le grosse partirebbe la telefonata</span></label>
+								<label class="scanner-option"><input type="radio" name="tdsq7" value="2" class="hidden" /><span>Le emergenze sono roba mia: il telefono squilla entro un'ora</span></label>
+							</div>
+						</div>
+
+						<!-- Q8 == Know-how non scritto -->
+						<div class="tds-q hidden" data-q="8">
+							<p class="text-teal-deep text-xs font-heading font-semibold tracking-wider uppercase mb-3">Domanda 8 di 10</p>
+							<h4 class="text-lg md:text-2xl font-medium text-ink mb-6 leading-snug">I prezzi fatti a quel cliente, gli accordi presi a voce, la storia delle commesse: dove stanno?</h4>
+							<div class="space-y-3">
+								<label class="scanner-option"><input type="radio" name="tdsq8" value="0" class="hidden" /><span>Scritti, in un posto dove chi serve li trova</span></label>
+								<label class="scanner-option"><input type="radio" name="tdsq8" value="1" class="hidden" /><span>Metà scritti, metà nella mia testa</span></label>
+								<label class="scanner-option"><input type="radio" name="tdsq8" value="2" class="hidden" /><span>Nella mia testa: chi ne ha bisogno mi chiama</span></label>
+							</div>
+						</div>
+
+						<!-- Q9 == Cassa e pagamenti -->
+						<div class="tds-q hidden" data-q="9">
+							<p class="text-teal-deep text-xs font-heading font-semibold tracking-wider uppercase mb-3">Domanda 9 di 10</p>
+							<h4 class="text-lg md:text-2xl font-medium text-ink mb-6 leading-snug">Pagamenti ai fornitori, la banca, un insoluto da rincorrere: chi ci mette mano, in quei quattordici giorni?</h4>
+							<div class="space-y-3">
+								<label class="scanner-option"><input type="radio" name="tdsq9" value="0" class="hidden" /><span>L'amministrazione va avanti da sola su tutto l'ordinario</span></label>
+								<label class="scanner-option"><input type="radio" name="tdsq9" value="1" class="hidden" /><span>L'ordinario va, ma firme e decisioni sui soldi aspettano me</span></label>
+								<label class="scanner-option"><input type="radio" name="tdsq9" value="2" class="hidden" /><span>Senza di me non parte un bonifico</span></label>
+							</div>
+						</div>
+
+						<!-- Q10 == Il nome (non somma) -->
+						<div class="tds-q hidden" data-q="10">
+							<p class="text-teal-deep text-xs font-heading font-semibold tracking-wider uppercase mb-3">Domanda 10 di 10</p>
+							<h4 class="text-lg md:text-2xl font-medium text-ink mb-6 leading-snug">Ultima domanda. Se domani dovessi lasciare le chiavi a una persona sola, per due settimane: il nome ce l'hai?</h4>
+							<div class="space-y-3">
+								<label class="scanner-option"><input type="radio" name="tdsq10" value="a" class="hidden" /><span>Ce l'ho, e già oggi fa metà di questo lavoro</span></label>
+								<label class="scanner-option"><input type="radio" name="tdsq10" value="b" class="hidden" /><span>Un nome ci sarebbe, ma dovrei prepararlo prima</span></label>
+								<label class="scanner-option"><input type="radio" name="tdsq10" value="c" class="hidden" /><span>Il nome non c'è</span></label>
+							</div>
+						</div>
+
+						<!-- Navigazione -->
+						<div class="flex justify-between items-center mt-8">
+							<button type="button" id="tds-prev-btn" class="hidden px-5 py-3 rounded-xl border text-ink-soft hover:text-ink hover:bg-black/[0.03] text-sm font-heading font-semibold transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-deep" style="border-color: var(--color-paper-line); min-height: 44px;">
+								&larr; Indietro
+							</button>
+							<button type="button" id="tds-next-btn" class="ml-auto px-6 py-3 rounded-xl bg-teal-deep hover:opacity-90 text-white font-heading font-semibold text-sm transition-all cursor-pointer shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-deep" style="min-height: 44px;">
+								Avanti &rarr;
+							</button>
+						</div>
+						<p id="tds-nav-msg" class="text-ink-soft text-sm mt-3 text-center"></p>
+					</form>
+				</div>
+
+				<!-- RISULTATI -->
+				<div id="tds-results" class="hidden">
+
+					<!-- C.1 == numero -->
+					<p class="text-ink-soft text-xs font-heading font-semibold tracking-[0.18em] uppercase mb-5">Il tuo risultato</p>
+
+					<div class="flex items-end gap-3 mb-3">
+						<span id="tds-number" class="font-heading font-bold leading-none" style="font-size: 72px; line-height: 0.9;"></span>
+						<span class="font-heading font-semibold text-ink-soft mb-2" style="font-size: 22px;">su 8</span>
+					</div>
+					<p id="tds-riga-principale" class="text-ink font-medium leading-snug mb-2" style="font-size: 18px;"></p>
+					<p id="tds-riga-m" class="text-ink-soft leading-relaxed mb-2" style="font-size: 16px;"></p>
+					<p id="tds-riga-vademecum" class="text-ink-soft leading-relaxed mb-8" style="font-size: 15px;"></p>
+
+					<!-- C.2 == il foglio -->
+					<div class="mb-8">
+						<h3 class="font-heading font-semibold text-ink text-lg md:text-xl mb-3">Il tuo foglio: le 8 righe, una per una</h3>
+						<div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-4">
+							<span class="inline-flex items-center gap-1.5 text-ink-soft text-sm font-heading font-semibold"><span class="tds-dot" style="border-color:#2E7D52;background:#2E7D52;"></span>regge</span>
+							<span class="inline-flex items-center gap-1.5 text-ink-soft text-sm font-heading font-semibold"><span class="tds-dot" style="border-color:#B07A2E;background:linear-gradient(90deg,#B07A2E 50%,transparent 50%);"></span>rallenta</span>
+							<span class="inline-flex items-center gap-1.5 text-ink-soft text-sm font-heading font-semibold"><span class="tds-dot" style="border-color:#384A5C;background:transparent;"></span>si ferma</span>
+						</div>
+						<p class="text-ink-soft text-sm leading-relaxed mb-4">regge = c'è un nome, e lo fa già oggi &middot; rallenta = il nome c'è, ma passa da te &middot; si ferma = riga senza nome</p>
+						<div id="tds-foglio-rows" class="space-y-2.5"></div>
+						<p class="text-ink-soft text-sm leading-relaxed mt-4">Nessuna formula nascosta: sono le tue risposte, riga per riga. Il conto puoi rifarlo a mente.</p>
+					</div>
+
+					<!-- C.3 == collaudo -->
+					<p id="tds-collaudo" class="text-ink leading-relaxed pt-4 mb-8 border-t border-paper-line" style="font-size: 16px;"></p>
+
+					<!-- C.4 == lettura di fascia -->
+					<div class="mb-8">
+						<h3 id="tds-fascia-title" class="font-heading font-medium text-ink text-xl md:text-2xl mb-3 leading-snug"></h3>
+						<p id="tds-fascia-text" class="text-ink leading-relaxed" style="font-size: 16px;"></p>
+						<p id="tds-fascia-tempo" class="hidden text-ink-soft leading-relaxed mt-3" style="font-size: 16px;"></p>
+					</div>
+
+					<!-- C.5 == da dove partire -->
+					<p id="tds-partire" class="text-ink leading-relaxed mb-12" style="font-size: 16px;"></p>
+
+					<!-- C.6 == passo naming (interattivo) -->
+					<div id="tds-naming" class="hidden mb-12">
+						<h3 class="font-heading font-semibold text-ink text-lg md:text-xl mb-2">Adesso dai un nome alle righe.</h3>
+						<p class="text-ink-soft leading-relaxed mb-6" style="font-size: 16px;">Accanto a ogni riga che rallenta o si ferma, scrivi il nome di chi potrebbe tenerla in piedi al posto tuo. È l'azione 1 del vademecum, e la fai qui, adesso: il foglio compilato ti serve più del numero.</p>
+
+						<div id="tds-naming-editable" class="space-y-4"></div>
+						<p id="tds-naming-nessuno-note" class="text-ink-soft text-sm leading-relaxed mt-4 hidden">Se un nome non c'è, segna «Nessuno». È una riga da far scendere, e adesso sai qual è.</p>
+
+						<div id="tds-naming-regge-wrap" class="hidden mt-8">
+							<div id="tds-naming-regge" class="space-y-2.5"></div>
+							<p class="text-ink-soft text-sm leading-relaxed mt-3">Queste hanno già un nome che le tiene: lasciale così.</p>
+						</div>
+
+						<!-- riga privacy [EVIDENZIA] -->
+						<div class="mt-6 rounded-xl p-4 flex items-start gap-3" style="background-color: var(--color-sky-50); border:1px solid var(--color-paper-line);">
+							<svg class="w-5 h-5 shrink-0 mt-0.5 text-teal-deep" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+							<p class="text-ink font-medium leading-relaxed" style="font-size: 15px;">I nomi li scrivi per te. Restano su questo dispositivo: non me li mandi, non finiscono da nessuna parte. Sono appunti tuoi.</p>
+						</div>
+					</div>
+
+					<!-- C.7 == salva il foglio -->
+					<div id="tds-save" class="hidden mb-12">
+						<h3 class="font-heading font-semibold text-ink text-lg md:text-xl mb-3">Il foglio coi nomi è compilato. Salvatelo: da lunedì sai da dove cominciare.</h3>
+						<button type="button" id="tds-download-btn" class="w-full sm:w-auto font-heading font-semibold text-white rounded-xl px-7 py-4 transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-deep" style="background-color: var(--color-teal-deep); min-height: 48px;" onmouseover="this.style.opacity='0.92'" onmouseout="this.style.opacity='1'">
+							Scarica il tuo foglio
+						</button>
+						<p class="text-ink-soft text-sm mt-3">Si scarica sul tuo dispositivo. Nessuna mail, niente da lasciare qui.</p>
+					</div>
+
+					<!-- passo di fascia (breve, fascia-aware) -->
+					<div id="tds-fascia-step" class="mb-6"></div>
+
+					<!-- CALL CTA universale (il test porta alla call da 15 min con Cristiano) -->
+					<!-- TODO: sostituire href con l'URL di prenotazione (Calendly / Google Calendar) quando deciso -->
+					<div id="tds-call-cta" class="card-light p-7 md:p-9 mb-8 text-center">
+						<p class="text-teal-deep text-xs font-heading font-semibold tracking-wider uppercase mb-2">Il passo dopo</p>
+						<p class="text-ink font-heading font-semibold text-xl md:text-[1.4rem] leading-snug mb-3">Ne parliamo quindici minuti, io e te.</p>
+						<p class="text-ink-soft text-[0.95rem] leading-relaxed mb-6">Il numero l'hai visto, e il foglio è tuo. Se ti dà da pensare, prenota una call gratuita di quindici minuti con Cristiano: guardiamo insieme le righe che si fermano e da dove conviene partire. Nessun impegno.</p>
+						<a href="/contatti" id="tds-call-btn" data-todo="booking-url" class="inline-flex items-center justify-center gap-2 font-heading font-semibold text-white rounded-xl px-7 py-4 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-deep" style="background-color: var(--color-teal-deep); min-height:48px;" onmouseover="this.style.opacity='0.92'" onmouseout="this.style.opacity='1'">Prenota la call gratuita di 15 minuti &rarr;</a>
+					</div>
+
+				</div><!-- /tds-results -->
+
+			</div>
+		</main>
+
+		<!-- Footer minimo -->
+		<footer class="py-8 border-t border-paper-line">
+			<div class="max-w-2xl mx-auto px-5 sm:px-6 text-center">
+				<p class="text-ink-soft text-sm">&copy; {new Date().getFullYear()} Cristiano Pusca &middot; BPDA S.R.L. &middot; P.IVA 04993860263</p>
+				<a href="/privacy" class="text-ink-soft text-sm hover:text-ink transition-colors mt-2 inline-block underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-deep rounded">Privacy Policy</a>
+			</div>
+		</footer>
+
+		<!-- ============================================================
+		     FOGLIO STAMPABILE == isolato in @media print, popolato via JS
+		     ============================================================ -->
+		<div id="tds-foglio-print"></div>
+
+		<style is:inline>
+			.tds-dot { display:inline-block; width:14px; height:14px; border-radius:50%; border:2px solid; box-sizing:border-box; }
+			.tds-dot-lg { display:inline-block; width:16px; height:16px; border-radius:50%; border:2px solid; box-sizing:border-box; flex-shrink:0; }
+			.tds-foglio-row { display:flex; align-items:center; gap:0.75rem; padding:0.75rem 1rem; border-radius:12px; border:1px solid var(--color-paper-line); border-left-width:3px; background:var(--color-paper-input); }
+			.tds-foglio-row .tds-row-label { flex:1; color:var(--color-ink); font-family:var(--font-heading); font-weight:500; font-size:15px; line-height:1.35; }
+			.tds-foglio-row .tds-row-state { font-family:var(--font-heading); font-weight:600; font-size:14px; white-space:nowrap; }
+			.tds-name-row { padding:1rem; border-radius:12px; border:1px solid var(--color-paper-line); border-left-width:3px; background:var(--color-paper-input); }
+			.tds-name-pill { display:inline-flex; align-items:center; gap:0.35rem; font-family:var(--font-heading); font-weight:600; font-size:12px; padding:0.25rem 0.6rem; border-radius:999px; }
+		</style>
+
+		<script>
+		(function() {
+			const $ = (sel) => document.querySelector(sel);
+			const $$ = (sel) => document.querySelectorAll(sel);
+			const TOTAL = 10;
+			let currentQ = 0;
+			let lastR = null;
+
+			const WORKER_URL = 'https://pusca-scanner-email.nameless-mouse-7d0f.workers.dev/due-settimane';
+
+			// mappa righe del foglio -> domanda (Q2..Q9)
+			const ROWS = [
+				{ n: 1, label: 'Le firme e le autorizzazioni', q: 2 },
+				{ n: 2, label: 'I clienti chiave', q: 3 },
+				{ n: 3, label: 'Le decisioni fuori standard', q: 4 },
+				{ n: 4, label: 'Le trattative', q: 5 },
+				{ n: 5, label: 'Ordini e consegne', q: 6 },
+				{ n: 6, label: 'Le emergenze', q: 7 },
+				{ n: 7, label: 'Prezzi, accordi, storia delle commesse', q: 8 },
+				{ n: 8, label: 'Cassa e pagamenti', q: 9 },
+			];
+
+			const STATE = {
+				0: { word: 'regge', color: '#2E7D52', sym: '●', dotBg: '#2E7D52' },
+				1: { word: 'rallenta', color: '#B07A2E', sym: '◐', dotBg: 'linear-gradient(90deg,#B07A2E 50%,transparent 50%)' },
+				2: { word: 'si ferma', color: '#384A5C', sym: '○', dotBg: 'transparent' },
+			};
+
+			// colore del numero per fascia (mai per N, mai rosso)
+			const FASCIA_COLOR = { 1: '#2E7D52', 2: '#2C7A8C', 3: '#1F6E8C', 4: '#384A5C' };
+			const FASCIA_TITLE = {
+				1: 'La squadra tiene il campo',
+				2: 'Regge, ma ti aspetta',
+				3: 'Mezza azienda passa dalla tua scrivania',
+				4: 'Gioca uno solo',
+			};
+
+			function rawVal(n) {
+				const c = $('input[name="tdsq' + n + '"]:checked');
+				return c ? c.value : null;
+			}
+			function numVal(n) {
+				const x = rawVal(n);
+				return x == null ? 0 : parseInt(x, 10);
+			}
+			function labelVal(n) {
+				const c = $('input[name="tdsq' + n + '"]:checked');
+				if (!c) return '';
+				const span = c.closest('.scanner-option') && c.closest('.scanner-option').querySelector('span');
+				return span ? span.textContent : c.value;
+			}
+
+			function compute() {
+				let N = 0, M = 0;
+				for (let q = 2; q <= 9; q++) {
+					const v = numVal(q);
+					if (v === 2) N++;
+					else if (v === 1) M++;
+				}
+				const S = 2 * N + M;
+				const fascia = S <= 3 ? 1 : S <= 8 ? 2 : S <= 12 ? 3 : 4;
+				const q1 = numVal(1);
+				const q10 = rawVal(10) || 'c';
+				return { N, M, S, fascia, q1, q10 };
+			}
+
+			// riga peggiore deterministica: prima "si ferma" in ordine, poi prima "rallenta"
+			function worstRow() {
+				for (const r of ROWS) { if (numVal(r.q) === 2) return r; }
+				for (const r of ROWS) { if (numVal(r.q) === 1) return r; }
+				return null;
+			}
+
+			function collaudoText(q1) {
+				const t = {
+					0: 'fatto. Sei già stato via una settimana o più, e ha retto.',
+					1: 'a metà. Sei stato via, ma col telefono acceso: rispondevi tu.',
+					2: 'manca. L’ultima assenza vera risale a più di due anni fa.',
+					3: 'mai fatto. Da quando c’è l’azienda, mai via più di tre giorni.',
+				};
+				return t[q1] || t[0];
+			}
+
+			function rigaPrincipale(N) {
+				if (N >= 2) return N + ' delle tue 8 funzioni chiave si fermano senza di te.';
+				if (N === 1) return '1 delle tue 8 funzioni chiave si ferma senza di te.';
+				return 'Nessuna delle tue 8 funzioni chiave si ferma senza di te.';
+			}
+
+			function rigaM(N, M) {
+				if (M >= 2) {
+					return N === 0
+						? M + ' righe però rallentano: il nome c’è, ma oggi passano comunque da te.'
+						: 'Altre ' + M + ' rallentano: il nome c’è, ma oggi passano comunque da te.';
+				}
+				if (M === 1) return 'Un’altra rallenta: il nome c’è, ma oggi passa comunque da te.';
+				if (N === 0) return 'Ogni riga ha un nome che la tiene in piedi già oggi.';
+				return '';
+			}
+
+			function fasciaText(f, N, M, q1) {
+				if (f === 1) {
+					let s = 'Quasi ogni riga ha un nome che la tiene in piedi già oggi. Sulla carta, l’azienda cammina anche senza di te.';
+					if (M >= 2) s += ' Su ' + M + ' righe però quei nomi esistono e tutto passa ancora da te.';
+					else if (M === 1) s += ' Su una riga però quel nome esiste e tutto passa ancora da te.';
+					if (q1 >= 2) s += ' E il collaudo manca: l’ultima assenza vera è di più di due anni fa.';
+					s += ' Resta una domanda, e vale più del numero: cosa succederebbe se lo provassi davvero, due settimane vere?';
+					return s;
+				}
+				if (f === 2) {
+					return 'L’azienda cammina, al tuo passo. Le righe che rallentano hanno un nome, e oggi passano comunque da te: quando manchi, il lavoro ti aspetta al rientro. Il foglio qui sopra dice esattamente dove.';
+				}
+				if (f === 3) {
+					const nPart = N === 1 ? '1 riga su 8 si ferma' : N + ' righe su 8 si fermano';
+					const mPart = M === 1 ? 'un’altra rallenta' : 'altre ' + M + ' rallentano';
+					return nPart + ', ' + mPart + ': mezza azienda passa dalla tua scrivania. Sei il motivo per cui regge e, insieme, il motivo per cui aspetta. Le risposte che raccolgo si assomigliano da anni: settori diversi, stessa fotografia.';
+				}
+				return 'È la fotografia più comune che raccolgo, da anni: settori diversi, stessa giornata del titolare. L’origine sta nel modello che tutti noi abbiamo imparato: il capo decide, gli altri eseguono. Funziona finché sei nella stanza. Appena esci, l’azienda rallenta e ti aspetta.';
+			}
+
+			function partireHtml(N, M) {
+				const w = worstRow();
+				if (!w) {
+					return '<strong>Da dove partire: il collaudo.</strong> Le righe hanno tutte un nome. Resta da vedere cosa reggono due settimane vere, telefono spento.';
+				}
+				if (N === 0 && M >= 1) {
+					return '<strong>Da dove partire: ' + w.label + '.</strong> Il nome c’è già: quello che manca è passargli il pezzo che oggi torna sempre da te.';
+				}
+				return '<strong>Da dove partire: ' + w.label + '.</strong> È la riga più lontana da un nome. L’azione 1 del vademecum comincia qui: accanto alla voce, scrivi il nome di chi potrebbe tenerla in piedi al posto tuo.';
+			}
+
+			// ── render foglio 8 righe ──
+			function renderFoglio() {
+				const wrap = $('#tds-foglio-rows');
+				wrap.innerHTML = '';
+				ROWS.forEach((r) => {
+					const v = numVal(r.q);
+					const st = STATE[v];
+					const el = document.createElement('div');
+					el.className = 'tds-foglio-row';
+					el.style.borderLeftColor = st.color;
+					el.innerHTML =
+						'<span class="tds-dot-lg" style="border-color:' + st.color + ';background:' + st.dotBg + ';"></span>' +
+						'<span class="tds-row-label">' + r.label + '</span>' +
+						'<span class="tds-row-state" style="color:' + st.color + ';">' + st.word + '</span>';
+					wrap.appendChild(el);
+				});
+			}
+
+			// ── passo naming ──
+			function renderNaming(N, M) {
+				const editWrap = $('#tds-naming-editable');
+				const reggeWrap = $('#tds-naming-regge');
+				editWrap.innerHTML = '';
+				reggeWrap.innerHTML = '';
+
+				ROWS.forEach((r) => {
+					const v = numVal(r.q);
+					const st = STATE[v];
+					if (v === 0) {
+						const el = document.createElement('div');
+						el.className = 'tds-foglio-row';
+						el.style.borderLeftColor = st.color;
+						el.innerHTML =
+							'<span class="tds-dot-lg" style="border-color:' + st.color + ';background:' + st.dotBg + ';"></span>' +
+							'<span class="tds-row-label">' + r.label + '</span>' +
+							'<span class="tds-row-state" style="color:' + st.color + ';">regge già oggi</span>';
+						reggeWrap.appendChild(el);
+						return;
+					}
+					// editabile (si ferma / rallenta)
+					const el = document.createElement('div');
+					el.className = 'tds-name-row';
+					el.style.borderLeftColor = st.color;
+					el.setAttribute('data-q', String(r.q));
+					el.innerHTML =
+						'<div class="flex items-center gap-3 mb-3">' +
+							'<span class="tds-dot-lg" style="border-color:' + st.color + ';background:' + st.dotBg + ';"></span>' +
+							'<span class="tds-row-label">' + r.label + '</span>' +
+							'<span class="tds-row-state" style="color:' + st.color + ';">' + st.word + '</span>' +
+						'</div>' +
+						'<div class="flex flex-col sm:flex-row gap-2.5 sm:items-center">' +
+							'<input type="text" id="tds-name-' + r.q + '" maxlength="40" placeholder="Il nome di chi la terrebbe in piedi" class="scanner-input-light flex-1 px-4 py-3 rounded-xl text-ink text-base" style="font-size:16px;" />' +
+							'<button type="button" id="tds-none-' + r.q + '" class="shrink-0 px-4 py-3 rounded-xl border text-ink-soft hover:text-ink text-sm font-heading font-semibold transition-all cursor-pointer" style="border-color: var(--color-paper-line); min-height:44px;">Nessuno, oggi</button>' +
+						'</div>' +
+						'<div id="tds-pill-' + r.q + '" class="mt-2.5 hidden"></div>';
+					editWrap.appendChild(el);
+				});
+
+				// listeners per ogni riga editabile
+				ROWS.forEach((r) => {
+					if (numVal(r.q) === 0) return;
+					const input = $('#tds-name-' + r.q);
+					const noneBtn = $('#tds-none-' + r.q);
+					const pill = $('#tds-pill-' + r.q);
+					if (!input || !noneBtn || !pill) return;
+
+					input.addEventListener('focus', () => {
+						setTimeout(() => { input.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 150);
+					});
+					input.addEventListener('input', () => {
+						const name = input.value.trim();
+						if (name) {
+							pill.classList.remove('hidden');
+							pill.innerHTML = '<span class="tds-name-pill" style="background:rgba(31,110,140,0.10);color:#1F6E8C;">' +
+								'<svg style="width:13px;height:13px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>' +
+								'candidato: ' + escapeHtml(name) + '</span>';
+						} else {
+							pill.classList.add('hidden');
+							pill.innerHTML = '';
+						}
+					});
+					noneBtn.addEventListener('click', () => {
+						if (noneBtn.getAttribute('data-mode') === 'none') {
+							// "Cambia idea": riattiva input
+							noneBtn.setAttribute('data-mode', '');
+							noneBtn.textContent = 'Nessuno, oggi';
+							input.disabled = false;
+							input.style.opacity = '1';
+							pill.classList.add('hidden');
+							pill.innerHTML = '';
+							input.focus();
+						} else {
+							// "Nessuno, oggi"
+							noneBtn.setAttribute('data-mode', 'none');
+							noneBtn.textContent = 'Cambia idea';
+							input.value = '';
+							input.disabled = true;
+							input.style.opacity = '0.55';
+							pill.classList.remove('hidden');
+							pill.innerHTML = '<span class="tds-name-pill" style="background:rgba(90,100,115,0.12);color:#5A6473;">Nessuno, oggi</span>';
+						}
+					});
+				});
+
+				$('#tds-naming-nessuno-note').classList.remove('hidden');
+				// mostra le righe che reggono solo se ce ne sono
+				const hasRegge = ROWS.some((r) => numVal(r.q) === 0);
+				$('#tds-naming-regge-wrap').classList.toggle('hidden', !hasRegge);
+			}
+
+			function escapeHtml(s) {
+				return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+			}
+
+			// ── C.8 passo di fascia (post-gate) ──
+
+			function renderFasciaStep(r) {
+				const wrap = $('#tds-fascia-step');
+				let html = '';
+				if (r.fascia === 1) {
+					html = 'Il tuo foglio regge già oggi, e non è comune. La prova vera è una sola: due settimane, telefono spento. Se vuoi tenerlo così mentre l’azienda cresce, se ne parla in un quarto d’ora.';
+				} else if (r.fascia === 2) {
+					html = 'La rete cammina, ma al rientro ti aspetta. Il foglio dice su quali righe. Da quale partire lo si decide in un quarto d’ora.';
+				} else if (r.fascia === 3) {
+					html = 'Mezza azienda passa dalla tua scrivania, e ogni riga che si ferma ha un peso in soldi e in tempo. In quindici minuti si inquadra bene da dove conviene cominciare.';
+				} else {
+					let aggancio;
+					if (r.q10 === 'a') aggancio = 'Il nome ce l’hai, e fa già metà del lavoro: il foglio dice quanto gli manca in mano.';
+					else if (r.q10 === 'b') aggancio = 'All’ultima domanda hai risposto che un nome ci sarebbe, ma andrebbe preparato. Un nome si prepara misurando, non sperando.';
+					else aggancio = 'Chi tiene il gioco, oggi? L’hai scritto tu, all’ultima domanda: nessuno.';
+					html = aggancio + ' Il numero non scende da solo, e il primo passo è capire dove mettere mano.';
+				}
+				wrap.innerHTML = '<div class="pt-8 border-t border-paper-line"><p class="text-ink leading-relaxed" style="font-size:16px;">' + html + '</p></div>';
+			}
+
+			// ── render risultati ──
+			function showResults() {
+				const r = compute();
+				lastR = r;
+
+				$('#tds-intro').classList.add('hidden');
+				$('#tds-questions').classList.add('hidden');
+				$('#tds-progress').classList.add('hidden');
+				$('#tds-results').classList.remove('hidden');
+
+				// numero
+				const col = FASCIA_COLOR[r.fascia];
+				const numEl = $('#tds-number');
+				numEl.textContent = String(r.N);
+				numEl.style.color = col;
+
+				$('#tds-riga-principale').textContent = rigaPrincipale(r.N);
+
+				const mLine = rigaM(r.N, r.M);
+				const mEl = $('#tds-riga-m');
+				if (mLine) { mEl.textContent = mLine; mEl.classList.remove('hidden'); }
+				else { mEl.textContent = ''; mEl.classList.add('hidden'); }
+
+				const vadEl = $('#tds-riga-vademecum');
+				if (r.N >= 1) {
+					vadEl.textContent = 'Le righe senza nome sono la mappa della tua dipendenza. Il conto è fatto: quello è il numero da far scendere nei prossimi mesi.';
+					vadEl.classList.remove('hidden');
+				} else {
+					vadEl.textContent = '';
+					vadEl.classList.add('hidden');
+				}
+
+				renderFoglio();
+
+				$('#tds-collaudo').innerHTML = '<strong>Collaudo:</strong> ' + collaudoText(r.q1);
+
+				$('#tds-fascia-title').textContent = FASCIA_TITLE[r.fascia];
+				$('#tds-fascia-text').textContent = fasciaText(r.fascia, r.N, r.M, r.q1);
+				const tempoEl = $('#tds-fascia-tempo');
+				if (r.fascia === 4) {
+					tempoEl.textContent = 'Se il numero non scende, anche i prossimi anni somigliano a questa settimana.';
+					tempoEl.classList.remove('hidden');
+				} else {
+					tempoEl.classList.add('hidden');
+				}
+
+				$('#tds-partire').innerHTML = partireHtml(r.N, r.M);
+
+
+				// naming + save: solo se N>=1 o M>=1
+				const showNaming = r.N >= 1 || r.M >= 1;
+				if (showNaming) {
+					renderNaming(r.N, r.M);
+					$('#tds-naming').classList.remove('hidden');
+					$('#tds-save').classList.remove('hidden');
+				} else {
+					$('#tds-naming').classList.add('hidden');
+					$('#tds-save').classList.add('hidden');
+				}
+
+				// passo di fascia (pronto, nascosto fino all'invio del gate)
+				renderFasciaStep(r);
+
+				window.scrollTo({ top: 0, behavior: 'smooth' });
+			}
+
+			// ── navigazione domande ──
+			function showQuestion(n) {
+				currentQ = n;
+				const intro = $('#tds-intro'), questions = $('#tds-questions'), results = $('#tds-results'), progress = $('#tds-progress');
+				if (n === 0) {
+					intro.classList.remove('hidden'); questions.classList.add('hidden'); results.classList.add('hidden'); progress.classList.add('hidden');
+					return;
+				}
+				intro.classList.add('hidden'); results.classList.add('hidden'); questions.classList.remove('hidden'); progress.classList.remove('hidden');
+				$('#tds-progress-label').textContent = 'Domanda ' + n + ' di ' + TOTAL;
+				$('#tds-progress-bar').style.width = (n / TOTAL * 100) + '%';
+				// scenario fisso solo Q2-Q9
+				$('#tds-scenario').classList.toggle('hidden', !(n >= 2 && n <= 9));
+				$$('.tds-q').forEach((q) => q.classList.toggle('hidden', parseInt(q.dataset.q, 10) !== n));
+				$('#tds-prev-btn').classList.toggle('hidden', n <= 1);
+				$('#tds-next-btn').innerHTML = n === TOTAL ? 'Vedi il tuo foglio &rarr;' : 'Avanti &rarr;';
+				$('#tds-nav-msg').textContent = '';
+				window.scrollTo({ top: 0, behavior: 'smooth' });
+			}
+
+			function isAnswered() {
+				return !!$('input[name="tdsq' + currentQ + '"]:checked');
+			}
+
+			// selezione + auto-advance (stato selected identico per ogni valore = anti-bias)
+			$$('.scanner-option input[type="radio"]').forEach((input) => {
+				input.addEventListener('change', () => {
+					const name = input.name;
+					$$('.scanner-option input[name="' + name + '"]').forEach((inp) => inp.closest('.scanner-option').classList.toggle('selected', inp.checked));
+					if (currentQ < TOTAL) setTimeout(() => showQuestion(currentQ + 1), 400);
+					else if (currentQ === TOTAL) setTimeout(() => showResults(), 400);
+				});
+			});
+
+			$('#tds-start-btn') && $('#tds-start-btn').addEventListener('click', () => showQuestion(1));
+			$('#tds-start-btn-top') && $('#tds-start-btn-top').addEventListener('click', () => showQuestion(1));
+			$('#tds-prev-btn') && $('#tds-prev-btn').addEventListener('click', () => { if (currentQ > 1) showQuestion(currentQ - 1); });
+			$('#tds-next-btn') && $('#tds-next-btn').addEventListener('click', () => {
+				if (!isAnswered()) {
+					const qEl = $('.tds-q:not(.hidden)');
+					if (qEl) { qEl.classList.add('animate-shake'); setTimeout(() => qEl.classList.remove('animate-shake'), 500); }
+					$('#tds-nav-msg').textContent = 'Scegli una risposta per andare avanti.';
+					return;
+				}
+				if (currentQ < TOTAL) showQuestion(currentQ + 1);
+				else showResults();
+			});
+
+			if (new URLSearchParams(window.location.search).has('start')) showQuestion(1);
+
+			// ── foglio stampabile ──
+			function chiTiene(q, v) {
+				if (v === 0) return 'regge già oggi';
+				const input = $('#tds-name-' + q);
+				if (!input) return '';
+				if (input.disabled) return 'Nessuno';
+				const name = input.value.trim();
+				return name ? name : '';
+			}
+
+			function populatePrint() {
+				if (!lastR) return;
+				const r = lastR;
+				const nomeGate = ($('#tds-firstname') && $('#tds-firstname').value.trim()) || '';
+				const dataOdierna = new Date().toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
+
+				let rows = '';
+				ROWS.forEach((row) => {
+					const v = numVal(row.q);
+					const st = STATE[v];
+					const chi = chiTiene(row.q, v);
+					rows += '<tr>' +
+						'<td style="padding:8px 10px;border-bottom:1px solid #ddd;font-size:13px;color:#333;">' + row.n + '</td>' +
+						'<td style="padding:8px 10px;border-bottom:1px solid #ddd;font-size:13px;color:#111;">' + row.label + '</td>' +
+						'<td style="padding:8px 10px;border-bottom:1px solid #ddd;font-size:13px;color:#111;white-space:nowrap;">' + st.sym + ' ' + st.word + '</td>' +
+						'<td style="padding:8px 10px;border-bottom:1px solid #ddd;font-size:13px;color:#111;">' + escapeHtml(chi) + '</td>' +
+					'</tr>';
+				});
+
+				const numRow = r.N === 0
+					? 'Nessuna riga resta senza un nome: il foglio regge già oggi.'
+					: r.N + (r.N === 1 ? ' riga su 8 resta senza un nome.' : ' righe su 8 restano senza un nome.') + ' È il numero da far scendere nei prossimi mesi.';
+
+				$('#tds-foglio-print').innerHTML =
+					'<div style="font-family:Lexend,Arial,sans-serif;color:#111;max-width:720px;margin:0 auto;padding:8px;">' +
+						'<h1 style="font-family:Lexend,Arial,sans-serif;font-size:22px;font-weight:700;margin:0 0 6px;letter-spacing:-0.02em;">Il foglio delle due settimane</h1>' +
+						'<p style="font-family:Inter,Arial,sans-serif;font-size:13px;color:#444;margin:0 0 4px;">Compilato da ' + escapeHtml(nomeGate) + ' &middot; ' + dataOdierna + '</p>' +
+						'<p style="font-family:Inter,Arial,sans-serif;font-size:13px;color:#444;margin:0 0 16px;">Scenario: da domani mattina, telefono spento per quattordici giorni.</p>' +
+						'<table style="width:100%;border-collapse:collapse;font-family:Inter,Arial,sans-serif;">' +
+							'<thead><tr>' +
+								'<th style="text-align:left;padding:8px 10px;border-bottom:2px solid #333;font-size:12px;color:#333;">N.</th>' +
+								'<th style="text-align:left;padding:8px 10px;border-bottom:2px solid #333;font-size:12px;color:#333;">Funzione chiave</th>' +
+								'<th style="text-align:left;padding:8px 10px;border-bottom:2px solid #333;font-size:12px;color:#333;">Stato</th>' +
+								'<th style="text-align:left;padding:8px 10px;border-bottom:2px solid #333;font-size:12px;color:#333;">Chi la tiene</th>' +
+							'</tr></thead><tbody>' + rows + '</tbody></table>' +
+						'<p style="font-family:Inter,Arial,sans-serif;font-size:13px;color:#111;margin:18px 0 8px;"><strong>Collaudo:</strong> ' + collaudoText(r.q1) + '</p>' +
+						'<p style="font-family:Inter,Arial,sans-serif;font-size:14px;color:#111;margin:0 0 20px;font-weight:600;">' + numRow + '</p>' +
+						'<p style="font-family:Inter,Arial,sans-serif;font-size:12px;color:#666;margin:24px 0 0;text-align:right;">cristianopusca.com</p>' +
+					'</div>';
+			}
+
+			$('#tds-download-btn') && $('#tds-download-btn').addEventListener('click', () => {
+				populatePrint();
+				setTimeout(() => window.print(), 60);
+			});
+
+			// ── gate email: abilita bottone quando nome + email validi ──
+			const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			function refreshGateBtn() {
+				const fn = $('#tds-firstname').value.trim();
+				const em = $('#tds-email').value.trim();
+				$('#tds-email-btn').disabled = !(fn && emailRe.test(em));
+			}
+			$('#tds-firstname') && $('#tds-firstname').addEventListener('input', refreshGateBtn);
+			$('#tds-email') && $('#tds-email').addEventListener('input', refreshGateBtn);
+			refreshGateBtn();
+
+			// ── invio gate == NON invia i nomi candidati (client-side) ──
+			$('#tds-email-form') && $('#tds-email-form').addEventListener('submit', async (e) => {
+				e.preventDefault();
+				const firstName = $('#tds-firstname').value.trim();
+				const email = $('#tds-email').value.trim();
+				if (!firstName || !emailRe.test(email)) { refreshGateBtn(); return; }
+				const newsletter = $('#tds-nl-optin').checked;
+				const btn = $('#tds-email-btn');
+				btn.disabled = true; btn.textContent = 'Un attimo...';
+
+				const r = lastR || compute();
+
+				// righe senza nome (stato "si ferma") == solo labels, MAI i candidati
+				const righeSenzaNome = ROWS.filter((row) => numVal(row.q) === 2).map((row) => row.label);
+
+				// risposte leggibili per la notify owner
+				const answers = {};
+				for (let i = 1; i <= 10; i++) answers['q' + i] = labelVal(i);
+
+				// grezzi per giudizio/kit
+				const vals = {};
+				for (let i = 2; i <= 9; i++) vals['q' + i] = numVal(i);
+
+				const payload = {
+					firstName, email, newsletter,
+					N: r.N, M: r.M, fascia: r.fascia,
+					righeSenzaNome,
+					answers,
+					vals,
+					q1: r.q1,
+					q10: r.q10,
+				};
+
+				try {
+					await fetch(WORKER_URL, {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify(payload),
+					});
+				} catch (err) { /* non blocca: il risultato è già a schermo */ }
+
+				// reveal conferma + passo di fascia (indipendente dall'esito fetch)
+				$('#tds-email-gate').classList.add('hidden');
+				$('#tds-gated').classList.remove('hidden');
+				$('#tds-fascia-step').classList.remove('hidden');
+				$('#tds-gated').scrollIntoView({ behavior: 'smooth', block: 'start' });
+			});
+		})();
+		</script>
+	</body>
+</html>

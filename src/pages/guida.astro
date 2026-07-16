@@ -1,0 +1,191 @@
+---
+import '../styles/global.css';
+
+const title = 'La guida gratuita di Cristiano Pusca · dal Management all\'Engagement';
+const description = 'Come far vestire ai tuoi collaboratori la maglia della tua azienda. Guida gratuita: il metodo, i numeri di chi l\'ha applicato e cinque cose da fare da domani mattina.';
+const PDF = '/lead-magnet/dal-management-all-engagement.pdf';
+const WORKER = 'https://pusca-scanner-email.nameless-mouse-7d0f.workers.dev/guida';
+---
+
+<html lang="it">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content={description} />
+		<meta name="generator" content={Astro.generator} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="/cristiano-pusca.jpg" />
+		<meta property="og:type" content="website" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<link rel="canonical" href="https://cristianopusca.com/guida" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+		<title>{title}</title>
+	</head>
+	<body class="min-h-screen" style="background-color: var(--color-paper); color: var(--color-ink);">
+
+		<!-- Header minimo -->
+		<header class="bg-paper/90 backdrop-blur-xl border-b border-paper-line">
+			<nav class="max-w-3xl mx-auto px-5 sm:px-6 h-16 flex items-center justify-between">
+				<a href="/" class="font-heading font-bold text-xl tracking-tight">
+					<span class="text-teal-deep">Cristiano</span><span class="text-ink"> Pusca</span>
+				</a>
+				<a href="/" class="text-ink-soft text-sm font-heading font-medium hover:text-ink transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-deep rounded">
+					&larr; Torna al sito
+				</a>
+			</nav>
+		</header>
+
+		<main>
+
+			<!-- ===================== HERO ===================== -->
+			<section class="relative overflow-hidden" style="background: linear-gradient(135deg,#1F6E8C 0%,#18596F 60%,#123F4F 100%);">
+				<div class="absolute top-0 right-0 w-96 h-96 rounded-full bg-white/[0.07] blur-[100px] pointer-events-none"></div>
+				<div class="max-w-6xl mx-auto px-6 py-14 md:py-20 relative">
+					<div class="grid md:grid-cols-[1fr_300px] gap-10 md:gap-14 items-center">
+
+						<div>
+							<p class="text-white/70 text-xs font-heading font-semibold tracking-[0.18em] uppercase mb-4">Guida gratuita per imprenditori di PMI</p>
+							<h1 class="font-heading font-bold text-white leading-[1.12] text-[30px] sm:text-4xl md:text-[2.7rem] mb-5">
+								Come far vestire ai tuoi collaboratori la maglia della tua azienda.
+							</h1>
+							<p class="text-white/85 text-base md:text-lg leading-relaxed mb-8 max-w-xl">
+								Senza discorsi da convention: si comincia misurando le persone e mettendole nel ruolo dove rendono davvero. In venti minuti di lettura, gratis, trovi il metodo, i numeri di chi l'ha applicato, e cinque cose che puoi fare da domani mattina.
+							</p>
+
+							<!-- FORM -->
+							<div id="guida-form-wrap" class="bg-white rounded-2xl p-6 md:p-7 shadow-2xl max-w-md">
+								<p class="text-ink font-heading font-semibold text-lg mb-4">Dimmi dove mandartela.</p>
+								<form id="guida-form" class="space-y-3">
+									<input id="g-nome" type="text" placeholder="Nome" required autocomplete="given-name" maxlength="40" class="scanner-input-light w-full px-5 py-3.5 rounded-xl text-ink text-base" />
+									<input id="g-email" type="email" placeholder="La tua email" required autocomplete="email" class="scanner-input-light w-full px-5 py-3.5 rounded-xl text-ink text-base" />
+									<label class="flex items-start gap-2.5 cursor-pointer" style="min-height:44px;padding:2px 0;">
+										<input type="checkbox" id="g-consent" required class="mt-1 w-4 h-4 rounded shrink-0 accent-[#1F6E8C]" style="border-color: var(--color-paper-line);" />
+										<span class="text-ink-soft text-xs leading-relaxed">Acconsento a ricevere la guida via email. I miei dati sono trattati da Cristiano Pusca ai sensi dell'Art. 6(1)(b) GDPR e non condivisi con terzi. Posso cancellarmi in qualsiasi momento. <a href="/privacy" class="underline hover:text-ink transition-colors">Privacy</a>.</span>
+									</label>
+									<button type="submit" id="g-btn" class="w-full text-base font-heading font-semibold text-white rounded-xl px-6 py-4 transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-deep disabled:opacity-60 disabled:cursor-not-allowed" style="background-color: var(--color-teal-deep); min-height: 48px;" onmouseover="if(!this.disabled)this.style.opacity='0.92'" onmouseout="if(!this.disabled)this.style.opacity='1'">
+										Mandami la guida
+									</button>
+									<p class="text-ink-soft text-xs text-center leading-relaxed pt-1">Te la mando subito via mail. Niente spam, niente telefonate a freddo.</p>
+								</form>
+							</div>
+
+							<!-- SUCCESS -->
+							<div id="guida-success" class="hidden bg-white rounded-2xl p-6 md:p-7 shadow-2xl max-w-md">
+								<p class="text-teal-deep text-xs font-heading font-semibold tracking-wider uppercase mb-2">Fatto</p>
+								<p class="text-ink font-heading font-semibold text-lg mb-2">La guida è tua. Te l'ho anche mandata via mail.</p>
+								<p class="text-ink-soft text-sm leading-relaxed mb-5">Se tra qualche minuto non la vedi in casella, guarda nello spam o tra le promozioni.</p>
+								<a id="g-download" href={PDF} download class="w-full text-base font-heading font-semibold text-white rounded-xl px-6 py-4 transition-all inline-flex items-center justify-center gap-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-deep" style="background-color: var(--color-teal-deep); min-height: 48px;" onmouseover="this.style.opacity='0.92'" onmouseout="this.style.opacity='1'">
+									Scaricala subito &darr;
+								</a>
+							</div>
+						</div>
+
+						<!-- Copertina -->
+						<div class="hidden md:block">
+							<img src="/lead-magnet/vademecum-cover.jpg" alt="Copertina della guida dal Management all'Engagement" width="430" height="797" loading="eager" decoding="async" class="w-full rounded-xl shadow-2xl ring-1 ring-white/15" />
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ===================== COSA TROVI DENTRO ===================== -->
+			<section class="bg-paper">
+				<div class="max-w-3xl mx-auto px-6 py-16 md:py-20">
+					<h2 class="font-heading font-medium text-2xl md:text-3xl text-ink mb-8">Cosa ti porti a casa in venti minuti</h2>
+					<ul class="space-y-5">
+						{[
+							['Il test delle due settimane', 'Cosa si ferma davvero se stacchi il telefono per quattordici giorni, e quanto ti costa ogni anno.'],
+							['Perché i corsi di vendita non attaccano', 'E cosa viene prima: il metodo BEDo, prima l\'essere e poi il fare.'],
+							['La maglia', 'Come far sì che i tuoi collaboratori giochino per la squadra, e non solo per lo stipendio.'],
+							['Cinque cose da fare da lunedì', 'Concrete, a costo zero, senza consulenti tra i piedi.'],
+							['Uno strumento gratuito', 'Per misurare, da solo, quanto l\'azienda dipende da te.'],
+						].map((r) => (
+							<li class="flex items-start gap-4">
+								<span class="shrink-0 mt-1 w-6 h-6 rounded-full flex items-center justify-center" style="background-color: var(--color-teal-deep);">
+									<svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+								</span>
+								<p class="text-ink text-base md:text-lg leading-relaxed"><strong class="font-heading font-semibold">{r[0]}.</strong> <span class="text-ink-soft">{r[1]}</span></p>
+							</li>
+						))}
+					</ul>
+				</div>
+			</section>
+
+			<!-- ===================== CHI TE LO SCRIVE ===================== -->
+			<section style="background-color: var(--color-paper-alt, #eef1f5);">
+				<div class="max-w-3xl mx-auto px-6 py-16 md:py-20">
+					<div class="flex flex-col sm:flex-row gap-7 items-start">
+						<img src="/img/cristiano-bio.webp" alt="Cristiano Pusca" width="180" height="180" loading="lazy" decoding="async" class="w-28 h-28 sm:w-40 sm:h-40 rounded-2xl object-cover object-top shrink-0 shadow-lg" />
+						<div>
+							<p class="text-teal-deep text-xs font-heading font-semibold tracking-wider uppercase mb-2">Chi te lo scrive</p>
+							<h2 class="font-heading font-semibold text-xl md:text-2xl text-ink mb-3">Cristiano Pusca</h2>
+							<p class="text-ink-soft text-base leading-relaxed">
+								Nelle vendite dal 1988, ha diretto una divisione da 82,5 milioni di euro. Dal 2012 affianca le PMI del Nord-Est con il metodo BEDo, su assessment, formazione e sviluppo delle persone. Analista comportamentale, autore di "La Fiducia, conditio sine qua non". Del suo metodo hanno parlato Il Sole 24 Ore, Milano Finanza e Fortune Italia.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ===================== CHIUSURA ===================== -->
+			<section class="relative overflow-hidden" style="background-color: var(--color-dark, #0c1220);">
+				<div class="max-w-3xl mx-auto px-6 py-16 md:py-20 text-center">
+					<h2 class="font-heading font-medium text-2xl md:text-3xl text-white mb-4">È gratis, e resta gratis.</h2>
+					<p class="text-white/70 text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-8">
+						Lasci la mail, ti arriva la guida. La leggi con calma, dal telefono, in venti minuti. Nessuno ti richiama per venderti qualcosa: quello che c'è da fare lo trovi già dentro, e lo fai da solo.
+					</p>
+					<a href="#guida-form" id="g-scroll" class="inline-flex items-center justify-center gap-2 text-base font-heading font-semibold text-white rounded-xl px-8 py-4 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" style="background-color: var(--color-teal-deep); min-height: 48px;" onmouseover="this.style.opacity='0.92'" onmouseout="this.style.opacity='1'">
+						Mandami la guida
+					</a>
+				</div>
+			</section>
+
+		</main>
+
+		<footer class="py-8 border-t border-paper-line bg-paper">
+			<div class="max-w-3xl mx-auto px-5 sm:px-6 text-center">
+				<p class="text-ink-soft text-sm">&copy; {new Date().getFullYear()} Cristiano Pusca &middot; BPDA S.R.L. &middot; P.IVA 04993860263</p>
+				<a href="/privacy" class="text-ink-soft text-sm hover:text-ink transition-colors mt-2 inline-block underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-deep rounded">Privacy Policy</a>
+			</div>
+		</footer>
+
+		<script is:inline define:vars={{ WORKER, PDF }}>
+			(function () {
+				const $ = (s) => document.querySelector(s);
+				const form = $('#guida-form');
+				const btn = $('#g-btn');
+				const scrollBtn = $('#g-scroll');
+				if (scrollBtn) scrollBtn.addEventListener('click', (e) => {
+					e.preventDefault();
+					$('#guida-form-wrap')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+					$('#g-nome')?.focus();
+				});
+				if (!form) return;
+				form.addEventListener('submit', async (e) => {
+					e.preventDefault();
+					const nome = $('#g-nome').value.trim();
+					const email = $('#g-email').value.trim();
+					if (!nome || !email || !$('#g-consent').checked) return;
+					btn.disabled = true;
+					// invia al worker senza bloccare: il download non deve aspettare la mail
+					fetch(WORKER, {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify({ nome, email }),
+					}).catch(() => { /* la guida resta scaricabile comunque */ });
+					// mostra subito successo + download diretto
+					$('#guida-form-wrap').classList.add('hidden');
+					const ok = $('#guida-success');
+					ok.classList.remove('hidden');
+					ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+				});
+			})();
+		</script>
+	</body>
+</html>
