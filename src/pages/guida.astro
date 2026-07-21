@@ -14,10 +14,17 @@ const dentro = [
 	['Uno strumento gratuito', 'Per misurare, da solo, quanto l\'azienda dipende da te.'],
 ];
 const press = [
-	['ilsole24ore-o-2021.svg', 'Il Sole 24 Ore'],
-	['Milano_Finanza_Logo-700x233.png', 'Milano Finanza'],
-	['fortune-500-logo-png_seeklogo-433786.png', 'Fortune'],
-	['Fanpage.it.png', 'Fanpage'],
+	['ilsole24ore-o-2021.svg', 'Il Sole 24 Ore', false],
+	['Milano_Finanza_Logo-700x233.png', 'Milano Finanza', true],
+	['fortune-500-logo-png_seeklogo-433786.png', 'Fortune', false],
+	['Fanpage.it.png', 'Fanpage', true],
+];
+const faq = [
+	['È davvero gratis?', 'Sì. Lasci nome e mail e ti arriva la guida. Non c\'è un pagamento nascosto, né un corso da comprare alla fine.'],
+	['Cosa ci fate con la mia mail?', 'Ti mandiamo la guida e, ogni tanto, qualcosa di utile sullo stesso tema. Niente spam, niente telefonate a freddo. Ti cancelli quando vuoi, con un clic.'],
+	['Mi chiamerete per vendermi qualcosa?', 'No. Dentro trovi già cosa fare e lo fai da solo. Se poi vorrai un confronto, ci sono un test e una call di 15 minuti, ma li scegli tu, quando vuoi.'],
+	['Per chi è questa guida?', 'Per chi guida una PMI e sente che l\'azienda dipende troppo da lui: titolari, imprenditori, responsabili commerciali con una squadra o una rete da far rendere.'],
+	['Serve tempo per applicarla?', 'Le cose che trovi dentro si fanno da subito, a costo zero, senza fermare il lavoro. Cominci dalla prima e vai avanti col tuo passo.'],
 ];
 ---
 
@@ -68,7 +75,7 @@ const press = [
 							<h1 class="font-heading font-bold text-white leading-[1.12] text-[30px] sm:text-4xl md:text-[2.6rem] mb-5">
 								Come far vestire ai tuoi collaboratori <span class="text-sky-light">la maglia della tua azienda.</span>
 							</h1>
-							<p class="text-gray-200 text-base md:text-lg leading-relaxed mb-8 max-w-xl">
+							<p class="text-gray-300 text-[15px] md:text-base leading-relaxed mb-8 max-w-xl">
 								C'è un modo di mandare avanti l'azienda più sano per te e più redditizio nei numeri: le persone si muovono anche quando non ci sei, si prendono le loro responsabilità e tirano dalla stessa parte. Non serve motivarle a parole. Basta metterle nel ruolo giusto e farle sentire parte della squadra. Questa guida ti mostra da dove si comincia.
 							</p>
 
@@ -177,11 +184,32 @@ const press = [
 					</div>
 					<div class="mt-10 pt-8 border-t border-gray-300/60">
 						<p class="text-gray-500 text-[11px] font-heading font-semibold tracking-wider uppercase mb-4">Hanno parlato del metodo BEDo</p>
-						<div class="flex flex-wrap items-center gap-x-8 gap-y-4">
+						<div class="press-on-light flex flex-wrap items-center gap-x-9 md:gap-x-11 gap-y-5">
 							{press.map((p) => (
-								<span class="logo-press h-7 md:h-8 opacity-80"><img src={`/logos/press/${p[0]}`} alt={p[1]} class="h-full w-auto object-contain" loading="lazy" /></span>
+								<span class={p[2] ? 'logo-press logo-press-bg' : 'logo-press'}><img src={`/logos/press/${p[0]}`} alt={p[1]} loading="lazy" /></span>
 							))}
 						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ===================== FAQ (white) ===================== -->
+			<section class="bg-white py-16 md:py-24">
+				<div class="max-w-3xl mx-auto px-6">
+					<div class="section-divider mb-6"></div>
+					<h2 class="font-heading font-medium text-2xl md:text-3xl text-gray-900 mb-9">Le domande che ti stai facendo</h2>
+					<div class="space-y-3">
+						{faq.map((f) => (
+							<details class="group border border-gray-200 rounded-xl bg-white open:border-sky/40 open:shadow-sm transition-colors">
+								<summary class="flex items-center justify-between gap-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden px-5 py-4 md:px-6 md:py-5 font-heading font-semibold text-gray-900 text-[16px] md:text-lg">
+									{f[0]}
+									<svg class="shrink-0 w-5 h-5 text-sky transition-transform duration-200 group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14" /></svg>
+								</summary>
+								<div class="px-5 md:px-6 pb-5 md:pb-6 -mt-1">
+									<p class="text-gray-600 text-base leading-relaxed">{f[1]}</p>
+								</div>
+							</details>
+						))}
 					</div>
 				</div>
 			</section>
