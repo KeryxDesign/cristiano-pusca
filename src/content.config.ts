@@ -14,6 +14,8 @@ const casiStudio = defineCollection({
 		ogImage: z.string().optional(), // foto nel tondo dell'OG/thumbnail (default: cover)
 		ctaHook: z.string(), // titolo della CTA finale
 		draft: z.boolean().default(false),
+		datePublished: z.coerce.date().optional(), // data reale di pubblicazione (da Cristiano) → attiva datePublished nello schema Article
+		dateModified: z.coerce.date().optional(),
 	}),
 });
 

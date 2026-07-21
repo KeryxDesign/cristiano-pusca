@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import TestimonialCarousel from '../components/TestimonialCarousel.astro';
+import Schema from '../components/Schema.astro';
 
 // Chi Tiene il Gioco — primo gradino del percorso "Leggere la Squadra" (490 € + IVA)
 // Copy v2 APPROVATO (diagnosi→prescrizione, 3 mosse): strategia-2026/copy-chi-tiene-il-gioco-v2.md
@@ -13,12 +14,32 @@ const WA_HERO = WA_BASE + encodeURIComponent('Ciao Cristiano, vorrei partire da 
 const WA_MOSSE = WA_BASE + encodeURIComponent('Ciao Cristiano, ho letto le tre mosse di Chi Tiene il Gioco. Vorrei partire dal primo passo: quando possiamo fissare?');
 const WA_REPORT = WA_BASE + encodeURIComponent("Ciao Cristiano, ho visto l'esempio di report di Chi Tiene il Gioco. Vorrei partire dal primo passo (490 € + IVA).");
 const WA_MADRE = WA_BASE + encodeURIComponent('Ciao Cristiano, voglio prenotare il primo passo di Chi Tiene il Gioco (490 € + IVA). Quando possiamo fissare?');
+
+// FAQ B12 — Q&A verbatim dal blocco a pagina (verificate una a una). Se cambia il copy del B12, aggiornare qui.
+const faqCTG = [
+	['"Non ho tempo per l\'ennesimo corso."', 'Non è un corso. Sono 30 minuti tuoi più 90 di call. Ne esci con tre mosse da fare, non con dispense da leggere.'],
+	['"Ho già fatto formazione commerciale e non è cambiato niente."', 'I corsi caricano e poi passano. Qui prima misuriamo come lavori, poi ti do mosse cucite su di te. Il punto di partenza è diverso, per questo l\'arrivo lo è.'],
+	['"Perché misurare me e non i venditori?"', 'Perché la rete ha preso la forma dei tuoi comportamenti sotto pressione, anno dopo anno. Misurare te prima rende la lettura della rete molto più precisa dopo. I venditori vengono al gradino successivo, se decidi di salire.'],
+	['"490 euro per un test? Il test lo trovo online."', 'Il test è uno strumento. Paghi la lettura di chi lo fa da anni e le tre mosse che ne tira fuori. E i 490 si scalano interi se prosegui.'],
+	['"E se dopo la call penso di aver buttato i soldi?"', 'Te li ridò. È scritto sopra: se la restituzione non ti lascia niente in mano, non me li tengo.'],
+	['"Devo per forza proseguire con i pacchetti?"', 'No. Nessun rinnovo automatico, nessun obbligo. Paghi il primo gradino e ti fermi quando vuoi.'],
+];
+const faqSchemaCTG = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqCTG.map(([q, a]) => ({
+		'@type': 'Question',
+		name: q,
+		acceptedAnswer: { '@type': 'Answer', text: a },
+	})),
+};
 ---
 
 <Layout
 	title="Chi Tiene il Gioco — novanta minuti, e le tre mosse da fare da lunedì | Cristiano Pusca"
 	description="Misuriamo come decidi, deleghi e comunichi sotto pressione. Da lì escono tre mosse concrete da iniziare lunedì sulla tua rete vendita. 90 minuti di call, un report scritto, 490 € + IVA che si scalano interi se prosegui entro 60 giorni. Punto di partenza, nessun impegno a proseguire."
 >
+	<Schema schema={faqSchemaCTG} />
 	<!-- ═══════════════════════════════════════════
 	     B1 · HERO — DARK
 	     ═══════════════════════════════════════════ -->

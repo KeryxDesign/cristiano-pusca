@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import Schema from '../components/Schema.astro';
+import { identityGraph } from '../lib/schema';
 
 const title = 'La guida gratuita di Cristiano Pusca · dal Management all\'Engagement';
 const description = 'Come far vestire ai tuoi collaboratori la maglia della tua azienda. Guida gratuita: il metodo, i numeri di chi l\'ha applicato e cinque cose da fare da domani mattina.';
@@ -26,6 +28,17 @@ const faq = [
 	['Per chi è questa guida?', 'Per chi guida una PMI e sente che l\'azienda dipende troppo da lui: titolari, imprenditori, responsabili commerciali con una squadra o una rete da far rendere.'],
 	['Serve tempo per applicarla?', 'Le cose che trovi dentro si fanno da subito, a costo zero, senza fermare il lavoro. Cominci dalla prima e vai avanti col tuo passo.'],
 ];
+
+// FAQPage costruita dallo stesso array `faq`: nessun drift, si aggiorna col copy.
+const faqSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map(([q, a]) => ({
+		'@type': 'Question',
+		name: q,
+		acceptedAnswer: { '@type': 'Answer', text: a },
+	})),
+};
 const HL = 'text-sky-light font-semibold';
 const testimonianze = [
 	{
@@ -68,6 +81,8 @@ const testimonianze = [
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 		<title>{title}</title>
+		<Schema schema={identityGraph} />
+		<Schema schema={faqSchema} />
 	</head>
 	<body class="min-h-screen bg-dark">
 

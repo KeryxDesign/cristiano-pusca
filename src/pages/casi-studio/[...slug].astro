@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Schema from '../../components/Schema.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -13,6 +14,40 @@ export async function getStaticPaths() {
 const { caso } = Astro.props;
 const { Content } = await render(caso);
 const { title, kicker, hook, cover, ctaHook } = caso.data;
+
+const caseUrl = `https://cristianopusca.com/casi-studio/${caso.id}/`;
+const caseGraph = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'BlogPosting',
+			'@id': `${caseUrl}#article`,
+			mainEntityOfPage: caseUrl,
+			headline: title,
+			description: hook,
+			image: `https://cristianopusca.com/casi-studio/og/${caso.id}.png`,
+			articleSection: 'Casi studio',
+			inLanguage: 'it',
+			isPartOf: { '@id': 'https://cristianopusca.com/#website' },
+			author: { '@id': 'https://cristianopusca.com/#cristiano-pusca' },
+			publisher: { '@id': 'https://cristianopusca.com/#bpda' },
+			// datePublished/dateModified emessi solo quando la data reale è nel .md del caso
+			...(caso.data.datePublished && {
+				datePublished: caso.data.datePublished.toISOString(),
+				dateModified: (caso.data.dateModified ?? caso.data.datePublished).toISOString(),
+			}),
+		},
+		{
+			'@type': 'BreadcrumbList',
+			'@id': `${caseUrl}#breadcrumb`,
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cristianopusca.com/' },
+				{ '@type': 'ListItem', position: 2, name: 'Casi studio', item: 'https://cristianopusca.com/casi-studio/' },
+				{ '@type': 'ListItem', position: 3, name: title, item: caseUrl },
+			],
+		},
+	],
+};
 ---
 
 <Layout
@@ -20,6 +55,7 @@ const { title, kicker, hook, cover, ctaHook } = caso.data;
 	description={hook}
 	image={`/casi-studio/og/${caso.id}.png`}
 >
+	<Schema schema={caseGraph} />
 	<!-- ═══════════════════════════════════════════
 	     HERO — DARK
 	     ═══════════════════════════════════════════ -->

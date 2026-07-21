@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
 import Footer from '../components/Footer.astro';
+import Schema from '../components/Schema.astro';
+import { identityGraph } from '../lib/schema';
 
 interface Props {
   title?: string;
@@ -43,6 +45,9 @@ const ogImage = new URL(image, Astro.site ?? Astro.url).href;
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 		<title>{title}</title>
+
+		<!-- Structured data: grafo identità Person + Organization + Book + WebSite -->
+		<Schema schema={identityGraph} />
 
 		<!-- Google tag (gtag.js) con Consent Mode v2 -->
 		<script is:inline>

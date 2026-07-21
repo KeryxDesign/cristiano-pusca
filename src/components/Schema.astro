@@ -1,0 +1,8 @@
+---
+// Inietta un blocco JSON-LD nel documento.
+// is:inline  → Astro non lo tratta come modulo JS da bundlare.
+// set:html   → il JSON resta grezzo (non escapato in entità HTML), leggibile dai crawler.
+interface Props { schema: object; }
+const { schema } = Astro.props;
+---
+<script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
