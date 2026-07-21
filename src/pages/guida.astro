@@ -26,6 +26,27 @@ const faq = [
 	['Per chi è questa guida?', 'Per chi guida una PMI e sente che l\'azienda dipende troppo da lui: titolari, imprenditori, responsabili commerciali con una squadra o una rete da far rendere.'],
 	['Serve tempo per applicarla?', 'Le cose che trovi dentro si fanno da subito, a costo zero, senza fermare il lavoro. Cominci dalla prima e vai avanti col tuo passo.'],
 ];
+const HL = 'text-sky-light font-semibold';
+const testimonianze = [
+	{
+		name: 'Francesca M.',
+		role: 'HR Manager',
+		company: 'Mistral Group',
+		text: `Il valore più grande: <span class="${HL}">ha catalizzato un'assunzione di responsabilità, empowerment vero</span>.`,
+	},
+	{
+		name: 'Maurizio S.',
+		role: 'Titolare',
+		company: 'Vetroin',
+		text: `<span class="${HL}">I collaboratori hanno preso più responsabilità</span>, abbiamo fatto scelte chiare su figure chiave.`,
+	},
+	{
+		name: 'Gianluca B.',
+		role: 'Titolare',
+		company: 'Pelletteria Graziella',
+		text: `È il filtro giusto tra proprietà e dipendenti. Adesso <span class="${HL}">lavoriamo sulla responsabilità e sul rispetto dell'organigramma</span>.`,
+	},
+];
 ---
 
 <html lang="it">
@@ -190,6 +211,33 @@ const faq = [
 							))}
 						</div>
 					</div>
+				</div>
+			</section>
+
+			<!-- ===================== TESTIMONIANZE (dark) ===================== -->
+			<section class="bg-dark-light py-16 md:py-24">
+				<div class="max-w-4xl mx-auto px-6">
+					<div class="section-divider mb-6"></div>
+					<p class="text-sky-light text-xs font-heading font-semibold tracking-wider uppercase mb-3">Chi ha già fatto questo lavoro</p>
+					<h2 class="font-heading font-medium text-2xl md:text-3xl text-white mb-4 leading-tight">Cosa cambia quando i collaboratori si prendono la responsabilità</h2>
+					<p class="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl mb-10">
+						Nessuno di loro ha letto la guida. Hanno lavorato con Cristiano sul metodo che c'è dentro. Queste sono le loro parole.
+					</p>
+					<div class="grid gap-5 md:grid-cols-3">
+						{testimonianze.map((t) => (
+							<figure class="flex flex-col rounded-2xl bg-white/[0.04] border border-white/10 p-6">
+								<svg class="w-7 h-7 text-sky/40 mb-3 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 8.5c-2.5 0-4.5 2-4.5 4.5S7 17.5 9.5 17.5c.3 0 .6 0 .9-.1-.6 1.4-2 2.4-3.6 2.6v2c3.9-.3 6.7-3.5 6.7-7.5v-.5c0-2.5-2-4.5-4.5-4.5zm9 0c-2.5 0-4.5 2-4.5 4.5S16 17.5 18.5 17.5c.3 0 .6 0 .9-.1-.6 1.4-2 2.4-3.6 2.6v2c3.9-.3 6.7-3.5 6.7-7.5v-.5c0-2.5-2-4.5-4.5-4.5z" /></svg>
+								<blockquote class="text-gray-200 text-[15px] leading-relaxed flex-1" set:html={t.text}></blockquote>
+								<figcaption class="mt-5 pt-4 border-t border-white/10">
+									<span class="block font-heading font-semibold text-white text-sm">{t.name}</span>
+									<span class="block text-gray-400 text-[13px] mt-0.5">{t.role}, {t.company}</span>
+								</figcaption>
+							</figure>
+						))}
+					</div>
+					<p class="text-gray-500 text-[13px] mt-7">
+						<a href="/press#testimonianze" class="text-sky hover:text-sky-light underline underline-offset-2 transition-colors">Le altre testimonianze</a>, con nomi e aziende per esteso.
+					</p>
 				</div>
 			</section>
 
