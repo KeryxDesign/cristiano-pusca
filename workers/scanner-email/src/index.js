@@ -1,5 +1,14 @@
 export default {
-	async fetch(request, env) {
+	async fetch(request, env, ctx) {
+		const url = new URL(request.url);
+		const path = url.pathname.replace(/\/+$/, '');
+
+		// ── Meta Lead Ads webhook (GET verify + POST notifica) ──
+		// Gestito PRIMA del gate "solo POST": Meta verifica il webhook in GET.
+		if (path.endsWith('/meta-lead')) {
+			return await handleMetaLead(request, env, ctx);
+		}
+
 		if (request.method === 'OPTIONS') {
 			return new Response(null, { headers: corsHeaders(env, request) });
 		}
@@ -9,9 +18,6 @@ export default {
 		}
 
 		// Route by URL pathname
-		const url = new URL(request.url);
-		const path = url.pathname.replace(/\/+$/, '');
-
 		try {
 			if (path.endsWith('/assessment')) {
 				return await handleAssessment(request, env);
@@ -656,13 +662,10 @@ async function addToKit(env, email, firstName, lastName, settore, score, cost, f
 		body: JSON.stringify({ email_address: email }),
 	});
 
-	// iscrizione alla sequenza educativa "Le lezioni" (Mail 1 a +1g, dopo il giudizio Resend)
-	const seqId = env.KIT_SEQUENCE_ID || '2813724';
-	await fetch(`https://api.kit.com/v4/sequences/${seqId}/subscribers`, {
-		method: 'POST',
-		headers,
-		body: JSON.stringify({ email_address: email }),
-	});
+	// NB: lo scanner NON iscrive piu' alla sequenza "Le lezioni" (2813724).
+	// Decisione Davide 2026-07-22: unica sequenza email, che parte SOLO dal
+	// download del lead magnet (vademecum), gestito da handleGuida/deliverGuida.
+	// Il tag 'scanner' resta, cosi' i lead del test restano tracciati.
 
 	return { ok: true };
 }
@@ -1133,6 +1136,153 @@ function jsonResponse(data, status, env, request) {
 // ── Export per test logica (no impatto sul worker) ─────────
 export { buildScannerEmailHtml, buildInnesti, judgmentFrame, fasciaFromScore };
 
+// ── Handler: META LEAD ADS webhook -> deliverGuida ──────────
+// Flusso: Meta invia la notifica di un nuovo lead (modulo istantaneo) -> rileggiamo
+//         il lead da Graph col NOSTRO token -> estraiamo email+nome -> deliverGuida.
+// Sicurezza: ogni leadgen_id viene RILETTO da Meta. Un POST falso con un id inesistente
+//            fallisce il fetch Graph e non crea nessun iscritto. Se META_APP_SECRET è
+//            impostato, verifichiamo anche la firma X-Hub-Signature-256 del raw body.
+async function handleMetaLead(request, env, ctx) {
+	const url = new URL(request.url);
+
+	// 1) Verifica del webhook (Meta chiama in GET una volta, al collegamento)
+	if (request.method === 'GET') {
+		const mode = url.searchParams.get('hub.mode');
+		const token = url.searchParams.get('hub.verify_token');
+		const challenge = url.searchParams.get('hub.challenge');
+		if (mode === 'subscribe' && token && token === env.META_VERIFY_TOKEN) {
+			return new Response(challenge || '', {
+				status: 200,
+				headers: { 'Content-Type': 'text/plain' },
+			});
+		}
+		return new Response('Forbidden', { status: 403 });
+	}
+
+	// 2) Notifica di nuovo lead (Meta chiama in POST)
+	if (request.method === 'POST') {
+		// Leggiamo il raw body UNA sola volta: serve sia per la firma sia per il JSON.
+		const raw = await request.text();
+
+		// Firma opzionale: verificata solo se META_APP_SECRET è presente (come pietro2002).
+		if (env.META_APP_SECRET) {
+			const sig = request.headers.get('X-Hub-Signature-256') || '';
+			const valid = await verifyMetaSignature(raw, sig, env.META_APP_SECRET);
+			if (!valid) {
+				console.log('meta-lead: firma X-Hub-Signature-256 non valida, scarto');
+				return new Response('EVENT_RECEIVED', { status: 200 });
+			}
+		}
+
+		let body;
+		try {
+			body = JSON.parse(raw);
+		} catch {
+			return new Response('EVENT_RECEIVED', { status: 200 });
+		}
+
+		// Rispondiamo subito 200 a Meta e lavoriamo i lead in background.
+		ctx.waitUntil(handleMetaLeads(body, env));
+		return new Response('EVENT_RECEIVED', { status: 200 });
+	}
+
+	return new Response('OK', { status: 200 });
+}
+
+async function handleMetaLeads(body, env) {
+	if (!body || body.object !== 'page' || !Array.isArray(body.entry)) return;
+	for (const entry of body.entry) {
+		for (const change of entry.changes || []) {
+			if (change.field !== 'leadgen') continue;
+			const leadId = change.value && change.value.leadgen_id;
+			if (!leadId) continue;
+			try {
+				await processMetaLead(String(leadId), env);
+			} catch (e) {
+				console.log('meta-lead error', leadId, e && e.message);
+			}
+		}
+	}
+}
+
+async function processMetaLead(leadId, env) {
+	// Dedup: Meta può notificare lo stesso leadgen_id più volte. Se già lavorato, esci.
+	if (env.LEADS_KV) {
+		const seen = await env.LEADS_KV.get(`lead:${leadId}`);
+		if (seen) {
+			console.log('meta-lead dedup: già lavorato', leadId);
+			return;
+		}
+	} else {
+		console.log('meta-lead: binding LEADS_KV assente, dedup disattivato');
+	}
+
+	const g = env.META_GRAPH_VERSION || 'v21.0';
+	const token = env.META_LEAD_TOKEN;
+	if (!token) {
+		console.log('meta-lead: META_LEAD_TOKEN mancante, impossibile rileggere il lead');
+		return;
+	}
+
+	const res = await fetch(
+		`https://graph.facebook.com/${g}/${leadId}?fields=field_data,created_time&access_token=${encodeURIComponent(token)}`
+	);
+	const data = await res.json();
+	if (data.error || !Array.isArray(data.field_data)) {
+		console.log('meta-lead graph error', leadId, JSON.stringify(data).slice(0, 200));
+		return;
+	}
+
+	const f = {};
+	for (const item of data.field_data) {
+		f[item.name] = (item.values && item.values[0]) || '';
+	}
+	const email = String(f.email || f.email_address || '').trim();
+	const fullName = String(f.full_name || '').trim();
+	let firstName = String(f.first_name || '').trim();
+	if (!firstName && fullName) firstName = fullName.split(/\s+/)[0];
+
+	if (!email) {
+		console.log('meta-lead senza email', leadId);
+		return;
+	}
+
+	await deliverGuida(env, { email, firstName });
+
+	// Marchiamo come lavorato DOPO la consegna (TTL 30gg): così un errore transitorio
+	// non "brucia" un lead. Il dedup evita i doppioni sullo stesso leadgen_id.
+	if (env.LEADS_KV) {
+		await env.LEADS_KV.put(`lead:${leadId}`, String(Date.now()), { expirationTtl: 60 * 60 * 24 * 30 });
+	}
+	console.log('meta-lead -> guida consegnata', email);
+}
+
+// Verifica HMAC-SHA256 del raw body contro l'header "X-Hub-Signature-256: sha256=...".
+// Confronto a tempo costante. Ritorna true/false; su formato inatteso -> false.
+async function verifyMetaSignature(rawBody, headerValue, appSecret) {
+	try {
+		const expectedHex = String(headerValue || '').replace(/^sha256=/, '').trim();
+		if (!expectedHex) return false;
+		const enc = new TextEncoder();
+		const key = await crypto.subtle.importKey(
+			'raw',
+			enc.encode(appSecret),
+			{ name: 'HMAC', hash: 'SHA-256' },
+			false,
+			['sign']
+		);
+		const sigBuf = await crypto.subtle.sign('HMAC', key, enc.encode(rawBody));
+		const actualHex = [...new Uint8Array(sigBuf)].map((b) => b.toString(16).padStart(2, '0')).join('');
+		if (actualHex.length !== expectedHex.length) return false;
+		let diff = 0;
+		for (let i = 0; i < actualHex.length; i++) diff |= actualHex.charCodeAt(i) ^ expectedHex.charCodeAt(i);
+		return diff === 0;
+	} catch (e) {
+		console.log('verifyMetaSignature error', e && e.message);
+		return false;
+	}
+}
+
 // ── Handler: GUIDA (lead magnet vademecum "dal Management all'Engagement") ──
 async function handleGuida(request, env) {
 	const { nome, email } = await request.json();
@@ -1141,16 +1291,27 @@ async function handleGuida(request, env) {
 	}
 	const firstName = String(nome || '').trim();
 
-	const kitResult = await addGuidaToKit(env, email, firstName);
+	const r = await deliverGuida(env, { email, firstName });
+
+	return jsonResponse({ success: true, kit: r.kit, email: r.email }, 200, env, request);
+}
+
+// Consegna guida RIUSABILE: Kit (subscribe + tag + sequenza) + PDF via Resend + notifica admin.
+// Usata sia da /guida (form del sito) sia da /meta-lead (Lead Ads Meta).
+// Ogni step è non-bloccante: un errore su Kit non impedisce l'invio del PDF, e viceversa.
+async function deliverGuida(env, { email, firstName }) {
+	const fn = String(firstName || '').trim();
+
+	const kitResult = await addGuidaToKit(env, email, fn);
 	if (!kitResult.ok) console.error('Kit guida error (non-blocking):', kitResult.error);
 
-	const emailResult = await sendGuidaEmail(env, email, firstName);
+	const emailResult = await sendGuidaEmail(env, email, fn);
 	if (!emailResult.ok) console.error('Resend guida error (non-blocking):', emailResult.error);
 
-	const notifyResult = await sendGuidaNotify(env, email, firstName);
+	const notifyResult = await sendGuidaNotify(env, email, fn);
 	if (!notifyResult.ok) console.error('Resend guida notify error (non-blocking):', notifyResult.error);
 
-	return jsonResponse({ success: true, kit: kitResult.ok, email: emailResult.ok }, 200, env, request);
+	return { kit: kitResult.ok, email: emailResult.ok, notify: notifyResult.ok };
 }
 
 // Kit v4: subscribe + TAG dedicato via env.KIT_GUIDA_TAG_ID. MAI l'id 20820661 dello scanner.

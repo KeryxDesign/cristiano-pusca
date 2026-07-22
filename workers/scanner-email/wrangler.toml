@@ -18,7 +18,24 @@ NOTIFY_EMAIL = "info@keryxdesign.com,cristiano@be-do.it"
 #   wrangler secret put KIT_TDS_SEQUENCE_ID
 
 # ── Guida / lead magnet vademecum (/guida) ──
-# KIT_GUIDA_TAG_ID: id del TAG Kit NUOVO "guida-vademecum" (mai 20820661 = tag scanner).
-#   Da creare su Kit; impostare come secret:  wrangler secret put KIT_GUIDA_TAG_ID
+# KIT_GUIDA_TAG_ID: id del TAG Kit "guida-vademecum" = 21231478 (mai 20820661 = tag scanner).
+#   Impostato come secret:  wrangler secret put KIT_GUIDA_TAG_ID
 # GUIDA_PDF_URL: opzionale. Se vuoto usa il fallback https://cristianopusca.com/lead-magnet/dal-management-all-engagement.pdf
-# KIT_GUIDA_SEQUENCE_ID: opzionale, sequenza nurturing dedicata.
+# KIT_GUIDA_SEQUENCE_ID: sequenza nurturing "Pusca - Le lezioni" = 2813724.
+#   Impostato come secret:  wrangler secret put KIT_GUIDA_SEQUENCE_ID
+
+# ── Meta Lead Ads -> Kit + PDF (/meta-lead) ──
+# Route unica /meta-lead: GET = verifica webhook, POST = notifica nuovo lead.
+# Secret richiesti (impostati da PM/Davide, MAI committati):
+#   META_LEAD_TOKEN    -> token system-user Meta con scope leads_retrieval (l'attuale scade 2026-09-19).
+#                         wrangler secret put META_LEAD_TOKEN
+#   META_VERIFY_TOKEN  -> stringa a piacere; deve combaciare col "Verify Token" nel pannello App Meta.
+#                         wrangler secret put META_VERIFY_TOKEN
+#   META_APP_SECRET    -> OPZIONALE. Se presente, verifica la firma X-Hub-Signature-256 del body.
+#                         wrangler secret put META_APP_SECRET
+# Var opzionale: META_GRAPH_VERSION (default "v21.0").
+
+# ── KV: dedup dei leadgen_id (evita consegne doppie se Meta ripete la notifica) ──
+[[kv_namespaces]]
+binding = "LEADS_KV"
+id = "eaf0b45e16a8482a86d0ff61c4d6c8ad"
