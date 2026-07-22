@@ -52,21 +52,27 @@ const dentro = [
 		<div class="absolute top-10 right-[6%] w-80 h-80 rounded-full bg-sky/[0.10] blur-[110px] pointer-events-none"></div>
 		<div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-accent/[0.05] to-transparent pointer-events-none"></div>
 
-		<div class="w-full max-w-3xl mx-auto px-6 relative text-center">
-			<!-- Foto tonda di Cristiano -->
-			<div class="flex justify-center mb-7">
-				<div class="w-28 h-28 md:w-36 md:h-36 rounded-full ring-4 ring-sky/40 ring-offset-4 ring-offset-dark overflow-hidden shadow-2xl shadow-sky/10">
-					<img src="/cristiano-pusca.webp" alt="Cristiano Pusca" width="1080" height="628" class="w-full h-full object-cover object-top" />
+		<div class="w-full max-w-6xl mx-auto px-6 relative">
+			<!-- Hero a 2 colonne: desktop testo a sinistra + foto a destra; mobile foto sopra il testo -->
+			<div class="grid md:grid-cols-[1fr_auto] gap-8 md:gap-12 lg:gap-16 md:items-center">
+				<!-- Testo (mobile: sotto la foto · desktop: a sinistra) -->
+				<div class="order-2 md:order-1 text-center md:text-left">
+					<p class="text-sky-light text-xs md:text-sm font-heading font-bold tracking-wider uppercase mb-4">Per chi guida una PMI</p>
+					<h1 class="font-heading font-medium text-white leading-[1.12] text-[30px] sm:text-4xl md:text-5xl mb-6">
+						Se manchi due settimane, <span class="text-sky-light">cosa si ferma in azienda?</span>
+					</h1>
+					<p class="text-gray-200 text-base md:text-lg leading-relaxed max-w-2xl mx-auto md:mx-0">
+						Se la risposta è «quasi tutto», ti trovi nello stesso paradosso di tanti imprenditori del Nord-Est: gente brava, che però esegue e aspetta che a decidere sia sempre tu. Finché non ti fermi mai, <strong class="text-white">l'azienda resta grande quanto la tua agenda.</strong> Puoi assumere e lavorare ottanta ore la settimana: il collo di bottiglia rimane lo stesso.
+					</p>
+				</div>
+
+				<!-- Foto tonda di Cristiano (mobile: sopra il testo · desktop: a destra) -->
+				<div class="order-1 md:order-2 flex justify-center mb-2 md:mb-0">
+					<div class="w-28 h-28 md:w-52 md:h-52 lg:w-60 lg:h-60 rounded-full ring-4 ring-sky/40 ring-offset-4 ring-offset-dark overflow-hidden shadow-2xl shadow-sky/10 shrink-0">
+						<img src="/cristiano-pusca.webp" alt="Cristiano Pusca" width="1080" height="628" class="w-full h-full object-cover object-top" />
+					</div>
 				</div>
 			</div>
-
-			<p class="text-sky-light text-xs md:text-sm font-heading font-bold tracking-wider uppercase mb-4">Per chi guida una PMI</p>
-			<h1 class="font-heading font-medium text-white leading-[1.12] text-[30px] sm:text-4xl md:text-5xl mb-6">
-				Se manchi due settimane, <span class="text-sky-light">cosa si ferma in azienda?</span>
-			</h1>
-			<p class="text-gray-200 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-				Se la risposta è «quasi tutto», ti trovi nello stesso paradosso di tanti imprenditori del Nord-Est: gente brava, che però esegue e aspetta che a decidere sia sempre tu. Finché non ti fermi mai, <strong class="text-white">l'azienda resta grande quanto la tua agenda.</strong> Puoi assumere e lavorare ottanta ore la settimana: il collo di bottiglia rimane lo stesso.
-			</p>
 
 			<!-- Trust bar press (markup live invariato) -->
 			<div class="mt-12 md:mt-14 pt-8 border-t border-white/10">
@@ -270,7 +276,7 @@ const dentro = [
 
 				<!-- L'UNICO FORM della pagina -->
 				<div class="md:sticky md:top-24">
-					<img src="/lead-magnet/vademecum-cover.jpg" alt="Copertina della guida dal Management all'Engagement" width="420" height="594" loading="lazy" decoding="async" class="hidden md:block w-40 mx-auto mb-6 rounded-xl shadow-2xl shadow-sky/10 ring-1 ring-white/15" />
+					<img src="/lead-magnet/vademecum-cover.jpg" alt="Copertina della guida dal Management all'Engagement" width="420" height="594" loading="lazy" decoding="async" class="hidden md:block w-full max-w-[300px] lg:max-w-[340px] mx-auto mb-7 rounded-xl shadow-2xl shadow-sky/10 ring-1 ring-white/15" />
 
 					<div id="form-guida" class="guida-block scroll-mt-24">
 						<div class="guida-wrap card-light p-6 md:p-7 w-full">
