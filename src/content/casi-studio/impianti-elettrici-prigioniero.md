@@ -15,13 +15,13 @@ Me lo ha detto un imprenditore, con un mezzo sorriso, come se fosse un complimen
 
 Aveva un'azienda di impianti elettrici e antifurti. Sei milioni di fatturato, tre venditori più lui. E lui era il migliore di tutti. Si teneva i clienti grossi, ai venditori lasciava quelli di serie B.
 
-Quella frase non era un vanto. Era una gabbia. E l'aveva costruita lui, mattone su mattone, senza accorgersene.
+> Quella frase non era un vanto. Era una gabbia. E l'aveva costruita lui, mattone su mattone, senza accorgersene.
 
 ## Il confronto era truccato, e lo vinceva sempre lui.
 
 I venditori partivano già perdenti. Lavoravano sui clienti piccoli, quelli che il titolare scartava, e quando i numeri tornavano la conclusione sembrava ovvia: vendo meglio io.
 
-Ma il confronto era truccato. Un cliente tratta il titolare in un modo e un dipendente in un altro. Davanti al proprietario abbassa le difese, si fida di più, chiude prima. Davanti a un venditore alza il muro. Così "vendo meglio io" si avverava da solo, ogni volta, e gli dava ragione su un campo che era inclinato in partenza.
+Ma il confronto era truccato. Un cliente tratta il titolare in un modo e un dipendente in un altro. Davanti al proprietario abbassa le difese, si fida di più, chiude prima. Davanti a un venditore alza il muro. Così "vendo meglio io" si avverava da solo, ogni volta, e **gli dava ragione su un campo che era inclinato in partenza.**
 
 I venditori, intanto, lavoravano demotivati su una partita già persa. E lui non aveva mai un'ora per insegnare. Quell'ora la spendeva a vendere.
 
@@ -31,7 +31,7 @@ Ho fatto i conti con lui, perché i numeri li voglio sul tavolo, non in testa.
 
 Passava il 40% del suo tempo dentro le vendite. Sono 880 ore l'anno. Quasi cinque mesi pieni a fare un lavoro che, in teoria, pagava tre persone per fare.
 
-La sua ora vale tra i 100 e i 200 euro. È l'unica ora che nessuno in azienda può rimpiazzare: quella che spende a decidere dove va l'azienda, a chiudere le partite grosse, a tenere insieme tutto il resto. E la stava bruciando a fare il venditore.
+La sua ora vale tra i 100 e i 200 euro. È l'unica ora che nessuno in azienda può rimpiazzare: quella che spende a decidere dove va l'azienda, a chiudere le partite grosse, a tenere insieme tutto il resto. **E la stava bruciando a fare il venditore.**
 
 Messo in fila, tra costo opportunità, crescita che non arrivava e ordini fermi ogni volta che si fermava lui, il blocco gli costava tra i 163.000 e i 281.000 euro l'anno.
 
@@ -72,7 +72,7 @@ Il problema di quell'azienda non era una rete scarsa. Era un imprenditore bravo 
 
 È la trappola più comune che vedo. E la più difficile da accettare, perché ti chiede di guardare la cosa che funziona, te stesso, e ammettere che ti sta frenando.
 
-Se vendi meglio dei tuoi, non è una buona notizia. Vuol dire che l'azienda regge finché reggi tu. E tu non puoi reggere per sempre.
+Se vendi meglio dei tuoi, non è una buona notizia. Vuol dire che **l'azienda regge finché reggi tu.** E tu non puoi reggere per sempre.
 
 ## Chi te lo dice
 

@@ -15,7 +15,7 @@ Una società di servizi, circa quattro milioni e mezzo di fatturato. Sette opera
 
 Non erano partiti sprovveduti. Avevano costruito un processo con una società di marketing e una di formazione. Un funnel ordinato: dalla visita alla consegna, dall'analisi alla chiusura. Sulla carta funzionava. La rete era stata formata. Il titolare aveva fatto la cosa giusta, quella che fanno gli imprenditori seri: si era affidato a chi di mestiere insegna a vendere.
 
-Poi mi hanno chiamato perché i numeri non venivano. E quando un'azienda ha fatto tutto bene e i numeri non vengono, l'errore non è dove tutti guardano.
+Poi mi hanno chiamato perché i numeri non venivano. E quando un'azienda ha fatto tutto bene e i numeri non vengono, **l'errore non è dove tutti guardano.**
 
 ## Mi sono seduto in macchina con loro, uno a uno.
 
@@ -25,7 +25,7 @@ E lì è venuta fuori la frattura. La visione di chi stava in cima era scollegat
 
 I venditori facevano visite a freddo. Andavano da persone che non li conoscevano e non li aspettavano, dove la partita si gioca quasi tutta sul piano emotivo, nei primi minuti, prima ancora di parlare di prodotto. Il titolare, invece, quando vendeva si sedeva davanti a clienti già referenziati. Persone che lo conoscevano, che lo avevano cercato, che erano già mezze convinte.
 
-Sono due mestieri diversi. Sembra la stessa cosa, vendere è vendere, ma non lo è.
+> Sono due mestieri diversi. Sembra la stessa cosa, vendere è vendere, ma non lo è.
 
 ## L'esperienza del titolare era diventata la formazione di tutti. Ed era l'esperienza sbagliata da copiare.
 
@@ -76,9 +76,9 @@ Rimettere mano alla cosa costa, in confronto, tra 18 e 35 mila l'anno. La propor
 
 Quell'azienda aveva fatto la cosa giusta affidandosi a dei professionisti. L'errore non è stato formare. È stato formare prima di guardare chi si stava formando, e senza mai verificare sul campo se serviva.
 
-Si forma la rete come se i venditori fossero pezzi identici da settare nello stesso modo. Ma sono sette persone diverse, che fanno un lavoro che il titolare, quando vendeva, non ha mai fatto. Se non parti da chi sono e da cosa li blocca davvero, la formazione migliore del mondo scivola via e dopo due mesi non se ne ricorda nessuno.
+Si forma la rete come se i venditori fossero pezzi identici da settare nello stesso modo. Ma sono sette persone diverse, che fanno un lavoro che il titolare, quando vendeva, non ha mai fatto. Se non parti da chi sono e da cosa li blocca davvero, **la formazione migliore del mondo scivola via e dopo due mesi non se ne ricorda nessuno.**
 
-Io faccio il contrario, e lo faccio in quest'ordine: prima guardo chi è una persona, poi decido cosa farle fare e come addestrarla. Non perché abbia un fiuto particolare. Perché si misura, e quando si misura si può ripetere su chiunque.
+Io faccio il contrario, e lo faccio in quest'ordine: **prima guardo chi è una persona, poi decido cosa farle fare e come addestrarla.** Non perché abbia un fiuto particolare. Perché si misura, e quando si misura si può ripetere su chiunque.
 
 ## Chi te lo dice
 
