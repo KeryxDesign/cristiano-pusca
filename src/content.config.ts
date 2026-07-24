@@ -13,6 +13,9 @@ const casiStudio = defineCollection({
 		cover: z.string().optional(), // immagine card, path da /public
 		ogImage: z.string().optional(), // foto nel tondo dell'OG/thumbnail (default: cover)
 		ctaHook: z.string(), // titolo della CTA finale
+		ctaHref: z.string().default('/scanner'), // destinazione CTA finale (default: quiz; casi lead-magnet: /guida)
+		ctaLabel: z.string().default('Misura la rete vendita'), // etichetta bottone primario CTA finale
+		ctaLead: z.string().default("Dieci domande, tre minuti, un numero in euro: il test ti dice quanto ti costa la tua rete così com'è. Poi, se vuoi, ne parliamo da pari."), // descrizione CTA finale
 		draft: z.boolean().default(false),
 		datePublished: z.coerce.date().optional(), // data reale di pubblicazione (da Cristiano) → attiva datePublished nello schema Article
 		dateModified: z.coerce.date().optional(),
