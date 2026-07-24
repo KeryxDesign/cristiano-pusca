@@ -14,7 +14,9 @@ ctaLead: "L'ho messo in una guida gratuita: il metodo per intero, i numeri di ch
 
 ## Era il più bravo del gruppo. Gli hanno affidato cinque persone.
 
-Un'azienda di servizi alle imprese. Dentro c'era un collaboratore che valeva davvero: competente, affidabile, con risultati sopra la media di tutti gli altri. La conclusione è arrivata da sé. Se rende così tanto da solo, diamogli una squadra.
+Un'azienda di servizi alle imprese. Dentro c'era un collaboratore che valeva davvero: competente, affidabile, con risultati sopra la media di tutti gli altri. La conclusione è arrivata da sé.
+
+> Se rende così tanto da solo, diamogli una squadra.
 
 Gli hanno affidato cinque ex colleghi. Da quel momento sono iniziati i guai.
 
@@ -22,7 +24,7 @@ Gli hanno affidato cinque ex colleghi. Da quel momento sono iniziati i guai.
 
 L'ambiente è diventato poco produttivo e per niente motivante. Le persone rendevano meno, l'aria si era fatta pesante, e il capo non capiva perché.
 
-La cosa che nessuno riusciva a spiegarsi era proprio questa: era la stessa persona brava di prima. Non era peggiorato lui. Era cambiato il mestiere.
+La cosa che nessuno riusciva a spiegarsi era proprio questa: era la stessa persona brava di prima. Non era peggiorato lui. **Era cambiato il mestiere.**
 
 Ottenere risultati in prima persona è un lavoro. Ottenere il lavoro fatto dagli altri è un lavoro diverso, che chiede altre doti. Il titolare aveva promosso sui numeri, dando per scontato che chi rende da solo sappia anche far rendere gli altri. Quasi mai è così. E nessuno, prima, aveva verificato se quella persona fosse fatta per condurre.
 
@@ -51,7 +53,7 @@ Prima ho lavorato su Paolo. Gli ho fatto capire come "funziona" lui e come "funz
 
 Poi ho lavorato con tutto il gruppo. Profili condivisi, motivazioni di ciascuno messe sul tavolo e approfondite, per costruire un team coeso che spinge verso lo stesso obiettivo, invece di persone che remano ognuna per conto suo.
 
-E il collega che era stato promosso non è finito da parte. È tornato a fare quello in cui è bravo davvero, con la stima intatta. Ognuno al posto giusto per come è fatto.
+E il collega che era stato promosso non è finito da parte. È tornato a fare quello in cui è bravo davvero, con la stima intatta. **Ognuno al posto giusto per come è fatto.**
 
 In <span class="caso-num">dodici settimane</span> di lavoro, sul singolo e sul gruppo, i numeri hanno cambiato passo. Le persone hanno prodotto risultati eccellenti, si sono realizzate nel proprio ruolo e il coinvolgimento è cresciuto molto. L'aumento delle performance ha ripagato per intero quello che l'azienda aveva investito, e ha posato le fondamenta per crescere ancora.
 
@@ -63,7 +65,7 @@ Quando promuovi la persona sbagliata paghi due volte. Perdi un fuoriclasse, che 
 
 Il costo non passa dalla cassa, quindi in bilancio non lo vedi. Lo vedi nell'aria pesante dell'ufficio, nelle persone che fanno il minimo, nel capo che torna a casa la sera senza capire dove stia sbagliando. C'è, tutti i giorni.
 
-Io faccio il contrario, e in quest'ordine: prima guardo come è fatta ogni persona, poi decido chi mettere dove. Non perché io abbia un fiuto speciale. Perché si misura, e quello che si misura si può ripetere su chiunque.
+Io faccio il contrario, e in quest'ordine: **prima guardo come è fatta ogni persona, poi decido chi mettere dove.** Non perché io abbia un fiuto speciale. Perché si misura, e quello che si misura si può ripetere su chiunque.
 
 ## Chi te lo dice
 

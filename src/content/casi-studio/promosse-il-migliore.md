@@ -28,7 +28,7 @@ La prima: hai tolto il tuo miglior operatore dal posto dove rendeva. Quelle ore 
 
 La seconda: al suo posto non hai messo un gestore di persone. Hai messo un ottimo operaio che di guidare un gruppo non ha mai fatto niente, e non è affatto detto che sia portato a farlo. Gestire un tornio e gestire cinque teste sono due mestieri diversi.
 
-Così perdi da tutte e due le parti. Non hai più l'operatore migliore, e non hai ancora un capo. È la trappola più cara che vedo, perché sembra esattamente il contrario di un errore.
+Così perdi da tutte e due le parti. **Non hai più l'operatore migliore, e non hai ancora un capo.** È la trappola più cara che vedo, perché sembra esattamente il contrario di un errore.
 
 ## L'errore di Michele era la sua stessa storia.
 
@@ -46,7 +46,9 @@ C'era un secondo pezzo, e faceva più danni del primo.
 
 Marco, messo a capo dei suoi ex colleghi, aveva cominciato a gestirli come avrebbe gestito sé stesso. A misurarli con il suo metro. E il suo metro era severo, perché lui era il più bravo.
 
-Ti faccio l'esempio che ho visto con i miei occhi. Marco arrivava alle sette e mezza. Un suo collaboratore arrivava alle otto e mezza, in perfetto orario, esattamente come dice il contratto. E Marco commentava: "quello se la prende sempre con comodo".
+Ti faccio l'esempio che ho visto con i miei occhi. Marco arrivava alle sette e mezza. Un suo collaboratore arrivava alle otto e mezza, in perfetto orario, esattamente come dice il contratto. E Marco commentava:
+
+> "Quello se la prende sempre con comodo."
 
 Da lì in poi si era messo a cercare le prove che gli dessero ragione. Ogni cosa che quel collaboratore faceva veniva letta come conferma del giudizio già dato. Non stava misurando come lavorava. Stava collezionando motivi per confermare quello che aveva già deciso.
 
@@ -58,7 +60,7 @@ Non ho tolto Marco dal ruolo. Il problema non era Marco. Era che nessuno gli ave
 
 Prima ho misurato. Un assessment comportamentale a Marco e a ognuno dei suoi collaboratori, per sapere davvero come è fatto ciascuno. Non a sensazione. Con uno strumento, che dà lo stesso metro per tutti e si ripete su chiunque.
 
-Poi ho lavorato con Marco, uno a uno. Prima di tutto perché capisse come funziona lui: cosa lo muove, perché ragiona come ragiona, perché arriva alle sette e mezza e dà per scontato che sia la cosa giusta per tutti. E poi perché capisse come funzionano gli altri, che sono fatti in un altro modo e si accendono per altre cose. Le differenze non sono limiti da correggere. Sono risorse, se sai dove metterle.
+Poi ho lavorato con Marco, uno a uno. Prima di tutto perché capisse come funziona lui: cosa lo muove, perché ragiona come ragiona, perché arriva alle sette e mezza e dà per scontato che sia la cosa giusta per tutti. E poi perché capisse come funzionano gli altri, che sono fatti in un altro modo e si accendono per altre cose. Le differenze non sono limiti da correggere. **Sono risorse, se sai dove metterle.**
 
 Infine ho lavorato con tutto il gruppo. Profili condivisi, motivazioni messe sul tavolo, ognuno che comincia a capire come è fatto il collega che ha accanto. L'obiettivo era uno: un reparto dove esperienze e competenze diverse diventano un vantaggio invece di uno scontro.
 

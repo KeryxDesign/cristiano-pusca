@@ -26,7 +26,11 @@ Fare il tecnico e guidare i tecnici sono due lavori diversi. Sembrano lo stesso,
 
 Mario era stato cresciuto alla vecchia maniera: buttalo a mare, quando l'acqua arriva alla gola impara a nuotare. Nessuno lo aveva mai affiancato, aveva imparato tutto sbattendo la testa. Così, quando è toccato a lui, mettersi lì a formare i nuovi gli sembrava tempo buttato. Uno impara facendo, si diceva. Come ho fatto io.
 
-Il risultato è che, invece di addestrare i suoi, li scavalcava e faceva da sé. "L'ho già detto tre volte, faccio prima a farlo io che spiegarlo una quarta." Ogni volta che un collaboratore andava piano, o sbagliava, Mario gli toglieva il lavoro di mano e lo finiva lui. Più in fretta, meglio fatto, senza storie. E senza accorgersi che a ogni pezzo di lavoro che si riprendeva, la squadra imparava un po' meno.
+Il risultato è che, invece di addestrare i suoi, li scavalcava e faceva da sé.
+
+> "L'ho già detto tre volte, faccio prima a farlo io che spiegarlo una quarta."
+
+Ogni volta che un collaboratore andava piano, o sbagliava, Mario gli toglieva il lavoro di mano e lo finiva lui. Più in fretta, meglio fatto, senza storie. E senza accorgersi che a ogni pezzo di lavoro che si riprendeva, la squadra imparava un po' meno.
 
 ## La sua agenda esplodeva, e i suoi non crescevano più.
 
@@ -54,7 +58,7 @@ Nessuna di queste cose Mario la faceva apposta, e nessuna l'aveva mai vista. Per
 
 ## Guidare le persone chiede due cose che a Mario mancavano.
 
-Per fare bene il tecnico bastano le mani e la testa. Per guidare le persone ne servono altre due.
+Per fare bene il tecnico bastano le mani e la testa. **Per guidare le persone ne servono altre due.**
 
 La prima è l'interesse vero per gli altri: la voglia sincera di capire chi hai davanti e cosa gli serve per diventare bravo. La seconda è la pacatezza: la pazienza di stare accanto a uno mentre impara, di lasciarlo fare anche se ci mette il doppio, di non strappargli il lavoro di mano alla prima incertezza.
 
@@ -68,7 +72,7 @@ Il numero da tenere è questo: <span class="caso-num">10 settimane</span>. Tanto
 
 Alla fine di quelle settimane i suoi lo guardavano in un altro modo. Avevano ricominciato a mettere sul tavolo quello che sapevano fare, perché finalmente sentivano di potersi muovere senza vedersi togliere il lavoro di mano al primo intoppo. L'aria era cambiata, si parlava, e le prestazioni della squadra sono salite in modo netto. Abbastanza da ripagare tutto quello che era stato speso, e da mettere le basi per crescere ancora.
 
-Di quanto siano salite in cifra non ti riempio la pagina, perché i conti veri li faccio sul tuo caso, non su quello di un altro. Quello che conta è che la squadra che prima si fermava, adesso cammina da sola.
+Di quanto siano salite in cifra non ti riempio la pagina, perché i conti veri li faccio sul tuo caso, non su quello di un altro. Quello che conta è che **la squadra che prima si fermava, adesso cammina da sola.**
 
 <div class="caso-cta-soft">
 <a class="caso-cta-soft__btn" href="/guida">Scarica la guida gratis &rarr;</a>

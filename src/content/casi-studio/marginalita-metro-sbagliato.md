@@ -42,7 +42,9 @@ Questi strumenti non misurano le simpatie. Misurano come una persona opera, come
 
 ## Ha cambiato la domanda che si faceva.
 
-La svolta in Nicola è stata piccola e enorme insieme. Ha smesso di chiedersi "perché questa persona non è come me?". E ha iniziato a chiedersi "come posso lavorarci al meglio?".
+La svolta in Nicola è stata piccola e enorme insieme.
+
+> Ha smesso di chiedersi "perché questa persona non è come me?" e ha iniziato a chiedersi "come posso lavorarci al meglio?"
 
 È un cambio piccolo nella forma e grosso nella sostanza: la prima domanda cerca un colpevole, la seconda cerca una strada. Da quella domanda diversa sono nate azioni diverse. Ho formato Nicola anche a condurre una riunione settimanale con la sua squadra, per tenere tutti allineati sugli obiettivi e per condividere, ogni settimana, a che punto erano i lavori.
 
@@ -57,7 +59,7 @@ In diciotto settimane l'ufficio preventivazione è cambiato: <span class="caso-n
 
 ## Il metro con cui giudichi la tua gente decide quanto rende.
 
-Quell'azienda non aveva un problema di persone scarse. Aveva un responsabile in gamba che misurava la sua squadra con il metro sbagliato, il suo. E finché il metro è sbagliato, ogni persona che ci passa sotto risulta insufficiente, anche quando non lo è.
+Quell'azienda non aveva un problema di persone scarse. Aveva un responsabile in gamba che misurava la sua squadra con il metro sbagliato, il suo. E finché il metro è sbagliato, **ogni persona che ci passa sotto risulta insufficiente, anche quando non lo è.**
 
 La marginalità bassa, alla fine, nasceva da lì. Da un ufficio che lavorava peggio di quanto poteva perché veniva giudicato peggio di quanto meritava, e da un capo convinto che il buco fossero le risorse che gli mancavano. Le risorse le aveva. Nessuno le stava misurando per quello che potevano diventare.
 

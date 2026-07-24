@@ -32,7 +32,7 @@ Finché il mercato tirava, l'errore restava sotto il pelo dell'acqua. Quando il 
 
 Ci siamo conosciuti nel luglio del 2024. La prima cosa che Luigino ha fatto non è stata mettere sotto esame i suoi collaboratori. È stata mettere sotto esame se stesso: ha provato l'analisi comportamentale su di sé, per primo.
 
-Lo strumento con cui lavoro è validato e certificato. Si ripete su chiunque, con lo stesso metro, e restituisce lo stesso quadro a chiunque lo usi. Non dipende dal mio fiuto. Lo chiamo BEDo, e funziona così: prima guardo com'è fatta una persona, poi decido cosa può fare. In quest'ordine.
+Lo strumento con cui lavoro è validato e certificato. Si ripete su chiunque, con lo stesso metro, e restituisce lo stesso quadro a chiunque lo usi. Non dipende dal mio fiuto. Lo chiamo BEDo, e funziona così: **prima guardo com'è fatta una persona, poi decido cosa può fare.** In quest'ordine.
 
 Quando l'ha visto funzionare su di sé, Luigino ha deciso di estenderlo a ogni collaboratore, quelli che aveva già in azienda e quelli che avrebbe assunto in futuro. Da lì ha smesso di indovinare. Ha cominciato a capire chi aveva davvero in squadra, e a sapere in anticipo chi sarebbero diventate le persone nuove.
 
@@ -42,9 +42,11 @@ Con lo strumento in mano, Luigino ha fatto la cosa più scomoda per un imprendit
 
 Quelle persone le ha sostituite. E ha costruito una squadra che condivide la sua visione e lo aiuta a portarla avanti, invece di frenarla.
 
-In due anni, da quando ha cambiato il modo di scegliere le persone, il fatturato è cresciuto del <span class="caso-num">63,57%</span>: da sei milioni e mezzo a una stima 2026 di 10,63 milioni. Stesso imprenditore, stesso mercato, stessa fatica di prima. È cambiato chi aveva intorno, e il criterio con cui lo aveva scelto.
+In due anni, da quando ha cambiato il modo di scegliere le persone, il fatturato è cresciuto del <span class="caso-num">63,57%</span>: da sei milioni e mezzo a una stima 2026 di 10,63 milioni. Stesso imprenditore, stesso mercato, stessa fatica di prima. **È cambiato chi aveva intorno, e il criterio con cui lo aveva scelto.**
 
-Quando gli ho chiesto cosa avesse fatto davvero la differenza, mi ha risposto così: "grazie a BEDo ho cominciato a vedere persone e potenzialità, non solo CV ed esperienze".
+Quando gli ho chiesto cosa avesse fatto davvero la differenza, mi ha risposto così:
+
+> "Grazie a BEDo ho cominciato a vedere persone e potenzialità, non solo CV ed esperienze."
 
 <div class="caso-cta-soft">
 <a class="caso-cta-soft__btn" href="/guida">Scarica la guida gratis &rarr;</a>
@@ -61,7 +63,7 @@ Una squadra allineata fa l'effetto opposto. Spinge tutta nella stessa direzione,
 
 ## Assumi per attitudini, forma per competenze.
 
-È il consiglio che do sempre, ed è l'esatto opposto di come Luigino sceglieva all'inizio. Parti da come è fatta una persona, dalle sue attitudini, prima ancora che da cosa ha già fatto. Le competenze si allenano, le attitudini quasi mai. Se prendi una persona per le attitudini giuste, le competenze utili all'azienda gliele costruisci col tempo. Se la prendi solo per il curriculum e le attitudini non c'entrano niente con te, non c'è corso che tenga.
+È il consiglio che do sempre, ed è l'esatto opposto di come Luigino sceglieva all'inizio. Parti da come è fatta una persona, dalle sue attitudini, prima ancora che da cosa ha già fatto. **Le competenze si allenano, le attitudini quasi mai.** Se prendi una persona per le attitudini giuste, le competenze utili all'azienda gliele costruisci col tempo. Se la prendi solo per il curriculum e le attitudini non c'entrano niente con te, non c'è corso che tenga.
 
 È questo che vuol dire far indossare la maglia aziendale. Vuol dire una cosa concreta: avere accanto persone che condividono i tuoi valori e la tua direzione, e che proprio per questo spingono dove spingi tu, anche quando il mercato si complica.
 
