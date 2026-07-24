@@ -4,7 +4,7 @@ kicker: "CHI FA DA SÉ FA PER TRE"
 hook: "Il miglior tecnico che avessero mai avuto. Preciso, con tutto sotto controllo, capace di risolvere qualsiasi guasto da solo. Poi lo hanno promosso capo, e proprio quello che lo aveva reso un fenomeno ha cominciato a tenere ferma la sua squadra."
 excerpt: "Un'azienda multiservizi aveva promosso capo il suo tecnico migliore: preciso, autonomo, uno che risolveva tutto da sé. Da specialista era il numero uno. Da capo, la squadra intorno a lui si era fermata, e non capiva perché. Ecco cosa abbiamo fatto."
 order: 7
-cover: "/img/pusca-0188.webp"
+cover: "/img/pusca-0046.webp"
 ogImage: "/img/cristiano-cta.webp"
 ctaHook: "C'è un modo perché la squadra tiri anche quando ti fermi tu."
 ctaHref: "/guida"

@@ -4,7 +4,7 @@ kicker: "UN CASO REALE DI PROMOZIONE"
 hook: "Michele aveva promosso il suo operaio più bravo a capo reparto. La scelta più logica del mondo, la ricompensa per cinque anni di crescita. Tre mesi dopo si ritrovava un reparto scontento, la produzione in caduta, e un uomo che non era più l'operaio di prima e non era ancora un capo."
 excerpt: "Un'officina meccanica in crescita promuove il suo operatore più produttivo a capo reparto. Tre mesi dopo il gruppo è scontento e la produzione crolla. L'errore non era la persona. Era averla tolta da dove rendeva per metterla dove non l'aveva mai messa alla prova nessuno. Ecco cosa abbiamo fatto."
 order: 6
-cover: "/img/pusca-0057.webp"
+cover: "/img/pusca-0155.webp"
 ogImage: "/img/cristiano-cta.webp"
 ctaHook: "C'è un modo perché la squadra tiri anche quando ti fermi tu."
 ctaHref: "/guida"

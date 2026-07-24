@@ -4,7 +4,7 @@ kicker: "UN CASO REALE DI SQUADRA"
 hook: "Un imprenditore in gamba, di quelli che le opportunità le fiutano prima degli altri. L'azienda l'aveva cresciuta così, a intuito, fino a sei milioni e mezzo. Poi lo stesso intuito ha smesso di trovargli le persone giuste, e per due anni si è fermato tutto."
 excerpt: "Una PMI da 35 persone, sei milioni e mezzo di fatturato. Cresciuta a fiuto fino al 2021, poi bloccata: il titolare non trovava più le persone giuste, perché le sceglieva sul curriculum e sull'istinto. Ecco cosa è cambiato quando ha iniziato a guardare le persone invece dei loro curriculum, e come in due anni il fatturato è cresciuto del 63,57%."
 order: 4
-cover: "/img/cristiano-team.webp"
+cover: "/img/pusca-0014.webp"
 ogImage: "/img/cristiano-cta.webp"
 ctaHook: "C'è un modo perché la squadra tiri anche quando ti fermi tu."
 ctaHref: "/guida"
