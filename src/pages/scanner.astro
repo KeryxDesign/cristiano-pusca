@@ -484,6 +484,9 @@ const description = 'Scopri quanto ti costa ogni anno la rete vendita che hai ad
 			const TOTAL_QUESTIONS = 10;
 			let currentQ = 0;
 			let lastResults = null;
+			let advanceTimer = null;
+			function scheduleAdvance(fn) { clearTimeout(advanceTimer); advanceTimer = setTimeout(fn, 400); }
+			function cancelAdvance() { clearTimeout(advanceTimer); advanceTimer = null; }
 
 			// ── pesi indice di dipendenza ──
 			const PESI = { 2:4, 3:3, 4:3, 5:3, 6:2, 7:2, 8:2, 9:1.5 };
@@ -573,6 +576,7 @@ const description = 'Scopri quanto ti costa ogni anno la rete vendita che hai ad
 			}
 
 			function showResults() {
+				cancelAdvance();
 				const r = calculateResults();
 				lastResults = r;
 
@@ -629,6 +633,10 @@ const description = 'Scopri quanto ti costa ogni anno la rete vendita che hai ad
 			}
 
 			function showQuestion(n) {
+				cancelAdvance();
+				n = Number(n);
+				if (!isFinite(n) || n < 0) n = 0;
+				if (n > TOTAL_QUESTIONS) { showResults(); return; }
 				currentQ = n;
 				const intro = $('#scanner-intro'), questions = $('#scanner-questions'), results = $('#scanner-results'), progress = $('#scanner-progress');
 				if (n === 0) {
@@ -648,8 +656,8 @@ const description = 'Scopri quanto ti costa ogni anno la rete vendita che hai ad
 				input.addEventListener('change', () => {
 					const name = input.name;
 					$$('.scanner-option input[name="' + name + '"]').forEach(inp => inp.closest('.scanner-option').classList.toggle('selected', inp.checked));
-					if (currentQ < TOTAL_QUESTIONS) setTimeout(() => showQuestion(currentQ + 1), 400);
-					else if (currentQ === TOTAL_QUESTIONS) setTimeout(() => showResults(), 400);
+					if (currentQ < TOTAL_QUESTIONS) scheduleAdvance(() => showQuestion(currentQ + 1));
+					else if (currentQ === TOTAL_QUESTIONS) scheduleAdvance(() => showResults());
 				});
 			});
 

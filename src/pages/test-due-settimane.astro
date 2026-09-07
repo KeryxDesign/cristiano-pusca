@@ -469,6 +469,9 @@ const description = 'Se domani mattina sparissi per due settimane, cosa si ferme
 			const TOTAL = 10;
 			let currentQ = 0;
 			let lastR = null;
+			let advanceTimer = null;
+			function scheduleAdvance(fn) { clearTimeout(advanceTimer); advanceTimer = setTimeout(fn, 400); }
+			function cancelAdvance() { clearTimeout(advanceTimer); advanceTimer = null; }
 
 			const WORKER_URL = 'https://pusca-scanner-email.nameless-mouse-7d0f.workers.dev/due-settimane';
 
@@ -730,6 +733,7 @@ const description = 'Se domani mattina sparissi per due settimane, cosa si ferme
 
 			// ── render risultati ──
 			function showResults() {
+				cancelAdvance();
 				const r = compute();
 				lastR = r;
 
@@ -796,6 +800,10 @@ const description = 'Se domani mattina sparissi per due settimane, cosa si ferme
 
 			// ── navigazione domande ──
 			function showQuestion(n) {
+				cancelAdvance();
+				n = Number(n);
+				if (!isFinite(n) || n < 0) n = 0;
+				if (n > TOTAL) { showResults(); return; }
 				currentQ = n;
 				const intro = $('#tds-intro'), questions = $('#tds-questions'), results = $('#tds-results'), progress = $('#tds-progress');
 				if (n === 0) {
@@ -823,8 +831,8 @@ const description = 'Se domani mattina sparissi per due settimane, cosa si ferme
 				input.addEventListener('change', () => {
 					const name = input.name;
 					$$('.scanner-option input[name="' + name + '"]').forEach((inp) => inp.closest('.scanner-option').classList.toggle('selected', inp.checked));
-					if (currentQ < TOTAL) setTimeout(() => showQuestion(currentQ + 1), 400);
-					else if (currentQ === TOTAL) setTimeout(() => showResults(), 400);
+					if (currentQ < TOTAL) scheduleAdvance(() => showQuestion(currentQ + 1));
+					else if (currentQ === TOTAL) scheduleAdvance(() => showResults());
 				});
 			});
 
