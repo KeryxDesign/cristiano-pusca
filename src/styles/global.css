@@ -1,4 +1,12 @@
-@import "tailwindcss";
+/* Sorgenti dichiarate: Tailwind 4 scansiona di default TUTTA la radice del progetto
+   escludendo solo cio' che e' in .gitignore. Nel repo ci sono cartelle di lavoro
+   untracked e non ignorate (strategia-2026/, ads/, ...) che in CI non esistono:
+   il build locale generava classi in piu' e un CSS diverso da quello di produzione.
+   source() ancora la scansione a src/ e rende il build riproducibile. */
+@import "tailwindcss" source("../../src");
+/* Unico file fuori da src/ gia' scansionato dalla CI (e' tracciato, quindi in CI esiste):
+   dichiararlo tiene l'output identico a quello in produzione. Non e' una pagina del sito. */
+@source "../../newsletter-mailchimp/marston-pda/newsletter.html";
 
 @theme inline {
   /* Scuri — hero + CTA + metodo */
