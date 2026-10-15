@@ -1,0 +1,25 @@
+---
+// Plausible: visite senza cookie e senza banner, piu' gli eventi di conversione.
+// Il sito va creato nel pannello Plausible con il dominio cristianopusca.com,
+// altrimenti gli eventi vengono scartati.
+// Eventi (da segnare come Goal nel pannello):
+// - "Guida iscrizione"  (form /guida e /proposta-home)
+// - "Scanner completato", "Scanner email"  (/scanner)
+// - "Test completato", "Test email"  (/test-due-settimane)
+// - "Contatto" con prop canale = WhatsApp | Email | Telefono  (qualsiasi pagina)
+---
+
+<script is:inline defer data-domain="cristianopusca.com" src="https://plausible.io/js/script.file-downloads.outbound-links.js"></script>
+<script is:inline>
+	window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };
+	document.addEventListener('click', function (e) {
+		var a = e.target.closest && e.target.closest('a[href]');
+		if (!a) return;
+		var href = a.getAttribute('href') || '';
+		var canale = href.indexOf('wa.me/') !== -1 ? 'WhatsApp'
+			: href.indexOf('mailto:') === 0 ? 'Email'
+			: href.indexOf('tel:') === 0 ? 'Telefono'
+			: null;
+		if (canale) window.plausible('Contatto', { props: { canale: canale } });
+	}, true);
+</script>

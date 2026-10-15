@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Plausible from '../components/Plausible.astro';
 import Schema from '../components/Schema.astro';
 import { identityGraph } from '../lib/schema';
 
@@ -83,6 +84,7 @@ const testimonianze = [
 		<title>{title}</title>
 		<Schema schema={identityGraph} />
 		<Schema schema={faqSchema} />
+		<Plausible />
 	</head>
 	<body class="min-h-screen bg-dark">
 
@@ -324,6 +326,7 @@ const testimonianze = [
 						body: JSON.stringify({ nome, email }),
 					}).catch(() => {});
 					$('#guida-form-wrap').classList.add('hidden');
+					window.plausible?.('Guida iscrizione');
 					const ok = $('#guida-success');
 					ok.classList.remove('hidden');
 					ok.scrollIntoView({ behavior: 'smooth', block: 'center' });

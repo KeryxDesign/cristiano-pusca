@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Plausible from '../components/Plausible.astro';
 
 const title = 'Quanto regge la tua rete vendita senza di te? — Cristiano Pusca';
 const description = 'Scopri quanto ti costa ogni anno la rete vendita che hai adesso. 10 domande, 3 minuti, una cifra in euro.';
@@ -48,6 +49,7 @@ const description = 'Scopri quanto ti costa ogni anno la rete vendita che hai ad
 			gtag('config', 'G-K4HYZQSY1T', { 'anonymize_ip': true });
 		</script>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-K4HYZQSY1T"></script>
+		<Plausible />
 	</head>
 	<body class="min-h-screen" style="background-color: var(--color-paper); color: var(--color-ink);">
 
@@ -584,6 +586,7 @@ const description = 'Scopri quanto ti costa ogni anno la rete vendita che hai ad
 				$('#scanner-questions').classList.add('hidden');
 				$('#scanner-progress').classList.add('hidden');
 				$('#scanner-results').classList.remove('hidden');
+				window.plausible?.('Scanner completato');
 
 				// indice — numero col colore-fascia
 				const col = bandColor(r.indice);
@@ -730,6 +733,7 @@ const description = 'Scopri quanto ti costa ogni anno la rete vendita che hai ad
 				} catch (err) { /* non blocca: il risultato è già a schermo */ }
 
 				// rivela il dettaglio + nascondi il gate
+				window.plausible?.('Scanner email');
 				$('#scanner-email-gate').classList.add('hidden');
 				$('#scanner-gated').classList.remove('hidden');
 				$('#scanner-gated').scrollIntoView({ behavior: 'smooth', block: 'start' });

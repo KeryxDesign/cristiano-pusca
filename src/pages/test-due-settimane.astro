@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Plausible from '../components/Plausible.astro';
 
 const title = 'Il test delle due settimane · Cristiano Pusca';
 const description = 'Se domani mattina sparissi per due settimane, cosa si fermerebbe nella tua azienda? 10 domande, 3 minuti, risultato subito a schermo.';
@@ -47,6 +48,7 @@ const description = 'Se domani mattina sparissi per due settimane, cosa si ferme
 			gtag('config', 'G-K4HYZQSY1T', { 'anonymize_ip': true });
 		</script>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-K4HYZQSY1T"></script>
+		<Plausible />
 
 		<style is:inline>
 			/* ==== Foglio stampabile: nascosto a schermo, isolato in stampa ==== */
@@ -741,6 +743,7 @@ const description = 'Se domani mattina sparissi per due settimane, cosa si ferme
 				$('#tds-questions').classList.add('hidden');
 				$('#tds-progress').classList.add('hidden');
 				$('#tds-results').classList.remove('hidden');
+				window.plausible?.('Test completato');
 
 				// numero
 				const col = FASCIA_COLOR[r.fascia];
@@ -961,6 +964,7 @@ const description = 'Se domani mattina sparissi per due settimane, cosa si ferme
 				} catch (err) { /* non blocca: il risultato è già a schermo */ }
 
 				// reveal conferma + passo di fascia (indipendente dall'esito fetch)
+				window.plausible?.('Test email');
 				$('#tds-email-gate').classList.add('hidden');
 				$('#tds-gated').classList.remove('hidden');
 				$('#tds-fascia-step').classList.remove('hidden');
