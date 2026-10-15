@@ -336,6 +336,7 @@ const dentro = [
 						body: JSON.stringify({ nome, email }),
 					}).catch(() => {});
 					wrap.classList.add('hidden');
+					window.plausible?.('Guida iscrizione');
 					success.classList.remove('hidden');
 					success.scrollIntoView({ behavior: 'smooth', block: 'center' });
 				});
